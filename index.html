@@ -1,0 +1,940 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Maya — The AI SMS Booking Agent for HVAC & Roofing</title>
+  <meta name="description" content="Maya is the 24/7 AI SMS agent that qualifies leads and books appointments in 5 seconds — so you stop losing $10,000 every time a call hits voicemail." />
+
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Lucide Icons via CDN -->
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] },
+          colors: {
+            safety: {
+              50:  '#fff7ed',
+              100: '#ffedd5',
+              400: '#fb923c',
+              500: '#f97316',
+              600: '#ea580c',
+              700: '#c2410c',
+            }
+          },
+          animation: {
+            'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+            'fade-in-up': 'fadeInUp 0.6s ease-out forwards',
+            'typing': 'typing 1.4s infinite ease-in-out',
+            'shimmer': 'shimmer 2.5s linear infinite',
+          },
+          keyframes: {
+            fadeInUp: {
+              '0%': { opacity: '0', transform: 'translateY(20px)' },
+              '100%': { opacity: '1', transform: 'translateY(0)' },
+            },
+            typing: {
+              '0%, 60%, 100%': { transform: 'translateY(0)', opacity: '0.4' },
+              '30%':            { transform: 'translateY(-4px)', opacity: '1' },
+            },
+            shimmer: {
+              '0%':   { backgroundPosition: '-1000px 0' },
+              '100%': { backgroundPosition: '1000px 0' },
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: #0f172a;
+      color: #f8fafc;
+      -webkit-font-smoothing: antialiased;
+    }
+    /* Subtle radial glow behind hero */
+    .hero-glow {
+      background:
+        radial-gradient(ellipse 80% 60% at 50% 0%, rgba(249, 115, 22, 0.18), transparent 60%),
+        radial-gradient(ellipse 60% 50% at 20% 40%, rgba(249, 115, 22, 0.08), transparent 70%);
+    }
+    .grid-bg {
+      background-image:
+        linear-gradient(rgba(148, 163, 184, 0.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(148, 163, 184, 0.06) 1px, transparent 1px);
+      background-size: 64px 64px;
+      mask-image: linear-gradient(to bottom, black 0%, transparent 80%);
+    }
+    /* Custom range slider styling */
+    input[type="range"] {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 100%;
+      height: 8px;
+      background: #1e293b;
+      border-radius: 9999px;
+      outline: none;
+      border: 1px solid #334155;
+    }
+    input[type="range"]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: #f97316;
+      cursor: pointer;
+      border: 3px solid #fff7ed;
+      box-shadow: 0 0 0 4px rgba(249, 115, 22, 0.2), 0 4px 12px rgba(249, 115, 22, 0.4);
+      transition: transform 0.15s ease;
+    }
+    input[type="range"]::-webkit-slider-thumb:hover { transform: scale(1.1); }
+    input[type="range"]::-moz-range-thumb {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: #f97316;
+      cursor: pointer;
+      border: 3px solid #fff7ed;
+      box-shadow: 0 0 0 4px rgba(249, 115, 22, 0.2), 0 4px 12px rgba(249, 115, 22, 0.4);
+    }
+    .typing-dot {
+      width: 8px; height: 8px; border-radius: 9999px; background: #94a3b8;
+      display: inline-block; margin: 0 2px;
+      animation: typing 1.4s infinite ease-in-out;
+    }
+    .typing-dot:nth-child(2) { animation-delay: 0.2s; }
+    .typing-dot:nth-child(3) { animation-delay: 0.4s; }
+
+    /* Scroll-to-top button visibility */
+    #scrollTopBtn { opacity: 0; pointer-events: none; transition: opacity 0.3s ease, transform 0.3s ease; transform: translateY(8px); }
+    #scrollTopBtn.visible { opacity: 1; pointer-events: auto; transform: translateY(0); }
+
+    /* Smooth count-up number */
+    .roi-output {
+      font-variant-numeric: tabular-nums;
+      background: linear-gradient(90deg, #fff7ed, #fdba74, #f97316, #fdba74, #fff7ed);
+      background-size: 1000px 100%;
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: shimmer 5s linear infinite;
+    }
+
+    .cta-orange {
+      background: linear-gradient(180deg, #fb923c 0%, #f97316 50%, #ea580c 100%);
+      box-shadow: 0 1px 0 rgba(255,255,255,0.2) inset, 0 8px 24px -8px rgba(249, 115, 22, 0.6), 0 4px 12px -4px rgba(0,0,0,0.4);
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+    .cta-orange:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 1px 0 rgba(255,255,255,0.2) inset, 0 12px 28px -8px rgba(249, 115, 22, 0.7), 0 6px 16px -4px rgba(0,0,0,0.5);
+    }
+    .cta-orange:active { transform: translateY(0); }
+  </style>
+<style>
+.ha-img-placeholder{display:flex;align-items:center;justify-content:center;flex-direction:column;gap:6px;background:#f4f4f5;border:1px dashed #d4d4d8;border-radius:8px;color:#71717a;font-size:12px;font-family:system-ui,sans-serif;min-height:80px;padding:16px;box-sizing:border-box;animation:ha-img-pulse 1.5s ease-in-out infinite}
+.ha-img-placeholder.ha-failed{animation:none;opacity:.7}
+@keyframes ha-img-pulse{0%,100%{opacity:1}50%{opacity:.5}}
+@media(prefers-color-scheme:dark){.ha-img-placeholder{background:#27272a;border-color:#3f3f46;color:#a1a1aa}}
+</style>
+</head>
+<body class="antialiased">
+
+  <!-- ========== STICKY NAV ========== -->
+  <nav class="sticky top-0 z-50 backdrop-blur-md bg-slate-900/80 border-b border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <a href="#top" class="flex items-center gap-2 group">
+          <span class="flex items-center justify-center w-8 h-8 rounded-lg bg-safety-500/10 border border-safety-500/30">
+            <i data-lucide="zap" class="w-4 h-4 text-safety-500"></i>
+          </span>
+          <span class="text-lg font-bold tracking-tight">Maya</span>
+          <span class="hidden sm:inline text-xs uppercase tracking-widest text-slate-500 ml-1 border-l border-slate-700 pl-2">SMS Agent</span>
+        </a>
+
+        <div class="hidden md:flex items-center gap-8 text-sm text-slate-300">
+          <a href="#how" class="hover:text-white transition">How it works</a>
+          <a href="#roi" class="hover:text-white transition">ROI</a>
+          <a href="#demo" class="hover:text-white transition">Live Demo</a>
+          <a href="#faq" class="hover:text-white transition">FAQ</a>
+        </div>
+
+        <a href="https://calendly.com/duy-agentsvietnam/30min" target="_blank" rel="noopener noreferrer"
+           class="cta-orange inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-sm font-semibold text-white">
+          <i data-lucide="calendar-check" class="w-4 h-4"></i>
+          <span class="hidden sm:inline">Book Setup Call</span>
+          <span class="sm:hidden">Book Call</span>
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ========== HERO ========== -->
+  <section id="top" class="relative overflow-hidden">
+    <div class="absolute inset-0 grid-bg pointer-events-none"></div>
+    <div class="absolute inset-0 hero-glow pointer-events-none"></div>
+
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 sm:pt-24 pb-20 sm:pb-28">
+      <div class="grid lg:grid-cols-12 gap-12 items-center">
+        <!-- Hero copy -->
+        <div class="lg:col-span-7">
+          <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-safety-500/30 bg-safety-500/10 text-safety-400 text-xs font-semibold uppercase tracking-wider mb-6">
+            <span class="relative flex h-2 w-2">
+              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-safety-400 opacity-75"></span>
+              <span class="relative inline-flex rounded-full h-2 w-2 bg-safety-500"></span>
+            </span>
+            Built for HVAC & Roofing Owners
+          </div>
+
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.05]">
+            Stop losing
+            <span class="block mt-2">
+              <span class="relative inline-block">
+                <span class="text-safety-500">$10,000</span>
+                <svg class="absolute -bottom-2 left-0 w-full" height="10" viewBox="0 0 200 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M2 8C50 2 150 2 198 8" stroke="#f97316" stroke-width="3" stroke-linecap="round"/>
+                </svg>
+              </span>
+              every time a lead
+            </span>
+            <span class="block mt-2 text-slate-300">hits voicemail.</span>
+          </h1>
+
+          <p class="mt-8 text-lg sm:text-xl text-slate-400 max-w-2xl leading-relaxed">
+            Meet <span class="text-white font-semibold">Maya</span> — the AI SMS agent that qualifies homeowners and books service calls in <span class="text-safety-400 font-semibold">under 5 seconds</span>, 24/7. While your front office is on another call, Maya is closing the next one.
+          </p>
+
+          <div class="mt-10 flex flex-col sm:flex-row gap-4">
+            <a href="https://calendly.com/duy-agentsvietnam/30min" target="_blank" rel="noopener noreferrer"
+               class="cta-orange inline-flex items-center justify-center gap-2 px-6 py-4 rounded-xl text-base font-bold text-white">
+              <i data-lucide="calendar-check" class="w-5 h-5"></i>
+              Book My 10-Min Setup Call
+            </a>
+            <a href="#roi"
+               class="inline-flex items-center justify-center gap-2 px-6 py-4 rounded-xl text-base font-semibold text-slate-200 bg-slate-800/60 border border-slate-700 hover:bg-slate-800 transition">
+              <i data-lucide="calculator" class="w-5 h-5"></i>
+              Calculate My Lost Revenue
+            </a>
+          </div>
+
+          <!-- Trust strip -->
+          <div class="mt-10 flex flex-wrap items-center gap-x-6 gap-y-3 text-sm text-slate-400">
+            <div class="flex items-center gap-2"><i data-lucide="clock" class="w-4 h-4 text-safety-500"></i> 5-second response</div>
+            <div class="flex items-center gap-2"><i data-lucide="moon" class="w-4 h-4 text-safety-500"></i> Works at 2am</div>
+            <div class="flex items-center gap-2"><i data-lucide="calendar" class="w-4 h-4 text-safety-500"></i> Books direct to your calendar</div>
+          </div>
+        </div>
+
+        <!-- Hero visual: text-thread snapshot -->
+        <div class="lg:col-span-5">
+          <div class="relative max-w-sm mx-auto">
+            <div class="absolute -inset-4 bg-gradient-to-br from-safety-500/20 to-transparent rounded-3xl blur-2xl"></div>
+            <div class="relative bg-slate-800/80 backdrop-blur border border-slate-700 rounded-2xl p-5 shadow-2xl">
+              <div class="flex items-center justify-between pb-3 border-b border-slate-700">
+                <div class="flex items-center gap-2">
+                  <div class="w-9 h-9 rounded-full bg-gradient-to-br from-safety-400 to-safety-600 flex items-center justify-center text-white font-bold text-sm">M</div>
+                  <div>
+                    <div class="text-sm font-semibold text-white">Maya</div>
+                    <div class="text-xs text-emerald-400 flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span> Online</div>
+                  </div>
+                </div>
+                <div class="text-xs text-slate-500">2:47 AM</div>
+              </div>
+
+              <div class="space-y-3 pt-4 text-sm">
+                <div class="flex justify-end">
+                  <div class="bg-slate-700 text-white rounded-2xl rounded-br-sm px-4 py-2 max-w-[80%]">QUOTE</div>
+                </div>
+                <div class="flex justify-start">
+                  <div class="bg-safety-500 text-white rounded-2xl rounded-bl-sm px-4 py-2 max-w-[85%]">Hey! Thanks for reaching out. Quick Q — is this for your home or a commercial property?</div>
+                </div>
+                <div class="flex justify-end">
+                  <div class="bg-slate-700 text-white rounded-2xl rounded-br-sm px-4 py-2 max-w-[80%]">Home — AC stopped cooling</div>
+                </div>
+                <div class="flex justify-start">
+                  <div class="bg-safety-500 text-white rounded-2xl rounded-bl-sm px-4 py-2 max-w-[85%]">Got it. We can have a tech out tomorrow 10–12 or 2–4. Which works?</div>
+                </div>
+                <div class="flex justify-end">
+                  <div class="bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 rounded-2xl rounded-br-sm px-4 py-2 max-w-[80%] font-semibold">✓ Booked 10–12</div>
+                </div>
+              </div>
+
+              <div class="mt-4 pt-4 border-t border-slate-700 text-center">
+                <div class="text-xs text-slate-400">Time to booking</div>
+                <div class="text-2xl font-extrabold text-safety-400">4.2 seconds</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== PROBLEM ========== -->
+  <section class="relative bg-slate-950 border-y border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-24">
+      <div class="max-w-3xl">
+        <div class="text-xs uppercase tracking-[0.2em] text-safety-500 font-bold mb-4">The Problem</div>
+        <h2 class="text-3xl sm:text-5xl font-extrabold tracking-tight leading-[1.1]">
+          After 5pm, your phone becomes <br class="hidden sm:block"/>
+          <span class="text-safety-500">your biggest competitor.</span>
+        </h2>
+        <p class="mt-6 text-lg text-slate-400 leading-relaxed">
+          The average HVAC and roofing business misses <span class="text-white font-semibold">38% of inbound calls</span>. Every missed call is a homeowner with a wet ceiling or no AC who is texting the next contractor on Google in under 90 seconds.
+        </p>
+      </div>
+
+      <div class="mt-12 grid sm:grid-cols-3 gap-4">
+        <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6">
+          <div class="text-5xl font-extrabold text-safety-500">38%</div>
+          <div class="mt-2 text-sm text-slate-400">of contractor calls go unanswered</div>
+        </div>
+        <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6">
+          <div class="text-5xl font-extrabold text-safety-500">90s</div>
+          <div class="mt-2 text-sm text-slate-400">average time before a homeowner calls a competitor</div>
+        </div>
+        <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6">
+          <div class="text-5xl font-extrabold text-safety-500">$10K+</div>
+          <div class="mt-2 text-sm text-slate-400">in lifetime value lost per missed lead</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== AGITATION ========== -->
+  <section class="relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-24">
+      <div class="max-w-3xl">
+        <div class="text-xs uppercase tracking-[0.2em] text-safety-500 font-bold mb-4">It Gets Worse</div>
+        <h2 class="text-3xl sm:text-5xl font-extrabold tracking-tight leading-[1.1]">
+          Your leads aren't waiting. <br class="hidden sm:block"/>
+          They're already texting <span class="text-safety-500">the guy down the street.</span>
+        </h2>
+      </div>
+
+      <div class="mt-14 grid md:grid-cols-3 gap-6">
+        <div class="group relative bg-gradient-to-b from-slate-800/80 to-slate-900 border border-slate-800 rounded-2xl p-7 hover:border-safety-500/40 transition">
+          <div class="w-11 h-11 rounded-xl bg-safety-500/10 border border-safety-500/30 flex items-center justify-center mb-5">
+            <i data-lucide="phone-off" class="w-5 h-5 text-safety-500"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-2">Your CSR is on another call</h3>
+          <p class="text-slate-400 leading-relaxed">By the time she hangs up, the lead is already comparing quotes from three competitors. That deal is dead.</p>
+        </div>
+
+        <div class="group relative bg-gradient-to-b from-slate-800/80 to-slate-900 border border-slate-800 rounded-2xl p-7 hover:border-safety-500/40 transition">
+          <div class="w-11 h-11 rounded-xl bg-safety-500/10 border border-safety-500/30 flex items-center justify-center mb-5">
+            <i data-lucide="moon" class="w-5 h-5 text-safety-500"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-2">It's a Saturday night emergency</h3>
+          <p class="text-slate-400 leading-relaxed">Voicemail won't sell a $14K install. The contractor who picks up at 9pm wins the job. Every. Single. Time.</p>
+        </div>
+
+        <div class="group relative bg-gradient-to-b from-slate-800/80 to-slate-900 border border-slate-800 rounded-2xl p-7 hover:border-safety-500/40 transition">
+          <div class="w-11 h-11 rounded-xl bg-safety-500/10 border border-safety-500/30 flex items-center justify-center mb-5">
+            <i data-lucide="message-square-x" class="w-5 h-5 text-safety-500"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-2">Web forms convert at 2%</h3>
+          <p class="text-slate-400 leading-relaxed">Homeowners don't fill out forms with their roof leaking. They text. If you can't reply in 60 seconds, you don't exist.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== SOLUTION ========== -->
+  <section id="how" class="relative bg-gradient-to-b from-slate-900 via-slate-900 to-slate-950 border-y border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-28">
+      <div class="text-center max-w-3xl mx-auto">
+        <div class="text-xs uppercase tracking-[0.2em] text-safety-500 font-bold mb-4">The Solution</div>
+        <h2 class="text-3xl sm:text-5xl font-extrabold tracking-tight leading-[1.1]">
+          Meet <span class="text-safety-500">Maya.</span><br/>
+          The agent that never sleeps, never misses, never quits.
+        </h2>
+        <p class="mt-6 text-lg text-slate-400">
+          Maya isn't a chatbot. She's a trained SMS booking agent that answers in 5 seconds, asks the right qualifying questions, and drops booked appointments straight into your calendar.
+        </p>
+      </div>
+
+      <div class="mt-16 grid md:grid-cols-3 gap-6">
+        <div class="bg-slate-800/40 border border-slate-700 rounded-2xl p-7 backdrop-blur">
+          <div class="flex items-center justify-between mb-5">
+            <div class="w-12 h-12 rounded-xl bg-safety-500/15 border border-safety-500/30 flex items-center justify-center">
+              <i data-lucide="zap" class="w-6 h-6 text-safety-500"></i>
+            </div>
+            <span class="text-xs uppercase tracking-wider text-safety-500 font-bold">01</span>
+          </div>
+          <h3 class="text-xl font-bold mb-2">5-second response</h3>
+          <p class="text-slate-400 leading-relaxed">Lead texts in. Maya replies before they can switch tabs. The first responder wins 78% of the time — and that's now you.</p>
+        </div>
+
+        <div class="bg-slate-800/40 border border-slate-700 rounded-2xl p-7 backdrop-blur">
+          <div class="flex items-center justify-between mb-5">
+            <div class="w-12 h-12 rounded-xl bg-safety-500/15 border border-safety-500/30 flex items-center justify-center">
+              <i data-lucide="filter" class="w-6 h-6 text-safety-500"></i>
+            </div>
+            <span class="text-xs uppercase tracking-wider text-safety-500 font-bold">02</span>
+          </div>
+          <h3 class="text-xl font-bold mb-2">Qualifies, not chats</h3>
+          <p class="text-slate-400 leading-relaxed">Service area · job type · urgency · budget signal. Maya filters out tire-kickers and sends only ready-to-buy leads to your team.</p>
+        </div>
+
+        <div class="bg-slate-800/40 border border-slate-700 rounded-2xl p-7 backdrop-blur">
+          <div class="flex items-center justify-between mb-5">
+            <div class="w-12 h-12 rounded-xl bg-safety-500/15 border border-safety-500/30 flex items-center justify-center">
+              <i data-lucide="calendar-check" class="w-6 h-6 text-safety-500"></i>
+            </div>
+            <span class="text-xs uppercase tracking-wider text-safety-500 font-bold">03</span>
+          </div>
+          <h3 class="text-xl font-bold mb-2">Books on your calendar</h3>
+          <p class="text-slate-400 leading-relaxed">Direct integration with ServiceTitan, Housecall Pro, Jobber, or Google Calendar. Your techs walk in with the slot already filled.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== MATH OF MAYA (ROI CALCULATOR) ========== -->
+  <section id="roi" class="relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-28">
+      <div class="text-center max-w-3xl mx-auto">
+        <div class="text-xs uppercase tracking-[0.2em] text-safety-500 font-bold mb-4">The Math of Maya</div>
+        <h2 class="text-3xl sm:text-5xl font-extrabold tracking-tight leading-[1.1]">
+          Your missed leads have a <span class="text-safety-500">price tag.</span>
+        </h2>
+        <p class="mt-6 text-lg text-slate-400">
+          Move the sliders. See exactly how much revenue is leaking out of your business right now.
+        </p>
+      </div>
+
+      <div class="mt-14 max-w-5xl mx-auto bg-gradient-to-br from-slate-800/80 to-slate-900 border border-slate-700 rounded-3xl p-6 sm:p-10 shadow-2xl">
+
+        <!-- Vertical toggle -->
+        <div class="flex justify-center mb-10">
+          <div class="inline-flex bg-slate-950 rounded-xl p-1 border border-slate-800">
+            <button data-vertical="hvac" class="vertical-btn px-6 py-2.5 rounded-lg text-sm font-semibold transition bg-safety-500 text-white">
+              <i data-lucide="wind" class="w-4 h-4 inline mr-1.5 -mt-0.5"></i> HVAC
+            </button>
+            <button data-vertical="roofing" class="vertical-btn px-6 py-2.5 rounded-lg text-sm font-semibold transition text-slate-400 hover:text-white">
+              <i data-lucide="home" class="w-4 h-4 inline mr-1.5 -mt-0.5"></i> Roofing
+            </button>
+          </div>
+        </div>
+
+        <div class="grid lg:grid-cols-2 gap-10">
+          <!-- Sliders -->
+          <div class="space-y-8">
+            <div>
+              <div class="flex items-center justify-between mb-3">
+                <label class="text-sm font-semibold text-slate-300 flex items-center gap-2">
+                  <i data-lucide="phone-missed" class="w-4 h-4 text-safety-500"></i>
+                  Missed leads per week
+                </label>
+                <span id="leadsValue" class="text-2xl font-extrabold text-white tabular-nums">15</span>
+              </div>
+              <input id="leadsSlider" type="range" min="1" max="50" step="1" value="15" />
+              <div class="flex justify-between text-xs text-slate-500 mt-2">
+                <span>1</span><span>25</span><span>50</span>
+              </div>
+            </div>
+
+            <div>
+              <div class="flex items-center justify-between mb-3">
+                <label class="text-sm font-semibold text-slate-300 flex items-center gap-2">
+                  <i data-lucide="dollar-sign" class="w-4 h-4 text-safety-500"></i>
+                  Average job value
+                </label>
+                <span id="jobValueDisplay" class="text-2xl font-extrabold text-white tabular-nums">$8,500</span>
+              </div>
+              <input id="jobValueSlider" type="range" min="500" max="30000" step="100" value="8500" />
+              <div class="flex justify-between text-xs text-slate-500 mt-2">
+                <span>$500</span><span>$15K</span><span>$30K</span>
+              </div>
+            </div>
+
+            <div>
+              <div class="flex items-center justify-between mb-3">
+                <label class="text-sm font-semibold text-slate-300 flex items-center gap-2">
+                  <i data-lucide="target" class="w-4 h-4 text-safety-500"></i>
+                  Close rate when contacted in &lt; 5s
+                </label>
+                <span id="closeRateDisplay" class="text-2xl font-extrabold text-white tabular-nums">30%</span>
+              </div>
+              <input id="closeRateSlider" type="range" min="5" max="60" step="1" value="30" />
+              <div class="flex justify-between text-xs text-slate-500 mt-2">
+                <span>5%</span><span>30%</span><span>60%</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Live output -->
+          <div class="bg-slate-950/80 border border-slate-800 rounded-2xl p-8 flex flex-col justify-center">
+            <div class="text-xs uppercase tracking-[0.2em] text-slate-500 font-bold mb-3">Recouped revenue with Maya</div>
+
+            <div class="mb-6">
+              <div class="text-sm text-slate-400 mb-1">Per month</div>
+              <div id="monthlyOutput" class="roi-output text-4xl sm:text-5xl font-extrabold tracking-tight">$165,750</div>
+            </div>
+
+            <div class="border-t border-slate-800 pt-6">
+              <div class="text-sm text-slate-400 mb-1">Per year</div>
+              <div id="annualOutput" class="roi-output text-5xl sm:text-6xl font-extrabold tracking-tight">$1,989,000</div>
+            </div>
+
+            <div class="mt-8 p-4 bg-safety-500/10 border border-safety-500/30 rounded-xl">
+              <div class="text-xs text-safety-400 font-bold uppercase tracking-wider mb-1">The formula</div>
+              <div class="text-sm text-slate-300 font-mono">
+                <span id="formulaLeads">15</span>/wk × 52 × <span id="formulaJob">$8,500</span> × <span id="formulaClose">30%</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-10 text-center">
+          <a href="https://calendly.com/duy-agentsvietnam/30min" target="_blank" rel="noopener noreferrer"
+             class="cta-orange inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl text-base font-bold text-white">
+            <i data-lucide="calendar-check" class="w-5 h-5"></i>
+            Recoup This Revenue — Book Setup Call
+          </a>
+          <p class="mt-3 text-xs text-slate-500">10 minutes. No deck. We'll see if Maya fits your shop.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== HOW IT WORKS ========== -->
+  <section class="relative bg-slate-950 border-y border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-24">
+      <div class="text-center max-w-3xl mx-auto mb-14">
+        <div class="text-xs uppercase tracking-[0.2em] text-safety-500 font-bold mb-4">How It Works</div>
+        <h2 class="text-3xl sm:text-5xl font-extrabold tracking-tight leading-[1.1]">
+          From "missed call" to "booked job" in <span class="text-safety-500">three steps.</span>
+        </h2>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6 relative">
+        <!-- Step 1 -->
+        <div class="relative bg-slate-900 border border-slate-800 rounded-2xl p-8">
+          <div class="absolute -top-4 left-8 text-7xl font-extrabold text-safety-500/10 leading-none select-none">1</div>
+          <div class="relative">
+            <div class="w-12 h-12 rounded-xl bg-safety-500/15 border border-safety-500/30 flex items-center justify-center mb-5">
+              <i data-lucide="message-square" class="w-6 h-6 text-safety-500"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-2">Lead texts QUOTE</h3>
+            <p class="text-slate-400 leading-relaxed">Your Google ad, yard sign, or website CTA points to a Twilio number. Lead texts the keyword.</p>
+          </div>
+        </div>
+        <!-- Step 2 -->
+        <div class="relative bg-slate-900 border border-slate-800 rounded-2xl p-8">
+          <div class="absolute -top-4 left-8 text-7xl font-extrabold text-safety-500/10 leading-none select-none">2</div>
+          <div class="relative">
+            <div class="w-12 h-12 rounded-xl bg-safety-500/15 border border-safety-500/30 flex items-center justify-center mb-5">
+              <i data-lucide="sparkles" class="w-6 h-6 text-safety-500"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-2">Maya qualifies</h3>
+            <p class="text-slate-400 leading-relaxed">Asks 4–6 questions in conversational SMS. Confirms service area, job type, urgency, and timing — all in under a minute.</p>
+          </div>
+        </div>
+        <!-- Step 3 -->
+        <div class="relative bg-slate-900 border border-slate-800 rounded-2xl p-8">
+          <div class="absolute -top-4 left-8 text-7xl font-extrabold text-safety-500/10 leading-none select-none">3</div>
+          <div class="relative">
+            <div class="w-12 h-12 rounded-xl bg-safety-500/15 border border-safety-500/30 flex items-center justify-center mb-5">
+              <i data-lucide="calendar-plus" class="w-6 h-6 text-safety-500"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-2">Booked on your calendar</h3>
+            <p class="text-slate-400 leading-relaxed">Maya offers two real-time slots, books the winner, and notifies your dispatcher. Your tech rolls up to a confirmed job.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== LIVE DEMO ========== -->
+  <section id="demo" class="relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-28">
+      <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <!-- Copy -->
+        <div>
+          <div class="text-xs uppercase tracking-[0.2em] text-safety-500 font-bold mb-4">Live Demo</div>
+          <h2 class="text-3xl sm:text-5xl font-extrabold tracking-tight leading-[1.1]">
+            Don't take our word for it. <br class="hidden sm:block"/>
+            <span class="text-safety-500">Text Maya yourself.</span>
+          </h2>
+          <p class="mt-6 text-lg text-slate-400 leading-relaxed">
+            Pull out your phone. Send a text. See Maya qualify and book you in real time — exactly the way she'll do it for your customers.
+          </p>
+
+          <div class="mt-8 bg-gradient-to-br from-slate-800 to-slate-900 border border-slate-700 rounded-2xl p-6 sm:p-8">
+            <div class="text-sm text-slate-400 mb-2">Send the word</div>
+            <div class="text-4xl sm:text-5xl font-extrabold tracking-tight text-white mb-4">QUOTE</div>
+            <div class="text-sm text-slate-400 mb-2">to this number</div>
+            <a href="sms:+15076773559?body=QUOTE" class="block">
+              <div class="text-3xl sm:text-4xl font-extrabold tracking-tight text-safety-500 hover:text-safety-400 transition flex items-center gap-3">
+                <i data-lucide="message-circle" class="w-7 h-7"></i>
+                (507) 677-3559
+              </div>
+            </a>
+            <p class="mt-5 text-xs italic text-slate-500 leading-relaxed">
+              *Verified numbers only. To verify your business for a live test,
+              <a href="https://calendly.com/duy-agentsvietnam/30min" target="_blank" rel="noopener noreferrer" class="text-safety-400 hover:text-safety-300 underline underline-offset-2">schedule a 10-min setup call here</a>.
+            </p>
+          </div>
+        </div>
+
+        <!-- Mobile mockup -->
+        <div class="relative max-w-sm mx-auto w-full">
+          <div class="absolute -inset-8 bg-gradient-to-br from-safety-500/20 via-transparent to-safety-500/10 rounded-[3rem] blur-3xl"></div>
+
+          <!-- Phone frame -->
+          <div class="relative bg-slate-950 rounded-[3rem] p-3 border-[3px] border-slate-800 shadow-[0_30px_80px_-15px_rgba(0,0,0,0.8)]">
+            <div class="bg-slate-900 rounded-[2.5rem] overflow-hidden">
+              <!-- Notch -->
+              <div class="relative h-7 flex items-center justify-center bg-slate-950">
+                <div class="w-24 h-5 bg-slate-950 rounded-b-2xl absolute top-0"></div>
+              </div>
+              <!-- Status bar -->
+              <div class="flex items-center justify-between px-6 py-2 text-xs text-white">
+                <span class="font-semibold">9:41</span>
+                <div class="flex items-center gap-1">
+                  <i data-lucide="signal" class="w-3 h-3"></i>
+                  <i data-lucide="wifi" class="w-3 h-3"></i>
+                  <i data-lucide="battery-full" class="w-4 h-4"></i>
+                </div>
+              </div>
+              <!-- Header -->
+              <div class="px-4 py-3 border-b border-slate-800 flex items-center gap-3">
+                <i data-lucide="chevron-left" class="w-5 h-5 text-safety-500"></i>
+                <div class="w-9 h-9 rounded-full bg-gradient-to-br from-safety-400 to-safety-600 flex items-center justify-center text-white font-bold text-sm">M</div>
+                <div class="flex-1">
+                  <div class="text-sm font-semibold text-white">Maya</div>
+                  <div class="text-[10px] text-emerald-400">● Online · responds in seconds</div>
+                </div>
+                <i data-lucide="video" class="w-5 h-5 text-safety-500"></i>
+              </div>
+
+              <!-- Conversation -->
+              <div class="px-4 py-5 space-y-3 text-sm bg-slate-900 min-h-[420px]">
+                <div class="flex justify-end">
+                  <div class="bg-blue-500 text-white rounded-2xl rounded-br-sm px-3.5 py-2 max-w-[80%]">QUOTE</div>
+                </div>
+                <div class="text-[10px] text-slate-500 text-center">Delivered · 4.2s response time</div>
+                <div class="flex justify-start">
+                  <div class="bg-slate-700 text-white rounded-2xl rounded-bl-sm px-3.5 py-2 max-w-[85%]">Hey! 👋 This is Maya. Looks like you need a quote — is this for your home or commercial?</div>
+                </div>
+                <div class="flex justify-end">
+                  <div class="bg-blue-500 text-white rounded-2xl rounded-br-sm px-3.5 py-2 max-w-[80%]">Home, AC isn't cooling</div>
+                </div>
+                <div class="flex justify-start">
+                  <div class="bg-slate-700 text-white rounded-2xl rounded-bl-sm px-3.5 py-2 max-w-[85%]">Got it. What's your zip code?</div>
+                </div>
+                <div class="flex justify-end">
+                  <div class="bg-blue-500 text-white rounded-2xl rounded-br-sm px-3.5 py-2 max-w-[80%]">78701</div>
+                </div>
+                <div class="flex justify-start">
+                  <div class="bg-slate-700 text-white rounded-2xl rounded-bl-sm px-3.5 py-2 max-w-[85%]">Perfect — we cover 78701. We can have a tech out tomorrow 10–12 or 2–4. Which works?</div>
+                </div>
+                <div class="flex justify-start items-center gap-1 pl-3">
+                  <span class="typing-dot"></span>
+                  <span class="typing-dot"></span>
+                  <span class="typing-dot"></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== MID-PAGE CTA #2 ========== -->
+  <section class="relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div class="relative overflow-hidden bg-gradient-to-br from-safety-600 via-safety-500 to-safety-600 rounded-3xl p-8 sm:p-12">
+        <div class="absolute inset-0 opacity-20" style="background-image: radial-gradient(circle at 20% 50%, rgba(255,255,255,0.4) 0%, transparent 50%), radial-gradient(circle at 80% 50%, rgba(255,255,255,0.3) 0%, transparent 50%);"></div>
+        <div class="relative flex flex-col lg:flex-row items-center justify-between gap-6">
+          <div>
+            <h3 class="text-2xl sm:text-4xl font-extrabold tracking-tight text-white">Every hour you wait is another job lost.</h3>
+            <p class="mt-2 text-white/90 text-base sm:text-lg">Setup takes 10 minutes. Maya goes live in 48 hours.</p>
+          </div>
+          <a href="https://calendly.com/duy-agentsvietnam/30min" target="_blank" rel="noopener noreferrer"
+             class="inline-flex items-center justify-center gap-2 px-7 py-4 rounded-xl bg-slate-950 text-white font-bold text-base hover:bg-slate-900 transition whitespace-nowrap shadow-lg">
+            <i data-lucide="calendar-check" class="w-5 h-5"></i>
+            Book My Setup Call
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FAQ ========== -->
+  <section id="faq" class="relative bg-slate-950 border-y border-slate-800">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-24">
+      <div class="text-center mb-12">
+        <div class="text-xs uppercase tracking-[0.2em] text-safety-500 font-bold mb-4">FAQ</div>
+        <h2 class="text-3xl sm:text-5xl font-extrabold tracking-tight">
+          The questions every owner asks.
+        </h2>
+      </div>
+
+      <div class="space-y-3">
+        <details class="group bg-slate-900 border border-slate-800 rounded-2xl p-6 open:border-safety-500/40">
+          <summary class="cursor-pointer flex items-center justify-between gap-4 text-lg font-semibold text-white list-none">
+            What if Maya gets a question wrong?
+            <i data-lucide="chevron-down" class="w-5 h-5 text-safety-500 transition group-open:rotate-180"></i>
+          </summary>
+          <p class="mt-4 text-slate-400 leading-relaxed">
+            Maya is trained on your specific service offerings, pricing rules, and service area. If she encounters anything she's not 100% sure about, she escalates to your team via SMS or Slack with full context — so a human always closes the gap. You stay in control.
+          </p>
+        </details>
+
+        <details class="group bg-slate-900 border border-slate-800 rounded-2xl p-6 open:border-safety-500/40">
+          <summary class="cursor-pointer flex items-center justify-between gap-4 text-lg font-semibold text-white list-none">
+            Will it sound robotic? My customers will hate that.
+            <i data-lucide="chevron-down" class="w-5 h-5 text-safety-500 transition group-open:rotate-180"></i>
+          </summary>
+          <p class="mt-4 text-slate-400 leading-relaxed">
+            Maya speaks the way your best CSR speaks — short, friendly, no jargon. We tune her tone to match your brand voice during setup. Most homeowners can't tell they're texting an AI, and frankly, they don't care: they care that someone answered fast.
+          </p>
+        </details>
+
+        <details class="group bg-slate-900 border border-slate-800 rounded-2xl p-6 open:border-safety-500/40">
+          <summary class="cursor-pointer flex items-center justify-between gap-4 text-lg font-semibold text-white list-none">
+            How fast is setup? I don't have time for a 6-month integration.
+            <i data-lucide="chevron-down" class="w-5 h-5 text-safety-500 transition group-open:rotate-180"></i>
+          </summary>
+          <p class="mt-4 text-slate-400 leading-relaxed">
+            Live in 48 hours. We need a 30-minute kickoff to map your service area, job types, and calendar. We provision a Twilio number (or port yours), connect to ServiceTitan / Housecall Pro / Jobber / Google Calendar, and Maya is taking texts that weekend.
+          </p>
+        </details>
+
+        <details class="group bg-slate-900 border border-slate-800 rounded-2xl p-6 open:border-safety-500/40">
+          <summary class="cursor-pointer flex items-center justify-between gap-4 text-lg font-semibold text-white list-none">
+            What does it cost?
+            <i data-lucide="chevron-down" class="w-5 h-5 text-safety-500 transition group-open:rotate-180"></i>
+          </summary>
+          <p class="mt-4 text-slate-400 leading-relaxed">
+            Less than one missed install per month. We price per booked appointment, so you only pay when Maya delivers a qualified, calendared lead. No retainer, no per-message fees, no surprise invoices. Exact pricing covered on the setup call.
+          </p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FINAL CTA #3 ========== -->
+  <section class="relative">
+    <div class="absolute inset-0 hero-glow pointer-events-none"></div>
+    <div class="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-24 sm:py-32 text-center">
+      <h2 class="text-4xl sm:text-6xl font-extrabold tracking-tight leading-[1.05]">
+        Stop bleeding leads. <br/>
+        <span class="text-safety-500">Start booking jobs.</span>
+      </h2>
+      <p class="mt-8 text-lg sm:text-xl text-slate-400 max-w-2xl mx-auto">
+        10 minutes on the phone. Live in 48 hours. The next missed call could be paying for Maya for the next 5 years.
+      </p>
+      <div class="mt-12">
+        <a href="https://calendly.com/duy-agentsvietnam/30min" target="_blank" rel="noopener noreferrer"
+           class="cta-orange inline-flex items-center justify-center gap-3 px-10 py-5 rounded-xl text-lg font-bold text-white">
+          <i data-lucide="calendar-check" class="w-6 h-6"></i>
+          Book My 10-Min Setup Call
+          <i data-lucide="arrow-right" class="w-5 h-5"></i>
+        </a>
+        <p class="mt-4 text-sm text-slate-500">No deck. No pressure. Just a fit check.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="border-t border-slate-800 bg-slate-950">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-6">
+        <a href="#top" class="flex items-center gap-2">
+          <span class="flex items-center justify-center w-8 h-8 rounded-lg bg-safety-500/10 border border-safety-500/30">
+            <i data-lucide="zap" class="w-4 h-4 text-safety-500"></i>
+          </span>
+          <span class="text-lg font-bold tracking-tight">Maya</span>
+          <span class="text-xs uppercase tracking-widest text-slate-500 ml-1 border-l border-slate-700 pl-2">SMS Agent</span>
+        </a>
+
+        <div class="flex items-center gap-6 text-sm text-slate-400">
+          <a href="#how" class="hover:text-white transition">How it works</a>
+          <a href="#roi" class="hover:text-white transition">ROI</a>
+          <a href="#demo" class="hover:text-white transition">Demo</a>
+          <a href="https://calendly.com/duy-agentsvietnam/30min" target="_blank" rel="noopener noreferrer" class="hover:text-white transition">Book a call</a>
+        </div>
+
+        <div class="text-xs text-slate-500">© <span id="footerYear">2026</span> Maya. Built for contractors who pick up.</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ========== SCROLL-TO-TOP BUTTON ========== -->
+  <button id="scrollTopBtn" aria-label="Scroll to top"
+          class="fixed bottom-6 right-6 z-50 w-12 h-12 rounded-full cta-orange text-white flex items-center justify-center">
+    <i data-lucide="arrow-up" class="w-5 h-5"></i>
+  </button>
+
+  <!-- ========== JAVASCRIPT ========== -->
+  <script>
+    // Init Lucide icons
+    lucide.createIcons();
+
+    // Footer year
+    document.getElementById('footerYear').textContent = new Date().getFullYear();
+
+    // ===== ROI CALCULATOR =====
+    const verticalDefaults = {
+      hvac:    { leads: 15, jobValue: 8500,  closeRate: 30 },
+      roofing: { leads: 8,  jobValue: 14000, closeRate: 25 },
+    };
+
+    const leadsSlider     = document.getElementById('leadsSlider');
+    const jobValueSlider  = document.getElementById('jobValueSlider');
+    const closeRateSlider = document.getElementById('closeRateSlider');
+
+    const leadsValue       = document.getElementById('leadsValue');
+    const jobValueDisplay  = document.getElementById('jobValueDisplay');
+    const closeRateDisplay = document.getElementById('closeRateDisplay');
+
+    const monthlyOutput = document.getElementById('monthlyOutput');
+    const annualOutput  = document.getElementById('annualOutput');
+    const formulaLeads  = document.getElementById('formulaLeads');
+    const formulaJob    = document.getElementById('formulaJob');
+    const formulaClose  = document.getElementById('formulaClose');
+
+    const fmt = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 });
+
+    function updateROI() {
+      const leads     = parseInt(leadsSlider.value, 10);
+      const jobValue  = parseInt(jobValueSlider.value, 10);
+      const closeRate = parseInt(closeRateSlider.value, 10) / 100;
+
+      const annual  = leads * 52 * jobValue * closeRate;
+      const monthly = annual / 12;
+
+      leadsValue.textContent       = leads;
+      jobValueDisplay.textContent  = fmt.format(jobValue);
+      closeRateDisplay.textContent = (closeRate * 100).toFixed(0) + '%';
+
+      monthlyOutput.textContent = fmt.format(monthly);
+      annualOutput.textContent  = fmt.format(annual);
+
+      formulaLeads.textContent = leads;
+      formulaJob.textContent   = fmt.format(jobValue);
+      formulaClose.textContent = (closeRate * 100).toFixed(0) + '%';
+    }
+
+    leadsSlider.addEventListener('input', updateROI);
+    jobValueSlider.addEventListener('input', updateROI);
+    closeRateSlider.addEventListener('input', updateROI);
+
+    // Vertical toggle
+    document.querySelectorAll('.vertical-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.vertical-btn').forEach(b => {
+          b.classList.remove('bg-safety-500', 'text-white');
+          b.classList.add('text-slate-400');
+        });
+        btn.classList.add('bg-safety-500', 'text-white');
+        btn.classList.remove('text-slate-400');
+
+        const v = btn.dataset.vertical;
+        const d = verticalDefaults[v];
+        leadsSlider.value     = d.leads;
+        jobValueSlider.value  = d.jobValue;
+        closeRateSlider.value = d.closeRate;
+        updateROI();
+      });
+    });
+
+    updateROI();
+
+    // ===== SCROLL-TO-TOP =====
+    const scrollBtn = document.getElementById('scrollTopBtn');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 600) scrollBtn.classList.add('visible');
+      else scrollBtn.classList.remove('visible');
+    });
+    scrollBtn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  </script>
+<script>
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape' && window.parent !== window) {
+    window.parent.postMessage({ type: 'close-fullscreen' }, '*');
+  }
+});
+</script>
+<!-- broken-img-handler -->
+<script>
+(function(){
+  if(window.__brokenImgHandler)return;
+  window.__brokenImgHandler=true;
+  var MAX=5,DELAYS=[2000,4000,8000,16000,32000];
+  document.addEventListener('error',function(e){
+    var img=e.target;
+    if(!img||img.tagName!=='IMG')return;
+    var liveSrc=img.getAttribute('src');
+    var src=img.dataset.haOriginalSrc||liveSrc;
+    if(!src)return;
+    if(img.dataset.haOriginalSrc&&liveSrc&&liveSrc!==img.dataset.haOriginalSrc&&liveSrc.indexOf('_r=')<0){src=liveSrc;img.dataset.haOriginalSrc=src;img.dataset.haRetryCount='0'}
+    else if(!img.dataset.haOriginalSrc){img.dataset.haOriginalSrc=src}
+    var attempt=parseInt(img.dataset.haRetryCount||'0',10);
+    if(img.dataset.haPhId){var old=document.getElementById(img.dataset.haPhId);if(old)old.remove()}
+    var ph=document.createElement('div');
+    ph.className='ha-img-placeholder'+(attempt>=MAX?' ha-failed':'');
+    ph.id='ha-ph-'+Math.random().toString(36).slice(2,9);
+    var w=img.getAttribute('width');var h=img.getAttribute('height');
+    if(w)ph.style.width=w+(isNaN(Number(w))?'':'px');
+    else if(img.style.width)ph.style.width=img.style.width;
+    else if(img.width>1)ph.style.width=img.width+'px';
+    if(h)ph.style.height=h+(isNaN(Number(h))?'':'px');
+    else if(img.style.height)ph.style.height=img.style.height;
+    else if(img.height>1)ph.style.height=img.height+'px';
+    ph.textContent=attempt>=MAX?'Image unavailable':'Loading image\u2026';
+    img.dataset.haPhId=ph.id;
+    if(img.dataset.haOrigDisplay==null)img.dataset.haOrigDisplay=img.style.display||'';
+    img.style.display='none';
+    img.insertAdjacentElement('afterend',ph);
+    if(attempt<MAX){
+      img.dataset.haRetryCount=String(attempt+1);
+      setTimeout(function(){
+        if(!img.isConnected)return;
+        if(img.dataset.haOriginalSrc!==src)return;
+        if(img.complete&&img.naturalWidth>0)return;
+        var curSrc=img.getAttribute('src');
+        if(curSrc&&curSrc.indexOf(src)!==0)return;
+        var fresh=src+(src.indexOf('?')>=0?'&':'?')+'_r='+(attempt+1)+'_'+Date.now();
+        img.src=fresh;
+      },DELAYS[attempt]);
+    }
+  },true);
+  document.addEventListener('load',function(e){
+    var img=e.target;
+    if(!img||img.tagName!=='IMG')return;
+    if(img.dataset.haPhId){
+      var ph=document.getElementById(img.dataset.haPhId);
+      if(ph)ph.remove();
+      delete img.dataset.haPhId;
+      img.style.display=img.dataset.haOrigDisplay||'';
+      delete img.dataset.haOrigDisplay;
+      delete img.dataset.haOriginalSrc;
+      delete img.dataset.haRetryCount;
+    }
+  },true);
+})();
+</script>
+</body>
+</html>
