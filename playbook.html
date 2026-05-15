@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Maya Playbook — How HVAC Owners Stop Bleeding Leads After 5 PM</title>
+  <meta name="description" content="The field guide for HVAC owners who want to plug the after-hours lead leak. Real qualification flows, real math, real setup steps." />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+            serif: ['Lora', 'Georgia', 'serif'],
+          },
+          colors: {
+            safety: {
+              400: '#fb923c',
+              500: '#f97316',
+              600: '#ea580c',
+              700: '#c2410c',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: #0f172a;
+      color: #e2e8f0;
+      -webkit-font-smoothing: antialiased;
+    }
+    .prose-playbook p {
+      font-family: 'Lora', Georgia, serif;
+      font-size: 1.125rem;
+      line-height: 1.85;
+      color: #cbd5e1;
+      margin-bottom: 1.5rem;
+    }
+    .prose-playbook strong { color: #f8fafc; font-weight: 600; }
+    .prose-playbook em { color: #f8fafc; font-style: italic; }
+    .prose-playbook ul { margin: 1.5rem 0; padding-left: 1.5rem; }
+    .prose-playbook ul li {
+      font-family: 'Lora', Georgia, serif;
+      font-size: 1.125rem;
+      line-height: 1.85;
+      color: #cbd5e1;
+      margin-bottom: 0.5rem;
+      list-style-type: disc;
+    }
+    .prose-playbook h3 {
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #f8fafc;
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+    }
+    .pullquote {
+      border-left: 3px solid #f97316;
+      padding: 0.5rem 0 0.5rem 1.5rem;
+      margin: 2.5rem 0;
+      font-family: 'Lora', Georgia, serif;
+      font-size: 1.4rem;
+      line-height: 1.5;
+      font-style: italic;
+      color: #f8fafc;
+    }
+    .chapter-num {
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: #f97316;
+    }
+    .chapter-title {
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: 2rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      color: #f8fafc;
+      margin-top: 0.5rem;
+      margin-bottom: 2rem;
+    }
+    @media (min-width: 640px) {
+      .chapter-title { font-size: 2.5rem; }
+    }
+    .toc-link {
+      display: flex;
+      align-items: baseline;
+      gap: 1rem;
+      padding: 0.75rem 0;
+      border-bottom: 1px solid #1e293b;
+      transition: color 0.15s ease;
+      color: #94a3b8;
+      font-family: 'Inter', sans-serif;
+    }
+    .toc-link:hover { color: #f97316; }
+    .toc-link .num {
+      font-variant-numeric: tabular-nums;
+      font-weight: 600;
+      color: #f97316;
+      width: 2rem;
+      flex-shrink: 0;
+    }
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 2rem 0;
+      font-family: 'Inter', sans-serif;
+    }
+    .data-table th, .data-table td {
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid #1e293b;
+      text-align: left;
+    }
+    .data-table th {
+      font-weight: 600;
+      color: #f97316;
+      text-transform: uppercase;
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+    }
+    .data-table td { color: #cbd5e1; font-size: 0.95rem; }
+    .data-table tr:last-child td {
+      font-weight: 700;
+      color: #f8fafc;
+      border-top: 2px solid #334155;
+    }
+    .cta-orange {
+      background: linear-gradient(180deg, #fb923c 0%, #f97316 50%, #ea580c 100%);
+      box-shadow: 0 1px 0 rgba(255,255,255,0.2) inset, 0 8px 24px -8px rgba(249, 115, 22, 0.6);
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+    .cta-orange:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 1px 0 rgba(255,255,255,0.2) inset, 0 12px 28px -8px rgba(249, 115, 22, 0.7);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== COVER ===== -->
+  <header class="relative overflow-hidden border-b border-slate-800">
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[500px] bg-safety-500/10 blur-[140px] pointer-events-none"></div>
+    <div class="relative max-w-3xl mx-auto px-6 sm:px-8 pt-20 pb-16 text-center">
+      <div class="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-safety-500/10 border border-safety-500/30 mb-8">
+        <i data-lucide="zap" class="w-7 h-7 text-safety-500"></i>
+      </div>
+      <div class="text-xs uppercase tracking-[0.3em] text-safety-500 font-bold mb-4">The Maya Playbook</div>
+      <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight leading-[1.05] text-white">
+        How HVAC Owners <br class="hidden sm:block"/>
+        <span class="text-safety-500">Stop Bleeding Leads After 5 PM</span>
+      </h1>
+      <p class="mt-8 text-lg text-slate-400 max-w-xl mx-auto font-serif italic leading-relaxed">
+        A field guide to SMS booking, qualification flows, and turning missed calls into booked jobs.
+      </p>
+      <div class="mt-10 flex items-center justify-center gap-6 text-sm text-slate-500">
+        <div class="flex items-center gap-2"><i data-lucide="user" class="w-4 h-4"></i> Duy &mdash; agentsvietnam.com</div>
+        <div class="hidden sm:block w-1 h-1 rounded-full bg-slate-700"></div>
+        <div class="flex items-center gap-2"><i data-lucide="clock" class="w-4 h-4"></i> 25-minute read</div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== WELCOME ===== -->
+  <section class="max-w-2xl mx-auto px-6 sm:px-8 py-16">
+    <div class="chapter-num">Welcome</div>
+    <h2 class="chapter-title">Read this first</h2>
+    <div class="prose-playbook">
+      <p>If you own an HVAC business doing between $1M and $5M a year, your phone is both your biggest asset and your biggest liability. Every ring is potentially a $300 service call, an $8,000 repair, or a $14,000 install. And every missed ring is a lead your competitor just stole &mdash; for free.</p>
+      <p>This playbook is for owners who already suspect they're losing money after hours but haven't quantified it yet. By the end, you'll have:</p>
+      <ul>
+        <li>The actual math of missed-lead loss</li>
+        <li>Why SMS converts when voicemail dies</li>
+        <li>The exact qualification flow that books 30%+ of inbound texts</li>
+        <li>A 6-month case study from a Memphis HVAC shop</li>
+        <li>The setup process to deploy SMS booking in 48 hours</li>
+      </ul>
+      <p>No fluff. 25 minutes. By the time you finish, you'll know whether SMS booking is worth your attention &mdash; and if it is, what to do next.</p>
+    </div>
+  </section>
+
+  <!-- ===== TOC ===== -->
+  <section class="max-w-2xl mx-auto px-6 sm:px-8 pb-16 border-b border-slate-800">
+    <div class="chapter-num">Contents</div>
+    <div class="mt-6">
+      <a href="#ch1" class="toc-link"><span class="num">01</span><span class="flex-1">The Hidden Tax</span></a>
+      <a href="#ch2" class="toc-link"><span class="num">02</span><span class="flex-1">The 5-Second Rule</span></a>
+      <a href="#ch3" class="toc-link"><span class="num">03</span><span class="flex-1">Why SMS Beats Voicemail</span></a>
+      <a href="#ch4" class="toc-link"><span class="num">04</span><span class="flex-1">The Qualification Flow</span></a>
+      <a href="#ch5" class="toc-link"><span class="num">05</span><span class="flex-1">The Math &mdash; Worked Examples</span></a>
+      <a href="#ch6" class="toc-link"><span class="num">06</span><span class="flex-1">Calendar Integration</span></a>
+      <a href="#ch7" class="toc-link"><span class="num">07</span><span class="flex-1">Case Study &mdash; The Memphis Shop</span></a>
+      <a href="#ch8" class="toc-link"><span class="num">08</span><span class="flex-1">The Setup &mdash; What It Takes</span></a>
+      <a href="#ch9" class="toc-link"><span class="num">09</span><span class="flex-1">Common Concerns</span></a>
+      <a href="#ch10" class="toc-link"><span class="num">10</span><span class="flex-1">The Next Step</span></a>
+    </div>
+  </section>
+
+  <!-- ===== CHAPTER 1 ===== -->
+  <section id="ch1" class="max-w-2xl mx-auto px-6 sm:px-8 py-16 border-b border-slate-800">
+    <div class="chapter-num">Chapter 01</div>
+    <h2 class="chapter-title">The Hidden Tax</h2>
+    <div class="prose-playbook">
+      <p class="pullquote">Your phone rings 100 times a week. You answer 62. The other 38 went to your competitor &mdash; and you never even saw the bill.</p>
+      <p>Most HVAC owners track marketing spend tightly. Very few track <strong>lead loss</strong>. That's the hidden tax.</p>
+      <p>Industry data on contractor call answer rates is grim. <strong>38% of inbound calls</strong> to HVAC and roofing businesses go unanswered or hit voicemail. Of the missed calls, fewer than 8% result in a callback within 24 hours that actually books a job. The rest are gone forever.</p>
+      <p>Here's what that looks like in real numbers for a mid-market HVAC shop:</p>
+      <ul>
+        <li>150 inbound calls per week</li>
+        <li>38% miss rate = 57 missed calls per week</li>
+        <li>Of those 57, maybe 30 are genuine service requests (vs. spam, wrong numbers, etc.)</li>
+        <li>Of those 30, 30% would book a service call at ~$350 avg = $3,150</li>
+        <li>Of those 30, 5% would book a repair or install at ~$6,500 avg = $9,750</li>
+      </ul>
+      <p><strong>Weekly lost revenue: ~$12,900. Annual: ~$670,000.</strong></p>
+      <p>That's not an exaggeration or a worst case. That's what an average busy HVAC owner is leaving on the table every year because the front office cannot physically answer every call.</p>
+      <p>The good news: the fix isn't hiring more CSRs. It's switching the medium.</p>
+    </div>
+  </section>
+
+  <!-- ===== CHAPTER 2 ===== -->
+  <section id="ch2" class="max-w-2xl mx-auto px-6 sm:px-8 py-16 border-b border-slate-800">
+    <div class="chapter-num">Chapter 02</div>
+    <h2 class="chapter-title">The 5-Second Rule</h2>
+    <div class="prose-playbook">
+      <p class="pullquote">First responder wins 78% of the time. The race ends in 5 seconds, not 5 minutes.</p>
+      <p>The Harvard Business Review famously found that companies who respond to a web lead in under 5 minutes are <strong>9x more likely to convert</strong> than those who take 10+ minutes. Most HVAC owners have heard this stat.</p>
+      <p>What they haven't heard: in 2026, that 5-minute window has compressed to 5 <em>seconds</em> &mdash; because of SMS.</p>
+      <p>Modern homeowners search "AC repair near me" on Google, click 3 ads in 30 seconds, and reach out to whichever business responds first. <strong>The first to reply wins the lead 78% of the time.</strong> The other businesses paid for the click and got nothing.</p>
+      <p>Why is SMS the only channel that can play this game?</p>
+      <ul>
+        <li><strong>Voicemail</strong>: average response time 4&ndash;6 hours. Listened-to rate: 20%.</li>
+        <li><strong>Web forms</strong>: average response time 2&ndash;4 hours. Reply rate: ~60%.</li>
+        <li><strong>Live phone answer</strong>: possible, but requires staffing 24/7. Cost: $40K+ per CSR per year.</li>
+        <li><strong>SMS (automated)</strong>: average response time 5&ndash;15 seconds. Read rate: 98% within 3 minutes.</li>
+      </ul>
+      <p>The math is obvious. The contractor who replies fastest wins. SMS is the only channel where a small shop can compete head-to-head with a national chain &mdash; because automated SMS doesn't care if it's 11 PM on Saturday or 4 AM on Tuesday.</p>
+    </div>
+  </section>
+
+  <!-- ===== CHAPTER 3 ===== -->
+  <section id="ch3" class="max-w-2xl mx-auto px-6 sm:px-8 py-16 border-b border-slate-800">
+    <div class="chapter-num">Chapter 03</div>
+    <h2 class="chapter-title">Why SMS Beats Voicemail</h2>
+    <div class="prose-playbook">
+      <p class="pullquote">Homeowners under stress don't talk. They type.</p>
+      <p>Five reasons SMS wins the after-hours race:</p>
+      <h3>1. Open rate</h3>
+      <p>Voicemail: ~20% listened to within 24 hours. SMS: <strong>98% read within 3 minutes</strong>. Your customers are looking at their phone every 4 minutes anyway. They're not driving to your office to listen to voicemail.</p>
+      <h3>2. Stress channel</h3>
+      <p>When a basement is flooding or AC died at 95&deg;, homeowners don't want to <em>talk</em>. They want to type a short message and get an answer. SMS is the low-friction channel for high-stress situations &mdash; which is exactly when HVAC sells.</p>
+      <h3>3. The thumb is already there</h3>
+      <p>The same hand holding the phone to read your Google ad is one tap away from texting. Voicemail requires: call &rarr; wait for tone &rarr; leave a coherent message while panicking. SMS requires four words: "AC not cooling, help."</p>
+      <h3>4. Audit trail</h3>
+      <p>Texts are archived. Voicemails get forgotten. When the dispatcher needs to know what the customer originally said, the text thread is right there &mdash; full context, no transcription errors.</p>
+      <h3>5. Asynchronous</h3>
+      <p>The customer texts at 11 PM, gets a response at 11:00:05 PM, books a 10 AM slot the next day. No real-time human availability required &mdash; which is exactly the constraint you're trying to escape.</p>
+      <p>Every modern industry already made this move: airlines text flight changes, banks text fraud alerts, retailers text order updates. Home services is years behind. The contractors who switch first eat first.</p>
+    </div>
+  </section>
+
+  <!-- ===== CHAPTER 4 ===== -->
+  <section id="ch4" class="max-w-2xl mx-auto px-6 sm:px-8 py-16 border-b border-slate-800">
+    <div class="chapter-num">Chapter 04</div>
+    <h2 class="chapter-title">The Qualification Flow</h2>
+    <div class="prose-playbook">
+      <p class="pullquote">Don't qualify out. Qualify in. Let the tech upsell.</p>
+      <p>The biggest mistake contractors make when they think about SMS booking is they <strong>over-qualify</strong>. They imagine asking 15 questions about service area, exact AC model, age of the unit, financing preferences, and warranty status &mdash; before booking.</p>
+      <p>This is wrong. Every additional question is a chance for the prospect to drop off. The correct flow is the <strong>5-question maximum</strong>:</p>
+      <h3>1. Service type</h3>
+      <p>"Is this for your home or commercial?" Filters out commercial if you only do residential.</p>
+      <h3>2. Problem</h3>
+      <p>"What's going on with your system?" Free-text. Helps the tech prep, but doesn't restrict the booking.</p>
+      <h3>3. Location</h3>
+      <p>"What's your ZIP code?" Filters out-of-service-area <em>before</em> booking the appointment.</p>
+      <h3>4. Urgency</h3>
+      <p>"Is this an emergency or can it wait a day or two?" Routes emergency to the on-call dispatcher; routes non-emergency to the next available slot.</p>
+      <h3>5. Booking offer</h3>
+      <p>"We can have a tech out tomorrow 10&ndash;12 or 2&ndash;4. Which works?" Two real slots. Customer picks one. Booked.</p>
+      <p>That's it. Five messages, about 60 seconds, booked appointment.</p>
+      <p>What you do <strong>NOT</strong> ask in this flow:</p>
+      <ul>
+        <li>Pricing (let the tech see the unit first)</li>
+        <li>Financing (post-quote conversation)</li>
+        <li>AC model / age / serial number (tech can ID on-site)</li>
+        <li>Warranty status (sell that after the visit)</li>
+      </ul>
+      <p>The job of SMS booking is to <strong>get the tech to the door</strong>. Everything else is upsell. Your techs are dramatically better at upselling in-person than your CSR is over SMS &mdash; so don't waste the conversation on it.</p>
+    </div>
+  </section>
+
+  <!-- ===== CHAPTER 5 ===== -->
+  <section id="ch5" class="max-w-2xl mx-auto px-6 sm:px-8 py-16 border-b border-slate-800">
+    <div class="chapter-num">Chapter 05</div>
+    <h2 class="chapter-title">The Math &mdash; Worked Examples</h2>
+    <div class="prose-playbook">
+      <p class="pullquote">Three shops, three sizes, one truth: every missed call has a price tag.</p>
+      <p>Here's how the math plays out for three shop sizes. The variable is <strong>missed leads per week</strong> &mdash; the inbound calls, ad clicks, or texts that don't get a reply within 5 minutes.</p>
+      <h3>Small Shop &mdash; 10 missed/week, $7K avg job, 25% close</h3>
+      <p>Annual recouped revenue = 10 &times; 52 &times; $7,000 &times; 0.25 = <strong>$910,000/year</strong></p>
+      <p>Even if you only believe half of this number (assume half are tire-kickers), that's still $455K. The math doesn't have to work perfectly &mdash; it just has to work directionally.</p>
+      <h3>Medium Shop &mdash; 20 missed/week, $9K avg job, 28% close</h3>
+      <p>Annual recouped revenue = 20 &times; 52 &times; $9,000 &times; 0.28 = <strong>$2,621,000/year</strong></p>
+      <p>This is the typical Maya customer profile &mdash; a $2M&ndash;$3M revenue HVAC shop that's losing roughly half its inbound to voicemail.</p>
+      <h3>Big Shop &mdash; 40 missed/week, $11K avg job, 30% close</h3>
+      <p>Annual recouped revenue = 40 &times; 52 &times; $11,000 &times; 0.30 = <strong>$6,864,000/year</strong></p>
+      <p>At this size, you're already paying multiple CSRs and <em>still</em> missing calls during peak season. SMS booking adds infinite capacity at zero marginal cost.</p>
+      <h3>Payback period</h3>
+      <p>Conservatively: if SMS booking captures even 25% of your previously-missed leads (a low-end estimate), and the system costs $300/month, the payback period is <strong>less than one booked job per month</strong>. Most shops recoup the entire annual cost on their second appointment.</p>
+    </div>
+  </section>
+
+  <!-- ===== CHAPTER 6 ===== -->
+  <section id="ch6" class="max-w-2xl mx-auto px-6 sm:px-8 py-16 border-b border-slate-800">
+    <div class="chapter-num">Chapter 06</div>
+    <h2 class="chapter-title">Calendar Integration</h2>
+    <div class="prose-playbook">
+      <p class="pullquote">If the booking doesn't hit your dispatcher's screen automatically, it doesn't exist.</p>
+      <p>SMS booking is only useful if it ends in a real, dispatched appointment. The SMS agent has to integrate with whatever you use to dispatch jobs.</p>
+      <p>Maya integrates with the standard contractor stacks:</p>
+      <ul>
+        <li><strong>ServiceTitan</strong> &mdash; direct API integration. Jobs land on the dispatch board with full context.</li>
+        <li><strong>Housecall Pro</strong> &mdash; webhook integration. Jobs appear in the calendar.</li>
+        <li><strong>Jobber</strong> &mdash; direct API integration.</li>
+        <li><strong>Google Calendar</strong> &mdash; for shops without a dedicated CRM.</li>
+        <li><strong>Custom / spreadsheet</strong> &mdash; via Zapier webhook to wherever you want.</li>
+      </ul>
+      <p>The integration is the most technical part of setup, and it's why most contractors don't try to build their own SMS bot. We handle it during the 48-hour setup window. You provide credentials. We wire it up.</p>
+      <p>Every booking sent to your dispatcher includes:</p>
+      <ul>
+        <li>Customer name, phone, address</li>
+        <li>Service type and problem description</li>
+        <li>Booked time window</li>
+        <li>The full SMS thread (so the tech can read the context before knocking)</li>
+        <li>Urgency tag (emergency vs. standard)</li>
+      </ul>
+      <p>Your dispatcher sees a fully-loaded appointment &mdash; exactly the way they would if a senior CSR had taken the call.</p>
+    </div>
+  </section>
+
+  <!-- ===== CHAPTER 7 ===== -->
+  <section id="ch7" class="max-w-2xl mx-auto px-6 sm:px-8 py-16 border-b border-slate-800">
+    <div class="chapter-num">Chapter 07</div>
+    <h2 class="chapter-title">Case Study &mdash; The Memphis Shop</h2>
+    <div class="prose-playbook">
+      <p class="pullquote">$187,000 in 6 months. They didn't change their ads. They didn't hire anyone. They added Maya.</p>
+      <p><em>Anonymized at the owner's request. Real numbers, real timeframe.</em></p>
+      <h3>Background</h3>
+      <p>Family-owned HVAC business in Memphis, TN. 4 service techs, 1 dispatcher, ~$2.4M annual revenue. Running Google Local Services Ads plus traditional Google Ads at ~$15K/month ad spend. Average ticket: $1,100.</p>
+      <h3>The problem they had</h3>
+      <p>Owner suspected he was losing leads after 6 PM and on weekends. Dispatcher was overwhelmed during peak summer. No data on actual miss rate.</p>
+      <h3>Step 1 &mdash; Audit (week 1)</h3>
+      <p>We pulled the previous 90 days of call logs. Findings: <strong>41%</strong> of inbound calls hit voicemail (above industry average). Only <strong>6%</strong> of voicemails got a callback within 24 hours. After-hours calls (5 PM to 8 AM) had a <strong>71%</strong> miss rate.</p>
+      <h3>Step 2 &mdash; Deploy Maya (week 2)</h3>
+      <p>Twilio number provisioned. SMS keyword "QUOTE" routed to Maya. Integrated with Housecall Pro for dispatch. Service area, job types, and pricing rules configured.</p>
+      <h3>Step 3 &mdash; Marketing tweak (week 2)</h3>
+      <p>Google ad "Call Now" CTA changed to "Text QUOTE to [number]." Yard signs updated. Voicemail greeting modified to redirect callers to text the same number.</p>
+      <h3>Step 4 &mdash; Monitor (weeks 3 to 24)</h3>
+      <table class="data-table">
+        <thead>
+          <tr><th>Month</th><th>Maya-booked jobs</th><th>Revenue from Maya</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>1</td><td>18</td><td>$19,800</td></tr>
+          <tr><td>2</td><td>24</td><td>$26,400</td></tr>
+          <tr><td>3</td><td>31</td><td>$34,100</td></tr>
+          <tr><td>4</td><td>27</td><td>$29,700</td></tr>
+          <tr><td>5</td><td>33</td><td>$36,300</td></tr>
+          <tr><td>6</td><td>37</td><td>$40,700</td></tr>
+          <tr><td>Total</td><td>170</td><td>$187,000</td></tr>
+        </tbody>
+      </table>
+      <p><strong>Cost to the owner over 6 months:</strong> $1,000 setup + (6 &times; $300 monthly) = $2,800.</p>
+      <p><strong>ROI:</strong> $187,000 / $2,800 = <strong>66x</strong>.</p>
+      <p>The owner's words: "I thought we were doing fine. Turns out we were leaving the cost of a new truck on the table every six months."</p>
+    </div>
+  </section>
+
+  <!-- ===== CHAPTER 8 ===== -->
+  <section id="ch8" class="max-w-2xl mx-auto px-6 sm:px-8 py-16 border-b border-slate-800">
+    <div class="chapter-num">Chapter 08</div>
+    <h2 class="chapter-title">The Setup &mdash; What It Takes</h2>
+    <div class="prose-playbook">
+      <p class="pullquote">48 hours from signed agreement to first booked job. Less time than it takes to hire a CSR.</p>
+      <p>People assume deploying an SMS agent is a multi-month integration project. It's not. Here's the actual timeline:</p>
+      <h3>Day 0 &mdash; Discovery call (15 min)</h3>
+      <p>Confirm your service area, job types, and current dispatch system. Identify must-knows: do you do commercial? what's outside your service area? any seasonal nuances?</p>
+      <h3>Day 1 &mdash; Configuration (4 hours, on our side)</h3>
+      <p>Provision Twilio number (or port your existing number if preferred). Build qualification flow customized to your offerings. Connect to your dispatch system. Configure tone, branding, and signature.</p>
+      <h3>Day 1 &mdash; Test (1 hour, joint)</h3>
+      <p>We text Maya from a test number and walk through 5&ndash;10 scenarios with you live. You approve the voice and flow before go-live. Any tweaks done same day.</p>
+      <h3>Day 2 &mdash; Go live</h3>
+      <p>Marketing assets updated: ad CTAs, yard signs, voicemail greeting, website. Maya starts taking real inbound texts. Daily booking reports sent to you for the first 2 weeks so you can sanity-check the flow.</p>
+      <h3>What you provide</h3>
+      <ul>
+        <li>30 minutes on Day 0 (discovery call)</li>
+        <li>30 minutes on Day 1 (test)</li>
+        <li>Dispatch system credentials (one-time, encrypted)</li>
+        <li>Optional: voice and tone guidelines (we have defaults if you don't)</li>
+      </ul>
+      <p>That's it. Less time than it takes to interview a new CSR &mdash; and Maya doesn't take vacation.</p>
+    </div>
+  </section>
+
+  <!-- ===== CHAPTER 9 ===== -->
+  <section id="ch9" class="max-w-2xl mx-auto px-6 sm:px-8 py-16 border-b border-slate-800">
+    <div class="chapter-num">Chapter 09</div>
+    <h2 class="chapter-title">Common Concerns</h2>
+    <div class="prose-playbook">
+      <p class="pullquote">Every objection has a real answer. Here are the ones I get on every call.</p>
+      <h3>"What if Maya gets a question wrong?"</h3>
+      <p>Maya is trained on your specific service offerings, pricing rules, and service area. If she encounters anything she isn't 100% sure about, she escalates to your team via SMS or Slack with full context &mdash; so a human always closes the gap. You stay in control.</p>
+      <h3>"Will it sound robotic? My customers will hate that."</h3>
+      <p>Maya speaks the way your best CSR speaks: short, friendly, no jargon. We tune her tone during setup to match your brand voice. Most homeowners can't tell they're texting an AI, and frankly, they don't care &mdash; they care that someone answered fast.</p>
+      <h3>"How do I know she's actually replying in 5 seconds?"</h3>
+      <p>Every conversation is logged with timestamps. You can audit response times any day. We send weekly reports showing average response time, booking rate, and escalation rate. If response time ever exceeds 30 seconds, we get a Slack alert and fix it before you notice.</p>
+      <h3>"What about spam texts?"</h3>
+      <p>Maya filters spam automatically (obvious patterns: free crypto, casino, gibberish). For edge cases, she politely doesn't engage. You don't pay for spam interactions.</p>
+      <h3>"Can my customers still call if they want to?"</h3>
+      <p>Yes. The Twilio number takes both calls and texts. Calls forward to your existing line. Maya only handles inbound texts. Customers who want to hear a voice still can.</p>
+      <h3>"What if a customer wants to talk to a human?"</h3>
+      <p>Maya recognizes phrases like "I want to talk to someone" or "can you call me" and escalates immediately to your dispatcher via SMS or Slack. No customer is ever stuck talking to AI when they don't want to.</p>
+      <h3>"What's the pricing?"</h3>
+      <p>Setup fee is one-time. Monthly fee is flat. Volume is unlimited. Exact numbers depend on your shop size and integration complexity &mdash; we walk through it on the setup call. No retainer, no per-message fees, no surprise invoices.</p>
+    </div>
+  </section>
+
+  <!-- ===== CHAPTER 10 — CTA ===== -->
+  <section id="ch10" class="relative max-w-2xl mx-auto px-6 sm:px-8 py-20">
+    <div class="chapter-num">Chapter 10</div>
+    <h2 class="chapter-title">The Next Step</h2>
+    <div class="prose-playbook">
+      <p class="pullquote">10 minutes. No deck. Just a fit check.</p>
+      <p>You've read this far. That means one of two things is true:</p>
+      <ul>
+        <li>You're already losing leads after hours and you know it &mdash; and the only question is whether Maya is the right fix.</li>
+        <li>You're skeptical and want to pressure-test the idea before committing.</li>
+      </ul>
+      <p>Both are good reasons to book a 10-minute setup call. Here's what we'll do on it:</p>
+      <ol class="list-decimal pl-6" style="font-family: Lora, Georgia, serif; font-size: 1.125rem; line-height: 1.85; color: #cbd5e1;">
+        <li class="mb-2"><strong>Audit your current setup.</strong> Call volume, dispatch system, service area. I'll give you a back-of-envelope estimate of what you're losing.</li>
+        <li class="mb-2"><strong>Show you Maya live.</strong> I'll text Maya from a fake homeowner scenario and you'll see the qualification + booking flow end-to-end. If she's not a fit, you'll know in 4 minutes.</li>
+        <li class="mb-2"><strong>Quote the deployment.</strong> If it's a fit, I walk you through setup timeline, cost, and what we need from you.</li>
+      </ol>
+      <p>If it's not a fit, no hard feelings. I'd rather both of us know in 10 minutes than waste 6 weeks discovering it.</p>
+    </div>
+
+    <div class="mt-12 p-8 bg-gradient-to-br from-slate-800 to-slate-900 border border-slate-700 rounded-2xl">
+      <div class="text-center">
+        <div class="text-xs uppercase tracking-[0.2em] text-safety-500 font-bold mb-4">Two ways forward</div>
+        <h3 class="text-2xl sm:text-3xl font-extrabold tracking-tight text-white mb-6">Book the call &mdash; or text Maya first.</h3>
+
+        <a href="https://calendly.com/duy-agentsvietnam/30min" target="_blank" rel="noopener noreferrer"
+           class="cta-orange inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl text-base font-bold text-white">
+          <i data-lucide="calendar-check" class="w-5 h-5"></i>
+          Book My 10-Min Setup Call
+        </a>
+
+        <div class="mt-6 pt-6 border-t border-slate-800">
+          <div class="text-sm text-slate-400 mb-1">Want to feel the product first?</div>
+          <div class="text-xs text-slate-500 mb-2">Text the word QUOTE to:</div>
+          <a href="sms:+15076773559?body=QUOTE" class="text-2xl font-extrabold tracking-tight text-safety-500 hover:text-safety-400 transition">(507) 677-3559</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="border-t border-slate-800 bg-slate-950">
+    <div class="max-w-2xl mx-auto px-6 sm:px-8 py-10 text-center">
+      <div class="flex items-center justify-center gap-2 mb-3">
+        <span class="flex items-center justify-center w-8 h-8 rounded-lg bg-safety-500/10 border border-safety-500/30">
+          <i data-lucide="zap" class="w-4 h-4 text-safety-500"></i>
+        </span>
+        <span class="text-base font-bold tracking-tight">Maya</span>
+      </div>
+      <div class="text-xs text-slate-500">&copy; <span id="footerYear">2026</span> Maya &mdash; agentsvietnam.com. Built for contractors who pick up.</div>
+    </div>
+  </footer>
+
+  <script>
+    lucide.createIcons();
+    document.getElementById('footerYear').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
