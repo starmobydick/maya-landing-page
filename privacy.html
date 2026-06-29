@@ -83,7 +83,7 @@
           <li>Message frequency varies based on the booking conversation flow. A typical booking exchange consists of 3-6 messages.</li>
           <li>Message and data rates may apply depending on your mobile carrier plan.</li>
           <li>You can opt out at any time by replying <strong class="text-white">STOP</strong> to any message. You will receive a confirmation message and no further SMS messages will be sent.</li>
-          <li>For help, reply <strong class="text-white">HELP</strong> to any message or contact us at <a href="/cdn-cgi/l/email-protection#bfd6d1d9d0999c898b84d7dadecbddd0d0d4dacd999c8b8984dcd0d2" class="text-orange-400 hover:text-orange-300 underline underline-offset-2">info&#64;heatbooker&#46;com</a>.</li>
+          <li>For help, reply <strong class="text-white">HELP</strong> to any message or contact us at <a class="cf-safe-email text-orange-400 hover:text-orange-300 underline underline-offset-2" data-user="info" data-domain="heatbooker.com"></a>.</li>
           <li>Consent to receive SMS messages is not a condition of purchasing any goods or services.</li>
         </ul>
       </section>
@@ -124,7 +124,7 @@
         <h2 class="text-xl font-bold text-white mb-3">11. Contact Us</h2>
         <p>If you have questions about this Privacy Policy or our data practices, contact us at:</p>
         <ul class="list-none mt-3 space-y-1">
-          <li><strong class="text-white">Email:</strong> <a href="/cdn-cgi/l/email-protection#7d14131b125b5e4b494615181c091f121216180f5b5e494b461e1210" class="text-orange-400 hover:text-orange-300 underline underline-offset-2">info&#64;heatbooker&#46;com</a></li>
+          <li><strong class="text-white">Email:</strong> <a class="cf-safe-email text-orange-400 hover:text-orange-300 underline underline-offset-2" data-user="info" data-domain="heatbooker.com"></a></li>
           <li><strong class="text-white">Website:</strong> <a href="https://heatbooker.com" class="text-orange-400 hover:text-orange-300 underline underline-offset-2">heatbooker.com</a></li>
         </ul>
       </section>
@@ -134,8 +134,17 @@
 
   <footer class="border-t border-slate-800 bg-slate-950">
     <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-8 text-center text-xs text-slate-500">
-      &copy; <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>document.write(new Date().getFullYear())</script> Maya - heatbooker.com
+      &copy; <script>document.write(new Date().getFullYear())</script> Maya - heatbooker.com
     </div>
   </footer>
+  <script>
+    document.querySelectorAll('.cf-safe-email').forEach(function(el) {
+      var u = el.getAttribute('data-user');
+      var d = el.getAttribute('data-domain');
+      var addr = u + '@' + d;
+      el.href = 'mail' + 'to:' + addr;
+      el.textContent = addr;
+    });
+  </script>
 </body>
 </html>
