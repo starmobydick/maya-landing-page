@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Maya Demo — Try the AI SMS Booking Agent</title>
+  <meta name="description" content="See exactly what your customers experience when they text your business number. Maya books appointments in seconds, 24/7." />
+
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Lucide Icons via CDN -->
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] },
+          colors: {
+            safety: {
+              50:  '#fff7ed',
+              100: '#ffedd5',
+              400: '#fb923c',
+              500: '#f97316',
+              600: '#ea580c',
+              700: '#c2410c',
+            }
+          },
+          animation: {
+            'typing': 'typing 1.4s infinite ease-in-out',
+            'fade-in': 'fadeIn 0.22s ease-out forwards',
+          },
+          keyframes: {
+            typing: {
+              '0%, 60%, 100%': { transform: 'translateY(0)', opacity: '0.4' },
+              '30%':            { transform: 'translateY(-4px)', opacity: '1' },
+            },
+            fadeIn: {
+              '0%':   { opacity: '0', transform: 'scale(0.9) translateY(6px)' },
+              '100%': { opacity: '1', transform: 'scale(1) translateY(0)' },
+            },
+          },
+        }
+      }
+    }
+  </script>
+
+  <style>
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: #0f172a;
+      color: #f8fafc;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── CTA button (same as index.html) ───────────────────────────────────── */
+    .cta-orange {
+      background: linear-gradient(180deg, #fb923c 0%, #f97316 50%, #ea580c 100%);
+      box-shadow: 0 1px 0 rgba(255,255,255,.2) inset,
+                  0 8px 24px -8px rgba(249,115,22,.6),
+                  0 4px 12px -4px rgba(0,0,0,.4);
+      transition: transform .15s ease, box-shadow .15s ease;
+    }
+    .cta-orange:hover  { transform: translateY(-1px); box-shadow: 0 1px 0 rgba(255,255,255,.2) inset, 0 12px 28px -8px rgba(249,115,22,.7), 0 6px 16px -4px rgba(0,0,0,.5); }
+    .cta-orange:active { transform: translateY(0); }
+
+    /* ── Typing dots ────────────────────────────────────────────────────────── */
+    .typing-dot {
+      width: 7px; height: 7px; border-radius: 9999px;
+      background: #64748b; display: inline-block; margin: 0 2px;
+      animation: typing 1.4s infinite ease-in-out;
+    }
+    .typing-dot:nth-child(2) { animation-delay: .2s; }
+    .typing-dot:nth-child(3) { animation-delay: .4s; }
+
+    /* ── Messages scrollbar ─────────────────────────────────────────────────── */
+    #messagesArea::-webkit-scrollbar        { width: 3px; }
+    #messagesArea::-webkit-scrollbar-track  { background: transparent; }
+    #messagesArea::-webkit-scrollbar-thumb  { background: #334155; border-radius: 2px; }
+
+    /* ── Phone shell (applied via JS only on ≥ 768px) ──────────────────────── */
+    .phone-shell {
+      background: #18181b;
+      border-radius: 2.75rem;
+      padding: 8px;
+      box-shadow:
+        0 0 0 1px rgba(255,255,255,.07),
+        0 0 0 3px #0f172a,
+        0 35px 70px -15px rgba(0,0,0,.95),
+        inset 0 1px 0 rgba(255,255,255,.08);
+    }
+
+    /* ── Demo tab active ─────────────────────────────────────────────────────── */
+    .demo-tab {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 8px 18px; border-radius: 9999px;
+      font-size: .875rem; font-weight: 500;
+      transition: all .18s ease; cursor: pointer;
+      border: 1px solid #334155; background: transparent; color: #94a3b8;
+    }
+    .demo-tab:hover { color: #e2e8f0; border-color: #475569; }
+    .demo-tab.active {
+      background: #f97316; border-color: #f97316; color: #fff;
+      box-shadow: 0 4px 14px -3px rgba(249,115,22,.45);
+    }
+
+    /* ── Bubble entrance ─────────────────────────────────────────────────────── */
+    .bubble-in { animation: fadeIn .22s ease-out forwards; }
+
+    /* ── Disabled ─────────────────────────────────────────────────────────────── */
+    input:disabled { opacity: .5; cursor: not-allowed; }
+  </style>
+</head>
+
+<body class="antialiased">
+
+<!-- ═══════════════════════════════════════════════════════════════════════════ -->
+<!-- NAV (pixel-identical to index.html; links go back to /#sections)          -->
+<!-- ═══════════════════════════════════════════════════════════════════════════ -->
+<nav class="sticky top-0 z-50 backdrop-blur-md bg-slate-900/80 border-b border-slate-800">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16">
+
+      <a href="/" class="flex items-center gap-2">
+        <span class="flex items-center justify-center w-8 h-8 rounded-lg bg-safety-500/10 border border-safety-500/30">
+          <i data-lucide="zap" class="w-4 h-4 text-safety-500"></i>
+        </span>
+        <span class="text-lg font-bold tracking-tight">Maya</span>
+        <span class="hidden sm:inline text-xs uppercase tracking-widest text-slate-500 ml-1 border-l border-slate-700 pl-2">SMS Agent</span>
+      </a>
+
+      <div class="hidden md:flex items-center gap-8 text-sm text-slate-300">
+        <a href="/#how"  class="hover:text-white transition">How it works</a>
+        <a href="/#roi"  class="hover:text-white transition">ROI</a>
+        <a href="/#demo" class="hover:text-white transition">Live Demo</a>
+        <a href="/#faq"  class="hover:text-white transition">FAQ</a>
+      </div>
+
+      <a href="https://calendly.com/duy-agentsvietnam/30min"
+         target="_blank" rel="noopener noreferrer"
+         class="cta-orange inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-sm font-semibold text-white">
+        <i data-lucide="calendar-check" class="w-4 h-4"></i>
+        <span class="hidden sm:inline">Book Setup Call</span>
+        <span class="sm:hidden">Book Call</span>
+      </a>
+    </div>
+  </div>
+</nav>
+
+<!-- ═══════════════════════════════════════════════════════════════════════════ -->
+<!-- MAIN                                                                       -->
+<!-- ═══════════════════════════════════════════════════════════════════════════ -->
+<main class="flex flex-col" style="min-height: calc(100vh - 4rem);">
+
+  <!-- Page header -->
+  <div class="text-center pt-10 pb-5 px-4">
+    <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-safety-500/30 bg-safety-500/10 text-safety-400 text-xs font-semibold uppercase tracking-wider mb-4">
+      <span class="relative flex h-2 w-2">
+        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-safety-400 opacity-75"></span>
+        <span class="relative inline-flex rounded-full h-2 w-2 bg-safety-500"></span>
+      </span>
+      Live AI Demo
+    </div>
+    <h1 class="text-2xl sm:text-3xl font-bold text-white mb-2 tracking-tight">
+      See Maya in Action
+    </h1>
+    <p class="text-slate-400 text-sm sm:text-base max-w-sm mx-auto leading-relaxed">
+      This is exactly what your customers experience when they text your business number.
+    </p>
+  </div>
+
+  <!-- Persona toggle -->
+  <div class="flex justify-center gap-2 px-4 mb-6">
+    <button class="demo-tab active" id="tabHomeowner">
+      <i data-lucide="home" class="w-3.5 h-3.5"></i>
+      Homeowner view
+    </button>
+    <button class="demo-tab" id="tabOwner">
+      <i data-lucide="building-2" class="w-3.5 h-3.5"></i>
+      For your shop
+    </button>
+  </div>
+
+  <!-- ─────────────────────────────────────────────────────────── -->
+  <!-- PANEL A — Homeowner chat demo                              -->
+  <!-- ─────────────────────────────────────────────────────────── -->
+  <div id="panelHomeowner" class="flex flex-col items-center px-4 pb-10">
+
+    <!-- Contextual hint -->
+    <p class="text-xs text-slate-500 mb-5 text-center">
+      Play as a homeowner. Try:
+      <span class="text-slate-400 italic">"My AC stopped working and it's 95° outside"</span>
+    </p>
+
+    <!-- Phone wrapper — phone-shell class toggled by JS on desktop -->
+    <div id="phoneWrapper" class="w-full max-w-[360px]">
+
+      <!-- Status bar — shown only on desktop (toggled by JS) -->
+      <div id="statusBar"
+           class="hidden items-center justify-between px-6 bg-black"
+           style="height: 36px; border-radius: 2.25rem 2.25rem 0 0;">
+        <span id="statusTime" class="text-white text-xs font-semibold select-none">9:41</span>
+        <div class="w-[88px] h-[18px] bg-[#18181b] rounded-full"></div>
+        <div class="flex items-center gap-1.5">
+          <i data-lucide="signal" class="w-3.5 h-3.5 text-white"></i>
+          <i data-lucide="battery" class="w-4 h-4 text-white"></i>
+        </div>
+      </div>
+
+      <!-- ── Chat screen ──────────────────────────────────────── -->
+      <div id="chatScreen"
+           class="flex flex-col overflow-hidden
+                  border border-slate-700 rounded-2xl
+                  h-[62vh] min-h-[400px]"
+           style="background: #000; transition: border-radius .2s, border .2s;">
+
+        <!-- Conversation header (SMS style) -->
+        <div class="flex items-center gap-3 px-4 py-3 flex-shrink-0"
+             style="background: #1c1c1e; border-bottom: 1px solid #2c2c2e;">
+          <div class="w-9 h-9 rounded-full bg-green-700 flex items-center justify-center
+                      text-white text-sm font-bold flex-shrink-0 ring-2 ring-green-600/30">
+            A
+          </div>
+          <div class="flex-1 min-w-0">
+            <div class="text-white text-sm font-semibold leading-none">Apex HVAC</div>
+            <div class="mt-0.5 flex items-center gap-1 text-xs text-green-400">
+              <span class="inline-block w-1.5 h-1.5 rounded-full bg-green-400 flex-shrink-0"></span>
+              Maya · AI Booking
+            </div>
+          </div>
+          <i data-lucide="phone" class="w-5 h-5 text-slate-500 flex-shrink-0"></i>
+        </div>
+
+        <!-- Messages area -->
+        <div id="messagesArea"
+             class="flex-1 overflow-y-auto px-3 py-4 space-y-2"
+             style="background: #000; scroll-behavior: smooth;">
+          <!-- Bubbles injected by JS -->
+        </div>
+
+        <!-- Input bar -->
+        <div class="flex items-center gap-2 px-3 py-3 flex-shrink-0"
+             style="background: #1c1c1e; border-top: 1px solid #2c2c2e;">
+          <div class="flex-1 flex items-center px-4 py-2 rounded-full"
+               style="background: #2c2c2e; border: 1px solid #3c3c3e;">
+            <input id="messageInput"
+                   type="text"
+                   placeholder="iMessage"
+                   autocomplete="off"
+                   class="flex-1 bg-transparent text-white text-sm outline-none placeholder:text-slate-500 min-w-0" />
+          </div>
+          <button id="sendBtn"
+                  class="w-8 h-8 rounded-full flex-shrink-0 flex items-center justify-center cta-orange"
+                  aria-label="Send">
+            <i data-lucide="arrow-up" class="w-4 h-4 text-white"></i>
+          </button>
+        </div>
+      </div>
+      <!-- /chatScreen -->
+
+      <!-- Home indicator — shown only on desktop (toggled by JS) -->
+      <div id="homeBar"
+           class="hidden items-center justify-center bg-black"
+           style="height: 24px; border-radius: 0 0 2.25rem 2.25rem;">
+        <div class="w-28 h-1 bg-slate-600 rounded-full"></div>
+      </div>
+
+    </div><!-- /phoneWrapper -->
+
+    <!-- Reset (shown after first exchange) -->
+    <button id="resetBtn"
+            class="hidden items-center gap-1.5 mt-5 text-xs text-slate-500
+                   hover:text-slate-300 transition-colors underline underline-offset-2">
+      <i data-lucide="rotate-ccw" class="w-3 h-3"></i>
+      Start over
+    </button>
+
+  </div><!-- /panelHomeowner -->
+
+
+  <!-- ─────────────────────────────────────────────────────────── -->
+  <!-- PANEL B — "For your shop" CTA                              -->
+  <!-- ─────────────────────────────────────────────────────────── -->
+  <div id="panelOwner"
+       class="hidden flex-col items-center justify-center flex-1 px-4 pt-4 pb-16">
+
+    <div class="max-w-md w-full">
+      <div class="bg-slate-800/40 border border-slate-700 rounded-2xl p-8 sm:p-10 text-center">
+
+        <div class="w-16 h-16 rounded-full bg-safety-500/10 border border-safety-500/30
+                    flex items-center justify-center mx-auto mb-5">
+          <i data-lucide="zap" class="w-7 h-7 text-safety-500"></i>
+        </div>
+
+        <h2 class="text-xl sm:text-2xl font-bold text-white mb-3 tracking-tight">
+          Ready to set this up for your shop?
+        </h2>
+        <p class="text-slate-400 text-sm sm:text-base leading-relaxed mb-1">
+          That flow you just watched — qualifying leads and booking appointments via SMS, 24/7, in under 5 seconds — can be live on your business number after one 30-minute call.
+        </p>
+        <p class="text-slate-500 text-xs mb-8">No code. No tech setup. Done-for-you.</p>
+
+        <!-- Primary CTA -->
+        <a href="https://calendly.com/duy-agentsvietnam/30min"
+           target="_blank" rel="noopener noreferrer"
+           class="cta-orange w-full inline-flex items-center justify-center gap-2
+                  px-6 py-3.5 rounded-xl text-base font-semibold text-white mb-3">
+          <i data-lucide="calendar-check" class="w-5 h-5"></i>
+          Book a 30-Min Setup Demo
+        </a>
+
+        <!-- Secondary CTA -->
+        <a href="sms:+15076773559?body=QUOTE"
+           class="w-full inline-flex items-center justify-center gap-2
+                  px-6 py-3 rounded-xl text-sm font-medium text-slate-300
+                  border border-slate-700 bg-slate-800/50
+                  hover:border-slate-500 hover:text-white transition-all duration-150">
+          <i data-lucide="message-square" class="w-4 h-4"></i>
+          Or text QUOTE to (507) 677-3559
+        </a>
+
+        <p class="text-xs text-slate-600 mt-7">
+          <button id="backToDemo"
+                  class="text-slate-500 underline underline-offset-2 hover:text-slate-300 transition">
+            ← Watch the homeowner demo again
+          </button>
+        </p>
+      </div>
+    </div>
+
+  </div><!-- /panelOwner -->
+
+</main>
+
+<!-- ═══════════════════════════════════════════════════════════════════════════ -->
+<!-- FOOTER (same as index.html)                                                -->
+<!-- ═══════════════════════════════════════════════════════════════════════════ -->
+<footer class="border-t border-slate-800 bg-slate-950">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
+
+      <a href="/" class="flex items-center gap-2">
+        <span class="flex items-center justify-center w-7 h-7 rounded-lg bg-safety-500/10 border border-safety-500/30">
+          <i data-lucide="zap" class="w-3.5 h-3.5 text-safety-500"></i>
+        </span>
+        <span class="text-base font-bold tracking-tight">Maya</span>
+        <span class="text-xs uppercase tracking-widest text-slate-500 ml-1 border-l border-slate-700 pl-2">SMS Agent</span>
+      </a>
+
+      <div class="text-xs text-slate-500 text-center sm:text-right">
+        <div>© <span id="footerYear"></span> Maya. Built for contractors who pick up.</div>
+        <div class="mt-1 flex items-center gap-3 justify-center sm:justify-end">
+          <a href="/privacy.html" class="hover:text-slate-300 underline underline-offset-2 transition">Privacy Policy</a>
+          <span class="text-slate-700">|</span>
+          <a href="/terms.html" class="hover:text-slate-300 underline underline-offset-2 transition">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ═══════════════════════════════════════════════════════════════════════════ -->
+<!-- JAVASCRIPT                                                                 -->
+<!-- ═══════════════════════════════════════════════════════════════════════════ -->
+<script>
+  // ─── Init ─────────────────────────────────────────────────────────────────
+  lucide.createIcons();
+  document.getElementById('footerYear').textContent = new Date().getFullYear();
+
+  // Live clock in status bar
+  function updateClock() {
+    const now = new Date();
+    const h   = now.getHours() % 12 || 12;
+    const m   = String(now.getMinutes()).padStart(2, '0');
+    document.getElementById('statusTime').textContent = h + ':' + m;
+  }
+  updateClock();
+  setInterval(updateClock, 30000);
+
+  // ─── Apply / remove phone shell based on screen width ─────────────────────
+  function applyPhoneFrame() {
+    const wrapper    = document.getElementById('phoneWrapper');
+    const statusBar  = document.getElementById('statusBar');
+    const homeBar    = document.getElementById('homeBar');
+    const chatScreen = document.getElementById('chatScreen');
+    const isDesktop  = window.innerWidth >= 768;
+
+    if (isDesktop) {
+      wrapper.classList.add('phone-shell');
+      statusBar.classList.remove('hidden');
+      statusBar.classList.add('flex');
+      homeBar.classList.remove('hidden');
+      homeBar.classList.add('flex');
+      // Round only the inner edges (shell provides the outer curve)
+      chatScreen.style.borderRadius = '0';
+      chatScreen.style.border       = 'none';
+      chatScreen.style.height       = '520px';
+    } else {
+      wrapper.classList.remove('phone-shell');
+      statusBar.classList.remove('flex');
+      statusBar.classList.add('hidden');
+      homeBar.classList.remove('flex');
+      homeBar.classList.add('hidden');
+      chatScreen.style.borderRadius = '1rem';
+      chatScreen.style.border       = '1px solid #334155';
+      chatScreen.style.height       = '62vh';
+    }
+  }
+  applyPhoneFrame();
+  window.addEventListener('resize', applyPhoneFrame);
+
+  // ─── Config ───────────────────────────────────────────────────────────────
+  const BACKEND_URL  = 'https://maya-webhook-n2kktc3c1-tranduy91094-2026s-projects.vercel.app/api/chat';
+  const CALENDLY_URL = 'https://calendly.com/duy-agentsvietnam/30min';
+
+  // ─── Session ──────────────────────────────────────────────────────────────
+  function newSessionId() {
+    if (crypto?.randomUUID) return crypto.randomUUID();
+    return 'xxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, c => {
+      const r = Math.random() * 16 | 0;
+      return (c === 'x' ? r : (r & 0x3 | 0x8)).toString(16);
+    });
+  }
+  let sessionId = newSessionId();
+
+  // ─── State ────────────────────────────────────────────────────────────────
+  let isLoading           = false;
+  let conversationStarted = false;
+  let conversationEnded   = false;
+
+  // ─── DOM refs ─────────────────────────────────────────────────────────────
+  const messagesArea = document.getElementById('messagesArea');
+  const messageInput = document.getElementById('messageInput');
+  const sendBtn      = document.getElementById('sendBtn');
+  const resetBtn     = document.getElementById('resetBtn');
+
+  // ─── Bubble helpers ───────────────────────────────────────────────────────
+  function addBubble(text, role) {
+    const isUser = role === 'user';
+
+    const row = document.createElement('div');
+    row.className = (isUser ? 'flex justify-end' : 'flex justify-start') + ' bubble-in';
+
+    const bubble = document.createElement('div');
+    const sharedClasses = 'max-w-[80%] px-4 py-2.5 text-sm text-white leading-relaxed';
+    bubble.className = sharedClasses + ' ' +
+      (isUser ? 'rounded-[1.15rem] rounded-br-[4px]' : 'rounded-[1.15rem] rounded-bl-[4px]');
+    bubble.style.cssText = isUser
+      ? 'background: #f97316;'
+      : 'background: #1c1c1e; border: 1px solid #2c2c2e;';
+
+    // Linkify Calendly URLs in Maya's replies
+    const calendlyRe = /(https:\/\/calendly\.com\/[^\s]+)/g;
+    if (!isUser && calendlyRe.test(text)) {
+      const parts = text.split(/(https:\/\/calendly\.com\/[^\s]+)/g);
+      parts.forEach(part => {
+        if (/^https:\/\/calendly\.com\//.test(part)) {
+          const a = document.createElement('a');
+          a.href      = part;
+          a.target    = '_blank';
+          a.rel       = 'noopener noreferrer';
+          a.textContent = 'Tap to book your appointment →';
+          a.className = 'block mt-2 text-safety-400 font-semibold underline underline-offset-2';
+          bubble.appendChild(a);
+        } else if (part.trim()) {
+          const s = document.createElement('span');
+          s.textContent = part;
+          bubble.appendChild(s);
+        }
+      });
+    } else {
+      bubble.textContent = text;
+    }
+
+    row.appendChild(bubble);
+    messagesArea.appendChild(row);
+    messagesArea.scrollTop = messagesArea.scrollHeight;
+
+    // Reveal reset button on first Maya reply
+    if (!isUser && !conversationStarted) {
+      conversationStarted = true;
+      resetBtn.classList.remove('hidden');
+      resetBtn.classList.add('flex');
+    }
+  }
+
+  function showTyping() {
+    const row = document.createElement('div');
+    row.id        = 'typingRow';
+    row.className = 'flex justify-start bubble-in';
+    row.innerHTML = `
+      <div class="px-4 py-3 rounded-[1.15rem] rounded-bl-[4px]"
+           style="background:#1c1c1e; border:1px solid #2c2c2e;">
+        <span class="typing-dot"></span>
+        <span class="typing-dot"></span>
+        <span class="typing-dot"></span>
+      </div>`;
+    messagesArea.appendChild(row);
+    messagesArea.scrollTop = messagesArea.scrollHeight;
+  }
+
+  function removeTyping() {
+    document.getElementById('typingRow')?.remove();
+  }
+
+  function showConversionCTA() {
+    const row = document.createElement('div');
+    row.className = 'flex justify-center pt-3 pb-1 bubble-in';
+    row.innerHTML = `
+      <a href="${CALENDLY_URL}" target="_blank" rel="noopener noreferrer"
+         class="cta-orange inline-flex items-center gap-1.5 px-5 py-2.5
+                rounded-full text-sm font-semibold text-white">
+        Book your 30-min setup demo&nbsp;→
+      </a>`;
+    messagesArea.appendChild(row);
+    messagesArea.scrollTop = messagesArea.scrollHeight;
+  }
+
+  // ─── Input state ──────────────────────────────────────────────────────────
+  function setUIDisabled(on) {
+    messageInput.disabled = on;
+    sendBtn.disabled      = on;
+    sendBtn.style.opacity = on ? '0.4' : '1';
+    sendBtn.style.cursor  = on ? 'not-allowed' : 'pointer';
+  }
+
+  // ─── Send a user message ──────────────────────────────────────────────────
+  async function sendMessage(text) {
+    text = text.trim();
+    if (!text || isLoading || conversationEnded) return;
+
+    addBubble(text, 'user');
+    messageInput.value = '';
+    isLoading = true;
+    setUIDisabled(true);
+    showTyping();
+
+    try {
+      const res = await fetch(BACKEND_URL, {
+        method:  'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body:    JSON.stringify({ sessionId, message: text }),
+      });
+      if (!res.ok) throw new Error('HTTP ' + res.status);
+      const data = await res.json();
+
+      removeTyping();
+      addBubble(data.reply, 'maya');
+
+      if (data.ended) {
+        conversationEnded = true;
+        setUIDisabled(true);
+        messageInput.placeholder = 'Conversation complete';
+        showConversionCTA();
+      }
+    } catch (_) {
+      removeTyping();
+      addBubble('Connection hiccup — please try once more.', 'maya');
+    } finally {
+      isLoading = false;
+      if (!conversationEnded) {
+        setUIDisabled(false);
+        messageInput.focus();
+      }
+    }
+  }
+
+  // ─── Cold start — triggers Maya's opening message ─────────────────────────
+  async function coldStart() {
+    isLoading = true;
+    setUIDisabled(true);
+    showTyping();
+
+    try {
+      const res = await fetch(BACKEND_URL, {
+        method:  'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body:    JSON.stringify({ sessionId, message: '__start__' }),
+      });
+      if (!res.ok) throw new Error('HTTP ' + res.status);
+      const data = await res.json();
+      removeTyping();
+      addBubble(data.reply, 'maya');
+    } catch (_) {
+      // Fallback opener shown if backend is unreachable
+      removeTyping();
+      addBubble(
+        "Hey! 👋 This is Maya from Apex HVAC. I can get you booked with a technician in about 2 minutes. Mind if I ask a couple quick questions first?",
+        'maya'
+      );
+    } finally {
+      isLoading = false;
+      setUIDisabled(false);
+      messageInput.focus();
+    }
+  }
+
+  // ─── Reset conversation ────────────────────────────────────────────────────
+  function resetConversation() {
+    sessionId           = newSessionId();
+    isLoading           = false;
+    conversationStarted = false;
+    conversationEnded   = false;
+
+    messagesArea.innerHTML   = '';
+    messageInput.value       = '';
+    messageInput.placeholder = 'iMessage';
+    resetBtn.classList.add('hidden');
+    resetBtn.classList.remove('flex');
+    setUIDisabled(false);
+    coldStart();
+  }
+
+  // ─── Tab switching ────────────────────────────────────────────────────────
+  function switchTab(which) {
+    const btnH  = document.getElementById('tabHomeowner');
+    const btnO  = document.getElementById('tabOwner');
+    const panH  = document.getElementById('panelHomeowner');
+    const panO  = document.getElementById('panelOwner');
+
+    if (which === 'homeowner') {
+      btnH.classList.add('active');   btnO.classList.remove('active');
+      panH.classList.remove('hidden'); panH.classList.add('flex');
+      panO.classList.add('hidden');   panO.classList.remove('flex');
+    } else {
+      btnO.classList.add('active');   btnH.classList.remove('active');
+      panO.classList.remove('hidden'); panO.classList.add('flex');
+      panH.classList.add('hidden');   panH.classList.remove('flex');
+    }
+  }
+
+  // ─── Event listeners ──────────────────────────────────────────────────────
+  document.getElementById('tabHomeowner').addEventListener('click', () => switchTab('homeowner'));
+  document.getElementById('tabOwner').addEventListener('click',     () => switchTab('owner'));
+  document.getElementById('backToDemo').addEventListener('click',   () => switchTab('homeowner'));
+  resetBtn.addEventListener('click', resetConversation);
+
+  sendBtn.addEventListener('click', () => sendMessage(messageInput.value));
+  messageInput.addEventListener('keydown', e => {
+    if (e.key === 'Enter' && !e.shiftKey) {
+      e.preventDefault();
+      sendMessage(messageInput.value);
+    }
+  });
+
+  // ─── Boot ─────────────────────────────────────────────────────────────────
+  coldStart();
+</script>
+</body>
+</html>
