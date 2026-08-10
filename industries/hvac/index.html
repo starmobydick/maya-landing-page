@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>24/7 AI SMS Booking Agent for HVAC Contractors | Maya</title>
+  <meta name="description" content="Stop losing HVAC jobs to voicemail. Maya is the AI SMS virtual receptionist that qualifies AC repair, heating, and installation leads and books them on ServiceTitan, Housecall Pro, or Jobber in under 5 seconds." />
+  <link rel="canonical" href="https://heatbooker.com/industries/hvac/" />
+  <meta name="robots" content="index, follow" />
+  <meta property="og:title" content="24/7 AI SMS Booking Agent for HVAC Contractors | Maya" />
+  <meta property="og:description" content="Stop losing HVAC jobs to voicemail. Maya qualifies AC repair, heating, and installation leads and books them on ServiceTitan, Housecall Pro, or Jobber in under 5 seconds." />
+  <meta property="og:url" content="https://heatbooker.com/industries/hvac/" />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Inter', 'sans-serif'] },
+          colors: {
+            'safety-orange': '#f97316',
+          },
+          animation: {
+            'fade-in': 'fadeIn 0.5s ease-out',
+          },
+          keyframes: {
+            fadeIn: { '0%': { opacity: '0', transform: 'translateY(10px)' }, '100%': { opacity: '1', transform: 'translateY(0)' } }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body { font-family: 'Inter', sans-serif; background-color: #0f172a; color: #f8fafc; }
+
+    .cta-orange {
+      background-color: #f97316;
+      color: #fff;
+      font-weight: 700;
+      padding: 0.75rem 1.75rem;
+      border-radius: 0.5rem;
+      display: inline-block;
+      transition: background-color 0.2s, transform 0.1s;
+      text-decoration: none;
+    }
+    .cta-orange:hover { background-color: #ea6c0a; transform: translateY(-1px); }
+    .cta-orange:active { transform: translateY(0); }
+
+    .stat-card {
+      background: linear-gradient(135deg, #1e293b 0%, #162032 100%);
+      border: 1px solid #334155;
+      border-radius: 0.75rem;
+      padding: 1.5rem;
+      text-align: center;
+    }
+
+    .qualify-card {
+      background-color: #1e293b;
+      border: 1px solid #334155;
+      border-radius: 0.75rem;
+      padding: 1.5rem;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .qualify-card:hover { border-color: #f97316; box-shadow: 0 4px 20px rgba(249,115,22,0.12); }
+
+    /* ROI Calculator */
+    .roi-slider {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 100%;
+      height: 6px;
+      border-radius: 3px;
+      background: #334155;
+      outline: none;
+    }
+    .roi-slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: #f97316;
+      cursor: pointer;
+      transition: transform 0.1s;
+    }
+    .roi-slider::-webkit-slider-thumb:hover { transform: scale(1.2); }
+    .roi-slider::-moz-range-thumb {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: #f97316;
+      cursor: pointer;
+      border: none;
+    }
+
+    /* Chat bubbles */
+    .chat-bubble-maya {
+      background-color: #1d4ed8;
+      color: white;
+      border-radius: 1rem 1rem 1rem 0.25rem;
+      padding: 0.75rem 1rem;
+      max-width: 80%;
+      font-size: 0.875rem;
+      line-height: 1.5;
+    }
+    .chat-bubble-lead {
+      background-color: #334155;
+      color: #f1f5f9;
+      border-radius: 1rem 1rem 0.25rem 1rem;
+      padding: 0.75rem 1rem;
+      max-width: 80%;
+      font-size: 0.875rem;
+      line-height: 1.5;
+      margin-left: auto;
+    }
+    .chat-bubble-booked {
+      background-color: #16a34a;
+      color: white;
+      border-radius: 1rem 1rem 0.25rem 1rem;
+      padding: 0.75rem 1rem;
+      max-width: 80%;
+      font-size: 0.875rem;
+      font-weight: 600;
+      margin-left: auto;
+    }
+
+    /* FAQ accordions */
+    details {
+      background-color: #1e293b;
+      border: 1px solid #334155;
+      border-radius: 0.75rem;
+      overflow: hidden;
+      transition: border-color 0.2s;
+    }
+    details[open] { border-color: #f97316; }
+    details summary {
+      list-style: none;
+      cursor: pointer;
+      padding: 1.25rem 1.5rem;
+      font-weight: 600;
+      color: #f1f5f9;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      user-select: none;
+    }
+    details summary::-webkit-details-marker { display: none; }
+    details summary::after {
+      content: '+';
+      font-size: 1.25rem;
+      color: #f97316;
+      transition: transform 0.2s;
+      flex-shrink: 0;
+      margin-left: 1rem;
+    }
+    details[open] summary::after { content: '−'; }
+    details .faq-body {
+      padding: 0 1.5rem 1.25rem;
+      color: #94a3b8;
+      line-height: 1.7;
+      font-size: 0.9375rem;
+    }
+
+    /* CRM cards */
+    .crm-card {
+      background-color: #1e293b;
+      border: 1px solid #334155;
+      border-radius: 0.75rem;
+      padding: 1.25rem 1rem;
+      text-align: center;
+      transition: border-color 0.2s;
+    }
+    .crm-card:hover { border-color: #475569; }
+
+    #scroll-top {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      width: 3rem;
+      height: 3rem;
+      background-color: #f97316;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s, transform 0.2s;
+      z-index: 999;
+      border: none;
+      color: white;
+    }
+    #scroll-top.visible { opacity: 1; pointer-events: all; }
+    #scroll-top:hover { transform: scale(1.1); }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "SoftwareApplication",
+        "name": "Maya",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Cloud",
+        "url": "https://heatbooker.com",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        }
+      },
+      {
+        "@type": "Service",
+        "name": "AI SMS Booking Agent for HVAC Contractors",
+        "serviceType": "HVAC Appointment Booking",
+        "provider": {
+          "@type": "Organization",
+          "name": "Maya",
+          "url": "https://heatbooker.com"
+        },
+        "areaServed": "United States",
+        "description": "24/7 AI SMS receptionist that qualifies HVAC leads and books appointments on ServiceTitan and Housecall Pro"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://heatbooker.com/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Industries",
+            "item": "https://heatbooker.com/industries/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "HVAC",
+            "item": "https://heatbooker.com/industries/hvac/"
+          }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Does Maya handle emergency AC calls differently?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Maya detects urgency signals ('95 degrees,' 'AC is out,' 'no cooling') and merges the acknowledgment with the next qualifying question — no back-and-forth delay. She routes emergencies to your on-call tech automatically."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can Maya qualify leads for AC replacement vs. repair?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Absolutely. She asks about unit age, last service date, and whether it's stopped working entirely. If the unit is 10+ years old and fully down, she flags it as a likely replacement conversation so your tech walks in prepared."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does it work with my ServiceTitan dispatch board?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Maya integrates directly with ServiceTitan and Housecall Pro — booked jobs appear on your dispatch board with the homeowner's name, address, job type, and Maya's qualification notes attached."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body class="antialiased">
+
+  <!-- NAV -->
+  <nav class="sticky top-0 z-50 bg-slate-900/95 backdrop-blur border-b border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <a href="/" class="flex items-center gap-2 text-white font-bold text-xl no-underline">
+          <span class="text-orange-500">&#9711;</span>
+          Maya
+        </a>
+        <div class="hidden md:flex items-center gap-6 text-sm">
+          <a href="/industries/" class="text-slate-400 hover:text-white transition-colors">Industries</a>
+          <a href="/locations/" class="text-slate-400 hover:text-white transition-colors">Locations</a>
+          <a href="/#how" class="text-slate-400 hover:text-white transition-colors">How It Works</a>
+          <a href="/#roi" class="text-slate-400 hover:text-white transition-colors">ROI</a>
+          <a href="/#demo" class="text-slate-400 hover:text-white transition-colors">Demo</a>
+          <a href="/#faq" class="text-slate-400 hover:text-white transition-colors">FAQ</a>
+        </div>
+        <a href="https://calendly.com/duy-heatbooker/30min" class="cta-orange text-sm py-2 px-4">Book Setup Call</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="py-16 md:py-24 px-4">
+    <div class="max-w-4xl mx-auto">
+
+      <!-- Breadcrumb -->
+      <nav class="mb-6 text-sm text-slate-400" aria-label="Breadcrumb">
+        <a href="/" class="hover:text-slate-200 transition-colors">Home</a>
+        <span class="mx-2">/</span>
+        <a href="/industries/" class="hover:text-slate-200 transition-colors">Industries</a>
+        <span class="mx-2">/</span>
+        <span class="text-slate-200">HVAC</span>
+      </nav>
+
+      <!-- Badge -->
+      <div class="inline-flex items-center gap-2 border border-orange-500 text-orange-400 text-xs font-semibold px-3 py-1 rounded-full mb-6">
+        <i data-lucide="wind" class="w-3.5 h-3.5"></i>
+        HVAC AI Dispatcher
+      </div>
+
+      <h1 class="text-4xl md:text-6xl font-extrabold text-white leading-tight mb-6">
+        Stop Losing <span class="text-orange-500">$8,500</span> Every Time an AC Lead Hits Voicemail.
+      </h1>
+      <p class="text-lg md:text-xl text-slate-400 leading-relaxed mb-8 max-w-2xl">
+        Maya is the 24/7 AI SMS virtual receptionist for HVAC contractors. Qualifies homeowners on service area, job type (AC repair, diagnostic, full swap), and urgency — then books them on ServiceTitan, Housecall Pro, or Jobber in under 5 seconds.
+      </p>
+
+      <div class="flex flex-col sm:flex-row gap-4 mb-7">
+        <a href="https://calendly.com/duy-heatbooker/30min" class="cta-orange text-base py-3.5 px-8 text-center">
+          Book My 30-Min Setup Call
+        </a>
+        <a href="sms:+15076773559?body=QUOTE" class="inline-flex items-center justify-center gap-2 bg-slate-700 hover:bg-slate-600 text-white font-semibold py-3.5 px-8 rounded-lg transition-colors text-base">
+          <i data-lucide="message-circle" class="w-5 h-5"></i>
+          Text QUOTE to Demo Maya
+        </a>
+      </div>
+
+      <!-- Trust strip -->
+      <p class="text-slate-500 text-sm">
+        <span class="text-slate-300">5-second response</span>
+        <span class="mx-2">·</span>
+        <span class="text-slate-300">Works 24/7/365</span>
+        <span class="mx-2">·</span>
+        <span class="text-slate-300">ServiceTitan &amp; Housecall Pro sync</span>
+      </p>
+    </div>
+  </section>
+
+  <!-- PROBLEM STATS -->
+  <section class="py-14 px-4 bg-slate-800/30">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-center mb-10">
+        <h2 class="text-2xl md:text-3xl font-extrabold text-white">The Real Cost of Missed HVAC Calls</h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="stat-card">
+          <p class="text-5xl font-extrabold text-orange-500 mb-2">38%</p>
+          <p class="text-slate-300 font-medium">of HVAC calls go unanswered after hours</p>
+        </div>
+        <div class="stat-card">
+          <p class="text-5xl font-extrabold text-orange-500 mb-2">$8,500</p>
+          <p class="text-slate-300 font-medium">avg job value lost per missed lead</p>
+        </div>
+        <div class="stat-card">
+          <p class="text-5xl font-extrabold text-orange-500 mb-2">90 sec</p>
+          <p class="text-slate-300 font-medium">before homeowner calls the next contractor</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT MAYA QUALIFIES FOR HVAC -->
+  <section class="py-20 px-4">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-extrabold text-white mb-4">What Maya Qualifies for HVAC</h2>
+        <p class="text-slate-400 text-lg">Every job type your shop runs — handled without a receptionist.</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+        <div class="qualify-card">
+          <div class="w-12 h-12 rounded-lg bg-orange-500/10 flex items-center justify-center mb-4">
+            <i data-lucide="thermometer" class="w-6 h-6 text-orange-500"></i>
+          </div>
+          <h3 class="text-lg font-bold text-white mb-2">Emergency AC Repair</h3>
+          <p class="text-slate-400 text-sm leading-relaxed">
+            Maya catches summer heatwave calls and 2am breakdowns the moment they text. She triages urgency in the first message so your on-call tech is dispatched before a competitor even rings back.
+          </p>
+        </div>
+
+        <div class="qualify-card">
+          <div class="w-12 h-12 rounded-lg bg-orange-500/10 flex items-center justify-center mb-4">
+            <i data-lucide="refresh-cw" class="w-6 h-6 text-orange-500"></i>
+          </div>
+          <h3 class="text-lg font-bold text-white mb-2">Full System Replacement</h3>
+          <p class="text-slate-400 text-sm leading-relaxed">
+            She guides the diagnostic-to-upsell conversation for $8.5K–$15K replacement jobs. Unit age, failure mode, and budget signals are captured before your tech ever arrives.
+          </p>
+        </div>
+
+        <div class="qualify-card">
+          <div class="w-12 h-12 rounded-lg bg-orange-500/10 flex items-center justify-center mb-4">
+            <i data-lucide="calendar" class="w-6 h-6 text-orange-500"></i>
+          </div>
+          <h3 class="text-lg font-bold text-white mb-2">Preventive Maintenance</h3>
+          <p class="text-slate-400 text-sm leading-relaxed">
+            Maya books annual tune-ups and filter-change reminders automatically, turning one-off repairs into recurring revenue without any manual follow-up from your office.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ROI CALCULATOR -->
+  <section id="roi" class="py-20 px-4 bg-slate-800/30">
+    <div class="max-w-3xl mx-auto">
+      <div class="text-center mb-10">
+        <h2 class="text-3xl md:text-4xl font-extrabold text-white mb-3">What Are Missed HVAC Leads Costing You?</h2>
+        <p class="text-slate-400 text-lg">Drag the sliders to see your real number.</p>
+      </div>
+
+      <div class="bg-slate-800 border border-slate-700 rounded-2xl p-6 md:p-8">
+        <div class="space-y-7 mb-8">
+
+          <!-- Slider 1: Missed leads/week -->
+          <div>
+            <div class="flex justify-between mb-2">
+              <label class="text-slate-300 font-medium text-sm" for="missed-leads">Missed leads per week</label>
+              <span id="missed-leads-val" class="text-orange-400 font-bold text-sm">15</span>
+            </div>
+            <input type="range" id="missed-leads" class="roi-slider" min="1" max="50" value="15" step="1" />
+            <div class="flex justify-between text-xs text-slate-500 mt-1"><span>1</span><span>50</span></div>
+          </div>
+
+          <!-- Slider 2: Avg job value -->
+          <div>
+            <div class="flex justify-between mb-2">
+              <label class="text-slate-300 font-medium text-sm" for="avg-job">Avg job value</label>
+              <span id="avg-job-val" class="text-orange-400 font-bold text-sm">$8,500</span>
+            </div>
+            <input type="range" id="avg-job" class="roi-slider" min="500" max="25000" value="8500" step="100" />
+            <div class="flex justify-between text-xs text-slate-500 mt-1"><span>$500</span><span>$25,000</span></div>
+          </div>
+
+          <!-- Slider 3: Close rate -->
+          <div>
+            <div class="flex justify-between mb-2">
+              <label class="text-slate-300 font-medium text-sm" for="close-rate">Close rate</label>
+              <span id="close-rate-val" class="text-orange-400 font-bold text-sm">30%</span>
+            </div>
+            <input type="range" id="close-rate" class="roi-slider" min="10" max="60" value="30" step="5" />
+            <div class="flex justify-between text-xs text-slate-500 mt-1"><span>10%</span><span>60%</span></div>
+          </div>
+        </div>
+
+        <!-- Results -->
+        <div class="grid grid-cols-2 gap-4 border-t border-slate-700 pt-7">
+          <div class="text-center bg-slate-900/50 rounded-xl p-5">
+            <p class="text-slate-400 text-xs font-medium uppercase tracking-wider mb-2">Monthly Recouped</p>
+            <p id="monthly-rev" class="text-3xl md:text-4xl font-extrabold text-orange-500">$166,163</p>
+          </div>
+          <div class="text-center bg-slate-900/50 rounded-xl p-5">
+            <p class="text-slate-400 text-xs font-medium uppercase tracking-wider mb-2">Annual Recouped</p>
+            <p id="annual-rev" class="text-3xl md:text-4xl font-extrabold text-orange-400">$1,993,950</p>
+          </div>
+        </div>
+
+        <p class="text-center text-slate-500 text-xs mt-4">
+          Based on: missed leads × 4.33 weeks/mo × avg job value × close rate
+        </p>
+      </div>
+
+      <div class="text-center mt-7">
+        <a href="https://calendly.com/duy-heatbooker/30min" class="cta-orange text-base py-3 px-8">
+          Book My Setup Call — Recoup That Revenue
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SMS DEMO CONVERSATION -->
+  <section id="demo" class="py-20 px-4">
+    <div class="max-w-2xl mx-auto">
+      <div class="text-center mb-10">
+        <h2 class="text-3xl md:text-4xl font-extrabold text-white mb-4">Maya in Action: HVAC Emergency Call</h2>
+        <p class="text-slate-400">Watch Maya turn a late-night text into a booked appointment in seconds.</p>
+      </div>
+
+      <div class="bg-slate-800 border border-slate-700 rounded-2xl overflow-hidden">
+        <!-- Phone header -->
+        <div class="bg-slate-900 px-5 py-4 flex items-center gap-3 border-b border-slate-700">
+          <div class="w-9 h-9 rounded-full bg-orange-500 flex items-center justify-center text-white font-bold text-sm flex-shrink-0">M</div>
+          <div>
+            <p class="text-white font-semibold text-sm">Maya — HVAC Booking Agent</p>
+            <p class="text-green-400 text-xs">● Online 24/7</p>
+          </div>
+        </div>
+
+        <!-- Chat messages -->
+        <div class="px-5 py-6 space-y-4">
+          <!-- Lead -->
+          <div class="flex justify-end">
+            <div class="chat-bubble-lead">QUOTE</div>
+          </div>
+          <!-- Maya -->
+          <div class="flex justify-start">
+            <div class="chat-bubble-maya">Hey! Thanks for reaching out. Quick Q — is this for your home or a commercial property?</div>
+          </div>
+          <!-- Lead -->
+          <div class="flex justify-end">
+            <div class="chat-bubble-lead">Home — AC stopped cooling, it's 95°F outside</div>
+          </div>
+          <!-- Maya -->
+          <div class="flex justify-start">
+            <div class="chat-bubble-maya">Oh no, let's get someone to you fast. How old is your current AC unit roughly?</div>
+          </div>
+          <!-- Lead -->
+          <div class="flex justify-end">
+            <div class="chat-bubble-lead">About 12 years</div>
+          </div>
+          <!-- Maya -->
+          <div class="flex justify-start">
+            <div class="chat-bubble-maya">Got it. We can have a tech out today 3–5 PM or tomorrow 8–10 AM. Which works?</div>
+          </div>
+          <!-- Lead - booked -->
+          <div class="flex justify-end">
+            <div class="chat-bubble-booked">✓ Booked 3–5 PM today</div>
+          </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="bg-slate-900/50 px-5 py-4 border-t border-slate-700 text-center">
+          <p class="text-slate-400 text-sm">
+            <i data-lucide="zap" class="w-4 h-4 inline-block text-orange-500 mr-1 align-text-bottom"></i>
+            Time to booking: <strong class="text-white">&lt; 5 seconds</strong>
+          </p>
+        </div>
+      </div>
+
+      <div class="text-center mt-7">
+        <a href="sms:+15076773559?body=QUOTE" class="inline-flex items-center gap-2 bg-slate-700 hover:bg-slate-600 text-white font-semibold py-3 px-7 rounded-lg transition-colors">
+          <i data-lucide="message-square" class="w-4 h-4"></i>
+          Try It Live — Text QUOTE to (507) 677-3559
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CRM INTEGRATIONS -->
+  <section class="py-20 px-4 bg-slate-800/30">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-extrabold text-white mb-4">Works With Your Existing Stack</h2>
+        <p class="text-slate-400 text-lg max-w-xl mx-auto">
+          Maya drops booked appointments directly into your existing workflow. No double entry. No manual scheduling.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+
+        <div class="crm-card">
+          <div class="w-12 h-12 rounded-xl bg-blue-600/20 flex items-center justify-center mx-auto mb-3">
+            <i data-lucide="building-2" class="w-6 h-6 text-blue-400"></i>
+          </div>
+          <p class="text-white font-bold text-sm mb-1">ServiceTitan</p>
+          <span class="inline-block bg-green-500/15 text-green-400 text-xs px-2 py-0.5 rounded-full">Native sync</span>
+        </div>
+
+        <div class="crm-card">
+          <div class="w-12 h-12 rounded-xl bg-orange-500/20 flex items-center justify-center mx-auto mb-3">
+            <i data-lucide="briefcase" class="w-6 h-6 text-orange-400"></i>
+          </div>
+          <p class="text-white font-bold text-sm mb-1">Housecall Pro</p>
+          <span class="inline-block bg-green-500/15 text-green-400 text-xs px-2 py-0.5 rounded-full">Native sync</span>
+        </div>
+
+        <div class="crm-card">
+          <div class="w-12 h-12 rounded-xl bg-emerald-600/20 flex items-center justify-center mx-auto mb-3">
+            <i data-lucide="wrench" class="w-6 h-6 text-emerald-400"></i>
+          </div>
+          <p class="text-white font-bold text-sm mb-1">Jobber</p>
+          <span class="inline-block bg-green-500/15 text-green-400 text-xs px-2 py-0.5 rounded-full">Native sync</span>
+        </div>
+
+        <div class="crm-card">
+          <div class="w-12 h-12 rounded-xl bg-red-500/20 flex items-center justify-center mx-auto mb-3">
+            <i data-lucide="calendar-days" class="w-6 h-6 text-red-400"></i>
+          </div>
+          <p class="text-white font-bold text-sm mb-1">Google Calendar</p>
+          <span class="inline-block bg-green-500/15 text-green-400 text-xs px-2 py-0.5 rounded-full">Native sync</span>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="py-20 px-4">
+    <div class="max-w-3xl mx-auto">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-extrabold text-white mb-4">HVAC-Specific Questions</h2>
+        <p class="text-slate-400 text-lg">The answers your HVAC business actually needs.</p>
+      </div>
+
+      <div class="space-y-4">
+
+        <details>
+          <summary>Does Maya handle emergency AC calls differently?</summary>
+          <div class="faq-body">
+            Yes. Maya detects urgency signals ("95 degrees," "AC is out," "no cooling") and merges the acknowledgment with the next qualifying question — no back-and-forth delay. She routes emergencies to your on-call tech automatically, ensuring the homeowner feels heard and gets help fast.
+          </div>
+        </details>
+
+        <details>
+          <summary>Can Maya qualify leads for AC replacement vs. repair?</summary>
+          <div class="faq-body">
+            Absolutely. She asks about unit age, last service date, and whether it's stopped working entirely. If the unit is 10+ years old and fully down, she flags it as a likely replacement conversation so your tech walks in prepared — and can quote accordingly.
+          </div>
+        </details>
+
+        <details>
+          <summary>Does it work with my ServiceTitan dispatch board?</summary>
+          <div class="faq-body">
+            Yes. Maya integrates directly with ServiceTitan and Housecall Pro — booked jobs appear on your dispatch board with the homeowner's name, address, job type, and Maya's qualification notes attached. Your techs see full context, not just a name and phone number.
+          </div>
+        </details>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="py-20 px-4 bg-slate-800/30">
+    <div class="max-w-2xl mx-auto text-center">
+      <h2 class="text-3xl md:text-4xl font-extrabold text-white mb-4">
+        Ready to Book More HVAC Jobs on Autopilot?
+      </h2>
+      <p class="text-slate-400 text-lg mb-8">No deck. No pressure. Just a fit check.</p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+        <a href="https://calendly.com/duy-heatbooker/30min" class="cta-orange text-base py-3.5 px-8">
+          Book My 30-Min Setup Call
+        </a>
+        <a href="sms:+15076773559?body=QUOTE" class="inline-block bg-slate-700 hover:bg-slate-600 text-white font-semibold py-3.5 px-8 rounded-lg transition-colors text-base">
+          Text QUOTE to Demo Maya
+        </a>
+      </div>
+      <p class="text-slate-500 text-sm mt-5">
+        Or text <strong class="text-slate-300">QUOTE</strong> to <strong class="text-slate-300">(507) 677-3559</strong> to experience Maya live
+      </p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-slate-800 bg-slate-900 py-12 px-4">
+    <div class="max-w-7xl mx-auto">
+      <div class="flex flex-col md:flex-row justify-between items-start gap-8">
+        <div>
+          <div class="flex items-center gap-2 text-white font-bold text-xl mb-3">
+            <span class="text-orange-500">&#9711;</span>
+            Maya
+          </div>
+          <p class="text-slate-400 text-sm max-w-xs">
+            The 24/7 AI SMS booking agent for home service contractors. Never miss a lead again.
+          </p>
+        </div>
+        <div class="flex flex-col sm:flex-row gap-8 text-sm text-slate-400">
+          <div>
+            <p class="text-slate-200 font-semibold mb-3">Product</p>
+            <ul class="space-y-2">
+              <li><a href="/industries/" class="hover:text-white transition-colors">Industries</a></li>
+              <li><a href="/locations/" class="hover:text-white transition-colors">Locations</a></li>
+              <li><a href="/#how" class="hover:text-white transition-colors">How It Works</a></li>
+              <li><a href="/#roi" class="hover:text-white transition-colors">ROI Calculator</a></li>
+            </ul>
+          </div>
+          <div>
+            <p class="text-slate-200 font-semibold mb-3">Company</p>
+            <ul class="space-y-2">
+              <li><a href="https://calendly.com/duy-heatbooker/30min" class="hover:text-white transition-colors">Book a Demo</a></li>
+              <li><a href="/privacy.html" class="hover:text-white transition-colors">Privacy Policy</a></li>
+              <li><a href="/terms.html" class="hover:text-white transition-colors">Terms of Service</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="border-t border-slate-800 mt-8 pt-8 text-center text-slate-500 text-sm">
+        &copy; 2026 Maya. Built for contractors who pick up.
+      </div>
+    </div>
+  </footer>
+
+  <!-- SCROLL TO TOP -->
+  <button id="scroll-top" aria-label="Scroll to top">
+    <i data-lucide="arrow-up" class="w-5 h-5"></i>
+  </button>
+
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+  <script>
+    lucide.createIcons();
+
+    // ROI Calculator
+    const missedLeadsInput = document.getElementById('missed-leads');
+    const avgJobInput = document.getElementById('avg-job');
+    const closeRateInput = document.getElementById('close-rate');
+
+    const missedLeadsVal = document.getElementById('missed-leads-val');
+    const avgJobVal = document.getElementById('avg-job-val');
+    const closeRateVal = document.getElementById('close-rate-val');
+    const monthlyRevEl = document.getElementById('monthly-rev');
+    const annualRevEl = document.getElementById('annual-rev');
+
+    function formatCurrency(n) {
+      return '$' + Math.round(n).toLocaleString('en-US');
+    }
+
+    function updateROI() {
+      const missed = parseInt(missedLeadsInput.value, 10);
+      const job = parseInt(avgJobInput.value, 10);
+      const close = parseInt(closeRateInput.value, 10);
+
+      missedLeadsVal.textContent = missed;
+      avgJobVal.textContent = formatCurrency(job);
+      closeRateVal.textContent = close + '%';
+
+      const monthly = missed * 4.33 * job * (close / 100);
+      const annual = monthly * 12;
+
+      monthlyRevEl.textContent = formatCurrency(monthly);
+      annualRevEl.textContent = formatCurrency(annual);
+    }
+
+    missedLeadsInput.addEventListener('input', updateROI);
+    avgJobInput.addEventListener('input', updateROI);
+    closeRateInput.addEventListener('input', updateROI);
+    updateROI(); // initialize
+
+    // Scroll-to-top behavior
+    const scrollBtn = document.getElementById('scroll-top');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 300) {
+        scrollBtn.classList.add('visible');
+      } else {
+        scrollBtn.classList.remove('visible');
+      }
+    });
+    scrollBtn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  </script>
+</body>
+</html>

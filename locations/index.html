@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Maya AI SMS Booking — Local Coverage for HVAC &amp; Roofing Contractors</title>
+  <meta name="description" content="Maya provisions a local Twilio number for your city, learns your service area zip codes, and qualifies leads 24/7 for HVAC, roofing, plumbing, and electrical contractors across the US." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://heatbooker.com/locations/" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://heatbooker.com/locations/" />
+  <meta property="og:title" content="Maya AI SMS Booking — Local Coverage for HVAC &amp; Roofing Contractors" />
+  <meta property="og:description" content="Maya provisions a local Twilio number for your city, learns your service area zip codes, and qualifies leads 24/7 for HVAC, roofing, plumbing, and electrical contractors across the US." />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'safety-orange': '#f97316',
+            'safety-orange-dark': '#ea6c0a',
+            'slate-900': '#0f172a',
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+          },
+          keyframes: {
+            shimmer: {
+              '0%': { backgroundPosition: '-200% 0' },
+              '100%': { backgroundPosition: '200% 0' },
+            },
+            typing: {
+              '0%, 60%, 100%': { transform: 'translateY(0)' },
+              '30%': { transform: 'translateY(-6px)' },
+            },
+          },
+          animation: {
+            shimmer: 'shimmer 2.5s linear infinite',
+            typing: 'typing 1.2s ease-in-out infinite',
+          },
+        },
+      },
+    };
+  </script>
+
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+
+  <!-- Inter Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <style>
+    body { font-family: 'Inter', system-ui, sans-serif; background-color: #0f172a; color: #f1f5f9; }
+
+    .cta-orange {
+      background-color: #f97316;
+      color: #fff;
+      font-weight: 700;
+      border-radius: 0.5rem;
+      padding: 0.75rem 1.75rem;
+      display: inline-block;
+      transition: background-color 0.2s, transform 0.15s;
+    }
+    .cta-orange:hover {
+      background-color: #ea6c0a;
+      transform: translateY(-1px);
+    }
+
+    .roi-output {
+      background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+      border: 1px solid #f9731633;
+      border-radius: 0.75rem;
+      padding: 1.5rem;
+    }
+
+    .typing-dot {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background-color: #f97316;
+      animation: typing 1.2s ease-in-out infinite;
+    }
+    .typing-dot:nth-child(2) { animation-delay: 0.2s; }
+    .typing-dot:nth-child(3) { animation-delay: 0.4s; }
+
+    @keyframes shimmer {
+      0% { background-position: -200% 0; }
+      100% { background-position: 200% 0; }
+    }
+    @keyframes typing {
+      0%, 60%, 100% { transform: translateY(0); }
+      30% { transform: translateY(-6px); }
+    }
+
+    .city-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: #1e293b;
+      border: 1px solid #334155;
+      border-radius: 9999px;
+      padding: 0.375rem 0.875rem;
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: #cbd5e1;
+      transition: border-color 0.2s, color 0.2s, background-color 0.2s;
+      text-decoration: none;
+    }
+    .city-pill:hover {
+      border-color: #f97316;
+      color: #f97316;
+      background-color: #f9731610;
+    }
+    .city-pill.has-page {
+      border-color: #f9731644;
+      color: #f1f5f9;
+    }
+    .city-pill.has-page:hover {
+      border-color: #f97316;
+      color: #f97316;
+    }
+
+    .orange-dot {
+      width: 8px;
+      height: 8px;
+      background-color: #f97316;
+      border-radius: 50%;
+      display: inline-block;
+      flex-shrink: 0;
+    }
+
+    .step-number {
+      width: 2.5rem;
+      height: 2.5rem;
+      background-color: #f97316;
+      color: #fff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+
+    #scroll-top {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      z-index: 50;
+      background-color: #f97316;
+      color: #fff;
+      border-radius: 50%;
+      width: 2.75rem;
+      height: 2.75rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s;
+      border: none;
+    }
+    #scroll-top.visible {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    #scroll-top:hover { background-color: #ea6c0a; }
+
+    .nav-link {
+      color: #94a3b8;
+      font-size: 0.875rem;
+      font-weight: 500;
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+    .nav-link:hover { color: #f1f5f9; }
+
+    .region-card {
+      background: #1e293b;
+      border: 1px solid #334155;
+      border-radius: 1rem;
+      padding: 1.5rem;
+    }
+
+    .region-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 1rem;
+    }
+  </style>
+
+  <!-- JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "SoftwareApplication",
+        "name": "Maya AI SMS Booking Agent",
+        "url": "https://heatbooker.com",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "All",
+        "description": "Maya provisions a local Twilio number for your city, learns your service area zip codes, and qualifies leads 24/7 for HVAC, roofing, plumbing, and electrical contractors across the US.",
+        "offers": {
+          "@type": "Offer",
+          "priceCurrency": "USD",
+          "availability": "https://schema.org/InStock"
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://heatbooker.com/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Locations",
+            "item": "https://heatbooker.com/locations/"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body class="antialiased">
+
+  <!-- ===== NAVIGATION ===== -->
+  <nav class="sticky top-0 z-40 border-b border-slate-800" style="background-color: rgba(15,23,42,0.97); backdrop-filter: blur(12px);">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <!-- Logo -->
+        <a href="/" class="flex items-center gap-2 text-white font-bold text-lg no-underline">
+          <span style="color:#f97316; font-size:1.5rem;">⚡</span>
+          <span>Maya</span>
+        </a>
+
+        <!-- Desktop Nav Links -->
+        <div class="hidden md:flex items-center gap-6">
+          <a href="/industries/" class="nav-link">Industries</a>
+          <a href="/locations/" class="nav-link" style="color:#f97316;">Locations</a>
+          <a href="/#how" class="nav-link">How It Works</a>
+          <a href="/#roi" class="nav-link">ROI</a>
+          <a href="/#demo" class="nav-link">Demo</a>
+          <a href="/#faq" class="nav-link">FAQ</a>
+        </div>
+
+        <!-- CTA -->
+        <div class="flex items-center gap-3">
+          <a href="sms:+15076773559?body=QUOTE" class="hidden sm:flex items-center gap-1.5 text-sm font-medium" style="color:#94a3b8;">
+            <i data-lucide="message-circle" class="w-4 h-4" style="color:#f97316;"></i>
+            (507) 677-3559
+          </a>
+          <a href="https://calendly.com/duy-heatbooker/30min" target="_blank" rel="noopener noreferrer" class="cta-orange text-sm py-2 px-4">
+            Book Setup Call
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ===== HERO ===== -->
+  <section class="pt-12 pb-16 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-4xl mx-auto text-center">
+      <!-- Breadcrumb -->
+      <nav aria-label="Breadcrumb" class="flex items-center justify-center gap-2 text-sm mb-8">
+        <a href="/" class="transition-colors" style="color:#94a3b8;" onmouseover="this.style.color='#f97316'" onmouseout="this.style.color='#94a3b8'">Home</a>
+        <i data-lucide="chevron-right" class="w-4 h-4" style="color:#475569;"></i>
+        <span style="color:#f97316; font-weight:600;">Locations</span>
+      </nav>
+
+      <!-- Badge -->
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-sm font-semibold mb-6" style="background-color:#f9731615; color:#f97316; border:1px solid #f9731633;">
+        <i data-lucide="map-pin" class="w-4 h-4"></i>
+        Local Coverage Nationwide
+      </div>
+
+      <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight tracking-tight mb-6" style="color:#f1f5f9;">
+        Same 5-Second Response.<br/>
+        <span style="color:#f97316;">Tuned to Your City's Climate.</span>
+      </h1>
+
+      <p class="text-xl leading-relaxed mb-10 max-w-2xl mx-auto" style="color:#94a3b8;">
+        Maya provisions a local number for your market and learns your service area zip codes. Houston AC outages get different urgency signals than Chicago heating emergencies.
+      </p>
+
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a href="https://calendly.com/duy-heatbooker/30min" target="_blank" rel="noopener noreferrer" class="cta-orange text-base px-8 py-3">
+          Get a Local Number for Your City
+        </a>
+        <a href="sms:+15076773559?body=QUOTE" class="flex items-center gap-2 text-base font-semibold px-6 py-3 rounded-lg border border-slate-700 transition-colors" style="color:#94a3b8;" onmouseover="this.style.borderColor='#f97316';this.style.color='#f97316'" onmouseout="this.style.borderColor='#475569';this.style.color='#94a3b8'">
+          <i data-lucide="message-square" class="w-5 h-5"></i>
+          Text QUOTE to (507) 677-3559
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CITY / REGION GRID ===== -->
+  <section id="coverage" class="py-16 px-4 sm:px-6 lg:px-8 border-t border-slate-800">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl sm:text-4xl font-bold mb-4" style="color:#f1f5f9;">
+          Coverage by Climate &amp; Trade
+        </h2>
+        <p class="text-lg" style="color:#94a3b8;">
+          Select your region to see city-specific landing pages and local coverage details.
+        </p>
+        <div class="flex items-center justify-center gap-6 mt-4 text-sm" style="color:#64748b;">
+          <span class="flex items-center gap-1.5">
+            <span class="orange-dot"></span>
+            Dedicated city page available
+          </span>
+          <span class="flex items-center gap-1.5">
+            <span class="inline-block w-2 h-2 rounded-full" style="background-color:#475569;"></span>
+            Coming soon
+          </span>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+        <!-- Hot Climate -->
+        <div class="region-card">
+          <div class="region-label" style="color:#f97316;">
+            <i data-lucide="sun" class="w-4 h-4"></i>
+            Hot Climate — HVAC-Heavy
+          </div>
+          <p class="text-sm mb-5" style="color:#64748b;">AC emergencies, compressor failures, high-volume cooling demand</p>
+          <div class="flex flex-wrap gap-2">
+            <a href="/locations/houston-tx-hvac/" class="city-pill has-page">
+              <span class="orange-dot"></span>
+              Houston, TX
+            </a>
+            <a href="/locations/" class="city-pill">
+              Phoenix, AZ
+            </a>
+            <a href="/locations/miami-fl-hvac/" class="city-pill">
+              Miami, FL
+            </a>
+            <a href="/locations/dallas-tx-hvac/" class="city-pill">
+              Dallas, TX
+            </a>
+            <a href="/locations/" class="city-pill">
+              Las Vegas, NV
+            </a>
+            <a href="/locations/" class="city-pill">
+              Tampa, FL
+            </a>
+          </div>
+        </div>
+
+        <!-- Storm Belt -->
+        <div class="region-card">
+          <div class="region-label" style="color:#60a5fa;">
+            <i data-lucide="cloud-lightning" class="w-4 h-4"></i>
+            Storm Belt — Roofing-Heavy
+          </div>
+          <p class="text-sm mb-5" style="color:#64748b;">Hail damage, wind-blown shingles, post-storm inspection surges</p>
+          <div class="flex flex-wrap gap-2">
+            <a href="/locations/atlanta-ga-roofing/" class="city-pill has-page">
+              <span class="orange-dot"></span>
+              Atlanta, GA
+            </a>
+            <a href="/locations/nashville-tn-roofing/" class="city-pill">
+              Nashville, TN
+            </a>
+            <a href="/locations/" class="city-pill">
+              Oklahoma City, OK
+            </a>
+            <a href="/locations/" class="city-pill">
+              Kansas City, MO
+            </a>
+            <a href="/locations/" class="city-pill">
+              Indianapolis, IN
+            </a>
+          </div>
+        </div>
+
+        <!-- Cold Climate -->
+        <div class="region-card">
+          <div class="region-label" style="color:#818cf8;">
+            <i data-lucide="snowflake" class="w-4 h-4"></i>
+            Cold Climate — Heating &amp; Plumbing
+          </div>
+          <p class="text-sm mb-5" style="color:#64748b;">Furnace failures, frozen pipes, emergency heat calls below freezing</p>
+          <div class="flex flex-wrap gap-2">
+            <a href="/locations/chicago-il-plumbing/" class="city-pill has-page">
+              <span class="orange-dot"></span>
+              Chicago, IL
+            </a>
+            <a href="/locations/" class="city-pill">
+              Detroit, MI
+            </a>
+            <a href="/locations/" class="city-pill">
+              Minneapolis, MN
+            </a>
+            <a href="/locations/" class="city-pill">
+              Denver, CO
+            </a>
+            <a href="/locations/" class="city-pill">
+              Boston, MA
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Legend note -->
+      <p class="text-center text-sm mt-8" style="color:#475569;">
+        Cities without a dedicated page still get full Maya coverage — text <a href="sms:+15076773559?body=QUOTE" style="color:#f97316;">QUOTE to (507) 677-3559</a> to get set up in any US market.
+      </p>
+    </div>
+  </section>
+
+  <!-- ===== HOW LOCAL COVERAGE WORKS ===== -->
+  <section id="how" class="py-16 px-4 sm:px-6 lg:px-8 border-t border-slate-800">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl sm:text-4xl font-bold mb-4" style="color:#f1f5f9;">
+          How Local Coverage Works
+        </h2>
+        <p class="text-lg" style="color:#94a3b8;">
+          From provisioning to live lead qualification — set up in under 48 hours.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+        <!-- Step 1 -->
+        <div class="roi-output">
+          <div class="flex items-start gap-4 mb-4">
+            <div class="step-number">1</div>
+            <div>
+              <h3 class="font-bold text-lg" style="color:#f1f5f9;">Local Number Provisioned</h3>
+            </div>
+          </div>
+          <p class="text-sm leading-relaxed pl-14" style="color:#94a3b8;">
+            We provision a Twilio number with a <strong style="color:#f1f5f9;">local area code for your city</strong>. Houston contractors get a 713/832 number. Chicago contractors get a 312/773 number. Customers recognize the area code and trust it.
+          </p>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="roi-output">
+          <div class="flex items-start gap-4 mb-4">
+            <div class="step-number">2</div>
+            <div>
+              <h3 class="font-bold text-lg" style="color:#f1f5f9;">Maya Learns Your Territory</h3>
+            </div>
+          </div>
+          <p class="text-sm leading-relaxed pl-14" style="color:#94a3b8;">
+            Maya learns your <strong style="color:#f1f5f9;">zip codes, neighborhoods, and service boundaries</strong>. She understands local climate patterns — whether that's hurricane season, polar vortex warnings, or hail storm surges — and adjusts her urgency scoring accordingly.
+          </p>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="roi-output">
+          <div class="flex items-start gap-4 mb-4">
+            <div class="step-number">3</div>
+            <div>
+              <h3 class="font-bold text-lg" style="color:#f1f5f9;">Qualified Leads, 24/7</h3>
+            </div>
+          </div>
+          <p class="text-sm leading-relaxed pl-14" style="color:#94a3b8;">
+            Leads from your market text in — Maya qualifies using <strong style="color:#f1f5f9;">local climate context</strong>. A Houston lead texting in August gets AC-emergency priority. A Chicago lead in January gets furnace-failure priority. You get a clean handoff, not a raw inquiry.
+          </p>
+        </div>
+
+      </div>
+
+      <!-- Timeline callout -->
+      <div class="mt-10 rounded-xl p-6 border border-slate-700 flex flex-col sm:flex-row items-center justify-between gap-6" style="background-color:#1e293b;">
+        <div class="flex items-center gap-4">
+          <div class="w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0" style="background-color:#f9731620;">
+            <i data-lucide="zap" class="w-6 h-6" style="color:#f97316;"></i>
+          </div>
+          <div>
+            <p class="font-bold" style="color:#f1f5f9;">Live in 48 hours or less</p>
+            <p class="text-sm" style="color:#94a3b8;">One setup call. We handle Twilio provisioning, number porting, and Maya training.</p>
+          </div>
+        </div>
+        <a href="https://calendly.com/duy-heatbooker/30min" target="_blank" rel="noopener noreferrer" class="cta-orange whitespace-nowrap text-sm py-2.5 px-6">
+          Book Setup Call
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== MINI FAQ ===== -->
+  <section id="faq" class="py-16 px-4 sm:px-6 lg:px-8 border-t border-slate-800">
+    <div class="max-w-3xl mx-auto">
+      <div class="text-center mb-10">
+        <h2 class="text-3xl font-bold mb-4" style="color:#f1f5f9;">Local Coverage FAQ</h2>
+        <p style="color:#94a3b8;">Quick answers to the most common questions about multi-city setup.</p>
+      </div>
+
+      <div class="space-y-6">
+
+        <!-- Q1 -->
+        <div class="rounded-xl p-6 border border-slate-700" style="background-color:#1e293b;">
+          <div class="flex items-start gap-4">
+            <div class="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5" style="background-color:#f9731620;">
+              <i data-lucide="help-circle" class="w-4 h-4" style="color:#f97316;"></i>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg mb-2" style="color:#f1f5f9;">Do I need a different number per city?</h3>
+              <p class="leading-relaxed" style="color:#94a3b8;">
+                No. Most contractors use one number. Maya uses the inbound text's zip code to confirm service area. If you expand to multiple cities, we provision additional numbers — but you're not required to. One number handles everything until you want city-specific branding.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Q2 -->
+        <div class="rounded-xl p-6 border border-slate-700" style="background-color:#1e293b;">
+          <div class="flex items-start gap-4">
+            <div class="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5" style="background-color:#f9731620;">
+              <i data-lucide="help-circle" class="w-4 h-4" style="color:#f97316;"></i>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg mb-2" style="color:#f1f5f9;">What if I service multiple zip codes?</h3>
+              <p class="leading-relaxed" style="color:#94a3b8;">
+                Tell us your service boundary in the setup call. Maya learns it and politely routes out-of-area leads — she'll respond to those inquiries with something like "We don't cover that area, but here's how to find a contractor who does." No awkward hang-ups. No wasted follow-up on leads you can't close.
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FINAL CTA ===== -->
+  <section class="py-20 px-4 sm:px-6 lg:px-8 border-t border-slate-800">
+    <div class="max-w-3xl mx-auto text-center">
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-sm font-semibold mb-6" style="background-color:#f9731615; color:#f97316; border:1px solid #f9731633;">
+        <span class="typing-dot"></span>
+        <span class="typing-dot"></span>
+        <span class="typing-dot"></span>
+        Maya is responding right now
+      </div>
+      <h2 class="text-3xl sm:text-4xl font-bold mb-4" style="color:#f1f5f9;">
+        Get a Local Number for Your Market
+      </h2>
+      <p class="text-lg mb-8" style="color:#94a3b8;">
+        Book a 30-minute setup call. We'll provision your local Twilio number, train Maya on your zip codes, and have you live before your next busy season.
+      </p>
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a href="https://calendly.com/duy-heatbooker/30min" target="_blank" rel="noopener noreferrer" class="cta-orange text-base px-8 py-3">
+          Book My Setup Call — Free
+        </a>
+        <a href="sms:+15076773559?body=QUOTE" class="flex items-center gap-2 text-base font-medium" style="color:#94a3b8;" onmouseover="this.style.color='#f97316'" onmouseout="this.style.color='#94a3b8'">
+          <i data-lucide="message-circle" class="w-5 h-5" style="color:#f97316;"></i>
+          Or text QUOTE to (507) 677-3559
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="border-t border-slate-800 py-10 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+      <div class="flex items-center gap-2 text-white font-bold text-lg">
+        <span style="color:#f97316; font-size:1.5rem;">⚡</span>
+        <span>Maya</span>
+      </div>
+      <p class="text-sm text-center" style="color:#64748b;">
+        <a href="/privacy.html" class="hover:text-slate-300 transition-colors" style="color:#64748b;">Privacy</a>
+        &nbsp;·&nbsp;
+        <a href="/terms.html" class="hover:text-slate-300 transition-colors" style="color:#64748b;">Terms</a>
+        &nbsp;·&nbsp;
+        &copy; 2026 Maya. Built for contractors who pick up.
+      </p>
+      <div class="flex items-center gap-4 text-sm" style="color:#64748b;">
+        <a href="/industries/" class="hover:text-slate-300 transition-colors" style="color:#64748b;">Industries</a>
+        <a href="/locations/" class="hover:text-slate-300 transition-colors" style="color:#f97316;">Locations</a>
+        <a href="https://calendly.com/duy-heatbooker/30min" target="_blank" rel="noopener noreferrer" class="hover:text-slate-300 transition-colors" style="color:#64748b;">Book Call</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===== SCROLL TO TOP ===== -->
+  <button id="scroll-top" aria-label="Scroll to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+    <i data-lucide="chevron-up" class="w-5 h-5"></i>
+  </button>
+
+  <script>
+    // Lucide icons
+    lucide.createIcons();
+
+    // Scroll-to-top visibility
+    const scrollBtn = document.getElementById('scroll-top');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 400) {
+        scrollBtn.classList.add('visible');
+      } else {
+        scrollBtn.classList.remove('visible');
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>24/7 AI SMS Booking Agent for Roofing Contractors | Maya</title>
+  <meta name="description" content="Stop losing $14,000 roofing jobs to voicemail. Maya is the AI SMS virtual receptionist that qualifies storm damage, leak repair, and replacement leads — and books them on Jobber or ServiceTitan in under 5 seconds." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://heatbooker.com/industries/roofing/" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="24/7 AI SMS Booking Agent for Roofing Contractors | Maya" />
+  <meta property="og:description" content="Stop losing $14,000 roofing jobs to voicemail. Maya qualifies storm damage, leak repair, and replacement leads in under 5 seconds." />
+  <meta property="og:url" content="https://heatbooker.com/industries/roofing/" />
+  <meta property="og:type" content="website" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: { extend: {
+        fontFamily: { sans: ['Inter','system-ui','sans-serif'] },
+        colors: { safety: { 50:'#fff7ed',100:'#ffedd5',400:'#fb923c',500:'#f97316',600:'#ea580c',700:'#c2410c' } },
+        animation: { shimmer:'shimmer 2.5s linear infinite', typing:'typing 1.4s infinite ease-in-out' },
+        keyframes: {
+          shimmer:{'0%':{backgroundPosition:'-1000px 0'},'100%':{backgroundPosition:'1000px 0'}},
+          typing:{'0%,60%,100%':{transform:'translateY(0)',opacity:'0.4'},'30%':{transform:'translateY(-4px)',opacity:'1'}}
+        }
+      }}
+    }
+  </script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+
+  <style>
+    body { font-family: 'Inter', system-ui, sans-serif; }
+
+    .cta-orange {
+      background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
+      color: #fff;
+      font-weight: 700;
+      padding: 0.875rem 2rem;
+      border-radius: 0.5rem;
+      display: inline-block;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      text-decoration: none;
+      cursor: pointer;
+      border: none;
+    }
+    .cta-orange:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(249, 115, 22, 0.4);
+    }
+
+    .roi-output {
+      background: linear-gradient(90deg, #f97316 0%, #fb923c 25%, #f97316 50%, #ea580c 75%, #f97316 100%);
+      background-size: 1000px 100%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: shimmer 2.5s linear infinite;
+    }
+
+    @keyframes shimmer {
+      0% { background-position: -1000px 0; }
+      100% { background-position: 1000px 0; }
+    }
+
+    .typing-dot {
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #f97316;
+      animation: typing 1.4s infinite ease-in-out;
+    }
+    .typing-dot:nth-child(2) { animation-delay: 0.2s; }
+    .typing-dot:nth-child(3) { animation-delay: 0.4s; }
+
+    @keyframes typing {
+      0%, 60%, 100% { transform: translateY(0); opacity: 0.4; }
+      30% { transform: translateY(-4px); opacity: 1; }
+    }
+
+    #scrollTopBtn {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      width: 48px;
+      height: 48px;
+      background: #f97316;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      opacity: 0;
+      transition: opacity 0.3s ease, transform 0.2s ease;
+      z-index: 999;
+      border: none;
+      color: white;
+    }
+    #scrollTopBtn.visible { opacity: 1; }
+    #scrollTopBtn:hover { transform: scale(1.1); }
+
+    details summary { cursor: pointer; list-style: none; }
+    details summary::-webkit-details-marker { display: none; }
+    details[open] .chevron { transform: rotate(180deg); }
+    .chevron { transition: transform 0.2s ease; }
+
+    input[type="range"] {
+      -webkit-appearance: none;
+      appearance: none;
+      height: 6px;
+      background: #334155;
+      border-radius: 3px;
+      outline: none;
+    }
+    input[type="range"]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: #f97316;
+      cursor: pointer;
+    }
+    input[type="range"]::-moz-range-thumb {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: #f97316;
+      cursor: pointer;
+      border: none;
+    }
+  </style>
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "SoftwareApplication",
+        "name": "Maya AI SMS Booking Agent",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Web",
+        "description": "AI SMS virtual receptionist that qualifies roofing leads and books appointments on Jobber or ServiceTitan in under 5 seconds.",
+        "url": "https://heatbooker.com/industries/roofing/",
+        "offers": {
+          "@type": "Offer",
+          "priceCurrency": "USD",
+          "description": "Per booked appointment pricing"
+        }
+      },
+      {
+        "@type": "Service",
+        "name": "Maya AI Roofing SMS Booking Agent",
+        "description": "24/7 AI SMS booking agent for roofing contractors. Qualifies storm damage, leak repair, and full replacement leads.",
+        "provider": {
+          "@type": "Organization",
+          "name": "Maya / HeatBooker",
+          "url": "https://heatbooker.com"
+        },
+        "areaServed": {
+          "@type": "Country",
+          "name": "United States"
+        },
+        "serviceType": "AI Lead Qualification and Booking",
+        "audience": {
+          "@type": "Audience",
+          "audienceType": "Roofing Contractors"
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://heatbooker.com/" },
+          { "@type": "ListItem", "position": 2, "name": "Industries", "item": "https://heatbooker.com/industries/" },
+          { "@type": "ListItem", "position": 3, "name": "Roofing", "item": "https://heatbooker.com/industries/roofing/" }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Does Maya work during peak storm season when call volume spikes?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes — that's exactly when Maya earns her keep. She handles unlimited simultaneous text conversations while your CSR is fielding calls. Storm surges don't create a queue; every lead gets a 5-second reply."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can she qualify leads for insurance vs. out-of-pocket jobs?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Maya asks whether the damage is from a recent storm event and whether the homeowner has filed an insurance claim. This flags insurance-pathway leads for your estimators before the appointment."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does she work with Jobber for roofing dispatch?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Maya integrates with Jobber and ServiceTitan. Estimate appointments are booked directly on your calendar with job type (storm/leak/replacement) and the homeowner's zip code attached."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body class="bg-slate-900 text-white min-h-screen">
+
+  <!-- NAV -->
+  <nav class="border-b border-slate-800 sticky top-0 z-50 bg-slate-900/95 backdrop-blur-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <a href="/" class="flex items-center gap-2 font-bold text-xl">
+          <span class="text-safety-500">Maya</span>
+          <span class="text-slate-400 font-normal text-sm hidden sm:block">by HeatBooker</span>
+        </a>
+        <div class="hidden md:flex items-center gap-6 text-sm text-slate-300">
+          <a href="/industries/" class="hover:text-white transition-colors">Industries</a>
+          <a href="/locations/" class="hover:text-white transition-colors">Locations</a>
+          <a href="#how" class="hover:text-white transition-colors">How It Works</a>
+          <a href="#roi" class="hover:text-white transition-colors">ROI</a>
+          <a href="#demo" class="hover:text-white transition-colors">Demo</a>
+          <a href="#faq" class="hover:text-white transition-colors">FAQ</a>
+        </div>
+        <a href="https://calendly.com/duy-heatbooker/30min" target="_blank" rel="noopener noreferrer" class="cta-orange text-sm py-2 px-4">
+          Book Setup Call
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="relative overflow-hidden pt-16 pb-20 px-4">
+    <div class="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-900 to-orange-950/20 pointer-events-none"></div>
+    <div class="max-w-4xl mx-auto relative z-10 text-center">
+      <!-- Breadcrumb -->
+      <nav class="flex items-center justify-center gap-2 text-sm text-slate-400 mb-6">
+        <a href="/" class="hover:text-white transition-colors">Home</a>
+        <i data-lucide="chevron-right" class="w-4 h-4"></i>
+        <a href="/industries/" class="hover:text-white transition-colors">Industries</a>
+        <i data-lucide="chevron-right" class="w-4 h-4"></i>
+        <span class="text-safety-500">Roofing</span>
+      </nav>
+
+      <!-- Badge -->
+      <div class="inline-flex items-center gap-2 bg-safety-500/10 border border-safety-500/30 text-safety-400 text-sm font-medium px-4 py-1.5 rounded-full mb-6">
+        <i data-lucide="home" class="w-4 h-4"></i>
+        Roofing Virtual Receptionist
+      </div>
+
+      <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-tight mb-6">
+        Stop Losing <span class="text-safety-500">$14,000</span> Every Time a Storm Lead Hits Voicemail.
+      </h1>
+
+      <p class="text-lg sm:text-xl text-slate-300 max-w-2xl mx-auto mb-8 leading-relaxed">
+        Maya qualifies <strong class="text-white">storm damage, leak repair, and full roof replacement</strong> leads via SMS — and books them directly on <strong class="text-white">Jobber or ServiceTitan</strong> in under 5 seconds. No voicemail. No callbacks. No lost $14K jobs.
+      </p>
+
+      <div class="flex flex-col sm:flex-row gap-4 justify-center items-center mb-10">
+        <a href="https://calendly.com/duy-heatbooker/30min" target="_blank" rel="noopener noreferrer" class="cta-orange text-base px-8 py-4">
+          Book My 30-Min Setup Call
+        </a>
+        <a href="sms:+15076773559?body=QUOTE" class="flex items-center gap-2 bg-slate-800 hover:bg-slate-700 text-white font-semibold px-6 py-4 rounded-lg transition-colors border border-slate-700">
+          <i data-lucide="message-square" class="w-5 h-5 text-safety-500"></i>
+          Text "QUOTE" to Try Demo
+        </a>
+      </div>
+
+      <!-- Trust Strip -->
+      <div class="flex flex-wrap items-center justify-center gap-6 text-sm text-slate-400">
+        <div class="flex items-center gap-2">
+          <i data-lucide="zap" class="w-4 h-4 text-safety-500"></i>
+          5-second response
+        </div>
+        <div class="w-1 h-1 bg-slate-600 rounded-full hidden sm:block"></div>
+        <div class="flex items-center gap-2">
+          <i data-lucide="clock" class="w-4 h-4 text-safety-500"></i>
+          24/7/365
+        </div>
+        <div class="w-1 h-1 bg-slate-600 rounded-full hidden sm:block"></div>
+        <div class="flex items-center gap-2">
+          <i data-lucide="link" class="w-4 h-4 text-safety-500"></i>
+          Jobber &amp; ServiceTitan sync
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <section class="py-16 px-4 border-y border-slate-800 bg-slate-800/30">
+    <div class="max-w-5xl mx-auto">
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 text-center">
+        <div>
+          <div class="text-5xl font-extrabold text-safety-500 mb-2">38%</div>
+          <div class="text-slate-300 font-medium">of roofing calls go unanswered</div>
+          <div class="text-slate-500 text-sm mt-1">Industry avg during storm season</div>
+        </div>
+        <div>
+          <div class="text-5xl font-extrabold text-safety-500 mb-2">$14K</div>
+          <div class="text-slate-300 font-medium">average full replacement job</div>
+          <div class="text-slate-500 text-sm mt-1">Per missed lead potential loss</div>
+        </div>
+        <div>
+          <div class="text-5xl font-extrabold text-safety-500 mb-2">8</div>
+          <div class="text-slate-300 font-medium">missed leads per week</div>
+          <div class="text-slate-500 text-sm mt-1">At peak storm season volume</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT MAYA QUALIFIES -->
+  <section id="how" class="py-20 px-4">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl sm:text-4xl font-bold text-white mb-4">What Maya Qualifies for Roofing</h2>
+        <p class="text-slate-400 text-lg max-w-2xl mx-auto">From hail damage to full replacement, Maya asks the right questions and routes each lead to the right tech.</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <!-- Card 1 -->
+        <div class="bg-slate-800 border border-slate-700 rounded-xl p-6 hover:border-safety-500/50 transition-colors">
+          <div class="w-12 h-12 bg-safety-500/10 rounded-lg flex items-center justify-center mb-4">
+            <i data-lucide="cloud-lightning" class="w-6 h-6 text-safety-500"></i>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-2">Storm Damage Quotes</h3>
+          <p class="text-slate-400 mb-4">Post-hail, high urgency leads. Maya detects storm event language and flags insurance-pathway jobs immediately.</p>
+          <ul class="text-sm text-slate-400 space-y-1">
+            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-safety-500"></i> Insurance vs. out-of-pocket flag</li>
+            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-safety-500"></i> Zip code + storm date captured</li>
+            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-safety-500"></i> Same-day estimate booking</li>
+          </ul>
+        </div>
+        <!-- Card 2 -->
+        <div class="bg-slate-800 border border-slate-700 rounded-xl p-6 hover:border-safety-500/50 transition-colors">
+          <div class="w-12 h-12 bg-safety-500/10 rounded-lg flex items-center justify-center mb-4">
+            <i data-lucide="droplets" class="w-6 h-6 text-safety-500"></i>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-2">Leak Repair</h3>
+          <p class="text-slate-400 mb-4">Wet ceiling, active drip — immediate dispatch leads. Maya qualifies location, severity, and roof age for your tech.</p>
+          <ul class="text-sm text-slate-400 space-y-1">
+            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-safety-500"></i> Urgency triage (active vs. dormant)</li>
+            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-safety-500"></i> Roof age + material captured</li>
+            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-safety-500"></i> Emergency dispatch routing</li>
+          </ul>
+        </div>
+        <!-- Card 3 -->
+        <div class="bg-slate-800 border border-safety-500/30 rounded-xl p-6 relative overflow-hidden">
+          <div class="absolute top-3 right-3 bg-safety-500 text-white text-xs font-bold px-2 py-1 rounded">Highest Value</div>
+          <div class="w-12 h-12 bg-safety-500/10 rounded-lg flex items-center justify-center mb-4">
+            <i data-lucide="dollar-sign" class="w-6 h-6 text-safety-500"></i>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-2">Full Replacement Consultation</h3>
+          <p class="text-slate-400 mb-4">Inspection → $14,000 conversation. Maya books these with full context so your closer arrives ready to present.</p>
+          <ul class="text-sm text-slate-400 space-y-1">
+            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-safety-500"></i> Roof age + last replacement</li>
+            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-safety-500"></i> Square footage estimate</li>
+            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-safety-500"></i> Calendared with job notes</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ROI CALCULATOR -->
+  <section id="roi" class="py-20 px-4 bg-slate-800/30">
+    <div class="max-w-3xl mx-auto">
+      <div class="text-center mb-10">
+        <h2 class="text-3xl sm:text-4xl font-bold text-white mb-4">ROI Calculator</h2>
+        <p class="text-slate-400">See what Maya's worth to your roofing business.</p>
+      </div>
+
+      <div class="bg-slate-800 border border-slate-700 rounded-2xl p-8">
+        <div class="space-y-8">
+          <!-- Slider 1 -->
+          <div>
+            <div class="flex justify-between items-center mb-2">
+              <label class="text-white font-semibold">Missed leads per week</label>
+              <span id="leadsVal" class="text-safety-500 font-bold text-lg">8</span>
+            </div>
+            <input type="range" id="leadsSlider" min="1" max="50" value="8" class="w-full" oninput="updateROI()" />
+            <div class="flex justify-between text-xs text-slate-500 mt-1"><span>1</span><span>50</span></div>
+          </div>
+          <!-- Slider 2 -->
+          <div>
+            <div class="flex justify-between items-center mb-2">
+              <label class="text-white font-semibold">Average job value</label>
+              <span id="valueVal" class="text-safety-500 font-bold text-lg">$14,000</span>
+            </div>
+            <input type="range" id="valueSlider" min="500" max="25000" step="500" value="14000" class="w-full" oninput="updateROI()" />
+            <div class="flex justify-between text-xs text-slate-500 mt-1"><span>$500</span><span>$25,000</span></div>
+          </div>
+          <!-- Slider 3 -->
+          <div>
+            <div class="flex justify-between items-center mb-2">
+              <label class="text-white font-semibold">Close rate</label>
+              <span id="closeVal" class="text-safety-500 font-bold text-lg">25%</span>
+            </div>
+            <input type="range" id="closeSlider" min="5" max="80" value="25" class="w-full" oninput="updateROI()" />
+            <div class="flex justify-between text-xs text-slate-500 mt-1"><span>5%</span><span>80%</span></div>
+          </div>
+        </div>
+
+        <!-- Output -->
+        <div class="mt-10 pt-8 border-t border-slate-700 grid grid-cols-2 gap-6 text-center">
+          <div>
+            <div class="text-slate-400 text-sm mb-1">Monthly Revenue Recovered</div>
+            <div id="monthlyOutput" class="roi-output text-4xl font-extrabold">$36,400</div>
+          </div>
+          <div>
+            <div class="text-slate-400 text-sm mb-1">Annual Revenue Recovered</div>
+            <div id="annualOutput" class="roi-output text-4xl font-extrabold">$436,800</div>
+          </div>
+        </div>
+
+        <div class="mt-6 text-center">
+          <a href="https://calendly.com/duy-heatbooker/30min" target="_blank" rel="noopener noreferrer" class="cta-orange">
+            Get These Numbers Working for You
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SMS DEMO -->
+  <section id="demo" class="py-20 px-4">
+    <div class="max-w-2xl mx-auto">
+      <div class="text-center mb-10">
+        <h2 class="text-3xl sm:text-4xl font-bold text-white mb-4">See Maya in Action</h2>
+        <p class="text-slate-400">This is a real roofing lead conversation — start to booked appointment.</p>
+      </div>
+
+      <div class="bg-slate-800 border border-slate-700 rounded-2xl overflow-hidden">
+        <!-- Phone Header -->
+        <div class="bg-slate-700 px-6 py-4 flex items-center gap-3">
+          <div class="w-10 h-10 bg-safety-500 rounded-full flex items-center justify-center font-bold text-white">M</div>
+          <div>
+            <div class="text-white font-semibold">Maya</div>
+            <div class="text-green-400 text-xs flex items-center gap-1">
+              <span class="w-2 h-2 bg-green-400 rounded-full inline-block"></span>
+              Active
+            </div>
+          </div>
+        </div>
+
+        <!-- Chat -->
+        <div class="p-6 space-y-4">
+          <!-- Lead -->
+          <div class="flex justify-end">
+            <div class="bg-slate-600 text-white rounded-2xl rounded-tr-sm px-4 py-3 max-w-xs text-sm">QUOTE</div>
+          </div>
+          <!-- Maya -->
+          <div class="flex justify-start gap-2">
+            <div class="w-7 h-7 bg-safety-500 rounded-full flex items-center justify-center text-white text-xs font-bold shrink-0 mt-auto">M</div>
+            <div class="bg-slate-700 text-white rounded-2xl rounded-tl-sm px-4 py-3 max-w-xs text-sm">Hey! Thanks for reaching out. Is this for storm damage or an existing leak?</div>
+          </div>
+          <!-- Lead -->
+          <div class="flex justify-end">
+            <div class="bg-slate-600 text-white rounded-2xl rounded-tr-sm px-4 py-3 max-w-xs text-sm">Hail damage from last night's storm</div>
+          </div>
+          <!-- Maya -->
+          <div class="flex justify-start gap-2">
+            <div class="w-7 h-7 bg-safety-500 rounded-full flex items-center justify-center text-white text-xs font-bold shrink-0 mt-auto">M</div>
+            <div class="bg-slate-700 text-white rounded-2xl rounded-tl-sm px-4 py-3 max-w-xs text-sm">Got it — we'll get an estimator out fast. What's your zip code?</div>
+          </div>
+          <!-- Lead -->
+          <div class="flex justify-end">
+            <div class="bg-slate-600 text-white rounded-2xl rounded-tr-sm px-4 py-3 max-w-xs text-sm">30301</div>
+          </div>
+          <!-- Maya -->
+          <div class="flex justify-start gap-2">
+            <div class="w-7 h-7 bg-safety-500 rounded-full flex items-center justify-center text-white text-xs font-bold shrink-0 mt-auto">M</div>
+            <div class="bg-slate-700 text-white rounded-2xl rounded-tl-sm px-4 py-3 max-w-xs text-sm">We cover 30301. Can we schedule an estimate tomorrow morning 8–10 AM?</div>
+          </div>
+          <!-- Lead - Booked -->
+          <div class="flex justify-end">
+            <div class="bg-green-600 text-white rounded-2xl rounded-tr-sm px-4 py-3 max-w-xs text-sm font-semibold">✓ Booked 8–10 AM</div>
+          </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="bg-slate-900/50 px-6 py-4 text-center">
+          <span class="text-safety-500 font-bold text-sm">Time to estimate booking: &lt; 5 seconds</span>
+        </div>
+      </div>
+
+      <div class="text-center mt-6">
+        <a href="sms:+15076773559?body=QUOTE" class="inline-flex items-center gap-2 text-safety-500 font-semibold hover:text-safety-400 transition-colors">
+          <i data-lucide="smartphone" class="w-5 h-5"></i>
+          Text "QUOTE" to (507) 677-3559 to try it live
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CRM INTEGRATIONS -->
+  <section class="py-20 px-4 bg-slate-800/30">
+    <div class="max-w-4xl mx-auto text-center">
+      <h2 class="text-3xl font-bold text-white mb-4">Syncs with Your CRM</h2>
+      <p class="text-slate-400 mb-10 max-w-xl mx-auto">Maya books directly into your existing software. No manual entry, no duplicate data.</p>
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-6">
+        <div class="bg-slate-800 border border-slate-700 rounded-xl p-5 flex flex-col items-center gap-3 hover:border-safety-500/50 transition-colors">
+          <i data-lucide="briefcase" class="w-8 h-8 text-safety-500"></i>
+          <span class="text-white font-semibold">Jobber</span>
+        </div>
+        <div class="bg-slate-800 border border-slate-700 rounded-xl p-5 flex flex-col items-center gap-3 hover:border-safety-500/50 transition-colors">
+          <i data-lucide="settings" class="w-8 h-8 text-safety-500"></i>
+          <span class="text-white font-semibold">ServiceTitan</span>
+        </div>
+        <div class="bg-slate-800 border border-slate-700 rounded-xl p-5 flex flex-col items-center gap-3 hover:border-safety-500/50 transition-colors">
+          <i data-lucide="phone-call" class="w-8 h-8 text-safety-500"></i>
+          <span class="text-white font-semibold">Housecall Pro</span>
+        </div>
+        <div class="bg-slate-800 border border-slate-700 rounded-xl p-5 flex flex-col items-center gap-3 hover:border-safety-500/50 transition-colors">
+          <i data-lucide="calendar" class="w-8 h-8 text-safety-500"></i>
+          <span class="text-white font-semibold">Google Calendar</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="py-20 px-4">
+    <div class="max-w-3xl mx-auto">
+      <div class="text-center mb-10">
+        <h2 class="text-3xl sm:text-4xl font-bold text-white mb-4">Frequently Asked Questions</h2>
+      </div>
+      <div class="space-y-4">
+        <details class="bg-slate-800 border border-slate-700 rounded-xl overflow-hidden group">
+          <summary class="flex items-center justify-between p-6 font-semibold text-white text-lg">
+            Does Maya work during peak storm season when call volume spikes?
+            <i data-lucide="chevron-down" class="chevron w-5 h-5 text-safety-500 shrink-0 ml-4"></i>
+          </summary>
+          <div class="px-6 pb-6 text-slate-400 leading-relaxed">
+            Yes — that's exactly when Maya earns her keep. She handles unlimited simultaneous text conversations while your CSR is fielding calls. Storm surges don't create a queue; every lead gets a 5-second reply.
+          </div>
+        </details>
+        <details class="bg-slate-800 border border-slate-700 rounded-xl overflow-hidden group">
+          <summary class="flex items-center justify-between p-6 font-semibold text-white text-lg">
+            Can she qualify leads for insurance vs. out-of-pocket jobs?
+            <i data-lucide="chevron-down" class="chevron w-5 h-5 text-safety-500 shrink-0 ml-4"></i>
+          </summary>
+          <div class="px-6 pb-6 text-slate-400 leading-relaxed">
+            Maya asks whether the damage is from a recent storm event and whether the homeowner has filed an insurance claim. This flags insurance-pathway leads for your estimators before the appointment.
+          </div>
+        </details>
+        <details class="bg-slate-800 border border-slate-700 rounded-xl overflow-hidden group">
+          <summary class="flex items-center justify-between p-6 font-semibold text-white text-lg">
+            Does she work with Jobber for roofing dispatch?
+            <i data-lucide="chevron-down" class="chevron w-5 h-5 text-safety-500 shrink-0 ml-4"></i>
+          </summary>
+          <div class="px-6 pb-6 text-slate-400 leading-relaxed">
+            Yes. Maya integrates with Jobber and ServiceTitan. Estimate appointments are booked directly on your calendar with job type (storm/leak/replacement) and the homeowner's zip code attached.
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="py-20 px-4 bg-gradient-to-br from-orange-950/30 to-slate-900">
+    <div class="max-w-2xl mx-auto text-center">
+      <h2 class="text-3xl sm:text-4xl font-bold text-white mb-4">Stop Letting Voicemail Kill Your Storm Season</h2>
+      <p class="text-slate-300 text-lg mb-8">30-minute setup call. Live in 48 hours. Your next storm lead gets a response in under 5 seconds.</p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="https://calendly.com/duy-heatbooker/30min" target="_blank" rel="noopener noreferrer" class="cta-orange text-base px-8 py-4">
+          Book My 30-Min Setup Call
+        </a>
+        <a href="sms:+15076773559?body=QUOTE" class="flex items-center justify-center gap-2 bg-slate-800 hover:bg-slate-700 text-white font-semibold px-6 py-4 rounded-lg transition-colors border border-slate-700">
+          <i data-lucide="message-square" class="w-5 h-5 text-safety-500"></i>
+          Text QUOTE to (507) 677-3559
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-slate-800 py-10 px-4 bg-slate-900">
+    <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-slate-400">
+      <div class="font-semibold text-white">Maya <span class="font-normal text-slate-400">by HeatBooker</span></div>
+      <div class="flex items-center gap-4">
+        <a href="/privacy.html" class="hover:text-white transition-colors">Privacy Policy</a>
+        <span>·</span>
+        <a href="/terms.html" class="hover:text-white transition-colors">Terms</a>
+      </div>
+      <div>© 2026 Maya. Built for contractors who pick up.</div>
+    </div>
+  </footer>
+
+  <!-- Scroll to Top -->
+  <button id="scrollTopBtn" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Scroll to top">
+    <i data-lucide="arrow-up" class="w-5 h-5"></i>
+  </button>
+
+  <script>
+    // ROI Calculator
+    function updateROI() {
+      const leads = parseInt(document.getElementById('leadsSlider').value);
+      const jobValue = parseInt(document.getElementById('valueSlider').value);
+      const closeRate = parseInt(document.getElementById('closeSlider').value);
+
+      document.getElementById('leadsVal').textContent = leads;
+      document.getElementById('valueVal').textContent = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 }).format(jobValue);
+      document.getElementById('closeVal').textContent = closeRate + '%';
+
+      const annual = leads * 52 * jobValue * (closeRate / 100);
+      const monthly = annual / 12;
+
+      const fmt = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 });
+      document.getElementById('monthlyOutput').textContent = fmt.format(monthly);
+      document.getElementById('annualOutput').textContent = fmt.format(annual);
+    }
+    updateROI();
+
+    // Scroll to top
+    const scrollBtn = document.getElementById('scrollTopBtn');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 400) {
+        scrollBtn.classList.add('visible');
+      } else {
+        scrollBtn.classList.remove('visible');
+      }
+    });
+
+    // Lucide icons
+    lucide.createIcons();
+  </script>
+</body>
+</html>

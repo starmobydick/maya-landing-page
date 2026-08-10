@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Maya AI vs Virtual Receptionist Services — SMS Booking Comparison for Contractors</title>
+  <meta name="description" content="See how Maya AI SMS Booking compares to Smith.ai, Ruby Receptionists, and ServiceTitan WebChat for HVAC, roofing, and plumbing contractors. Specialized for home service trades." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://heatbooker.com/vs/" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Maya AI vs Virtual Receptionist Services — SMS Booking Comparison for Contractors" />
+  <meta property="og:description" content="See how Maya AI compares to Smith.ai and Ruby Receptionists for HVAC, roofing, and plumbing contractors." />
+  <meta property="og:url" content="https://heatbooker.com/vs/" />
+  <meta property="og:type" content="website" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: { extend: {
+        fontFamily: { sans: ['Inter','system-ui','sans-serif'] },
+        colors: { safety: { 50:'#fff7ed',100:'#ffedd5',400:'#fb923c',500:'#f97316',600:'#ea580c',700:'#c2410c' } },
+        animation: { shimmer:'shimmer 2.5s linear infinite', typing:'typing 1.4s infinite ease-in-out' },
+        keyframes: {
+          shimmer:{'0%':{backgroundPosition:'-1000px 0'},'100%':{backgroundPosition:'1000px 0'}},
+          typing:{'0%,60%,100%':{transform:'translateY(0)',opacity:'0.4'},'30%':{transform:'translateY(-4px)',opacity:'1'}}
+        }
+      }}
+    }
+  </script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+
+  <style>
+    body { font-family: 'Inter', system-ui, sans-serif; }
+
+    .cta-orange {
+      background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
+      color: #fff;
+      font-weight: 700;
+      padding: 0.875rem 2rem;
+      border-radius: 0.5rem;
+      display: inline-block;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      text-decoration: none;
+      cursor: pointer;
+      border: none;
+    }
+    .cta-orange:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(249, 115, 22, 0.4);
+    }
+
+    .roi-output {
+      background: linear-gradient(90deg, #f97316 0%, #fb923c 25%, #f97316 50%, #ea580c 75%, #f97316 100%);
+      background-size: 1000px 100%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: shimmer 2.5s linear infinite;
+    }
+
+    @keyframes shimmer {
+      0% { background-position: -1000px 0; }
+      100% { background-position: 1000px 0; }
+    }
+
+    .typing-dot {
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #f97316;
+      animation: typing 1.4s infinite ease-in-out;
+    }
+    .typing-dot:nth-child(2) { animation-delay: 0.2s; }
+    .typing-dot:nth-child(3) { animation-delay: 0.4s; }
+
+    @keyframes typing {
+      0%, 60%, 100% { transform: translateY(0); opacity: 0.4; }
+      30% { transform: translateY(-4px); opacity: 1; }
+    }
+
+    #scrollTopBtn {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      width: 48px;
+      height: 48px;
+      background: #f97316;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      opacity: 0;
+      transition: opacity 0.3s ease, transform 0.2s ease;
+      z-index: 999;
+      border: none;
+      color: white;
+    }
+    #scrollTopBtn.visible { opacity: 1; }
+    #scrollTopBtn:hover { transform: scale(1.1); }
+
+    .maya-col {
+      border-left: 2px solid #f97316;
+      border-right: 2px solid #f97316;
+    }
+    .maya-col-header {
+      border-left: 2px solid #f97316;
+      border-right: 2px solid #f97316;
+      border-top: 2px solid #f97316;
+    }
+    .maya-col-footer {
+      border-left: 2px solid #f97316;
+      border-right: 2px solid #f97316;
+      border-bottom: 2px solid #f97316;
+    }
+  </style>
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "SoftwareApplication",
+        "name": "Maya AI SMS Booking Agent",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Web",
+        "description": "SMS-native AI booking agent for home service contractors. Qualifies and books leads in under 5 seconds.",
+        "url": "https://heatbooker.com/vs/",
+        "offers": {
+          "@type": "Offer",
+          "priceCurrency": "USD",
+          "description": "Per booked appointment pricing"
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://heatbooker.com/" },
+          { "@type": "ListItem", "position": 2, "name": "Compare", "item": "https://heatbooker.com/vs/" }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body class="bg-slate-900 text-white min-h-screen">
+
+  <!-- NAV -->
+  <nav class="border-b border-slate-800 sticky top-0 z-50 bg-slate-900/95 backdrop-blur-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <a href="/" class="flex items-center gap-2 font-bold text-xl">
+          <span class="text-safety-500">Maya</span>
+          <span class="text-slate-400 font-normal text-sm hidden sm:block">by HeatBooker</span>
+        </a>
+        <div class="hidden md:flex items-center gap-6 text-sm text-slate-300">
+          <a href="/industries/" class="hover:text-white transition-colors">Industries</a>
+          <a href="/locations/" class="hover:text-white transition-colors">Locations</a>
+          <a href="#how" class="hover:text-white transition-colors">How It Works</a>
+          <a href="#roi" class="hover:text-white transition-colors">ROI</a>
+          <a href="#demo" class="hover:text-white transition-colors">Demo</a>
+          <a href="#faq" class="hover:text-white transition-colors">FAQ</a>
+        </div>
+        <a href="https://calendly.com/duy-heatbooker/30min" target="_blank" rel="noopener noreferrer" class="cta-orange text-sm py-2 px-4">
+          Book Setup Call
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="relative overflow-hidden pt-16 pb-20 px-4">
+    <div class="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-900 to-orange-950/20 pointer-events-none"></div>
+    <div class="max-w-4xl mx-auto relative z-10 text-center">
+      <!-- Breadcrumb -->
+      <nav class="flex items-center justify-center gap-2 text-sm text-slate-400 mb-6">
+        <a href="/" class="hover:text-white transition-colors">Home</a>
+        <i data-lucide="chevron-right" class="w-4 h-4"></i>
+        <span class="text-safety-500">Compare</span>
+      </nav>
+
+      <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-tight mb-6">
+        Shopping around? See how <span class="text-safety-500">Maya</span> stacks up.
+      </h1>
+
+      <p class="text-lg sm:text-xl text-slate-300 max-w-3xl mx-auto mb-8 leading-relaxed">
+        We built Maya for one thing: getting a qualified, calendared appointment booked inside an SMS thread — before the homeowner calls your competitor. See how that differs from the alternatives.
+      </p>
+
+      <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+        <a href="https://calendly.com/duy-heatbooker/30min" target="_blank" rel="noopener noreferrer" class="cta-orange text-base px-8 py-4">
+          Book My 30-Min Setup Call
+        </a>
+        <a href="sms:+15076773559?body=QUOTE" class="flex items-center gap-2 bg-slate-800 hover:bg-slate-700 text-white font-semibold px-6 py-4 rounded-lg transition-colors border border-slate-700">
+          <i data-lucide="message-square" class="w-5 h-5 text-safety-500"></i>
+          Text "QUOTE" to Try Demo
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPARISON TABLE -->
+  <section class="py-20 px-4">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-center mb-10">
+        <h2 class="text-3xl sm:text-4xl font-bold text-white mb-4">Side-by-Side Comparison</h2>
+        <p class="text-slate-400">Maya vs. the most common alternatives for home service contractors.</p>
+      </div>
+
+      <div class="overflow-x-auto rounded-xl border border-slate-700">
+        <table class="w-full border-collapse text-sm">
+          <!-- Header -->
+          <thead>
+            <tr>
+              <th class="text-left p-4 bg-slate-800 text-slate-400 font-semibold w-1/4 border-b border-slate-700">Feature</th>
+              <th class="p-4 bg-safety-500 text-white font-bold text-center maya-col-header border-b border-safety-600">
+                <div class="flex items-center justify-center gap-2">
+                  <i data-lucide="zap" class="w-4 h-4"></i>
+                  Maya
+                </div>
+              </th>
+              <th class="p-4 bg-slate-700 text-slate-200 font-semibold text-center border-b border-slate-600">Smith.ai</th>
+              <th class="p-4 bg-slate-700 text-slate-200 font-semibold text-center border-b border-slate-600">Ruby Receptionists</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Row 1 -->
+            <tr class="border-b border-slate-700">
+              <td class="p-4 bg-slate-900 text-slate-300 font-medium">Response channel</td>
+              <td class="p-4 bg-slate-800/80 text-center maya-col">
+                <span class="inline-flex items-center gap-1.5 bg-safety-500/10 text-safety-400 font-semibold px-3 py-1 rounded-full text-xs">
+                  <i data-lucide="message-square" class="w-3.5 h-3.5"></i>
+                  SMS-native (text first)
+                </span>
+              </td>
+              <td class="p-4 bg-slate-900/50 text-slate-400 text-center">Phone + live chat</td>
+              <td class="p-4 bg-slate-800/30 text-slate-400 text-center">Phone + live chat</td>
+            </tr>
+            <!-- Row 2 -->
+            <tr class="border-b border-slate-700">
+              <td class="p-4 bg-slate-900 text-slate-300 font-medium">Response time</td>
+              <td class="p-4 bg-slate-800/80 text-center maya-col">
+                <span class="text-green-400 font-bold">&lt; 5 seconds, 24/7</span>
+              </td>
+              <td class="p-4 bg-slate-900/50 text-slate-400 text-center">1–2 min (human agent)</td>
+              <td class="p-4 bg-slate-800/30 text-slate-400 text-center">1–2 min (human agent)</td>
+            </tr>
+            <!-- Row 3 -->
+            <tr class="border-b border-slate-700">
+              <td class="p-4 bg-slate-900 text-slate-300 font-medium">Pricing model</td>
+              <td class="p-4 bg-slate-800/80 text-center maya-col">
+                <span class="text-safety-400 font-semibold">Per booked appointment</span>
+              </td>
+              <td class="p-4 bg-slate-900/50 text-slate-400 text-center">Per minute / per call</td>
+              <td class="p-4 bg-slate-800/30 text-slate-400 text-center">Per minute</td>
+            </tr>
+            <!-- Row 4 -->
+            <tr class="border-b border-slate-700">
+              <td class="p-4 bg-slate-900 text-slate-300 font-medium">Home service specialization</td>
+              <td class="p-4 bg-slate-800/80 text-center maya-col">
+                <span class="text-safety-400 font-semibold text-xs">HVAC, Roofing, Plumbing, Electrical + more</span>
+              </td>
+              <td class="p-4 bg-slate-900/50 text-slate-400 text-center text-xs">General business</td>
+              <td class="p-4 bg-slate-800/30 text-slate-400 text-center text-xs">General business</td>
+            </tr>
+            <!-- Row 5 -->
+            <tr>
+              <td class="p-4 bg-slate-900 text-slate-300 font-medium">CRM integration</td>
+              <td class="p-4 bg-slate-800/80 text-center maya-col-footer">
+                <span class="text-safety-400 font-semibold text-xs">ServiceTitan, Jobber, Housecall Pro, Google Cal</span>
+              </td>
+              <td class="p-4 bg-slate-900/50 text-slate-400 text-center text-xs">Basic CRM pass-through</td>
+              <td class="p-4 bg-slate-800/30 text-slate-400 text-center text-xs">Basic CRM pass-through</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPARISON CARD LINKS -->
+  <section class="py-12 px-4">
+    <div class="max-w-4xl mx-auto">
+      <div class="text-center mb-8">
+        <h2 class="text-2xl font-bold text-white">Deep-dive comparisons</h2>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+        <a href="/vs/smith-ai/" class="group bg-slate-800 border border-slate-700 hover:border-safety-500/50 rounded-xl p-6 transition-all hover:shadow-lg hover:shadow-safety-500/10">
+          <div class="flex items-center justify-between">
+            <div>
+              <div class="text-slate-400 text-xs font-medium uppercase tracking-wider mb-1">Comparison</div>
+              <div class="text-white font-bold text-lg">Maya vs Smith.ai</div>
+              <div class="text-slate-400 text-sm mt-1">SMS-first vs. phone-first for contractors</div>
+            </div>
+            <i data-lucide="arrow-right" class="w-6 h-6 text-safety-500 group-hover:translate-x-1 transition-transform"></i>
+          </div>
+        </a>
+        <a href="/vs/ruby-receptionists/" class="group bg-slate-800 border border-slate-700 hover:border-safety-500/50 rounded-xl p-6 transition-all hover:shadow-lg hover:shadow-safety-500/10">
+          <div class="flex items-center justify-between">
+            <div>
+              <div class="text-slate-400 text-xs font-medium uppercase tracking-wider mb-1">Comparison</div>
+              <div class="text-white font-bold text-lg">Maya vs Ruby Receptionists</div>
+              <div class="text-slate-400 text-sm mt-1">Automated SMS vs. live phone answering</div>
+            </div>
+            <i data-lucide="arrow-right" class="w-6 h-6 text-safety-500 group-hover:translate-x-1 transition-transform"></i>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY SMS FIRST -->
+  <section class="py-20 px-4 bg-slate-800/30">
+    <div class="max-w-3xl mx-auto">
+      <div class="text-center mb-10">
+        <h2 class="text-3xl sm:text-4xl font-bold text-white mb-4">Why SMS First?</h2>
+      </div>
+      <div class="prose prose-invert max-w-none space-y-6">
+        <p class="text-lg text-slate-300 leading-relaxed">
+          <strong class="text-white">Homeowners text. Phone calls go to voicemail.</strong> The data is clear: over 90% of homeowners under 45 prefer texting a business over calling. When your HVAC goes out at 11 PM on a Saturday, the homeowner is not pressing "1 for service" on a phone tree — they're texting the first number Google gives them.
+        </p>
+        <p class="text-lg text-slate-300 leading-relaxed">
+          The first contractor to reply via text wins <strong class="text-white">78% of jobs.</strong> Maya is SMS-native: no hold music, no "press 1," just an instant qualified conversation that ends with an appointment on your calendar. Phone-first receptionists like Smith.ai and Ruby are great for businesses where calls are the primary channel — but for HVAC, roofing, and plumbing contractors, the leads are increasingly arriving via text first.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="py-20 px-4 bg-gradient-to-br from-orange-950/30 to-slate-900">
+    <div class="max-w-2xl mx-auto text-center">
+      <h2 class="text-3xl sm:text-4xl font-bold text-white mb-4">Ready to Book More Jobs — Before Your Competitor Answers?</h2>
+      <p class="text-slate-300 text-lg mb-8">30-minute setup call. Live in 48 hours. Every lead gets a 5-second response.</p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="https://calendly.com/duy-heatbooker/30min" target="_blank" rel="noopener noreferrer" class="cta-orange text-base px-8 py-4">
+          Book My 30-Min Setup Call
+        </a>
+        <a href="sms:+15076773559?body=QUOTE" class="flex items-center justify-center gap-2 bg-slate-800 hover:bg-slate-700 text-white font-semibold px-6 py-4 rounded-lg transition-colors border border-slate-700">
+          <i data-lucide="message-square" class="w-5 h-5 text-safety-500"></i>
+          Text QUOTE to (507) 677-3559
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-slate-800 py-10 px-4 bg-slate-900">
+    <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-slate-400">
+      <div class="font-semibold text-white">Maya <span class="font-normal text-slate-400">by HeatBooker</span></div>
+      <div class="flex items-center gap-4">
+        <a href="/privacy.html" class="hover:text-white transition-colors">Privacy Policy</a>
+        <span>·</span>
+        <a href="/terms.html" class="hover:text-white transition-colors">Terms</a>
+      </div>
+      <div>© 2026 Maya. Built for contractors who pick up.</div>
+    </div>
+  </footer>
+
+  <!-- Scroll to Top -->
+  <button id="scrollTopBtn" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Scroll to top">
+    <i data-lucide="arrow-up" class="w-5 h-5"></i>
+  </button>
+
+  <script>
+    // Scroll to top
+    const scrollBtn = document.getElementById('scrollTopBtn');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 400) {
+        scrollBtn.classList.add('visible');
+      } else {
+        scrollBtn.classList.remove('visible');
+      }
+    });
+
+    // Lucide icons
+    lucide.createIcons();
+  </script>
+</body>
+</html>
