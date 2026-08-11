@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Maya AI + Housecall Pro vs. HCP Alone — Why You Need Both | Maya</title>
+  <meta name="description" content="Maya AI vs Housecall Pro for HVAC and plumbing contractors. See why Maya's SMS lead capture makes Housecall Pro users book more jobs before leads go cold." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://heatbooker.com/vs/housecall-pro/" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Maya AI + Housecall Pro vs. HCP Alone — Why You Need Both | Maya" />
+  <meta property="og:description" content="Maya AI vs Housecall Pro for HVAC and plumbing contractors. See why Maya's SMS lead capture makes Housecall Pro users book more jobs before leads go cold." />
+  <meta property="og:url" content="https://heatbooker.com/vs/housecall-pro/" />
+  <meta property="og:type" content="website" />
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            safety: {
+              400: '#fb923c',
+              500: '#f97316',
+              600: '#ea580c',
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'ui-sans-serif', 'system-ui'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Inter Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+
+  <style>
+    body { background-color: #0f172a; color: #e2e8f0; font-family: 'Inter', ui-sans-serif, system-ui; }
+    .cta-orange {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      background: linear-gradient(135deg, #f97316, #ea580c);
+      color: #ffffff;
+      font-weight: 700;
+      padding: 0.875rem 2rem;
+      border-radius: 0.5rem;
+      text-decoration: none;
+      transition: opacity 0.2s, transform 0.2s;
+      box-shadow: 0 4px 24px rgba(249,115,22,0.3);
+    }
+    .cta-orange:hover { opacity: 0.92; transform: translateY(-1px); }
+    .cta-outline {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      border: 1px solid rgba(249,115,22,0.4);
+      color: #f97316;
+      font-weight: 600;
+      padding: 0.875rem 2rem;
+      border-radius: 0.5rem;
+      text-decoration: none;
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .cta-outline:hover { background: rgba(249,115,22,0.08); border-color: #f97316; }
+    .card {
+      background: rgba(15,23,42,0.8);
+      border: 1px solid #1e293b;
+      border-radius: 1rem;
+    }
+    .card-orange {
+      background: rgba(249,115,22,0.05);
+      border: 1px solid rgba(249,115,22,0.2);
+      border-radius: 1rem;
+    }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.375rem;
+      background: rgba(249,115,22,0.1);
+      border: 1px solid rgba(249,115,22,0.25);
+      color: #fb923c;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      padding: 0.25rem 0.75rem;
+      border-radius: 9999px;
+    }
+    .table-row-alt:nth-child(even) { background: rgba(30,41,59,0.4); }
+  </style>
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "SoftwareApplication",
+        "name": "Maya AI SMS Booking Agent",
+        "url": "https://heatbooker.com",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Web",
+        "description": "Maya is a 24/7 AI SMS booking agent for HVAC, plumbing, and home service contractors. It qualifies leads via text in under 5 seconds and books them directly into Housecall Pro.",
+        "offers": {
+          "@type": "Offer",
+          "priceCurrency": "USD",
+          "description": "Per booked appointment pricing"
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://heatbooker.com"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Compare",
+            "item": "https://heatbooker.com/vs/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Maya vs Housecall Pro",
+            "item": "https://heatbooker.com/vs/housecall-pro/"
+          }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "I already use Housecall Pro's online booking. Why do I need Maya?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "HCP's online booking captures homeowners who visit your website and fill out a form — a small fraction of your leads. Maya captures homeowners who text your number directly from a Google ad, a yard sign, or a referral. These are your highest-intent leads, and they're texting, not form-filling. Maya books them into HCP automatically."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does Maya replace Housecall Pro?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No — Maya works with HCP, not against it. Housecall Pro runs your operations. Maya fills your calendar. Think of Maya as the 24/7 SMS receptionist that feeds leads into HCP so your dispatchers start each day with a full board instead of an empty one."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body class="antialiased">
+
+  <!-- ===================== NAV ===================== -->
+  <nav style="background:rgba(15,23,42,0.95);border-bottom:1px solid #1e293b;position:sticky;top:0;z-index:50;backdrop-filter:blur(12px);">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+
+        <!-- Logo -->
+        <a href="/" class="flex items-center gap-2">
+          <span style="display:inline-flex;align-items:center;justify-content:center;width:2rem;height:2rem;border-radius:0.5rem;background:rgba(249,115,22,0.1);border:1px solid rgba(249,115,22,0.3);">
+            <i data-lucide="zap" style="width:1rem;height:1rem;color:#f97316;"></i>
+          </span>
+          <span style="font-size:1.125rem;font-weight:700;color:#f8fafc;">Maya</span>
+          <span class="hidden sm:inline" style="font-size:0.65rem;text-transform:uppercase;letter-spacing:0.15em;color:#64748b;margin-left:0.25rem;border-left:1px solid #334155;padding-left:0.5rem;">SMS Agent</span>
+        </a>
+
+        <!-- Nav Links -->
+        <div class="hidden md:flex items-center gap-6">
+          <a href="/" style="color:#94a3b8;font-size:0.875rem;font-weight:500;text-decoration:none;" onmouseover="this.style.color='#f8fafc'" onmouseout="this.style.color='#94a3b8'">Home</a>
+          <a href="/vs/" style="color:#f97316;font-size:0.875rem;font-weight:600;text-decoration:none;">Compare</a>
+          <a href="https://calendly.com/duy-heatbooker/30min" target="_blank" rel="noopener noreferrer" class="cta-orange" style="padding:0.5rem 1.25rem;font-size:0.875rem;">Book a Demo</a>
+        </div>
+
+        <!-- Mobile CTA -->
+        <a href="sms:+15076773559?body=QUOTE" class="md:hidden cta-orange" style="padding:0.5rem 1rem;font-size:0.875rem;">
+          <i data-lucide="message-square" style="width:1rem;height:1rem;"></i>
+          Text Us
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ===================== HERO ===================== -->
+  <section style="padding:5rem 1.5rem 4rem;background:linear-gradient(180deg,rgba(249,115,22,0.04) 0%,transparent 60%);">
+    <div class="max-w-4xl mx-auto text-center">
+
+      <!-- Breadcrumb -->
+      <nav aria-label="Breadcrumb" class="flex items-center justify-center gap-2 mb-6" style="font-size:0.8rem;color:#64748b;">
+        <a href="/" style="color:#64748b;text-decoration:none;" onmouseover="this.style.color='#f97316'" onmouseout="this.style.color='#64748b'">Home</a>
+        <i data-lucide="chevron-right" style="width:0.875rem;height:0.875rem;color:#475569;"></i>
+        <a href="/vs/" style="color:#64748b;text-decoration:none;" onmouseover="this.style.color='#f97316'" onmouseout="this.style.color='#64748b'">Compare</a>
+        <i data-lucide="chevron-right" style="width:0.875rem;height:0.875rem;color:#475569;"></i>
+        <span style="color:#94a3b8;">Maya vs Housecall Pro</span>
+      </nav>
+
+      <!-- Badge -->
+      <div class="flex justify-center mb-5">
+        <span class="badge">
+          <i data-lucide="bar-chart-2" style="width:0.75rem;height:0.75rem;"></i>
+          Comparison
+        </span>
+      </div>
+
+      <!-- H1 -->
+      <h1 style="font-size:clamp(2rem,5vw,3.25rem);font-weight:900;line-height:1.1;color:#f8fafc;margin-bottom:1.5rem;letter-spacing:-0.02em;">
+        Maya + Housecall Pro: The Stack That Captures
+        <span style="display:block;background:linear-gradient(135deg,#f97316,#fb923c);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Every Lead, Not Just the Ones Who Call.</span>
+      </h1>
+
+      <!-- Subtext -->
+      <p style="font-size:1.125rem;color:#94a3b8;max-width:40rem;margin:0 auto 2.5rem;line-height:1.75;">
+        Housecall Pro manages the job. <strong style="color:#cbd5e1;">Maya captures the lead before it ever reaches HCP</strong> — from a Google ad, a yard sign text, or a referral who messages instead of calling. By the time a lead hits your HCP dispatch board, Maya has already qualified them.
+      </p>
+
+      <!-- CTA Row -->
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a href="https://calendly.com/duy-heatbooker/30min" target="_blank" rel="noopener noreferrer" class="cta-orange">
+          <i data-lucide="calendar" style="width:1.125rem;height:1.125rem;"></i>
+          See How It Works
+        </a>
+        <a href="sms:+15076773559?body=QUOTE" class="cta-outline">
+          <i data-lucide="message-circle" style="width:1.125rem;height:1.125rem;"></i>
+          Text (507) 677-3559
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== WHAT EACH TOOL DOES ===================== -->
+  <section style="padding:4rem 1.5rem;">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-center mb-10">
+        <h2 style="font-size:clamp(1.5rem,3vw,2.25rem);font-weight:800;color:#f8fafc;margin-bottom:0.75rem;">One covers the job. The other wins the lead.</h2>
+        <p style="color:#94a3b8;max-width:34rem;margin:0 auto;">Housecall Pro and Maya each own a distinct part of the contractor's growth cycle — and they're better together.</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-6">
+
+        <!-- Housecall Pro Card -->
+        <div class="card p-8">
+          <div class="flex items-center gap-3 mb-5">
+            <div style="width:2.5rem;height:2.5rem;border-radius:0.625rem;background:rgba(99,102,241,0.1);border:1px solid rgba(99,102,241,0.25);display:flex;align-items:center;justify-content:center;">
+              <i data-lucide="layout-dashboard" style="width:1.25rem;height:1.25rem;color:#818cf8;"></i>
+            </div>
+            <div>
+              <h3 style="font-size:1.125rem;font-weight:700;color:#f8fafc;margin:0;">Housecall Pro</h3>
+              <p style="font-size:0.75rem;color:#64748b;margin:0;">Field service operations platform</p>
+            </div>
+          </div>
+          <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:0.75rem;">
+            <li class="flex items-start gap-3">
+              <i data-lucide="check-circle" style="width:1rem;height:1rem;color:#818cf8;margin-top:0.15rem;flex-shrink:0;"></i>
+              <span style="color:#cbd5e1;font-size:0.9375rem;">Job management and dispatch board</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <i data-lucide="check-circle" style="width:1rem;height:1rem;color:#818cf8;margin-top:0.15rem;flex-shrink:0;"></i>
+              <span style="color:#cbd5e1;font-size:0.9375rem;">Online booking widget for your website</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <i data-lucide="check-circle" style="width:1rem;height:1rem;color:#818cf8;margin-top:0.15rem;flex-shrink:0;"></i>
+              <span style="color:#cbd5e1;font-size:0.9375rem;">Invoicing, estimates, and payments</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <i data-lucide="check-circle" style="width:1rem;height:1rem;color:#818cf8;margin-top:0.15rem;flex-shrink:0;"></i>
+              <span style="color:#cbd5e1;font-size:0.9375rem;">Customer communication and reviews</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <i data-lucide="check-circle" style="width:1rem;height:1rem;color:#818cf8;margin-top:0.15rem;flex-shrink:0;"></i>
+              <span style="color:#cbd5e1;font-size:0.9375rem;">Route optimization and tech management</span>
+            </li>
+          </ul>
+          <div style="margin-top:1.5rem;padding-top:1.25rem;border-top:1px solid #1e293b;">
+            <p style="font-size:0.875rem;color:#64748b;margin:0;font-style:italic;">Excellent at running efficient field service operations once a job is booked.</p>
+          </div>
+        </div>
+
+        <!-- Maya Card -->
+        <div class="card-orange p-8">
+          <div class="flex items-center gap-3 mb-5">
+            <div style="width:2.5rem;height:2.5rem;border-radius:0.625rem;background:rgba(249,115,22,0.12);border:1px solid rgba(249,115,22,0.3);display:flex;align-items:center;justify-content:center;">
+              <i data-lucide="zap" style="width:1.25rem;height:1.25rem;color:#f97316;"></i>
+            </div>
+            <div>
+              <h3 style="font-size:1.125rem;font-weight:700;color:#f8fafc;margin:0;">Maya AI</h3>
+              <p style="font-size:0.75rem;color:#64748b;margin:0;">24/7 SMS lead capture</p>
+            </div>
+          </div>
+          <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:0.75rem;">
+            <li class="flex items-start gap-3">
+              <i data-lucide="check-circle" style="width:1rem;height:1rem;color:#f97316;margin-top:0.15rem;flex-shrink:0;"></i>
+              <span style="color:#cbd5e1;font-size:0.9375rem;">24/7 SMS lead qualification — never goes to voicemail</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <i data-lucide="check-circle" style="width:1rem;height:1rem;color:#f97316;margin-top:0.15rem;flex-shrink:0;"></i>
+              <span style="color:#cbd5e1;font-size:0.9375rem;">5-second response before leads open a competitor's site</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <i data-lucide="check-circle" style="width:1rem;height:1rem;color:#f97316;margin-top:0.15rem;flex-shrink:0;"></i>
+              <span style="color:#cbd5e1;font-size:0.9375rem;">Trade-specific qualification: service area, job type, urgency, unit age</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <i data-lucide="check-circle" style="width:1rem;height:1rem;color:#f97316;margin-top:0.15rem;flex-shrink:0;"></i>
+              <span style="color:#cbd5e1;font-size:0.9375rem;">Books qualified leads directly into Housecall Pro</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <i data-lucide="check-circle" style="width:1rem;height:1rem;color:#f97316;margin-top:0.15rem;flex-shrink:0;"></i>
+              <span style="color:#cbd5e1;font-size:0.9375rem;">Captures Google ad, yard sign, and referral texts automatically</span>
+            </li>
+          </ul>
+          <div style="margin-top:1.5rem;padding-top:1.25rem;border-top:1px solid rgba(249,115,22,0.15);">
+            <p style="font-size:0.875rem;color:#94a3b8;margin:0;font-style:italic;">Texts back leads <strong style="color:#f97316;">before they open your competitor's website.</strong></p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== COMPARISON TABLE ===================== -->
+  <section style="padding:4rem 1.5rem;background:rgba(15,23,42,0.5);">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-center mb-10">
+        <h2 style="font-size:clamp(1.5rem,3vw,2.25rem);font-weight:800;color:#f8fafc;margin-bottom:0.75rem;">Maya + HCP vs. Housecall Pro Alone</h2>
+        <p style="color:#94a3b8;max-width:32rem;margin:0 auto;">Where the revenue gap lives — and how the combined stack closes it.</p>
+      </div>
+
+      <!-- Table Wrapper -->
+      <div style="border-radius:1rem;overflow:hidden;border:1px solid #1e293b;">
+        <!-- Table Header -->
+        <div style="display:grid;grid-template-columns:2fr 1fr 1fr;background:#1e293b;">
+          <div style="padding:1rem 1.25rem;font-size:0.8rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:#64748b;">Capability</div>
+          <div style="padding:1rem 1.25rem;font-size:0.8rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:#f97316;text-align:center;">
+            <span style="display:flex;align-items:center;justify-content:center;gap:0.375rem;">
+              <i data-lucide="zap" style="width:0.875rem;height:0.875rem;"></i>
+              Maya + HCP
+            </span>
+          </div>
+          <div style="padding:1rem 1.25rem;font-size:0.8rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:#64748b;text-align:center;">HCP Alone</div>
+        </div>
+
+        <!-- Table Rows -->
+        <div class="table-row-alt" style="display:grid;grid-template-columns:2fr 1fr 1fr;align-items:center;">
+          <div style="padding:1.125rem 1.25rem;font-size:0.9375rem;color:#cbd5e1;font-weight:500;">After-hours SMS capture</div>
+          <div style="padding:1.125rem 1.25rem;text-align:center;">
+            <span style="display:inline-flex;align-items:center;gap:0.375rem;color:#22c55e;font-size:0.875rem;font-weight:600;">
+              <i data-lucide="check-circle" style="width:1rem;height:1rem;"></i>
+              Maya answers every text instantly
+            </span>
+          </div>
+          <div style="padding:1.125rem 1.25rem;text-align:center;color:#ef4444;font-size:0.8rem;">HCP's booking requires homeowner to visit your website</div>
+        </div>
+
+        <div class="table-row-alt" style="display:grid;grid-template-columns:2fr 1fr 1fr;align-items:center;">
+          <div style="padding:1.125rem 1.25rem;font-size:0.9375rem;color:#cbd5e1;font-weight:500;">Response to direct text inquiries</div>
+          <div style="padding:1.125rem 1.25rem;text-align:center;">
+            <span style="display:inline-flex;align-items:center;gap:0.375rem;color:#22c55e;font-size:0.875rem;font-weight:700;">
+              <i data-lucide="zap" style="width:1rem;height:1rem;"></i>
+              &lt; 5 seconds, fully automated
+            </span>
+          </div>
+          <div style="padding:1.125rem 1.25rem;text-align:center;color:#ef4444;font-size:0.875rem;">Requires manual follow-up</div>
+        </div>
+
+        <div class="table-row-alt" style="display:grid;grid-template-columns:2fr 1fr 1fr;align-items:center;">
+          <div style="padding:1.125rem 1.25rem;font-size:0.9375rem;color:#cbd5e1;font-weight:500;">Lead qualification</div>
+          <div style="padding:1.125rem 1.25rem;text-align:center;">
+            <span style="display:inline-flex;align-items:center;gap:0.375rem;color:#22c55e;font-size:0.875rem;font-weight:600;">
+              <i data-lucide="check-circle" style="width:1rem;height:1rem;"></i>
+              Service area, job type, urgency, unit age
+            </span>
+          </div>
+          <div style="padding:1.125rem 1.25rem;text-align:center;color:#ef4444;font-size:0.875rem;">None — booking widget accepts anyone</div>
+        </div>
+
+        <div class="table-row-alt" style="display:grid;grid-template-columns:2fr 1fr 1fr;align-items:center;">
+          <div style="padding:1.125rem 1.25rem;font-size:0.9375rem;color:#cbd5e1;font-weight:500;">Google ad / yard sign / referral text capture</div>
+          <div style="padding:1.125rem 1.25rem;text-align:center;">
+            <span style="display:inline-flex;align-items:center;gap:0.375rem;color:#22c55e;font-size:0.875rem;font-weight:600;">
+              <i data-lucide="check-circle" style="width:1rem;height:1rem;"></i>
+              Yes — Maya captures these directly
+            </span>
+          </div>
+          <div style="padding:1.125rem 1.25rem;text-align:center;color:#ef4444;font-size:0.8rem;">No — HCP online booking only works if homeowner visits your site first</div>
+        </div>
+
+        <div class="table-row-alt" style="display:grid;grid-template-columns:2fr 1fr 1fr;align-items:center;">
+          <div style="padding:1.125rem 1.25rem;font-size:0.9375rem;color:#cbd5e1;font-weight:500;">CRM sync</div>
+          <div style="padding:1.125rem 1.25rem;text-align:center;">
+            <span style="display:inline-flex;align-items:center;gap:0.375rem;color:#22c55e;font-size:0.875rem;font-weight:600;">
+              <i data-lucide="check-circle" style="width:1rem;height:1rem;"></i>
+              Books directly into HCP calendar
+            </span>
+          </div>
+          <div style="padding:1.125rem 1.25rem;text-align:center;color:#94a3b8;font-size:0.875rem;">Already native</div>
+        </div>
+
+        <div class="table-row-alt" style="display:grid;grid-template-columns:2fr 1fr 1fr;align-items:center;">
+          <div style="padding:1.125rem 1.25rem;font-size:0.9375rem;color:#cbd5e1;font-weight:500;">Cost model</div>
+          <div style="padding:1.125rem 1.25rem;text-align:center;">
+            <span style="display:inline-flex;align-items:center;gap:0.375rem;color:#22c55e;font-size:0.875rem;font-weight:600;">
+              <i data-lucide="check-circle" style="width:1rem;height:1rem;"></i>
+              Per booked appointment
+            </span>
+          </div>
+          <div style="padding:1.125rem 1.25rem;text-align:center;color:#94a3b8;font-size:0.875rem;">Included in HCP plan</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== HCP ONLINE BOOKING VS MAYA ===================== -->
+  <section style="padding:4rem 1.5rem;">
+    <div class="max-w-4xl mx-auto">
+      <div class="card p-10 md:p-14" style="border-left:3px solid #f97316;">
+        <div class="flex items-center gap-3 mb-6">
+          <div style="width:2.5rem;height:2.5rem;border-radius:0.625rem;background:rgba(249,115,22,0.1);border:1px solid rgba(249,115,22,0.25);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+            <i data-lucide="split" style="width:1.25rem;height:1.25rem;color:#f97316;"></i>
+          </div>
+          <h2 style="font-size:clamp(1.25rem,2.5vw,1.875rem);font-weight:800;color:#f8fafc;margin:0;">HCP's online booking vs. Maya</h2>
+        </div>
+        <p style="font-size:1.0625rem;color:#94a3b8;line-height:1.8;margin-bottom:1.25rem;">
+          HCP's built-in online booking is great — for homeowners who visit your website and fill out a form. That's a specific, deliberate action that requires the homeowner to already know you, find your site, and spend 2 minutes completing a form.
+        </p>
+        <p style="font-size:1.0625rem;color:#94a3b8;line-height:1.8;margin:0;">
+          But emergency HVAC and roofing leads don't fill out forms. <strong style="color:#cbd5e1;">They text the number from your Google ad. They text a referral's saved contact.</strong> Maya captures those leads at the text stage and books them into HCP <em style="color:#f97316;">before they can comparison-shop</em>.
+        </p>
+
+        <div class="grid sm:grid-cols-2 gap-5 mt-8">
+          <!-- HCP Booking -->
+          <div style="background:rgba(30,41,59,0.5);border:1px solid #1e293b;border-radius:0.75rem;padding:1.25rem;">
+            <div style="display:flex;align-items:center;gap:0.5rem;margin-bottom:0.75rem;">
+              <i data-lucide="layout-dashboard" style="width:1.125rem;height:1.125rem;color:#818cf8;"></i>
+              <h4 style="font-size:0.875rem;font-weight:700;color:#f8fafc;margin:0;">HCP Online Booking</h4>
+            </div>
+            <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:0.5rem;">
+              <li style="display:flex;align-items:flex-start;gap:0.5rem;font-size:0.8125rem;color:#94a3b8;">
+                <i data-lucide="check" style="width:0.875rem;height:0.875rem;color:#818cf8;margin-top:0.1rem;flex-shrink:0;"></i>
+                Works great for website visitors
+              </li>
+              <li style="display:flex;align-items:flex-start;gap:0.5rem;font-size:0.8125rem;color:#94a3b8;">
+                <i data-lucide="check" style="width:0.875rem;height:0.875rem;color:#818cf8;margin-top:0.1rem;flex-shrink:0;"></i>
+                Homeowner fills a structured form
+              </li>
+              <li style="display:flex;align-items:flex-start;gap:0.5rem;font-size:0.8125rem;color:#94a3b8;">
+                <i data-lucide="x" style="width:0.875rem;height:0.875rem;color:#ef4444;margin-top:0.1rem;flex-shrink:0;"></i>
+                Requires homeowner to visit your website first
+              </li>
+              <li style="display:flex;align-items:flex-start;gap:0.5rem;font-size:0.8125rem;color:#94a3b8;">
+                <i data-lucide="x" style="width:0.875rem;height:0.875rem;color:#ef4444;margin-top:0.1rem;flex-shrink:0;"></i>
+                Won't capture Google ad or yard sign texts
+              </li>
+            </ul>
+          </div>
+          <!-- Maya -->
+          <div style="background:rgba(249,115,22,0.06);border:1px solid rgba(249,115,22,0.2);border-radius:0.75rem;padding:1.25rem;">
+            <div style="display:flex;align-items:center;gap:0.5rem;margin-bottom:0.75rem;">
+              <i data-lucide="zap" style="width:1.125rem;height:1.125rem;color:#f97316;"></i>
+              <h4 style="font-size:0.875rem;font-weight:700;color:#f8fafc;margin:0;">Maya SMS Capture</h4>
+            </div>
+            <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:0.5rem;">
+              <li style="display:flex;align-items:flex-start;gap:0.5rem;font-size:0.8125rem;color:#94a3b8;">
+                <i data-lucide="check" style="width:0.875rem;height:0.875rem;color:#f97316;margin-top:0.1rem;flex-shrink:0;"></i>
+                Responds in &lt; 5 seconds — before competition
+              </li>
+              <li style="display:flex;align-items:flex-start;gap:0.5rem;font-size:0.8125rem;color:#94a3b8;">
+                <i data-lucide="check" style="width:0.875rem;height:0.875rem;color:#f97316;margin-top:0.1rem;flex-shrink:0;"></i>
+                Qualifies trade-specific details via text conversation
+              </li>
+              <li style="display:flex;align-items:flex-start;gap:0.5rem;font-size:0.8125rem;color:#94a3b8;">
+                <i data-lucide="check" style="width:0.875rem;height:0.875rem;color:#f97316;margin-top:0.1rem;flex-shrink:0;"></i>
+                Captures any inbound text — ad, yard sign, referral
+              </li>
+              <li style="display:flex;align-items:flex-start;gap:0.5rem;font-size:0.8125rem;color:#94a3b8;">
+                <i data-lucide="check" style="width:0.875rem;height:0.875rem;color:#f97316;margin-top:0.1rem;flex-shrink:0;"></i>
+                Books directly into HCP — zero manual entry
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== WORKS NATIVELY WITH HCP ===================== -->
+  <section style="padding:4rem 1.5rem;background:rgba(249,115,22,0.03);">
+    <div class="max-w-5xl mx-auto">
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <div>
+          <span class="badge mb-4" style="display:inline-flex;">
+            <i data-lucide="link" style="width:0.75rem;height:0.75rem;"></i>
+            Native Integration
+          </span>
+          <h2 style="font-size:clamp(1.5rem,3vw,2rem);font-weight:800;color:#f8fafc;margin-bottom:1rem;line-height:1.2;">Works natively with Housecall Pro</h2>
+          <p style="color:#94a3b8;font-size:1rem;line-height:1.75;margin-bottom:1.5rem;">
+            Maya integrates with Housecall Pro. Every Maya-qualified booking appears on your HCP dispatch board with the homeowner's info, job type, and qualification notes already populated.
+          </p>
+          <p style="color:#94a3b8;font-size:1rem;line-height:1.75;margin-bottom:2rem;">
+            <strong style="color:#cbd5e1;">Your techs see a full schedule. You see zero extra work.</strong> No duplicate data entry. No manual handoff. The first thing your dispatcher sees in the morning is a board already filled with qualified, ready-to-roll jobs.
+          </p>
+          <a href="https://calendly.com/duy-heatbooker/30min" target="_blank" rel="noopener noreferrer" class="cta-orange">
+            <i data-lucide="calendar" style="width:1.125rem;height:1.125rem;"></i>
+            See the Integration
+          </a>
+        </div>
+
+        <!-- Flow Diagram -->
+        <div class="card p-8">
+          <h3 style="font-size:0.875rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:#64748b;margin-bottom:1.5rem;">The complete lead-to-dispatch flow</h3>
+          <div style="display:flex;flex-direction:column;gap:0;">
+            <div style="display:flex;align-items:center;gap:0.875rem;padding:0.875rem;background:rgba(249,115,22,0.07);border-radius:0.625rem;border:1px solid rgba(249,115,22,0.2);">
+              <div style="width:2rem;height:2rem;border-radius:50%;background:rgba(249,115,22,0.15);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                <span style="font-size:0.75rem;font-weight:800;color:#f97316;">1</span>
+              </div>
+              <div>
+                <p style="font-size:0.875rem;font-weight:600;color:#f8fafc;margin:0;">Homeowner texts</p>
+                <p style="font-size:0.75rem;color:#64748b;margin:0;">Google ad, yard sign, referral, or direct</p>
+              </div>
+            </div>
+            <div style="width:1px;height:1.5rem;background:linear-gradient(180deg,rgba(249,115,22,0.4),rgba(249,115,22,0.1));margin-left:1.9375rem;"></div>
+            <div style="display:flex;align-items:center;gap:0.875rem;padding:0.875rem;background:rgba(249,115,22,0.07);border-radius:0.625rem;border:1px solid rgba(249,115,22,0.2);">
+              <div style="width:2rem;height:2rem;border-radius:50%;background:rgba(249,115,22,0.15);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                <span style="font-size:0.75rem;font-weight:800;color:#f97316;">2</span>
+              </div>
+              <div>
+                <p style="font-size:0.875rem;font-weight:600;color:#f8fafc;margin:0;">Maya responds in &lt; 5 sec</p>
+                <p style="font-size:0.75rem;color:#64748b;margin:0;">Qualifies: service area, job type, urgency, unit age</p>
+              </div>
+            </div>
+            <div style="width:1px;height:1.5rem;background:linear-gradient(180deg,rgba(249,115,22,0.4),rgba(249,115,22,0.1));margin-left:1.9375rem;"></div>
+            <div style="display:flex;align-items:center;gap:0.875rem;padding:0.875rem;background:rgba(99,102,241,0.06);border-radius:0.625rem;border:1px solid rgba(99,102,241,0.2);">
+              <div style="width:2rem;height:2rem;border-radius:50%;background:rgba(99,102,241,0.15);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                <span style="font-size:0.75rem;font-weight:800;color:#818cf8;">3</span>
+              </div>
+              <div>
+                <p style="font-size:0.875rem;font-weight:600;color:#f8fafc;margin:0;">Booked into HCP</p>
+                <p style="font-size:0.75rem;color:#64748b;margin:0;">Dispatch board entry with full homeowner details</p>
+              </div>
+            </div>
+            <div style="width:1px;height:1.5rem;background:linear-gradient(180deg,rgba(99,102,241,0.4),rgba(99,102,241,0.1));margin-left:1.9375rem;"></div>
+            <div style="display:flex;align-items:center;gap:0.875rem;padding:0.875rem;background:rgba(99,102,241,0.06);border-radius:0.625rem;border:1px solid rgba(99,102,241,0.2);">
+              <div style="width:2rem;height:2rem;border-radius:50%;background:rgba(99,102,241,0.15);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                <span style="font-size:0.75rem;font-weight:800;color:#818cf8;">4</span>
+              </div>
+              <div>
+                <p style="font-size:0.875rem;font-weight:600;color:#f8fafc;margin:0;">Your team dispatches</p>
+                <p style="font-size:0.75rem;color:#64748b;margin:0;">HCP handles invoice, payments, reviews</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== SOCIAL PROOF STRIP ===================== -->
+  <section style="padding:3rem 1.5rem;background:rgba(30,41,59,0.3);border-top:1px solid #1e293b;border-bottom:1px solid #1e293b;">
+    <div class="max-w-4xl mx-auto">
+      <div class="grid sm:grid-cols-3 gap-6 text-center">
+        <div>
+          <p style="font-size:2.25rem;font-weight:900;color:#f97316;margin:0 0 0.25rem;line-height:1;">&lt; 5s</p>
+          <p style="font-size:0.875rem;color:#64748b;margin:0;">Average text response time</p>
+        </div>
+        <div>
+          <p style="font-size:2.25rem;font-weight:900;color:#f97316;margin:0 0 0.25rem;line-height:1;">24/7</p>
+          <p style="font-size:0.875rem;color:#64748b;margin:0;">Lead capture — including 2 AM emergencies</p>
+        </div>
+        <div>
+          <p style="font-size:2.25rem;font-weight:900;color:#f97316;margin:0 0 0.25rem;line-height:1;">0</p>
+          <p style="font-size:0.875rem;color:#64748b;margin:0;">Manual data entry for your dispatcher</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== FAQ ===================== -->
+  <section style="padding:4rem 1.5rem;">
+    <div class="max-w-3xl mx-auto">
+      <div class="text-center mb-10">
+        <h2 style="font-size:clamp(1.5rem,3vw,2.25rem);font-weight:800;color:#f8fafc;margin-bottom:0.75rem;">Common questions</h2>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:1.25rem;">
+
+        <!-- Q1 -->
+        <div class="card p-7">
+          <h3 style="font-size:1.0625rem;font-weight:700;color:#f8fafc;margin:0 0 0.875rem;display:flex;align-items:flex-start;gap:0.75rem;">
+            <span style="display:inline-flex;align-items:center;justify-content:center;width:1.5rem;height:1.5rem;border-radius:50%;background:rgba(249,115,22,0.1);border:1px solid rgba(249,115,22,0.25);color:#f97316;font-size:0.75rem;font-weight:800;flex-shrink:0;margin-top:0.1rem;">Q</span>
+            I already use Housecall Pro's online booking. Why do I need Maya?
+          </h3>
+          <p style="color:#94a3b8;line-height:1.75;margin:0 0 0 2.25rem;">
+            HCP's online booking captures homeowners who visit your website and fill out a form — a small fraction of your leads. Maya captures homeowners who text your number directly from a Google ad, a yard sign, or a referral. <strong style="color:#cbd5e1;">These are your highest-intent leads, and they're texting, not form-filling.</strong> Maya books them into HCP automatically.
+          </p>
+        </div>
+
+        <!-- Q2 -->
+        <div class="card p-7">
+          <h3 style="font-size:1.0625rem;font-weight:700;color:#f8fafc;margin:0 0 0.875rem;display:flex;align-items:flex-start;gap:0.75rem;">
+            <span style="display:inline-flex;align-items:center;justify-content:center;width:1.5rem;height:1.5rem;border-radius:50%;background:rgba(249,115,22,0.1);border:1px solid rgba(249,115,22,0.25);color:#f97316;font-size:0.75rem;font-weight:800;flex-shrink:0;margin-top:0.1rem;">Q</span>
+            Does Maya replace Housecall Pro?
+          </h3>
+          <p style="color:#94a3b8;line-height:1.75;margin:0 0 0 2.25rem;">
+            No — Maya works with HCP, not against it. <strong style="color:#cbd5e1;">Housecall Pro runs your operations. Maya fills your calendar.</strong> Think of Maya as the 24/7 SMS receptionist that feeds leads into HCP so your dispatchers start each day with a full board instead of an empty one.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== FINAL CTA ===================== -->
+  <section style="padding:5rem 1.5rem;background:linear-gradient(180deg,transparent,rgba(249,115,22,0.05) 50%,transparent);">
+    <div class="max-w-3xl mx-auto text-center">
+      <div style="display:inline-flex;align-items:center;justify-content:center;width:4rem;height:4rem;border-radius:1rem;background:rgba(249,115,22,0.1);border:1px solid rgba(249,115,22,0.25);margin-bottom:1.5rem;">
+        <i data-lucide="calendar-check" style="width:2rem;height:2rem;color:#f97316;"></i>
+      </div>
+      <h2 style="font-size:clamp(1.75rem,4vw,2.75rem);font-weight:900;color:#f8fafc;margin-bottom:1rem;line-height:1.15;letter-spacing:-0.02em;">
+        Start every morning with a full
+        <span style="background:linear-gradient(135deg,#f97316,#fb923c);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">HCP dispatch board.</span>
+      </h2>
+      <p style="color:#94a3b8;font-size:1.0625rem;margin-bottom:2.5rem;line-height:1.75;">
+        Book a 30-minute demo and see how Maya + Housecall Pro captures the leads your competitors are missing overnight.
+      </p>
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a href="https://calendly.com/duy-heatbooker/30min" target="_blank" rel="noopener noreferrer" class="cta-orange" style="font-size:1rem;padding:1rem 2.25rem;">
+          <i data-lucide="calendar" style="width:1.25rem;height:1.25rem;"></i>
+          Book a Free Demo
+        </a>
+        <a href="sms:+15076773559?body=QUOTE" class="cta-outline" style="font-size:1rem;padding:1rem 2.25rem;">
+          <i data-lucide="message-circle" style="width:1.25rem;height:1.25rem;"></i>
+          Text (507) 677-3559
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer style="border-top:1px solid #1e293b;padding:2.5rem 1.5rem;">
+    <div class="max-w-6xl mx-auto">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+
+        <!-- Logo -->
+        <a href="/" class="flex items-center gap-2">
+          <span style="display:inline-flex;align-items:center;justify-content:center;width:2rem;height:2rem;border-radius:0.5rem;background:rgba(249,115,22,0.1);border:1px solid rgba(249,115,22,0.3);">
+            <i data-lucide="zap" style="width:1rem;height:1rem;color:#f97316;"></i>
+          </span>
+          <span style="font-size:1.125rem;font-weight:700;color:#f8fafc;">Maya</span>
+          <span class="hidden sm:inline" style="font-size:0.65rem;text-transform:uppercase;letter-spacing:0.15em;color:#64748b;margin-left:0.25rem;border-left:1px solid #334155;padding-left:0.5rem;">SMS Agent</span>
+        </a>
+
+        <!-- Links -->
+        <nav class="flex flex-wrap items-center justify-center gap-4" style="font-size:0.8rem;">
+          <a href="/privacy.html" style="color:#64748b;text-decoration:none;" onmouseover="this.style.color='#f97316'" onmouseout="this.style.color='#64748b'">Privacy</a>
+          <span style="color:#334155;">·</span>
+          <a href="/terms.html" style="color:#64748b;text-decoration:none;" onmouseover="this.style.color='#f97316'" onmouseout="this.style.color='#64748b'">Terms</a>
+          <span style="color:#334155;">·</span>
+          <a href="/cookies.html" style="color:#64748b;text-decoration:none;" onmouseover="this.style.color='#f97316'" onmouseout="this.style.color='#64748b'">Cookies</a>
+        </nav>
+
+        <!-- Copyright -->
+        <p style="font-size:0.8rem;color:#475569;margin:0;">
+          © 2026 Maya. Built for contractors who pick up.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    lucide.createIcons();
+  </script>
+<script>
+/* Maya Cookie Consent — inline, no external file needed */
+(function(){
+  var KEY = 'maya_cookie_consent';
+  var CF_TOKEN = 'b703ecc53d3a46648ffc9e18a8319d97'; // ← replace with your Cloudflare token
+
+  function loadCF(){
+    if(CF_TOKEN==='b703ecc53d3a46648ffc9e18a8319d97') return;
+    if(document.querySelector('script[data-cf-beacon]')) return;
+    var s=document.createElement('script');
+    s.defer=true; s.src='https://static.cloudflareinsights.com/beacon.min.js';
+    s.setAttribute('data-cf-beacon',JSON.stringify({token:CF_TOKEN}));
+    document.body.appendChild(s);
+  }
+
+  function getConsent(){ try{return localStorage.getItem(KEY);}catch(e){return null;} }
+  function setConsent(v){ try{localStorage.setItem(KEY,v);}catch(e){} }
+
+  function hideBanner(){
+    var b=document.getElementById('maya-cb');
+    if(!b) return;
+    b.style.transform='translateX(-50%) translateY(120%)';
+    b.style.opacity='0';
+    setTimeout(function(){ if(b.parentNode) b.parentNode.removeChild(b); }, 400);
+  }
+
+  function acceptAll(){ setConsent('all'); hideBanner(); loadCF(); }
+  function necessaryOnly(){ setConsent('necessary'); hideBanner(); loadCF(); }
+  window.mayaConsent = { acceptAll:acceptAll, necessaryOnly:necessaryOnly };
+
+  /* Always run cookieless CF analytics */
+  loadCF();
+
+  /* Show banner only if no stored preference */
+  if(getConsent()) return;
+
+  function showBanner(){
+    var b=document.createElement('div');
+    b.id='maya-cb';
+    b.setAttribute('role','dialog');
+    b.setAttribute('aria-label','Cookie consent');
+    b.style.cssText='position:fixed;bottom:1.5rem;left:50%;transform:translateX(-50%);z-index:9999;width:calc(100% - 2rem);max-width:580px;background:#1e293b;border:1px solid #334155;border-radius:1rem;padding:1.25rem 1.5rem;box-shadow:0 20px 60px -10px rgba(0,0,0,0.6),0 0 0 1px rgba(249,115,22,0.15);font-family:Inter,system-ui,sans-serif;font-size:.875rem;color:#94a3b8;transition:transform .35s ease,opacity .35s ease;display:flex;flex-direction:column;gap:.875rem;';
+    b.innerHTML='<div style="display:flex;align-items:flex-start;gap:.875rem;">'
+      +'<span style="display:inline-flex;align-items:center;justify-content:center;width:2rem;height:2rem;border-radius:.5rem;background:rgba(249,115,22,.1);border:1px solid rgba(249,115,22,.3);flex-shrink:0;">'
+      +'<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'14\' height=\'14\' viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'#f97316\' stroke-width=\'2.5\' stroke-linecap=\'round\' stroke-linejoin=\'round\'><circle cx=\'12\' cy=\'12\' r=\'10\'/><line x1=\'12\' x2=\'12\' y1=\'8\' y2=\'12\'/><line x1=\'12\' x2=\'12.01\' y1=\'16\' y2=\'16\'/></svg>'
+      +'</span>'
+      +'<div><strong style="color:#f8fafc;display:block;margin-bottom:.2rem;">We use cookies</strong>'
+      +'We use essential cookies to save your preferences. Our analytics (Cloudflare) are cookieless &amp; privacy-safe. '
+      +'<a href="/cookies.html" style="color:#f97316;text-decoration:underline;text-underline-offset:2px;" target="_blank" rel="noopener">Cookie Policy</a></div></div>'
+      +'<div style="display:flex;flex-wrap:wrap;gap:.625rem;">'
+      +'<button id="maya-cb-accept" style="background:linear-gradient(180deg,#fb923c 0%,#f97316 50%,#ea580c 100%);color:#fff;font-weight:700;border:none;border-radius:.5rem;padding:.6rem 1.25rem;cursor:pointer;font-size:.875rem;font-family:inherit;box-shadow:0 4px 14px rgba(249,115,22,.4);">Accept All</button>'
+      +'<button id="maya-cb-nec" style="background:#0f172a;color:#cbd5e1;font-weight:600;border:1px solid #334155;border-radius:.5rem;padding:.6rem 1.25rem;cursor:pointer;font-size:.875rem;font-family:inherit;">Necessary Only</button>'
+      +'<a href="/cookies.html" style="color:#64748b;font-size:.8rem;padding:.6rem .5rem;text-decoration:underline;text-underline-offset:2px;display:inline-flex;align-items:center;" target="_blank" rel="noopener">Manage</a>'
+      +'</div>';
+    document.body.appendChild(b);
+    document.getElementById('maya-cb-accept').onclick = acceptAll;
+    document.getElementById('maya-cb-nec').onclick = necessaryOnly;
+  }
+
+  if(document.readyState==='loading'){
+    document.addEventListener('DOMContentLoaded',function(){ setTimeout(showBanner,800); });
+  } else { setTimeout(showBanner,800); }
+})();
+</script>
+</body>
+</html>

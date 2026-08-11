@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Maya AI + Jobber vs. Jobber Alone — Why You Need Both | Maya</title>
+  <meta name="description" content="Maya AI vs Jobber for HVAC and plumbing contractors. See why Maya's SMS lead capture makes Jobber users book more jobs — before leads go cold." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://heatbooker.com/vs/jobber/" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Maya AI + Jobber vs. Jobber Alone — Why You Need Both | Maya" />
+  <meta property="og:description" content="Maya AI vs Jobber for HVAC and plumbing contractors. See why Maya's SMS lead capture makes Jobber users book more jobs — before leads go cold." />
+  <meta property="og:url" content="https://heatbooker.com/vs/jobber/" />
+  <meta property="og:type" content="website" />
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            safety: {
+              400: '#fb923c',
+              500: '#f97316',
+              600: '#ea580c',
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'ui-sans-serif', 'system-ui'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Inter Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+
+  <style>
+    body { background-color: #0f172a; color: #e2e8f0; font-family: 'Inter', ui-sans-serif, system-ui; }
+    .cta-orange {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      background: linear-gradient(135deg, #f97316, #ea580c);
+      color: #ffffff;
+      font-weight: 700;
+      padding: 0.875rem 2rem;
+      border-radius: 0.5rem;
+      text-decoration: none;
+      transition: opacity 0.2s, transform 0.2s;
+      box-shadow: 0 4px 24px rgba(249,115,22,0.3);
+    }
+    .cta-orange:hover { opacity: 0.92; transform: translateY(-1px); }
+    .cta-outline {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      border: 1px solid rgba(249,115,22,0.4);
+      color: #f97316;
+      font-weight: 600;
+      padding: 0.875rem 2rem;
+      border-radius: 0.5rem;
+      text-decoration: none;
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .cta-outline:hover { background: rgba(249,115,22,0.08); border-color: #f97316; }
+    .card {
+      background: rgba(15,23,42,0.8);
+      border: 1px solid #1e293b;
+      border-radius: 1rem;
+    }
+    .card-orange {
+      background: rgba(249,115,22,0.05);
+      border: 1px solid rgba(249,115,22,0.2);
+      border-radius: 1rem;
+    }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.375rem;
+      background: rgba(249,115,22,0.1);
+      border: 1px solid rgba(249,115,22,0.25);
+      color: #fb923c;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      padding: 0.25rem 0.75rem;
+      border-radius: 9999px;
+    }
+    .table-row-alt:nth-child(even) { background: rgba(30,41,59,0.4); }
+    .check-icon { color: #22c55e; }
+    .x-icon { color: #ef4444; }
+    .section-divider { border-color: #1e293b; }
+  </style>
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "SoftwareApplication",
+        "name": "Maya AI SMS Booking Agent",
+        "url": "https://heatbooker.com",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Web",
+        "description": "Maya is a 24/7 AI SMS booking agent for HVAC, plumbing, and home service contractors. It qualifies leads via text in under 5 seconds and books them directly into Jobber.",
+        "offers": {
+          "@type": "Offer",
+          "priceCurrency": "USD",
+          "description": "Per booked appointment pricing"
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://heatbooker.com"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Compare",
+            "item": "https://heatbooker.com/vs/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Maya vs Jobber",
+            "item": "https://heatbooker.com/vs/jobber/"
+          }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "I already use Jobber. Do I need Maya too?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Jobber manages jobs that are already in your pipeline. Maya captures the leads that would otherwise never make it into Jobber — homeowners who text your number at 10 PM, click a Google ad at midnight, or text a referral instead of calling. Maya books them directly into Jobber so the first time you see the lead, it's already scheduled."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does Maya replace Jobber?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No — and it's not trying to. Jobber is your operations backbone. Maya is your 24/7 front door. Together they cover the full customer journey: lead texts in → Maya qualifies → booked into Jobber → your team dispatches and invoices. Each tool does one thing extremely well."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body class="antialiased">
+
+  <!-- ===================== NAV ===================== -->
+  <nav style="background:rgba(15,23,42,0.95);border-bottom:1px solid #1e293b;position:sticky;top:0;z-index:50;backdrop-filter:blur(12px);">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+
+        <!-- Logo -->
+        <a href="/" class="flex items-center gap-2">
+          <span style="display:inline-flex;align-items:center;justify-content:center;width:2rem;height:2rem;border-radius:0.5rem;background:rgba(249,115,22,0.1);border:1px solid rgba(249,115,22,0.3);">
+            <i data-lucide="zap" style="width:1rem;height:1rem;color:#f97316;"></i>
+          </span>
+          <span style="font-size:1.125rem;font-weight:700;color:#f8fafc;">Maya</span>
+          <span class="hidden sm:inline" style="font-size:0.65rem;text-transform:uppercase;letter-spacing:0.15em;color:#64748b;margin-left:0.25rem;border-left:1px solid #334155;padding-left:0.5rem;">SMS Agent</span>
+        </a>
+
+        <!-- Nav Links -->
+        <div class="hidden md:flex items-center gap-6">
+          <a href="/" style="color:#94a3b8;font-size:0.875rem;font-weight:500;text-decoration:none;" onmouseover="this.style.color='#f8fafc'" onmouseout="this.style.color='#94a3b8'">Home</a>
+          <a href="/vs/" style="color:#f97316;font-size:0.875rem;font-weight:600;text-decoration:none;">Compare</a>
+          <a href="https://calendly.com/duy-heatbooker/30min" target="_blank" rel="noopener noreferrer" class="cta-orange" style="padding:0.5rem 1.25rem;font-size:0.875rem;">Book a Demo</a>
+        </div>
+
+        <!-- Mobile CTA -->
+        <a href="sms:+15076773559?body=QUOTE" class="md:hidden cta-orange" style="padding:0.5rem 1rem;font-size:0.875rem;">
+          <i data-lucide="message-square" style="width:1rem;height:1rem;"></i>
+          Text Us
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ===================== HERO ===================== -->
+  <section style="padding:5rem 1.5rem 4rem;background:linear-gradient(180deg,rgba(249,115,22,0.04) 0%,transparent 60%);">
+    <div class="max-w-4xl mx-auto text-center">
+
+      <!-- Breadcrumb -->
+      <nav aria-label="Breadcrumb" class="flex items-center justify-center gap-2 mb-6" style="font-size:0.8rem;color:#64748b;">
+        <a href="/" style="color:#64748b;text-decoration:none;" onmouseover="this.style.color='#f97316'" onmouseout="this.style.color='#64748b'">Home</a>
+        <i data-lucide="chevron-right" style="width:0.875rem;height:0.875rem;color:#475569;"></i>
+        <a href="/vs/" style="color:#64748b;text-decoration:none;" onmouseover="this.style.color='#f97316'" onmouseout="this.style.color='#64748b'">Compare</a>
+        <i data-lucide="chevron-right" style="width:0.875rem;height:0.875rem;color:#475569;"></i>
+        <span style="color:#94a3b8;">Maya vs Jobber</span>
+      </nav>
+
+      <!-- Badge -->
+      <div class="flex justify-center mb-5">
+        <span class="badge">
+          <i data-lucide="bar-chart-2" style="width:0.75rem;height:0.75rem;"></i>
+          Comparison
+        </span>
+      </div>
+
+      <!-- H1 -->
+      <h1 style="font-size:clamp(2rem,5vw,3.25rem);font-weight:900;line-height:1.1;color:#f8fafc;margin-bottom:1.5rem;letter-spacing:-0.02em;">
+        Maya + Jobber: The Combination That Closes More Jobs
+        <span style="display:block;background:linear-gradient(135deg,#f97316,#fb923c);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Than Jobber Alone.</span>
+      </h1>
+
+      <!-- Subtext -->
+      <p style="font-size:1.125rem;color:#94a3b8;max-width:38rem;margin:0 auto 2.5rem;line-height:1.75;">
+        If you're a Jobber user, Maya is the missing front door.
+        <strong style="color:#cbd5e1;">Jobber manages your jobs.</strong> Maya captures the leads <em>before they hit Jobber</em> — or go to a competitor.
+      </p>
+
+      <!-- CTA Row -->
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a href="https://calendly.com/duy-heatbooker/30min" target="_blank" rel="noopener noreferrer" class="cta-orange">
+          <i data-lucide="calendar" style="width:1.125rem;height:1.125rem;"></i>
+          See How It Works
+        </a>
+        <a href="sms:+15076773559?body=QUOTE" class="cta-outline">
+          <i data-lucide="message-circle" style="width:1.125rem;height:1.125rem;"></i>
+          Text (507) 677-3559
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== WHAT EACH TOOL DOES ===================== -->
+  <section style="padding:4rem 1.5rem;">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-center mb-10">
+        <h2 style="font-size:clamp(1.5rem,3vw,2.25rem);font-weight:800;color:#f8fafc;margin-bottom:0.75rem;">Two tools. One complete system.</h2>
+        <p style="color:#94a3b8;max-width:32rem;margin:0 auto;">Jobber and Maya each own a specific part of the customer journey — neither replaces the other.</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-6">
+
+        <!-- Jobber Card -->
+        <div class="card p-8">
+          <div class="flex items-center gap-3 mb-5">
+            <div style="width:2.5rem;height:2.5rem;border-radius:0.625rem;background:rgba(99,102,241,0.1);border:1px solid rgba(99,102,241,0.25);display:flex;align-items:center;justify-content:center;">
+              <i data-lucide="briefcase" style="width:1.25rem;height:1.25rem;color:#818cf8;"></i>
+            </div>
+            <div>
+              <h3 style="font-size:1.125rem;font-weight:700;color:#f8fafc;margin:0;">Jobber</h3>
+              <p style="font-size:0.75rem;color:#64748b;margin:0;">Job management platform</p>
+            </div>
+          </div>
+          <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:0.75rem;">
+            <li class="flex items-start gap-3">
+              <i data-lucide="check-circle" style="width:1rem;height:1rem;color:#818cf8;margin-top:0.15rem;flex-shrink:0;"></i>
+              <span style="color:#cbd5e1;font-size:0.9375rem;">Job scheduling and dispatching</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <i data-lucide="check-circle" style="width:1rem;height:1rem;color:#818cf8;margin-top:0.15rem;flex-shrink:0;"></i>
+              <span style="color:#cbd5e1;font-size:0.9375rem;">Invoicing and quoting</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <i data-lucide="check-circle" style="width:1rem;height:1rem;color:#818cf8;margin-top:0.15rem;flex-shrink:0;"></i>
+              <span style="color:#cbd5e1;font-size:0.9375rem;">Client relationship management</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <i data-lucide="check-circle" style="width:1rem;height:1rem;color:#818cf8;margin-top:0.15rem;flex-shrink:0;"></i>
+              <span style="color:#cbd5e1;font-size:0.9375rem;">Time tracking and job notes</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <i data-lucide="check-circle" style="width:1rem;height:1rem;color:#818cf8;margin-top:0.15rem;flex-shrink:0;"></i>
+              <span style="color:#cbd5e1;font-size:0.9375rem;">Team and route management</span>
+            </li>
+          </ul>
+          <div style="margin-top:1.5rem;padding-top:1.25rem;border-top:1px solid #1e293b;">
+            <p style="font-size:0.875rem;color:#64748b;margin:0;font-style:italic;">Excellent at running the business once a job is booked.</p>
+          </div>
+        </div>
+
+        <!-- Maya Card -->
+        <div class="card-orange p-8">
+          <div class="flex items-center gap-3 mb-5">
+            <div style="width:2.5rem;height:2.5rem;border-radius:0.625rem;background:rgba(249,115,22,0.12);border:1px solid rgba(249,115,22,0.3);display:flex;align-items:center;justify-content:center;">
+              <i data-lucide="zap" style="width:1.25rem;height:1.25rem;color:#f97316;"></i>
+            </div>
+            <div>
+              <h3 style="font-size:1.125rem;font-weight:700;color:#f8fafc;margin:0;">Maya AI</h3>
+              <p style="font-size:0.75rem;color:#64748b;margin:0;">24/7 SMS lead capture</p>
+            </div>
+          </div>
+          <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:0.75rem;">
+            <li class="flex items-start gap-3">
+              <i data-lucide="check-circle" style="width:1rem;height:1rem;color:#f97316;margin-top:0.15rem;flex-shrink:0;"></i>
+              <span style="color:#cbd5e1;font-size:0.9375rem;">24/7 SMS lead qualification — never sleeps</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <i data-lucide="check-circle" style="width:1rem;height:1rem;color:#f97316;margin-top:0.15rem;flex-shrink:0;"></i>
+              <span style="color:#cbd5e1;font-size:0.9375rem;">5-second response to every new text lead</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <i data-lucide="check-circle" style="width:1rem;height:1rem;color:#f97316;margin-top:0.15rem;flex-shrink:0;"></i>
+              <span style="color:#cbd5e1;font-size:0.9375rem;">Service area, job type, and urgency screening</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <i data-lucide="check-circle" style="width:1rem;height:1rem;color:#f97316;margin-top:0.15rem;flex-shrink:0;"></i>
+              <span style="color:#cbd5e1;font-size:0.9375rem;">Books qualified leads directly into Jobber</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <i data-lucide="check-circle" style="width:1rem;height:1rem;color:#f97316;margin-top:0.15rem;flex-shrink:0;"></i>
+              <span style="color:#cbd5e1;font-size:0.9375rem;">Recovers missed calls with instant text-back</span>
+            </li>
+          </ul>
+          <div style="margin-top:1.5rem;padding-top:1.25rem;border-top:1px solid rgba(249,115,22,0.15);">
+            <p style="font-size:0.875rem;color:#94a3b8;margin:0;font-style:italic;">Captures leads that <strong style="color:#f97316;">never would have made it</strong> to a phone call.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== COMPARISON TABLE ===================== -->
+  <section style="padding:4rem 1.5rem;background:rgba(15,23,42,0.5);">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-center mb-10">
+        <h2 style="font-size:clamp(1.5rem,3vw,2.25rem);font-weight:800;color:#f8fafc;margin-bottom:0.75rem;">Maya + Jobber vs. Jobber Alone</h2>
+        <p style="color:#94a3b8;max-width:32rem;margin:0 auto;">See exactly where the stack fills the gap — and where unbooked revenue leaks out.</p>
+      </div>
+
+      <!-- Table Wrapper -->
+      <div style="border-radius:1rem;overflow:hidden;border:1px solid #1e293b;">
+        <!-- Table Header -->
+        <div style="display:grid;grid-template-columns:2fr 1fr 1fr;background:#1e293b;">
+          <div style="padding:1rem 1.25rem;font-size:0.8rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:#64748b;">Capability</div>
+          <div style="padding:1rem 1.25rem;font-size:0.8rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:#f97316;text-align:center;">
+            <span style="display:flex;align-items:center;justify-content:center;gap:0.375rem;">
+              <i data-lucide="zap" style="width:0.875rem;height:0.875rem;"></i>
+              Maya + Jobber
+            </span>
+          </div>
+          <div style="padding:1rem 1.25rem;font-size:0.8rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:#64748b;text-align:center;">Jobber Alone</div>
+        </div>
+
+        <!-- Table Rows -->
+        <div class="table-row-alt" style="display:grid;grid-template-columns:2fr 1fr 1fr;align-items:center;">
+          <div style="padding:1.125rem 1.25rem;font-size:0.9375rem;color:#cbd5e1;font-weight:500;">After-hours lead capture</div>
+          <div style="padding:1.125rem 1.25rem;text-align:center;">
+            <span style="display:inline-flex;align-items:center;gap:0.375rem;color:#22c55e;font-size:0.875rem;font-weight:600;">
+              <i data-lucide="check-circle" style="width:1rem;height:1rem;"></i>
+              Maya answers every text instantly
+            </span>
+          </div>
+          <div style="padding:1.125rem 1.25rem;text-align:center;color:#ef4444;font-size:0.875rem;">Voicemail or silence</div>
+        </div>
+
+        <div class="table-row-alt" style="display:grid;grid-template-columns:2fr 1fr 1fr;align-items:center;">
+          <div style="padding:1.125rem 1.25rem;font-size:0.9375rem;color:#cbd5e1;font-weight:500;">Response time to new text leads</div>
+          <div style="padding:1.125rem 1.25rem;text-align:center;">
+            <span style="display:inline-flex;align-items:center;gap:0.375rem;color:#22c55e;font-size:0.875rem;font-weight:700;">
+              <i data-lucide="zap" style="width:1rem;height:1rem;"></i>
+              &lt; 5 seconds
+            </span>
+          </div>
+          <div style="padding:1.125rem 1.25rem;text-align:center;color:#ef4444;font-size:0.8rem;">Next business day (if they don't call a competitor first)</div>
+        </div>
+
+        <div class="table-row-alt" style="display:grid;grid-template-columns:2fr 1fr 1fr;align-items:center;">
+          <div style="padding:1.125rem 1.25rem;font-size:0.9375rem;color:#cbd5e1;font-weight:500;">Lead qualification before scheduling</div>
+          <div style="padding:1.125rem 1.25rem;text-align:center;">
+            <span style="display:inline-flex;align-items:center;gap:0.375rem;color:#22c55e;font-size:0.875rem;font-weight:600;">
+              <i data-lucide="check-circle" style="width:1rem;height:1rem;"></i>
+              Service area, job type, urgency
+            </span>
+          </div>
+          <div style="padding:1.125rem 1.25rem;text-align:center;color:#ef4444;font-size:0.875rem;">Whoever calls in gets scheduled</div>
+        </div>
+
+        <div class="table-row-alt" style="display:grid;grid-template-columns:2fr 1fr 1fr;align-items:center;">
+          <div style="padding:1.125rem 1.25rem;font-size:0.9375rem;color:#cbd5e1;font-weight:500;">Missed call recovery</div>
+          <div style="padding:1.125rem 1.25rem;text-align:center;">
+            <span style="display:inline-flex;align-items:center;gap:0.375rem;color:#22c55e;font-size:0.875rem;font-weight:600;">
+              <i data-lucide="check-circle" style="width:1rem;height:1rem;"></i>
+              Maya texts back immediately
+            </span>
+          </div>
+          <div style="padding:1.125rem 1.25rem;text-align:center;color:#ef4444;font-size:0.875rem;">Gone to competitor</div>
+        </div>
+
+        <div class="table-row-alt" style="display:grid;grid-template-columns:2fr 1fr 1fr;align-items:center;">
+          <div style="padding:1.125rem 1.25rem;font-size:0.9375rem;color:#cbd5e1;font-weight:500;">CRM sync</div>
+          <div style="padding:1.125rem 1.25rem;text-align:center;">
+            <span style="display:inline-flex;align-items:center;gap:0.375rem;color:#22c55e;font-size:0.875rem;font-weight:600;">
+              <i data-lucide="check-circle" style="width:1rem;height:1rem;"></i>
+              Books directly into Jobber
+            </span>
+          </div>
+          <div style="padding:1.125rem 1.25rem;text-align:center;color:#94a3b8;font-size:0.875rem;">Manual entry by staff</div>
+        </div>
+
+        <div class="table-row-alt" style="display:grid;grid-template-columns:2fr 1fr 1fr;align-items:center;">
+          <div style="padding:1.125rem 1.25rem;font-size:0.9375rem;color:#cbd5e1;font-weight:500;">24/7 availability</div>
+          <div style="padding:1.125rem 1.25rem;text-align:center;">
+            <span style="display:inline-flex;align-items:center;gap:0.375rem;color:#22c55e;font-size:0.875rem;font-weight:600;">
+              <i data-lucide="check-circle" style="width:1rem;height:1rem;"></i>
+              Yes — always on
+            </span>
+          </div>
+          <div style="padding:1.125rem 1.25rem;text-align:center;color:#ef4444;font-size:0.875rem;">Requires on-call staff</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== THE GAP JOBBER CAN'T FILL ===================== -->
+  <section style="padding:4rem 1.5rem;">
+    <div class="max-w-4xl mx-auto">
+      <div class="card p-10 md:p-14" style="border-left:3px solid #f97316;">
+        <div class="flex items-center gap-3 mb-6">
+          <div style="width:2.5rem;height:2.5rem;border-radius:0.625rem;background:rgba(249,115,22,0.1);border:1px solid rgba(249,115,22,0.25);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+            <i data-lucide="lock" style="width:1.25rem;height:1.25rem;color:#f97316;"></i>
+          </div>
+          <h2 style="font-size:clamp(1.25rem,2.5vw,1.875rem);font-weight:800;color:#f8fafc;margin:0;">The gap Jobber can't fill</h2>
+        </div>
+        <p style="font-size:1.0625rem;color:#94a3b8;line-height:1.8;margin-bottom:1.25rem;">
+          Jobber users win when the lead is already on the phone or in their pipeline. <strong style="color:#cbd5e1;">Maya wins the lead before that call ever happens</strong> — from a Google ad text, a yard sign, a referral who texts instead of calls.
+        </p>
+        <p style="font-size:1.0625rem;color:#94a3b8;line-height:1.8;margin:0;">
+          By the time the lead hits Jobber, it should already be qualified and scheduled. That's exactly what Maya does: it handles everything that happens <em style="color:#f97316;">before</em> the lead lands in your Jobber dashboard.
+        </p>
+
+        <div class="grid sm:grid-cols-3 gap-4 mt-8">
+          <div style="background:rgba(249,115,22,0.06);border:1px solid rgba(249,115,22,0.15);border-radius:0.75rem;padding:1.25rem;text-align:center;">
+            <i data-lucide="moon" style="width:1.5rem;height:1.5rem;color:#f97316;margin:0 auto 0.5rem;display:block;"></i>
+            <p style="font-size:0.875rem;font-weight:600;color:#f8fafc;margin:0 0 0.25rem;">10 PM texts</p>
+            <p style="font-size:0.8rem;color:#64748b;margin:0;">Homeowners who can't call during work hours</p>
+          </div>
+          <div style="background:rgba(249,115,22,0.06);border:1px solid rgba(249,115,22,0.15);border-radius:0.75rem;padding:1.25rem;text-align:center;">
+            <i data-lucide="search" style="width:1.5rem;height:1.5rem;color:#f97316;margin:0 auto 0.5rem;display:block;"></i>
+            <p style="font-size:0.875rem;font-weight:600;color:#f8fafc;margin:0 0 0.25rem;">Google ad texts</p>
+            <p style="font-size:0.8rem;color:#64748b;margin:0;">Leads who click your ad and text the number</p>
+          </div>
+          <div style="background:rgba(249,115,22,0.06);border:1px solid rgba(249,115,22,0.15);border-radius:0.75rem;padding:1.25rem;text-align:center;">
+            <i data-lucide="users" style="width:1.5rem;height:1.5rem;color:#f97316;margin:0 auto 0.5rem;display:block;"></i>
+            <p style="font-size:0.875rem;font-weight:600;color:#f8fafc;margin:0 0 0.25rem;">Referral texts</p>
+            <p style="font-size:0.8rem;color:#64748b;margin:0;">People who got your number from a friend</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== WORKS NATIVELY WITH JOBBER ===================== -->
+  <section style="padding:4rem 1.5rem;background:rgba(249,115,22,0.03);">
+    <div class="max-w-5xl mx-auto">
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <div>
+          <span class="badge mb-4" style="display:inline-flex;">
+            <i data-lucide="link" style="width:0.75rem;height:0.75rem;"></i>
+            Native Integration
+          </span>
+          <h2 style="font-size:clamp(1.5rem,3vw,2rem);font-weight:800;color:#f8fafc;margin-bottom:1rem;line-height:1.2;">Works natively with Jobber</h2>
+          <p style="color:#94a3b8;font-size:1rem;line-height:1.75;margin-bottom:1.5rem;">
+            Maya integrates directly with Jobber. Every qualified lead Maya books appears in your Jobber calendar with job type, service area, and qualification notes already filled in.
+          </p>
+          <p style="color:#94a3b8;font-size:1rem;line-height:1.75;margin-bottom:2rem;">
+            <strong style="color:#cbd5e1;">No double entry. No manual handoff.</strong> Your team opens Jobber in the morning and the schedule is already built — filled by leads that came in overnight while you were off the clock.
+          </p>
+          <a href="https://calendly.com/duy-heatbooker/30min" target="_blank" rel="noopener noreferrer" class="cta-orange">
+            <i data-lucide="calendar" style="width:1.125rem;height:1.125rem;"></i>
+            See the Integration
+          </a>
+        </div>
+
+        <!-- Flow Diagram -->
+        <div class="card p-8">
+          <h3 style="font-size:0.875rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:#64748b;margin-bottom:1.5rem;">The full customer journey</h3>
+          <div style="display:flex;flex-direction:column;gap:0;">
+            <div style="display:flex;align-items:center;gap:0.875rem;padding:0.875rem;background:rgba(249,115,22,0.07);border-radius:0.625rem;border:1px solid rgba(249,115,22,0.2);">
+              <div style="width:2rem;height:2rem;border-radius:50%;background:rgba(249,115,22,0.15);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                <span style="font-size:0.75rem;font-weight:800;color:#f97316;">1</span>
+              </div>
+              <div>
+                <p style="font-size:0.875rem;font-weight:600;color:#f8fafc;margin:0;">Lead texts in</p>
+                <p style="font-size:0.75rem;color:#64748b;margin:0;">From Google ad, yard sign, or referral</p>
+              </div>
+            </div>
+            <div style="width:1px;height:1.5rem;background:linear-gradient(180deg,rgba(249,115,22,0.4),rgba(249,115,22,0.1));margin-left:1.9375rem;"></div>
+            <div style="display:flex;align-items:center;gap:0.875rem;padding:0.875rem;background:rgba(249,115,22,0.07);border-radius:0.625rem;border:1px solid rgba(249,115,22,0.2);">
+              <div style="width:2rem;height:2rem;border-radius:50%;background:rgba(249,115,22,0.15);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                <span style="font-size:0.75rem;font-weight:800;color:#f97316;">2</span>
+              </div>
+              <div>
+                <p style="font-size:0.875rem;font-weight:600;color:#f8fafc;margin:0;">Maya qualifies</p>
+                <p style="font-size:0.75rem;color:#64748b;margin:0;">Service area, job type, urgency — in &lt; 5 seconds</p>
+              </div>
+            </div>
+            <div style="width:1px;height:1.5rem;background:linear-gradient(180deg,rgba(249,115,22,0.4),rgba(249,115,22,0.1));margin-left:1.9375rem;"></div>
+            <div style="display:flex;align-items:center;gap:0.875rem;padding:0.875rem;background:rgba(99,102,241,0.06);border-radius:0.625rem;border:1px solid rgba(99,102,241,0.2);">
+              <div style="width:2rem;height:2rem;border-radius:50%;background:rgba(99,102,241,0.15);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                <span style="font-size:0.75rem;font-weight:800;color:#818cf8;">3</span>
+              </div>
+              <div>
+                <p style="font-size:0.875rem;font-weight:600;color:#f8fafc;margin:0;">Booked into Jobber</p>
+                <p style="font-size:0.75rem;color:#64748b;margin:0;">Calendar entry with full qualification notes</p>
+              </div>
+            </div>
+            <div style="width:1px;height:1.5rem;background:linear-gradient(180deg,rgba(99,102,241,0.4),rgba(99,102,241,0.1));margin-left:1.9375rem;"></div>
+            <div style="display:flex;align-items:center;gap:0.875rem;padding:0.875rem;background:rgba(99,102,241,0.06);border-radius:0.625rem;border:1px solid rgba(99,102,241,0.2);">
+              <div style="width:2rem;height:2rem;border-radius:50%;background:rgba(99,102,241,0.15);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                <span style="font-size:0.75rem;font-weight:800;color:#818cf8;">4</span>
+              </div>
+              <div>
+                <p style="font-size:0.875rem;font-weight:600;color:#f8fafc;margin:0;">Your team dispatches</p>
+                <p style="font-size:0.75rem;color:#64748b;margin:0;">Jobber handles the rest — invoicing, notes, follow-up</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== FAQ ===================== -->
+  <section style="padding:4rem 1.5rem;">
+    <div class="max-w-3xl mx-auto">
+      <div class="text-center mb-10">
+        <h2 style="font-size:clamp(1.5rem,3vw,2.25rem);font-weight:800;color:#f8fafc;margin-bottom:0.75rem;">Common questions</h2>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:1.25rem;">
+
+        <!-- Q1 -->
+        <div class="card p-7">
+          <h3 style="font-size:1.0625rem;font-weight:700;color:#f8fafc;margin:0 0 0.875rem;display:flex;align-items:flex-start;gap:0.75rem;">
+            <span style="display:inline-flex;align-items:center;justify-content:center;width:1.5rem;height:1.5rem;border-radius:50%;background:rgba(249,115,22,0.1);border:1px solid rgba(249,115,22,0.25);color:#f97316;font-size:0.75rem;font-weight:800;flex-shrink:0;margin-top:0.1rem;">Q</span>
+            I already use Jobber. Do I need Maya too?
+          </h3>
+          <p style="color:#94a3b8;line-height:1.75;margin:0 0 0 2.25rem;">
+            Jobber manages jobs that are already in your pipeline. Maya captures the leads that would otherwise never make it into Jobber — homeowners who text your number at 10 PM, click a Google ad at midnight, or text a referral instead of calling. <strong style="color:#cbd5e1;">Maya books them directly into Jobber</strong> so the first time you see the lead, it's already scheduled.
+          </p>
+        </div>
+
+        <!-- Q2 -->
+        <div class="card p-7">
+          <h3 style="font-size:1.0625rem;font-weight:700;color:#f8fafc;margin:0 0 0.875rem;display:flex;align-items:flex-start;gap:0.75rem;">
+            <span style="display:inline-flex;align-items:center;justify-content:center;width:1.5rem;height:1.5rem;border-radius:50%;background:rgba(249,115,22,0.1);border:1px solid rgba(249,115,22,0.25);color:#f97316;font-size:0.75rem;font-weight:800;flex-shrink:0;margin-top:0.1rem;">Q</span>
+            Does Maya replace Jobber?
+          </h3>
+          <p style="color:#94a3b8;line-height:1.75;margin:0 0 0 2.25rem;">
+            No — and it's not trying to. <strong style="color:#cbd5e1;">Jobber is your operations backbone. Maya is your 24/7 front door.</strong> Together they cover the full customer journey: lead texts in → Maya qualifies → booked into Jobber → your team dispatches and invoices. Each tool does one thing extremely well.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== FINAL CTA ===================== -->
+  <section style="padding:5rem 1.5rem;background:linear-gradient(180deg,transparent,rgba(249,115,22,0.05) 50%,transparent);">
+    <div class="max-w-3xl mx-auto text-center">
+      <div style="display:inline-flex;align-items:center;justify-content:center;width:4rem;height:4rem;border-radius:1rem;background:rgba(249,115,22,0.1);border:1px solid rgba(249,115,22,0.25);margin-bottom:1.5rem;">
+        <i data-lucide="trending-up" style="width:2rem;height:2rem;color:#f97316;"></i>
+      </div>
+      <h2 style="font-size:clamp(1.75rem,4vw,2.75rem);font-weight:900;color:#f8fafc;margin-bottom:1rem;line-height:1.15;letter-spacing:-0.02em;">
+        Ready to fill your Jobber calendar<br />
+        <span style="background:linear-gradient(135deg,#f97316,#fb923c);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">before the workday starts?</span>
+      </h2>
+      <p style="color:#94a3b8;font-size:1.0625rem;margin-bottom:2.5rem;line-height:1.75;">
+        Book a 30-minute demo and see how Maya + Jobber captures leads your competitors never even hear from.
+      </p>
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a href="https://calendly.com/duy-heatbooker/30min" target="_blank" rel="noopener noreferrer" class="cta-orange" style="font-size:1rem;padding:1rem 2.25rem;">
+          <i data-lucide="calendar" style="width:1.25rem;height:1.25rem;"></i>
+          Book a Free Demo
+        </a>
+        <a href="sms:+15076773559?body=QUOTE" class="cta-outline" style="font-size:1rem;padding:1rem 2.25rem;">
+          <i data-lucide="message-circle" style="width:1.25rem;height:1.25rem;"></i>
+          Text (507) 677-3559
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer style="border-top:1px solid #1e293b;padding:2.5rem 1.5rem;">
+    <div class="max-w-6xl mx-auto">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+
+        <!-- Logo -->
+        <a href="/" class="flex items-center gap-2">
+          <span style="display:inline-flex;align-items:center;justify-content:center;width:2rem;height:2rem;border-radius:0.5rem;background:rgba(249,115,22,0.1);border:1px solid rgba(249,115,22,0.3);">
+            <i data-lucide="zap" style="width:1rem;height:1rem;color:#f97316;"></i>
+          </span>
+          <span style="font-size:1.125rem;font-weight:700;color:#f8fafc;">Maya</span>
+          <span class="hidden sm:inline" style="font-size:0.65rem;text-transform:uppercase;letter-spacing:0.15em;color:#64748b;margin-left:0.25rem;border-left:1px solid #334155;padding-left:0.5rem;">SMS Agent</span>
+        </a>
+
+        <!-- Links -->
+        <nav class="flex flex-wrap items-center justify-center gap-4" style="font-size:0.8rem;">
+          <a href="/privacy.html" style="color:#64748b;text-decoration:none;" onmouseover="this.style.color='#f97316'" onmouseout="this.style.color='#64748b'">Privacy</a>
+          <span style="color:#334155;">·</span>
+          <a href="/terms.html" style="color:#64748b;text-decoration:none;" onmouseover="this.style.color='#f97316'" onmouseout="this.style.color='#64748b'">Terms</a>
+          <span style="color:#334155;">·</span>
+          <a href="/cookies.html" style="color:#64748b;text-decoration:none;" onmouseover="this.style.color='#f97316'" onmouseout="this.style.color='#64748b'">Cookies</a>
+        </nav>
+
+        <!-- Copyright -->
+        <p style="font-size:0.8rem;color:#475569;margin:0;">
+          © 2026 Maya. Built for contractors who pick up.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    lucide.createIcons();
+  </script>
+<script>
+/* Maya Cookie Consent — inline, no external file needed */
+(function(){
+  var KEY = 'maya_cookie_consent';
+  var CF_TOKEN = 'b703ecc53d3a46648ffc9e18a8319d97'; // ← replace with your Cloudflare token
+
+  function loadCF(){
+    if(CF_TOKEN==='b703ecc53d3a46648ffc9e18a8319d97') return;
+    if(document.querySelector('script[data-cf-beacon]')) return;
+    var s=document.createElement('script');
+    s.defer=true; s.src='https://static.cloudflareinsights.com/beacon.min.js';
+    s.setAttribute('data-cf-beacon',JSON.stringify({token:CF_TOKEN}));
+    document.body.appendChild(s);
+  }
+
+  function getConsent(){ try{return localStorage.getItem(KEY);}catch(e){return null;} }
+  function setConsent(v){ try{localStorage.setItem(KEY,v);}catch(e){} }
+
+  function hideBanner(){
+    var b=document.getElementById('maya-cb');
+    if(!b) return;
+    b.style.transform='translateX(-50%) translateY(120%)';
+    b.style.opacity='0';
+    setTimeout(function(){ if(b.parentNode) b.parentNode.removeChild(b); }, 400);
+  }
+
+  function acceptAll(){ setConsent('all'); hideBanner(); loadCF(); }
+  function necessaryOnly(){ setConsent('necessary'); hideBanner(); loadCF(); }
+  window.mayaConsent = { acceptAll:acceptAll, necessaryOnly:necessaryOnly };
+
+  /* Always run cookieless CF analytics */
+  loadCF();
+
+  /* Show banner only if no stored preference */
+  if(getConsent()) return;
+
+  function showBanner(){
+    var b=document.createElement('div');
+    b.id='maya-cb';
+    b.setAttribute('role','dialog');
+    b.setAttribute('aria-label','Cookie consent');
+    b.style.cssText='position:fixed;bottom:1.5rem;left:50%;transform:translateX(-50%);z-index:9999;width:calc(100% - 2rem);max-width:580px;background:#1e293b;border:1px solid #334155;border-radius:1rem;padding:1.25rem 1.5rem;box-shadow:0 20px 60px -10px rgba(0,0,0,0.6),0 0 0 1px rgba(249,115,22,0.15);font-family:Inter,system-ui,sans-serif;font-size:.875rem;color:#94a3b8;transition:transform .35s ease,opacity .35s ease;display:flex;flex-direction:column;gap:.875rem;';
+    b.innerHTML='<div style="display:flex;align-items:flex-start;gap:.875rem;">'
+      +'<span style="display:inline-flex;align-items:center;justify-content:center;width:2rem;height:2rem;border-radius:.5rem;background:rgba(249,115,22,.1);border:1px solid rgba(249,115,22,.3);flex-shrink:0;">'
+      +'<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'14\' height=\'14\' viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'#f97316\' stroke-width=\'2.5\' stroke-linecap=\'round\' stroke-linejoin=\'round\'><circle cx=\'12\' cy=\'12\' r=\'10\'/><line x1=\'12\' x2=\'12\' y1=\'8\' y2=\'12\'/><line x1=\'12\' x2=\'12.01\' y1=\'16\' y2=\'16\'/></svg>'
+      +'</span>'
+      +'<div><strong style="color:#f8fafc;display:block;margin-bottom:.2rem;">We use cookies</strong>'
+      +'We use essential cookies to save your preferences. Our analytics (Cloudflare) are cookieless &amp; privacy-safe. '
+      +'<a href="/cookies.html" style="color:#f97316;text-decoration:underline;text-underline-offset:2px;" target="_blank" rel="noopener">Cookie Policy</a></div></div>'
+      +'<div style="display:flex;flex-wrap:wrap;gap:.625rem;">'
+      +'<button id="maya-cb-accept" style="background:linear-gradient(180deg,#fb923c 0%,#f97316 50%,#ea580c 100%);color:#fff;font-weight:700;border:none;border-radius:.5rem;padding:.6rem 1.25rem;cursor:pointer;font-size:.875rem;font-family:inherit;box-shadow:0 4px 14px rgba(249,115,22,.4);">Accept All</button>'
+      +'<button id="maya-cb-nec" style="background:#0f172a;color:#cbd5e1;font-weight:600;border:1px solid #334155;border-radius:.5rem;padding:.6rem 1.25rem;cursor:pointer;font-size:.875rem;font-family:inherit;">Necessary Only</button>'
+      +'<a href="/cookies.html" style="color:#64748b;font-size:.8rem;padding:.6rem .5rem;text-decoration:underline;text-underline-offset:2px;display:inline-flex;align-items:center;" target="_blank" rel="noopener">Manage</a>'
+      +'</div>';
+    document.body.appendChild(b);
+    document.getElementById('maya-cb-accept').onclick = acceptAll;
+    document.getElementById('maya-cb-nec').onclick = necessaryOnly;
+  }
+
+  if(document.readyState==='loading'){
+    document.addEventListener('DOMContentLoaded',function(){ setTimeout(showBanner,800); });
+  } else { setTimeout(showBanner,800); }
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI SMS Booking Agent for Locksmiths | Maya</title>
+  <meta name="description" content="AI SMS booking for locksmiths. Maya qualifies emergency lockouts and rekeying leads and dispatches your tech in under 5 seconds, 24/7." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://heatbooker.com/industries/locksmith/" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { theme: { extend: { fontFamily: { sans: ['Inter','system-ui','sans-serif'] }, colors: { safety: { 400:'#fb923c', 500:'#f97316', 600:'#ea580c' } } } } }
+  </script>
+  <style>
+    body { background-color: #0f172a; color: #f8fafc; }
+    .cta-orange { background: linear-gradient(180deg,#fb923c 0%,#f97316 50%,#ea580c 100%); box-shadow: 0 1px 0 rgba(255,255,255,0.2) inset, 0 8px 24px -8px rgba(249,115,22,0.6); transition: transform 0.15s ease; display:inline-flex; align-items:center; gap:0.5rem; color:white; font-weight:700; border-radius:0.75rem; }
+    .cta-orange:hover { transform: translateY(-1px); }
+    .card-dark { background: #1e293b; border: 1px solid #334155; border-radius: 1rem; }
+    .badge-orange { background: rgba(249,115,22,0.1); border: 1px solid rgba(249,115,22,0.3); color: #fb923c; border-radius: 9999px; font-size: 0.75rem; font-weight: 600; padding: 0.25rem 0.75rem; display: inline-flex; align-items: center; gap: 0.375rem; }
+    .stat-card { background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%); border: 1px solid #334155; border-radius: 1rem; padding: 1.5rem; }
+    .sms-bubble-in { background: #1e293b; border: 1px solid #334155; border-radius: 1rem 1rem 1rem 0.25rem; padding: 0.75rem 1rem; max-width: 80%; font-size: 0.9rem; }
+    .sms-bubble-out { background: rgba(249,115,22,0.15); border: 1px solid rgba(249,115,22,0.3); border-radius: 1rem 1rem 0.25rem 1rem; padding: 0.75rem 1rem; max-width: 80%; margin-left: auto; font-size: 0.9rem; }
+    .faq-item { border-bottom: 1px solid #334155; }
+    .scroll-top { position: fixed; bottom: 2rem; right: 2rem; z-index: 50; width: 2.5rem; height: 2.5rem; background: rgba(249,115,22,0.9); border-radius: 9999px; display: flex; align-items: center; justify-content: center; cursor: pointer; opacity: 0; transition: opacity 0.3s; border: none; }
+    .scroll-top.visible { opacity: 1; }
+    input[type=range] { accent-color: #f97316; }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "SoftwareApplication",
+        "name": "Maya SMS Booking Agent",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Web",
+        "description": "AI SMS booking agent for locksmiths. Qualifies emergency lockouts, rekeying, and commercial lock installation leads in under 5 seconds.",
+        "url": "https://heatbooker.com/industries/locksmith/"
+      },
+      {
+        "@type": "Service",
+        "name": "AI SMS Booking for Locksmiths",
+        "serviceType": "Locksmith Dispatch Automation",
+        "description": "Maya automatically qualifies and dispatches locksmith leads via SMS including emergency home and car lockouts, rekeying, and commercial lock installations.",
+        "provider": { "@type": "Organization", "name": "Maya", "url": "https://heatbooker.com" },
+        "areaServed": "US"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://heatbooker.com/" },
+          { "@type": "ListItem", "position": 2, "name": "Industries", "item": "https://heatbooker.com/industries/" },
+          { "@type": "ListItem", "position": 3, "name": "Locksmith", "item": "https://heatbooker.com/industries/locksmith/" }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Can Maya handle true lockout emergencies where speed is everything?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes — that's exactly what Maya is built for. When someone texts in a lockout, Maya responds in under 5 seconds, collects their location, confirms the lock type, and pings your on-call tech immediately. When 60% of locksmith calls happen after hours, being the first to respond wins the job every time."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does Maya work for car lockouts as well as home lockouts?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Absolutely. Maya qualifies both residential and automotive lockouts. For car lockouts it asks for the vehicle make/model, year, and location. For home lockouts it asks for address, type of lock, and whether it's a rental or owned property — so your tech arrives with the right tools."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body class="font-sans antialiased">
+
+  <!-- NAV -->
+  <nav class="sticky top-0 z-40 border-b border-slate-800" style="background:rgba(15,23,42,0.95);backdrop-filter:blur(12px);">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <a href="/" class="flex items-center gap-2">
+          <span style="display:inline-flex;align-items:center;justify-content:center;width:2rem;height:2rem;border-radius:0.5rem;background:rgba(249,115,22,0.1);border:1px solid rgba(249,115,22,0.3);">
+            <i data-lucide="zap" style="width:1rem;height:1rem;color:#f97316;"></i>
+          </span>
+          <span style="font-size:1.125rem;font-weight:700;color:#f8fafc;">Maya</span>
+          <span class="hidden sm:inline" style="font-size:0.65rem;text-transform:uppercase;letter-spacing:0.15em;color:#64748b;margin-left:0.25rem;border-left:1px solid #334155;padding-left:0.5rem;">SMS Agent</span>
+        </a>
+        <div class="hidden md:flex items-center gap-6 text-sm font-medium text-slate-400">
+          <a href="/industries/" class="hover:text-white transition-colors">Industries</a>
+          <a href="/locations/" class="hover:text-white transition-colors">Locations</a>
+          <a href="/vs/" class="hover:text-white transition-colors">vs. Others</a>
+          <a href="#how" class="hover:text-white transition-colors">How It Works</a>
+          <a href="#roi" class="hover:text-white transition-colors">ROI</a>
+          <a href="#demo" class="hover:text-white transition-colors">Demo</a>
+          <a href="#faq" class="hover:text-white transition-colors">FAQ</a>
+        </div>
+        <a href="https://calendly.com/duy-heatbooker/30min" target="_blank" rel="noopener noreferrer" class="cta-orange px-4 py-2 text-sm">
+          <i data-lucide="calendar" style="width:0.875rem;height:0.875rem;"></i>
+          Book Setup Call
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="relative pt-20 pb-24 px-4 overflow-hidden">
+    <div class="absolute inset-0 pointer-events-none" style="background: radial-gradient(ellipse 80% 60% at 50% -10%, rgba(249,115,22,0.12) 0%, transparent 70%);"></div>
+    <div class="max-w-4xl mx-auto text-center relative">
+      <nav class="flex items-center justify-center gap-1.5 text-xs text-slate-500 mb-6">
+        <a href="/" class="hover:text-slate-300 transition-colors">Home</a>
+        <i data-lucide="chevron-right" style="width:0.75rem;height:0.75rem;"></i>
+        <a href="/industries/" class="hover:text-slate-300 transition-colors">Industries</a>
+        <i data-lucide="chevron-right" style="width:0.75rem;height:0.75rem;"></i>
+        <span class="text-slate-300">Locksmith</span>
+      </nav>
+      <div class="badge-orange mb-6">
+        <i data-lucide="key" style="width:0.75rem;height:0.75rem;"></i>
+        Locksmith AI Dispatcher
+      </div>
+      <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight mb-6 leading-tight">
+        Stop Losing Lockout Calls at 11 PM<br />
+        <span style="color:#f97316;">to the Guy Who Picks Up Faster.</span>
+      </h1>
+      <p class="text-lg sm:text-xl text-slate-400 max-w-2xl mx-auto mb-8 leading-relaxed">
+        Speed wins locksmith jobs. Maya responds to <strong class="text-slate-200">emergency lockouts</strong>, <strong class="text-slate-200">car lockouts</strong>, and <strong class="text-slate-200">rekeying requests</strong> in under 5 seconds — 24/7. Synced directly to <strong class="text-slate-200">Jobber</strong> and <strong class="text-slate-200">Google Calendar</strong>. First to respond wins the job.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center mb-10">
+        <a href="https://calendly.com/duy-heatbooker/30min" target="_blank" rel="noopener noreferrer" class="cta-orange px-7 py-3.5 text-base">
+          <i data-lucide="calendar" style="width:1rem;height:1rem;"></i>
+          Book Free Setup Call
+        </a>
+        <a href="sms:+15076773559?body=QUOTE" class="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl text-base font-semibold text-slate-200 border border-slate-700 hover:border-slate-500 transition-colors">
+          <i data-lucide="message-square" style="width:1rem;height:1rem;color:#f97316;"></i>
+          Text QUOTE to (507) 677-3559
+        </a>
+      </div>
+      <div class="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm text-slate-500">
+        <span class="flex items-center gap-1.5"><i data-lucide="zap" style="width:0.875rem;height:0.875rem;color:#f97316;"></i> 5-second response</span>
+        <span class="text-slate-700">·</span>
+        <span class="flex items-center gap-1.5"><i data-lucide="clock" style="width:0.875rem;height:0.875rem;color:#f97316;"></i> Works 24/7/365</span>
+        <span class="text-slate-700">·</span>
+        <span class="flex items-center gap-1.5"><i data-lucide="send" style="width:0.875rem;height:0.875rem;color:#f97316;"></i> Dispatches in seconds</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <section class="py-16 px-4">
+    <div class="max-w-5xl mx-auto">
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+        <div class="stat-card text-center">
+          <div class="text-4xl font-black mb-2" style="color:#f97316;">38%</div>
+          <div class="text-slate-300 font-semibold mb-1">Calls Go Unanswered</div>
+          <div class="text-sm text-slate-500">Locksmiths miss nearly 2 in 5 calls. In an emergency, the customer is already texting your competitor.</div>
+        </div>
+        <div class="stat-card text-center">
+          <div class="text-4xl font-black mb-2" style="color:#f97316;">$175</div>
+          <div class="text-slate-300 font-semibold mb-1">Avg Emergency Lockout</div>
+          <div class="text-sm text-slate-500">Emergency lockouts are quick jobs with high margins. At 50% close rate, missing 25 calls/week is devastating.</div>
+        </div>
+        <div class="stat-card text-center">
+          <div class="text-4xl font-black mb-2" style="color:#f97316;">60%</div>
+          <div class="text-slate-300 font-semibold mb-1">Calls After Business Hours</div>
+          <div class="text-sm text-slate-500">Most locksmith emergencies happen at night and on weekends. Maya is on when you're not — and responds instantly.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT MAYA QUALIFIES -->
+  <section id="how" class="py-16 px-4">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-center mb-12">
+        <div class="badge-orange mb-4">What Maya Handles</div>
+        <h2 class="text-3xl sm:text-4xl font-black mb-4">What Maya Qualifies for Locksmiths</h2>
+        <p class="text-slate-400 max-w-xl mx-auto">From car lockouts to commercial installs — Maya collects what your tech needs before they roll out.</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="card-dark p-6">
+          <div class="w-10 h-10 rounded-lg flex items-center justify-center mb-4" style="background:rgba(249,115,22,0.1);">
+            <i data-lucide="alert-circle" style="width:1.25rem;height:1.25rem;color:#f97316;"></i>
+          </div>
+          <h3 class="text-lg font-bold mb-2 text-slate-100">Emergency Lockouts</h3>
+          <p class="text-slate-400 text-sm leading-relaxed">Home, car, or business lockout — highest urgency. Maya collects location, lock type, and property details in seconds, then pings your on-call tech for immediate dispatch.</p>
+          <ul class="mt-3 space-y-1 text-xs text-slate-500">
+            <li class="flex items-center gap-1.5"><i data-lucide="check" style="width:0.75rem;height:0.75rem;color:#f97316;"></i> Home &amp; business lockouts</li>
+            <li class="flex items-center gap-1.5"><i data-lucide="check" style="width:0.75rem;height:0.75rem;color:#f97316;"></i> Car lockout dispatch</li>
+            <li class="flex items-center gap-1.5"><i data-lucide="check" style="width:0.75rem;height:0.75rem;color:#f97316;"></i> Lock type identification</li>
+          </ul>
+        </div>
+        <div class="card-dark p-6">
+          <div class="w-10 h-10 rounded-lg flex items-center justify-center mb-4" style="background:rgba(249,115,22,0.1);">
+            <i data-lucide="key" style="width:1.25rem;height:1.25rem;color:#f97316;"></i>
+          </div>
+          <h3 class="text-lg font-bold mb-2 text-slate-100">Rekeying &amp; Lock Changes</h3>
+          <p class="text-slate-400 text-sm leading-relaxed">Move-in rekeying or security upgrades — scheduled 24-48 hours out. Maya qualifies number of locks, property type, and schedules at the customer's convenience.</p>
+          <ul class="mt-3 space-y-1 text-xs text-slate-500">
+            <li class="flex items-center gap-1.5"><i data-lucide="check" style="width:0.75rem;height:0.75rem;color:#f97316;"></i> Move-in rekeying</li>
+            <li class="flex items-center gap-1.5"><i data-lucide="check" style="width:0.75rem;height:0.75rem;color:#f97316;"></i> Number of locks</li>
+            <li class="flex items-center gap-1.5"><i data-lucide="check" style="width:0.75rem;height:0.75rem;color:#f97316;"></i> 24-48hr scheduling</li>
+          </ul>
+        </div>
+        <div class="card-dark p-6">
+          <div class="w-10 h-10 rounded-lg flex items-center justify-center mb-4" style="background:rgba(249,115,22,0.1);">
+            <i data-lucide="building" style="width:1.25rem;height:1.25rem;color:#f97316;"></i>
+          </div>
+          <h3 class="text-lg font-bold mb-2 text-slate-100">Commercial Lock Installation</h3>
+          <p class="text-slate-400 text-sm leading-relaxed">Office, retail, and multi-unit — higher ticket jobs ($500+). Maya qualifies number of entry points, access control requirements, and business type for accurate quoting.</p>
+          <ul class="mt-3 space-y-1 text-xs text-slate-500">
+            <li class="flex items-center gap-1.5"><i data-lucide="check" style="width:0.75rem;height:0.75rem;color:#f97316;"></i> Office &amp; retail installs</li>
+            <li class="flex items-center gap-1.5"><i data-lucide="check" style="width:0.75rem;height:0.75rem;color:#f97316;"></i> Access control scope</li>
+            <li class="flex items-center gap-1.5"><i data-lucide="check" style="width:0.75rem;height:0.75rem;color:#f97316;"></i> $500+ ticket range</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ROI CALCULATOR -->
+  <section id="roi" class="py-16 px-4">
+    <div class="max-w-3xl mx-auto">
+      <div class="text-center mb-10">
+        <div class="badge-orange mb-4">ROI Calculator</div>
+        <h2 class="text-3xl sm:text-4xl font-black mb-4">How Many Lockout Jobs Are You Losing Each Week?</h2>
+        <p class="text-slate-400">With a 50% close rate, every missed call is expensive. See your annual recovery.</p>
+      </div>
+      <div class="card-dark p-8">
+        <div class="space-y-6">
+          <div>
+            <div class="flex justify-between mb-2">
+              <label class="text-sm font-semibold text-slate-300">Missed leads per week</label>
+              <span id="leadsVal" class="text-sm font-bold" style="color:#f97316;">25</span>
+            </div>
+            <input type="range" id="leads" min="1" max="200" value="25" class="w-full h-2 rounded-full" />
+          </div>
+          <div>
+            <div class="flex justify-between mb-2">
+              <label class="text-sm font-semibold text-slate-300">Average job value ($)</label>
+              <span id="jobValDisplay" class="text-sm font-bold" style="color:#f97316;">$175</span>
+            </div>
+            <input type="range" id="jobVal" min="50" max="2000" step="25" value="175" class="w-full h-2 rounded-full" />
+          </div>
+          <div>
+            <div class="flex justify-between mb-2">
+              <label class="text-sm font-semibold text-slate-300">Close rate (%) — high urgency</label>
+              <span id="closeRateVal" class="text-sm font-bold" style="color:#f97316;">50%</span>
+            </div>
+            <input type="range" id="closeRate" min="5" max="90" value="50" class="w-full h-2 rounded-full" />
+          </div>
+        </div>
+        <div class="grid grid-cols-2 gap-4 mt-8 pt-6 border-t border-slate-700">
+          <div class="text-center rounded-xl p-5" style="background:#0f172a;">
+            <div class="text-xs text-slate-500 uppercase tracking-widest mb-1">Monthly Recovery</div>
+            <div id="monthly" class="text-3xl font-black" style="color:#f97316;">$9,479</div>
+          </div>
+          <div class="text-center rounded-xl p-5" style="background:#0f172a;">
+            <div class="text-xs text-slate-500 uppercase tracking-widest mb-1">Annual Recovery</div>
+            <div id="annual" class="text-3xl font-black" style="color:#f97316;">$113,750</div>
+          </div>
+        </div>
+        <p class="text-xs text-slate-600 text-center mt-4">Estimate only. Based on leads × 52 weeks × job value × close rate.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SMS DEMO -->
+  <section id="demo" class="py-16 px-4">
+    <div class="max-w-2xl mx-auto">
+      <div class="text-center mb-10">
+        <div class="badge-orange mb-4">Live Demo</div>
+        <h2 class="text-3xl sm:text-4xl font-black mb-4">See Maya in Action</h2>
+        <p class="text-slate-400">A car lockout dispatched in under 30 seconds. No hold music, no voicemail.</p>
+      </div>
+      <div class="card-dark p-6 space-y-4">
+        <div class="flex items-center gap-2 mb-4 pb-4 border-b border-slate-700">
+          <div class="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold" style="background:#f97316;">M</div>
+          <div>
+            <div class="text-sm font-semibold text-slate-200">Maya SMS Agent</div>
+            <div class="text-xs text-green-400 flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-green-400 inline-block"></span> Active 24/7</div>
+          </div>
+        </div>
+        <div class="sms-bubble-out">
+          <p class="text-slate-200">QUOTE</p>
+          <p class="text-xs text-slate-500 mt-1">You · 11:14 PM</p>
+        </div>
+        <div class="sms-bubble-in">
+          <p class="text-slate-200">Hi! I'm Maya. Are you <strong>locked out</strong>, or do you need <strong>rekeying / a lock install</strong>?</p>
+          <p class="text-xs text-slate-500 mt-1">Maya · &lt;2 sec</p>
+        </div>
+        <div class="sms-bubble-out">
+          <p class="text-slate-200">Locked out of my car</p>
+          <p class="text-xs text-slate-500 mt-1">You</p>
+        </div>
+        <div class="sms-bubble-in">
+          <p class="text-slate-200">Got it — car lockout. What's your zip code or cross streets so I can get a tech to you fast?</p>
+          <p class="text-xs text-slate-500 mt-1">Maya · &lt;3 sec</p>
+        </div>
+        <div class="sms-bubble-out">
+          <p class="text-slate-200">55044 — Target parking lot on Main St</p>
+          <p class="text-xs text-slate-500 mt-1">You</p>
+        </div>
+        <div class="sms-bubble-in">
+          <p class="text-slate-200 font-semibold">Tech is on the way — ETA <strong style="color:#f97316;">30 minutes</strong>. You'll get a call when they're 5 min out. Reply CANCEL if you no longer need help.</p>
+          <p class="text-xs text-slate-500 mt-1">Maya · &lt;5 sec</p>
+        </div>
+      </div>
+      <div class="text-center mt-6">
+        <a href="sms:+15076773559?body=QUOTE" class="cta-orange px-6 py-3 text-sm">
+          <i data-lucide="message-square" style="width:0.875rem;height:0.875rem;"></i>
+          Try It — Text QUOTE to (507) 677-3559
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CRM INTEGRATIONS -->
+  <section class="py-16 px-4">
+    <div class="max-w-5xl mx-auto text-center">
+      <div class="badge-orange mb-4">Integrations</div>
+      <h2 class="text-3xl font-black mb-4">Works With Your Existing Tools</h2>
+      <p class="text-slate-400 mb-10 max-w-xl mx-auto">Maya syncs with the scheduling tools locksmiths already use. Dispatches appear instantly.</p>
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+        <div class="card-dark p-5 flex flex-col items-center gap-2">
+          <i data-lucide="briefcase" style="width:1.5rem;height:1.5rem;color:#f97316;"></i>
+          <span class="text-sm font-semibold text-slate-200">Jobber</span>
+        </div>
+        <div class="card-dark p-5 flex flex-col items-center gap-2">
+          <i data-lucide="calendar" style="width:1.5rem;height:1.5rem;color:#f97316;"></i>
+          <span class="text-sm font-semibold text-slate-200">Google Calendar</span>
+        </div>
+        <div class="card-dark p-5 flex flex-col items-center gap-2">
+          <i data-lucide="home" style="width:1.5rem;height:1.5rem;color:#f97316;"></i>
+          <span class="text-sm font-semibold text-slate-200">Housecall Pro</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="py-16 px-4">
+    <div class="max-w-3xl mx-auto">
+      <div class="text-center mb-10">
+        <div class="badge-orange mb-4">FAQ</div>
+        <h2 class="text-3xl sm:text-4xl font-black mb-4">Common Questions</h2>
+      </div>
+      <div class="space-y-0 card-dark overflow-hidden">
+        <div class="faq-item p-6">
+          <h3 class="text-base font-bold text-slate-100 mb-3 flex items-start gap-3">
+            <span class="w-6 h-6 rounded-full flex-shrink-0 flex items-center justify-center text-xs font-black" style="background:rgba(249,115,22,0.15);color:#f97316;">Q</span>
+            Can Maya handle true lockout emergencies where speed is everything?
+          </h3>
+          <p class="text-slate-400 text-sm leading-relaxed pl-9">Yes — that's exactly what Maya is built for. When someone texts in a lockout, Maya responds in under 5 seconds, collects their location, confirms the lock type, and pings your on-call tech immediately. When 60% of locksmith calls happen after hours, being the first to respond wins the job every time.</p>
+        </div>
+        <div class="faq-item p-6" style="border-bottom:none;">
+          <h3 class="text-base font-bold text-slate-100 mb-3 flex items-start gap-3">
+            <span class="w-6 h-6 rounded-full flex-shrink-0 flex items-center justify-center text-xs font-black" style="background:rgba(249,115,22,0.15);color:#f97316;">Q</span>
+            Does Maya work for car lockouts as well as home lockouts?
+          </h3>
+          <p class="text-slate-400 text-sm leading-relaxed pl-9">Absolutely. Maya qualifies both residential and automotive lockouts. For car lockouts it asks for the vehicle make/model, year, and location. For home lockouts it asks for address, type of lock, and whether it's a rental or owned property — so your tech arrives with the right tools.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="py-20 px-4">
+    <div class="max-w-3xl mx-auto text-center">
+      <div class="card-dark p-10 rounded-2xl" style="border-color:rgba(249,115,22,0.2);background:linear-gradient(135deg,#1e293b 0%,rgba(249,115,22,0.05) 100%);">
+        <h2 class="text-3xl sm:text-4xl font-black mb-4">Ready to Win Every Lockout Call — Even at Midnight?</h2>
+        <p class="text-slate-400 mb-8 max-w-xl mx-auto">Get Maya live in 30 minutes. We sync with Jobber and Google Calendar. No missed dispatch, ever.</p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="https://calendly.com/duy-heatbooker/30min" target="_blank" rel="noopener noreferrer" class="cta-orange px-8 py-4 text-base">
+            <i data-lucide="calendar" style="width:1rem;height:1rem;"></i>
+            Book Free Setup Call
+          </a>
+          <a href="sms:+15076773559?body=QUOTE" class="inline-flex items-center gap-2 px-8 py-4 rounded-xl text-base font-semibold text-slate-200 border border-slate-700 hover:border-slate-500 transition-colors">
+            <i data-lucide="message-square" style="width:1rem;height:1rem;color:#f97316;"></i>
+            Text QUOTE to Try It
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-slate-800 py-10 px-4">
+    <div class="max-w-5xl mx-auto">
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
+        <a href="/" class="flex items-center gap-2">
+          <span style="display:inline-flex;align-items:center;justify-content:center;width:2rem;height:2rem;border-radius:0.5rem;background:rgba(249,115,22,0.1);border:1px solid rgba(249,115,22,0.3);">
+            <i data-lucide="zap" style="width:1rem;height:1rem;color:#f97316;"></i>
+          </span>
+          <span style="font-size:1.125rem;font-weight:700;color:#f8fafc;">Maya</span>
+        </a>
+        <div class="flex items-center gap-4 text-sm text-slate-500">
+          <a href="/privacy.html" class="hover:text-slate-300 transition-colors">Privacy</a>
+          <span>·</span>
+          <a href="/terms.html" class="hover:text-slate-300 transition-colors">Terms</a>
+          <span>·</span>
+          <a href="/cookies.html" class="hover:text-slate-300 transition-colors">Cookies</a>
+        </div>
+        <p class="text-sm text-slate-600">© 2026 Maya. Built for contractors who pick up.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- SCROLL TO TOP -->
+  <button id="scrollTop" class="scroll-top" aria-label="Scroll to top">
+    <i data-lucide="arrow-up" style="width:1rem;height:1rem;color:white;"></i>
+  </button>
+
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <script>
+    lucide.createIcons();
+
+    const leads = document.getElementById('leads');
+    const jobVal = document.getElementById('jobVal');
+    const closeRate = document.getElementById('closeRate');
+    const leadsVal = document.getElementById('leadsVal');
+    const jobValDisplay = document.getElementById('jobValDisplay');
+    const closeRateVal = document.getElementById('closeRateVal');
+    const monthlyEl = document.getElementById('monthly');
+    const annualEl = document.getElementById('annual');
+
+    function fmt(n) { return n.toLocaleString('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 }); }
+    function calc() {
+      const l = +leads.value, j = +jobVal.value, c = +closeRate.value;
+      leadsVal.textContent = l;
+      jobValDisplay.textContent = fmt(j);
+      closeRateVal.textContent = c + '%';
+      const annual = l * 52 * j * (c / 100);
+      annualEl.textContent = fmt(annual);
+      monthlyEl.textContent = fmt(annual / 12);
+    }
+    leads.addEventListener('input', calc);
+    jobVal.addEventListener('input', calc);
+    closeRate.addEventListener('input', calc);
+    calc();
+
+    const scrollTopBtn = document.getElementById('scrollTop');
+    window.addEventListener('scroll', () => { scrollTopBtn.classList.toggle('visible', window.scrollY > 400); });
+    scrollTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+  </script>
+<script>
+/* Maya Cookie Consent — inline, no external file needed */
+(function(){
+  var KEY = 'maya_cookie_consent';
+  var CF_TOKEN = 'b703ecc53d3a46648ffc9e18a8319d97'; // ← replace with your Cloudflare token
+
+  function loadCF(){
+    if(CF_TOKEN==='b703ecc53d3a46648ffc9e18a8319d97') return;
+    if(document.querySelector('script[data-cf-beacon]')) return;
+    var s=document.createElement('script');
+    s.defer=true; s.src='https://static.cloudflareinsights.com/beacon.min.js';
+    s.setAttribute('data-cf-beacon',JSON.stringify({token:CF_TOKEN}));
+    document.body.appendChild(s);
+  }
+
+  function getConsent(){ try{return localStorage.getItem(KEY);}catch(e){return null;} }
+  function setConsent(v){ try{localStorage.setItem(KEY,v);}catch(e){} }
+
+  function hideBanner(){
+    var b=document.getElementById('maya-cb');
+    if(!b) return;
+    b.style.transform='translateX(-50%) translateY(120%)';
+    b.style.opacity='0';
+    setTimeout(function(){ if(b.parentNode) b.parentNode.removeChild(b); }, 400);
+  }
+
+  function acceptAll(){ setConsent('all'); hideBanner(); loadCF(); }
+  function necessaryOnly(){ setConsent('necessary'); hideBanner(); loadCF(); }
+  window.mayaConsent = { acceptAll:acceptAll, necessaryOnly:necessaryOnly };
+
+  /* Always run cookieless CF analytics */
+  loadCF();
+
+  /* Show banner only if no stored preference */
+  if(getConsent()) return;
+
+  function showBanner(){
+    var b=document.createElement('div');
+    b.id='maya-cb';
+    b.setAttribute('role','dialog');
+    b.setAttribute('aria-label','Cookie consent');
+    b.style.cssText='position:fixed;bottom:1.5rem;left:50%;transform:translateX(-50%);z-index:9999;width:calc(100% - 2rem);max-width:580px;background:#1e293b;border:1px solid #334155;border-radius:1rem;padding:1.25rem 1.5rem;box-shadow:0 20px 60px -10px rgba(0,0,0,0.6),0 0 0 1px rgba(249,115,22,0.15);font-family:Inter,system-ui,sans-serif;font-size:.875rem;color:#94a3b8;transition:transform .35s ease,opacity .35s ease;display:flex;flex-direction:column;gap:.875rem;';
+    b.innerHTML='<div style="display:flex;align-items:flex-start;gap:.875rem;">'
+      +'<span style="display:inline-flex;align-items:center;justify-content:center;width:2rem;height:2rem;border-radius:.5rem;background:rgba(249,115,22,.1);border:1px solid rgba(249,115,22,.3);flex-shrink:0;">'
+      +'<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'14\' height=\'14\' viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'#f97316\' stroke-width=\'2.5\' stroke-linecap=\'round\' stroke-linejoin=\'round\'><circle cx=\'12\' cy=\'12\' r=\'10\'/><line x1=\'12\' x2=\'12\' y1=\'8\' y2=\'12\'/><line x1=\'12\' x2=\'12.01\' y1=\'16\' y2=\'16\'/></svg>'
+      +'</span>'
+      +'<div><strong style="color:#f8fafc;display:block;margin-bottom:.2rem;">We use cookies</strong>'
+      +'We use essential cookies to save your preferences. Our analytics (Cloudflare) are cookieless &amp; privacy-safe. '
+      +'<a href="/cookies.html" style="color:#f97316;text-decoration:underline;text-underline-offset:2px;" target="_blank" rel="noopener">Cookie Policy</a></div></div>'
+      +'<div style="display:flex;flex-wrap:wrap;gap:.625rem;">'
+      +'<button id="maya-cb-accept" style="background:linear-gradient(180deg,#fb923c 0%,#f97316 50%,#ea580c 100%);color:#fff;font-weight:700;border:none;border-radius:.5rem;padding:.6rem 1.25rem;cursor:pointer;font-size:.875rem;font-family:inherit;box-shadow:0 4px 14px rgba(249,115,22,.4);">Accept All</button>'
+      +'<button id="maya-cb-nec" style="background:#0f172a;color:#cbd5e1;font-weight:600;border:1px solid #334155;border-radius:.5rem;padding:.6rem 1.25rem;cursor:pointer;font-size:.875rem;font-family:inherit;">Necessary Only</button>'
+      +'<a href="/cookies.html" style="color:#64748b;font-size:.8rem;padding:.6rem .5rem;text-decoration:underline;text-underline-offset:2px;display:inline-flex;align-items:center;" target="_blank" rel="noopener">Manage</a>'
+      +'</div>';
+    document.body.appendChild(b);
+    document.getElementById('maya-cb-accept').onclick = acceptAll;
+    document.getElementById('maya-cb-nec').onclick = necessaryOnly;
+  }
+
+  if(document.readyState==='loading'){
+    document.addEventListener('DOMContentLoaded',function(){ setTimeout(showBanner,800); });
+  } else { setTimeout(showBanner,800); }
+})();
+</script>
+</body>
+</html>

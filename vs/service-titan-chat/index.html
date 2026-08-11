@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Maya AI vs ServiceTitan WebChat — Which Books More Jobs? | Maya</title>
+  <meta name="description" content="Maya AI vs ServiceTitan WebChat for HVAC and plumbing contractors. Compare SMS-first lead qualification vs. website chat widget for booking more jobs." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://heatbooker.com/vs/service-titan-chat/" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: { extend: { colors: { safety: { 400: '#fb923c', 500: '#f97316', 600: '#ea580c' } } } }
+    }
+  </script>
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+    * { font-family: 'Inter', sans-serif; box-sizing: border-box; }
+    body { background: #0f172a; color: #f8fafc; margin: 0; }
+    .cta-orange { background: linear-gradient(135deg, #f97316 0%, #ea580c 100%); color: white; font-weight: 600; padding: 0.75rem 1.5rem; border-radius: 0.5rem; display: inline-flex; align-items: center; gap: 0.5rem; transition: all 0.2s; text-decoration: none; border: none; cursor: pointer; }
+    .cta-orange:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(249,115,22,0.4); }
+    .card-dark { background: #1e293b; border: 1px solid #334155; border-radius: 0.75rem; padding: 1.5rem; }
+    .badge { display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(249,115,22,0.1); border: 1px solid rgba(249,115,22,0.3); color: #f97316; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; padding: 0.375rem 0.875rem; border-radius: 9999px; }
+    .nav-link { color: #94a3b8; text-decoration: none; font-size: 0.875rem; font-weight: 500; transition: color 0.2s; }
+    .nav-link:hover { color: #f8fafc; }
+    .comparison-table { width: 100%; border-collapse: collapse; }
+    .comparison-table th { padding: 1rem 1.25rem; text-align: left; font-size: 0.875rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; border-bottom: 2px solid #334155; }
+    .comparison-table td { padding: 1rem 1.25rem; font-size: 0.9rem; border-bottom: 1px solid #1e293b; vertical-align: top; line-height: 1.6; }
+    .comparison-table tr:last-child td { border-bottom: none; }
+    .comparison-table tr:hover td { background: rgba(255,255,255,0.02); }
+    .maya-col { color: #f8fafc; }
+    .st-col { color: #94a3b8; }
+    .check-green { color: #4ade80; display: flex; align-items: center; gap: 0.375rem; }
+    .check-neutral { color: #94a3b8; display: flex; align-items: center; gap: 0.375rem; }
+    .th-maya { color: #f97316; }
+    .th-st { color: #64748b; }
+    .feature-row td:first-child { color: #64748b; font-weight: 500; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; }
+    .insight-card { background: linear-gradient(135deg, rgba(249,115,22,0.08), rgba(234,88,12,0.04)); border: 1px solid rgba(249,115,22,0.25); border-radius: 0.875rem; padding: 2rem; }
+    .complement-card { background: #1e293b; border: 1px solid #334155; border-radius: 0.875rem; padding: 2rem; }
+    .faq-item { background: #1e293b; border: 1px solid #334155; border-radius: 0.75rem; overflow: hidden; }
+    .faq-question { width: 100%; background: none; border: none; color: #f8fafc; font-size: 1rem; font-weight: 600; padding: 1.25rem 1.5rem; text-align: left; cursor: pointer; display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+    .faq-answer { padding: 0 1.5rem 1.25rem; color: #94a3b8; line-height: 1.7; display: none; }
+    .faq-answer.open { display: block; }
+    #scrollTopBtn { position: fixed; bottom: 2rem; right: 2rem; background: linear-gradient(135deg, #f97316, #ea580c); color: white; border: none; border-radius: 50%; width: 3rem; height: 3rem; display: flex; align-items: center; justify-content: center; cursor: pointer; opacity: 0; transition: opacity 0.3s, transform 0.2s; z-index: 999; box-shadow: 0 4px 15px rgba(249,115,22,0.4); }
+    #scrollTopBtn.visible { opacity: 1; }
+    #scrollTopBtn:hover { transform: translateY(-2px); }
+    .winner-badge { display: inline-flex; align-items: center; gap: 0.25rem; background: rgba(74,222,128,0.1); border: 1px solid rgba(74,222,128,0.3); color: #4ade80; font-size: 0.7rem; font-weight: 700; padding: 0.125rem 0.5rem; border-radius: 9999px; text-transform: uppercase; letter-spacing: 0.05em; margin-left: 0.5rem; vertical-align: middle; }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "SoftwareApplication",
+        "name": "Maya AI SMS Booking Agent",
+        "url": "https://heatbooker.com",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "SMS",
+        "description": "AI virtual receptionist that qualifies and books HVAC and plumbing leads via SMS in under 5 seconds, 24/7.",
+        "offers": { "@type": "Offer", "priceCurrency": "USD", "description": "Per booked appointment pricing" }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://heatbooker.com/" },
+          { "@type": "ListItem", "position": 2, "name": "Compare", "item": "https://heatbooker.com/vs/" },
+          { "@type": "ListItem", "position": 3, "name": "Maya vs ServiceTitan WebChat", "item": "https://heatbooker.com/vs/service-titan-chat/" }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Does Maya work alongside ServiceTitan?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Maya integrates natively with ServiceTitan. When Maya qualifies and books a lead via SMS, the job is automatically created in ServiceTitan with all the qualification data — no double entry, no copy-paste. Maya and ServiceTitan WebChat are complementary tools that cover different channels."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "If I already pay for ServiceTitan, why do I need Maya?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "ServiceTitan WebChat only works when homeowners visit your website. Most emergency HVAC and plumbing leads never visit your website — they find your number on Google, a yard sign, or a referral and text directly. Maya captures those leads at the SMS stage, before they ever consider visiting your site. Together, ServiceTitan WebChat covers website visitors and Maya covers direct texters — you capture both channels."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <nav style="position:sticky;top:0;z-index:50;background:rgba(15,23,42,0.95);backdrop-filter:blur(12px);border-bottom:1px solid #1e293b;">
+    <div style="max-width:1200px;margin:0 auto;padding:0 1.5rem;display:flex;align-items:center;justify-content:space-between;height:4rem;">
+      <a href="/" style="display:flex;align-items:center;gap:0.5rem;text-decoration:none;">
+        <span style="display:inline-flex;align-items:center;justify-content:center;width:2rem;height:2rem;border-radius:0.5rem;background:rgba(249,115,22,0.1);border:1px solid rgba(249,115,22,0.3);">
+          <i data-lucide="zap" style="width:1rem;height:1rem;color:#f97316;"></i>
+        </span>
+        <span style="font-size:1.125rem;font-weight:700;color:#f8fafc;">Maya</span>
+        <span class="hidden sm:inline" style="font-size:0.65rem;text-transform:uppercase;letter-spacing:0.15em;color:#64748b;margin-left:0.25rem;border-left:1px solid #334155;padding-left:0.5rem;">SMS Agent</span>
+      </a>
+      <div style="display:flex;align-items:center;gap:1.5rem;">
+        <a href="/industries/" class="nav-link">Industries</a>
+        <a href="/locations/" class="nav-link">Locations</a>
+        <a href="/vs/" class="nav-link" style="color:#f97316;">Compare</a>
+        <a href="https://calendly.com/duy-heatbooker/30min" target="_blank" rel="noopener noreferrer" class="cta-orange" style="padding:0.5rem 1rem;font-size:0.875rem;">Book Setup Call</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section style="padding:5rem 1.5rem 4rem;max-width:1200px;margin:0 auto;">
+    <!-- Breadcrumb -->
+    <nav style="display:flex;align-items:center;gap:0.5rem;margin-bottom:1.5rem;font-size:0.8rem;color:#64748b;">
+      <a href="/" style="color:#64748b;text-decoration:none;" onmouseover="this.style.color='#f97316'" onmouseout="this.style.color='#64748b'">Home</a>
+      <i data-lucide="chevron-right" style="width:0.875rem;height:0.875rem;"></i>
+      <a href="/vs/" style="color:#64748b;text-decoration:none;" onmouseover="this.style.color='#f97316'" onmouseout="this.style.color='#64748b'">Compare</a>
+      <i data-lucide="chevron-right" style="width:0.875rem;height:0.875rem;"></i>
+      <span style="color:#f97316;">Maya vs ServiceTitan WebChat</span>
+    </nav>
+
+    <div style="max-width:860px;">
+      <div class="badge" style="margin-bottom:1.25rem;">
+        <i data-lucide="bar-chart-2" style="width:0.875rem;height:0.875rem;"></i>
+        Comparison
+      </div>
+      <h1 style="font-size:clamp(2rem,5vw,3.25rem);font-weight:900;line-height:1.1;color:#f8fafc;margin:0 0 1.25rem;">
+        Maya AI vs ServiceTitan WebChat:<br /><span style="color:#f97316;">Which One Actually Books the Job?</span>
+      </h1>
+      <p style="font-size:1.125rem;color:#94a3b8;line-height:1.7;margin:0 0 2rem;max-width:700px;">
+        Both tools help contractors capture more leads. But they operate on completely different channels — and they reach different homeowners at different points in their journey. Here's an honest breakdown of when each wins, and why the smartest contractors use both.
+      </p>
+      <div style="display:flex;flex-wrap:wrap;gap:1rem;">
+        <a href="https://calendly.com/duy-heatbooker/30min" target="_blank" rel="noopener noreferrer" class="cta-orange">
+          <i data-lucide="calendar" style="width:1rem;height:1rem;"></i>Book Setup Call
+        </a>
+        <a href="sms:+15076773559?body=QUOTE" class="cta-orange" style="background:transparent;border:1px solid rgba(249,115,22,0.4);color:#f97316;">
+          <i data-lucide="message-square" style="width:1rem;height:1rem;"></i>Text QUOTE to Demo Maya
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUICK SCORE CARDS -->
+  <section style="padding:0 1.5rem 3rem;max-width:1200px;margin:0 auto;">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem;">
+      <div style="background:linear-gradient(135deg,rgba(249,115,22,0.12),rgba(234,88,12,0.06));border:1px solid rgba(249,115,22,0.3);border-radius:0.875rem;padding:1.75rem;">
+        <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:1rem;">
+          <span style="display:inline-flex;align-items:center;justify-content:center;width:2.5rem;height:2.5rem;border-radius:0.625rem;background:rgba(249,115,22,0.2);">
+            <i data-lucide="zap" style="width:1.25rem;height:1.25rem;color:#f97316;"></i>
+          </span>
+          <div>
+            <div style="font-size:1rem;font-weight:800;color:#f8fafc;">Maya AI</div>
+            <div style="font-size:0.75rem;color:#f97316;">SMS-First Lead Qualification</div>
+          </div>
+        </div>
+        <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:0.625rem;">
+          <li style="display:flex;align-items:center;gap:0.5rem;font-size:0.875rem;color:#f8fafc;"><i data-lucide="check-circle" style="width:1rem;height:1rem;color:#4ade80;flex-shrink:0;"></i>Captures leads who never visit your site</li>
+          <li style="display:flex;align-items:center;gap:0.5rem;font-size:0.875rem;color:#f8fafc;"><i data-lucide="check-circle" style="width:1rem;height:1rem;color:#4ade80;flex-shrink:0;"></i>Works from Google ads, yard signs, QR codes</li>
+          <li style="display:flex;align-items:center;gap:0.5rem;font-size:0.875rem;color:#f8fafc;"><i data-lucide="check-circle" style="width:1rem;height:1rem;color:#4ade80;flex-shrink:0;"></i>Under 5-second response, 24/7</li>
+          <li style="display:flex;align-items:center;gap:0.5rem;font-size:0.875rem;color:#f8fafc;"><i data-lucide="check-circle" style="width:1rem;height:1rem;color:#4ade80;flex-shrink:0;"></i>Full HVAC/roofing qualification flow</li>
+          <li style="display:flex;align-items:center;gap:0.5rem;font-size:0.875rem;color:#f8fafc;"><i data-lucide="check-circle" style="width:1rem;height:1rem;color:#4ade80;flex-shrink:0;"></i>Native ServiceTitan + Jobber + HCP sync</li>
+        </ul>
+      </div>
+      <div style="background:#1e293b;border:1px solid #334155;border-radius:0.875rem;padding:1.75rem;">
+        <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:1rem;">
+          <span style="display:inline-flex;align-items:center;justify-content:center;width:2.5rem;height:2.5rem;border-radius:0.625rem;background:#334155;">
+            <i data-lucide="message-circle" style="width:1.25rem;height:1.25rem;color:#64748b;"></i>
+          </span>
+          <div>
+            <div style="font-size:1rem;font-weight:800;color:#f8fafc;">ServiceTitan WebChat</div>
+            <div style="font-size:0.75rem;color:#64748b;">Website Chat Widget</div>
+          </div>
+        </div>
+        <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:0.625rem;">
+          <li style="display:flex;align-items:center;gap:0.5rem;font-size:0.875rem;color:#94a3b8;"><i data-lucide="check" style="width:1rem;height:1rem;color:#64748b;flex-shrink:0;"></i>Captures leads who visit your website</li>
+          <li style="display:flex;align-items:center;gap:0.5rem;font-size:0.875rem;color:#94a3b8;"><i data-lucide="check" style="width:1rem;height:1rem;color:#64748b;flex-shrink:0;"></i>Works when homeowner is on your site</li>
+          <li style="display:flex;align-items:center;gap:0.5rem;font-size:0.875rem;color:#94a3b8;"><i data-lucide="minus" style="width:1rem;height:1rem;color:#475569;flex-shrink:0;"></i>After-hours requires staff monitoring</li>
+          <li style="display:flex;align-items:center;gap:0.5rem;font-size:0.875rem;color:#94a3b8;"><i data-lucide="minus" style="width:1rem;height:1rem;color:#475569;flex-shrink:0;"></i>Basic contact capture</li>
+          <li style="display:flex;align-items:center;gap:0.5rem;font-size:0.875rem;color:#94a3b8;"><i data-lucide="check" style="width:1rem;height:1rem;color:#64748b;flex-shrink:0;"></i>Native ServiceTitan sync</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPARISON TABLE -->
+  <section style="padding:2rem 1.5rem 4rem;max-width:1200px;margin:0 auto;">
+    <div style="text-align:center;margin-bottom:2.5rem;">
+      <div class="badge" style="margin-bottom:1rem;">Head to Head</div>
+      <h2 style="font-size:2rem;font-weight:800;color:#f8fafc;margin:0 0 0.75rem;">Feature-by-Feature Comparison</h2>
+      <p style="color:#64748b;max-width:540px;margin:0 auto;">An honest breakdown — no spin. Both tools serve real purposes for contractors.</p>
+    </div>
+    <div style="background:#1e293b;border:1px solid #334155;border-radius:1rem;overflow:hidden;">
+      <div style="overflow-x:auto;">
+        <table class="comparison-table">
+          <thead>
+            <tr style="background:#0f172a;">
+              <th style="color:#64748b;width:30%;padding:1.25rem 1.5rem;">Feature</th>
+              <th class="th-maya" style="padding:1.25rem 1.5rem;">
+                <div style="display:flex;align-items:center;gap:0.5rem;">
+                  <i data-lucide="zap" style="width:1rem;height:1rem;"></i>
+                  Maya AI
+                </div>
+              </th>
+              <th class="th-st" style="padding:1.25rem 1.5rem;">ServiceTitan WebChat</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="feature-row">
+              <td>Channel</td>
+              <td class="maya-col">
+                <div class="check-green">
+                  <i data-lucide="message-square" style="width:1rem;height:1rem;flex-shrink:0;"></i>
+                  <span><strong>SMS text</strong> — homeowner's native channel. 95% of Americans read texts within 3 minutes.</span>
+                </div>
+              </td>
+              <td class="st-col">
+                <div class="check-neutral">
+                  <i data-lucide="globe" style="width:1rem;height:1rem;flex-shrink:0;"></i>
+                  <span>Website chat widget — homeowner must be actively browsing your site.</span>
+                </div>
+              </td>
+            </tr>
+            <tr class="feature-row">
+              <td>Where It Works</td>
+              <td class="maya-col">
+                <div class="check-green">
+                  <i data-lucide="check-circle" style="width:1rem;height:1rem;flex-shrink:0;color:#4ade80;"></i>
+                  <span><strong>Anywhere</strong> — Google ad, yard sign, QR code, referral, truck wrap, direct number</span>
+                </div>
+              </td>
+              <td class="st-col">
+                <div style="display:flex;align-items:flex-start;gap:0.5rem;">
+                  <i data-lucide="minus" style="width:1rem;height:1rem;flex-shrink:0;margin-top:0.1rem;"></i>
+                  <span>Only when homeowner is on your website</span>
+                </div>
+              </td>
+            </tr>
+            <tr class="feature-row">
+              <td>After-Hours Coverage</td>
+              <td class="maya-col">
+                <div class="check-green">
+                  <i data-lucide="check-circle" style="width:1rem;height:1rem;flex-shrink:0;color:#4ade80;"></i>
+                  <strong>24/7, fully automatic</strong> — no staff needed at 2 AM
+                </div>
+              </td>
+              <td class="st-col">
+                <div style="display:flex;align-items:flex-start;gap:0.5rem;">
+                  <i data-lucide="alert-circle" style="width:1rem;height:1rem;flex-shrink:0;margin-top:0.1rem;color:#f59e0b;"></i>
+                  <span>Usually requires staff to monitor — unanswered chats go cold</span>
+                </div>
+              </td>
+            </tr>
+            <tr class="feature-row">
+              <td>Response Time</td>
+              <td class="maya-col">
+                <div class="check-green">
+                  <i data-lucide="zap" style="width:1rem;height:1rem;flex-shrink:0;color:#4ade80;"></i>
+                  <strong>&lt; 5 seconds</strong> — every time, every lead
+                </div>
+              </td>
+              <td class="st-col">
+                <div style="display:flex;align-items:flex-start;gap:0.5rem;">
+                  <i data-lucide="clock" style="width:1rem;height:1rem;flex-shrink:0;margin-top:0.1rem;"></i>
+                  <span>Varies — depends on staffing and who's online</span>
+                </div>
+              </td>
+            </tr>
+            <tr class="feature-row">
+              <td>Lead Qualification</td>
+              <td class="maya-col">
+                <div class="check-green">
+                  <i data-lucide="check-circle" style="width:1rem;height:1rem;flex-shrink:0;color:#4ade80;"></i>
+                  <span><strong>Full HVAC/plumbing/roofing qualification</strong> — urgency, unit type, service area zip, insurance, age, budget</span>
+                </div>
+              </td>
+              <td class="st-col">
+                <div style="display:flex;align-items:flex-start;gap:0.5rem;">
+                  <i data-lucide="minus" style="width:1rem;height:1rem;flex-shrink:0;margin-top:0.1rem;"></i>
+                  <span>Basic contact capture — name, phone, issue description</span>
+                </div>
+              </td>
+            </tr>
+            <tr class="feature-row">
+              <td>CRM Sync</td>
+              <td class="maya-col">
+                <div class="check-green">
+                  <i data-lucide="check-circle" style="width:1rem;height:1rem;flex-shrink:0;color:#4ade80;"></i>
+                  <span><strong>Native ServiceTitan + Jobber + Housecall Pro</strong></span>
+                </div>
+              </td>
+              <td class="st-col">
+                <div class="check-neutral">
+                  <i data-lucide="check" style="width:1rem;height:1rem;flex-shrink:0;"></i>
+                  ServiceTitan native (included in ST plan)
+                </div>
+              </td>
+            </tr>
+            <tr class="feature-row">
+              <td>Pricing</td>
+              <td class="maya-col">
+                <div class="check-green">
+                  <i data-lucide="check-circle" style="width:1rem;height:1rem;flex-shrink:0;color:#4ade80;"></i>
+                  <strong>Per booked appointment</strong> — you only pay for results
+                </div>
+              </td>
+              <td class="st-col">
+                <div class="check-neutral">
+                  <i data-lucide="check" style="width:1rem;height:1rem;flex-shrink:0;"></i>
+                  Included in ServiceTitan subscription
+                </div>
+              </td>
+            </tr>
+            <tr class="feature-row">
+              <td>Works Without Site Visit</td>
+              <td class="maya-col">
+                <div class="check-green">
+                  <i data-lucide="check-circle" style="width:1rem;height:1rem;flex-shrink:0;color:#4ade80;"></i>
+                  <strong>Yes</strong> — most leads never visit your site first
+                </div>
+              </td>
+              <td class="st-col">
+                <div style="display:flex;align-items:center;gap:0.5rem;">
+                  <i data-lucide="x-circle" style="width:1rem;height:1rem;flex-shrink:0;color:#ef4444;"></i>
+                  <strong style="color:#ef4444;">No</strong> — requires homeowner on your website
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- KEY INSIGHT -->
+  <section style="padding:2rem 1.5rem 4rem;max-width:1200px;margin:0 auto;">
+    <div class="insight-card">
+      <div style="display:flex;align-items:flex-start;gap:1.25rem;">
+        <span style="display:inline-flex;align-items:center;justify-content:center;width:3rem;height:3rem;border-radius:0.75rem;background:rgba(249,115,22,0.2);flex-shrink:0;margin-top:0.2rem;">
+          <i data-lucide="lightbulb" style="width:1.5rem;height:1.5rem;color:#f97316;"></i>
+        </span>
+        <div>
+          <h2 style="font-size:1.5rem;font-weight:800;color:#f8fafc;margin:0 0 1rem;">The Key Insight: Most Emergency Leads Never Visit Your Website</h2>
+          <p style="color:#94a3b8;line-height:1.8;margin:0 0 1rem;font-size:1rem;">Think about how a homeowner behaves when their AC fails at 10 PM on a 110°F Phoenix night. They don't think "let me find a contractor's website and use their chat widget." They Google "HVAC near me," see a phone number, and <strong style="color:#f8fafc;">text it immediately</strong>.</p>
+          <p style="color:#94a3b8;line-height:1.8;margin:0 0 1rem;font-size:1rem;">ServiceTitan WebChat only captures that homeowner if they click through to your website, scroll to find the chat widget, and start a conversation. That's three friction points — each one a chance for them to bounce to a competitor.</p>
+          <p style="color:#94a3b8;line-height:1.8;margin:0;font-size:1rem;">Maya captures them at the very first text — before they visit anyone's website. The lead is qualified and booked in under 5 seconds. <strong style="color:#f97316;">The job is yours before your competitor even knows there was a lead.</strong></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHERE EACH TOOL WINS -->
+  <section style="padding:0 1.5rem 4rem;max-width:1200px;margin:0 auto;">
+    <div style="text-align:center;margin-bottom:2.5rem;">
+      <div class="badge" style="margin-bottom:1rem;">The Full Picture</div>
+      <h2 style="font-size:2rem;font-weight:800;color:#f8fafc;margin:0 0 0.75rem;">They're Complementary, Not Competing</h2>
+      <p style="color:#64748b;max-width:580px;margin:0 auto;line-height:1.7;">The smartest contractors don't choose one or the other — they deploy both to cover every possible lead channel.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:1.5rem;">
+      <div class="complement-card">
+        <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:1.25rem;">
+          <span style="display:inline-flex;align-items:center;justify-content:center;width:2.5rem;height:2.5rem;border-radius:0.625rem;background:rgba(249,115,22,0.15);">
+            <i data-lucide="zap" style="width:1.25rem;height:1.25rem;color:#f97316;"></i>
+          </span>
+          <h3 style="font-size:1.125rem;font-weight:700;color:#f97316;margin:0;">Use Maya For:</h3>
+        </div>
+        <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:0.875rem;">
+          <li style="display:flex;align-items:flex-start;gap:0.75rem;">
+            <i data-lucide="check-circle" style="width:1rem;height:1rem;color:#4ade80;flex-shrink:0;margin-top:0.15rem;"></i>
+            <div>
+              <div style="color:#f8fafc;font-weight:600;font-size:0.9rem;margin-bottom:0.2rem;">Direct texters from Google Ads</div>
+              <div style="color:#64748b;font-size:0.825rem;line-height:1.6;">Homeowners who click "call" or "text" from a Google Local Services ad — they skip your website entirely.</div>
+            </div>
+          </li>
+          <li style="display:flex;align-items:flex-start;gap:0.75rem;">
+            <i data-lucide="check-circle" style="width:1rem;height:1rem;color:#4ade80;flex-shrink:0;margin-top:0.15rem;"></i>
+            <div>
+              <div style="color:#f8fafc;font-weight:600;font-size:0.9rem;margin-bottom:0.2rem;">Yard sign and truck wrap leads</div>
+              <div style="color:#64748b;font-size:0.825rem;line-height:1.6;">Neighbors who see your number in the driveway and text it directly — no website involved.</div>
+            </div>
+          </li>
+          <li style="display:flex;align-items:flex-start;gap:0.75rem;">
+            <i data-lucide="check-circle" style="width:1rem;height:1rem;color:#4ade80;flex-shrink:0;margin-top:0.15rem;"></i>
+            <div>
+              <div style="color:#f8fafc;font-weight:600;font-size:0.9rem;margin-bottom:0.2rem;">Referral texts</div>
+              <div style="color:#64748b;font-size:0.825rem;line-height:1.6;">"My neighbor used you last year — can you come look at my AC?" texts sent to your number.</div>
+            </div>
+          </li>
+          <li style="display:flex;align-items:flex-start;gap:0.75rem;">
+            <i data-lucide="check-circle" style="width:1rem;height:1rem;color:#4ade80;flex-shrink:0;margin-top:0.15rem;"></i>
+            <div>
+              <div style="color:#f8fafc;font-weight:600;font-size:0.9rem;margin-bottom:0.2rem;">All after-hours emergencies</div>
+              <div style="color:#64748b;font-size:0.825rem;line-height:1.6;">2 AM pipe bursts and AC failures when no one is staffing ServiceTitan WebChat.</div>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="complement-card">
+        <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:1.25rem;">
+          <span style="display:inline-flex;align-items:center;justify-content:center;width:2.5rem;height:2.5rem;border-radius:0.625rem;background:#334155;">
+            <i data-lucide="message-circle" style="width:1.25rem;height:1.25rem;color:#64748b;"></i>
+          </span>
+          <h3 style="font-size:1.125rem;font-weight:700;color:#94a3b8;margin:0;">ServiceTitan WebChat For:</h3>
+        </div>
+        <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:0.875rem;">
+          <li style="display:flex;align-items:flex-start;gap:0.75rem;">
+            <i data-lucide="check" style="width:1rem;height:1rem;color:#64748b;flex-shrink:0;margin-top:0.15rem;"></i>
+            <div>
+              <div style="color:#f8fafc;font-weight:600;font-size:0.9rem;margin-bottom:0.2rem;">Organic website visitors</div>
+              <div style="color:#64748b;font-size:0.825rem;line-height:1.6;">Homeowners who find your website via SEO, review sites, or direct search and prefer to stay on the page.</div>
+            </div>
+          </li>
+          <li style="display:flex;align-items:flex-start;gap:0.75rem;">
+            <i data-lucide="check" style="width:1rem;height:1rem;color:#64748b;flex-shrink:0;margin-top:0.15rem;"></i>
+            <div>
+              <div style="color:#f8fafc;font-weight:600;font-size:0.9rem;margin-bottom:0.2rem;">Research-phase shoppers</div>
+              <div style="color:#64748b;font-size:0.825rem;line-height:1.6;">Homeowners comparing options, reading reviews, not yet ready to commit — WebChat keeps them engaged.</div>
+            </div>
+          </li>
+          <li style="display:flex;align-items:flex-start;gap:0.75rem;">
+            <i data-lucide="check" style="width:1rem;height:1rem;color:#64748b;flex-shrink:0;margin-top:0.15rem;"></i>
+            <div>
+              <div style="color:#f8fafc;font-weight:600;font-size:0.9rem;margin-bottom:0.2rem;">ServiceTitan-native workflow</div>
+              <div style="color:#64748b;font-size:0.825rem;line-height:1.6;">If your CSRs are trained on ServiceTitan, WebChat fits naturally into that workflow during business hours.</div>
+            </div>
+          </li>
+          <li style="display:flex;align-items:flex-start;gap:0.75rem;">
+            <i data-lucide="check" style="width:1rem;height:1rem;color:#64748b;flex-shrink:0;margin-top:0.15rem;"></i>
+            <div>
+              <div style="color:#f8fafc;font-weight:600;font-size:0.9rem;margin-bottom:0.2rem;">Non-emergency service requests</div>
+              <div style="color:#64748b;font-size:0.825rem;line-height:1.6;">Routine maintenance scheduling from homeowners who prefer a chat interface while browsing options.</div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- The math section -->
+    <div style="margin-top:2rem;background:#0f172a;border:1px solid #1e293b;border-radius:0.875rem;padding:2rem;">
+      <h3 style="font-size:1.25rem;font-weight:800;color:#f8fafc;margin:0 0 1rem;text-align:center;">The Channel Coverage Math</h3>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.5rem;text-align:center;">
+        <div style="padding:1rem;">
+          <div style="font-size:2rem;font-weight:900;color:#f97316;margin-bottom:0.375rem;">~75%</div>
+          <div style="font-size:0.875rem;color:#f8fafc;font-weight:600;margin-bottom:0.25rem;">of emergency leads</div>
+          <div style="font-size:0.8rem;color:#64748b;line-height:1.5;">Text directly without visiting your website first. Maya captures these.</div>
+        </div>
+        <div style="padding:1rem;border-left:1px solid #1e293b;border-right:1px solid #1e293b;">
+          <div style="font-size:2rem;font-weight:900;color:#64748b;margin-bottom:0.375rem;">~25%</div>
+          <div style="font-size:0.875rem;color:#f8fafc;font-weight:600;margin-bottom:0.25rem;">of leads visit your site</div>
+          <div style="font-size:0.8rem;color:#64748b;line-height:1.5;">Browse first, then chat. ServiceTitan WebChat captures these.</div>
+        </div>
+        <div style="padding:1rem;">
+          <div style="font-size:2rem;font-weight:900;color:#4ade80;margin-bottom:0.375rem;">100%</div>
+          <div style="font-size:0.875rem;color:#f8fafc;font-weight:600;margin-bottom:0.25rem;">coverage with both</div>
+          <div style="font-size:0.8rem;color:#64748b;line-height:1.5;">Maya + ServiceTitan WebChat together = zero leads fall through the cracks.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW THEY INTEGRATE -->
+  <section style="padding:0 1.5rem 4rem;max-width:1200px;margin:0 auto;">
+    <div style="background:linear-gradient(135deg,#1e293b,#0f172a);border:1px solid #334155;border-radius:1rem;padding:2.5rem;">
+      <div style="text-align:center;margin-bottom:2rem;">
+        <div class="badge" style="margin-bottom:1rem;">Integration</div>
+        <h2 style="font-size:1.75rem;font-weight:800;color:#f8fafc;margin:0 0 0.75rem;">Maya Syncs Directly with ServiceTitan</h2>
+        <p style="color:#64748b;max-width:540px;margin:0 auto;line-height:1.7;">When Maya books a lead via SMS, the job appears automatically in ServiceTitan — complete with all qualification data, the homeowner's address, issue type, and urgency. No double entry. No copy-paste.</p>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;">
+        <div style="background:rgba(249,115,22,0.06);border:1px solid rgba(249,115,22,0.2);border-radius:0.75rem;padding:1.25rem;text-align:center;">
+          <i data-lucide="message-square" style="width:1.5rem;height:1.5rem;color:#f97316;margin:0 auto 0.5rem;display:block;"></i>
+          <div style="font-size:0.875rem;font-weight:600;color:#f8fafc;">Lead texts Maya</div>
+          <div style="font-size:0.75rem;color:#64748b;margin-top:0.25rem;">QUOTE sent to (507) 677-3559</div>
+        </div>
+        <div style="display:flex;align-items:center;justify-content:center;">
+          <i data-lucide="arrow-right" style="width:1.5rem;height:1.5rem;color:#334155;"></i>
+        </div>
+        <div style="background:rgba(249,115,22,0.06);border:1px solid rgba(249,115,22,0.2);border-radius:0.75rem;padding:1.25rem;text-align:center;">
+          <i data-lucide="zap" style="width:1.5rem;height:1.5rem;color:#f97316;margin:0 auto 0.5rem;display:block;"></i>
+          <div style="font-size:0.875rem;font-weight:600;color:#f8fafc;">Maya qualifies</div>
+          <div style="font-size:0.75rem;color:#64748b;margin-top:0.25rem;">Urgency, address, issue type, zip</div>
+        </div>
+        <div style="display:flex;align-items:center;justify-content:center;">
+          <i data-lucide="arrow-right" style="width:1.5rem;height:1.5rem;color:#334155;"></i>
+        </div>
+        <div style="background:rgba(74,222,128,0.06);border:1px solid rgba(74,222,128,0.2);border-radius:0.75rem;padding:1.25rem;text-align:center;">
+          <i data-lucide="calendar-check" style="width:1.5rem;height:1.5rem;color:#4ade80;margin:0 auto 0.5rem;display:block;"></i>
+          <div style="font-size:0.875rem;font-weight:600;color:#f8fafc;">Job in ServiceTitan</div>
+          <div style="font-size:0.75rem;color:#64748b;margin-top:0.25rem;">Auto-created, ready to dispatch</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section style="padding:0 1.5rem 4rem;max-width:800px;margin:0 auto;">
+    <div style="text-align:center;margin-bottom:2.5rem;">
+      <h2 style="font-size:2rem;font-weight:800;color:#f8fafc;margin:0 0 0.75rem;">Frequently Asked Questions</h2>
+      <p style="color:#64748b;">ServiceTitan contractors ask us these most</p>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:0.75rem;">
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFAQ(this)">
+          <span>Does Maya work alongside ServiceTitan?</span>
+          <i data-lucide="chevron-down" style="width:1.125rem;height:1.125rem;color:#f97316;flex-shrink:0;transition:transform 0.2s;"></i>
+        </button>
+        <div class="faq-answer">
+          Yes — and this is the most common setup. Maya integrates natively with ServiceTitan. When Maya qualifies and books a lead via SMS, the job is automatically created in ServiceTitan with all the lead data — name, address, zip, issue type, urgency level, and any notes from the SMS conversation. No double entry, no copy-paste, no manual job creation. Your CSRs open ServiceTitan in the morning and the night's qualified jobs are already there.
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFAQ(this)">
+          <span>If I already pay for ServiceTitan, why do I need Maya?</span>
+          <i data-lucide="chevron-down" style="width:1.125rem;height:1.125rem;color:#f97316;flex-shrink:0;transition:transform 0.2s;"></i>
+        </button>
+        <div class="faq-answer">
+          ServiceTitan WebChat only works when homeowners visit your website. The problem is that most emergency HVAC and plumbing leads never visit your website first — they Google you, see your number, and text. ServiceTitan WebChat has a 0% chance of capturing that lead because the homeowner never gets to your site. Maya captures that lead at the exact moment they text — before they ever consider visiting your competitor's site. Together, ServiceTitan WebChat covers website visitors (roughly 25% of leads) and Maya covers direct texters (roughly 75% of leads). You need both channels to capture everything.
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFAQ(this)">
+          <span>Does Maya replace my CSRs?</span>
+          <i data-lucide="chevron-down" style="width:1.125rem;height:1.125rem;color:#f97316;flex-shrink:0;transition:transform 0.2s;"></i>
+        </button>
+        <div class="faq-answer">
+          No. Maya handles the initial qualification and booking via SMS — the part that happens at 2 AM and during peak surge when your CSRs are unavailable or overwhelmed. Your CSRs manage everything after the lead is booked: confirmations, dispatching, upselling, complex scheduling. Maya fills the gaps that human CSRs can't cover without adding headcount.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section style="padding:4rem 1.5rem;background:linear-gradient(135deg,rgba(249,115,22,0.1),rgba(234,88,12,0.05));border-top:1px solid rgba(249,115,22,0.2);border-bottom:1px solid rgba(249,115,22,0.2);">
+    <div style="max-width:700px;margin:0 auto;text-align:center;">
+      <div class="badge" style="margin-bottom:1.5rem;">Get Started</div>
+      <h2 style="font-size:2.25rem;font-weight:900;color:#f8fafc;margin:0 0 1rem;">Add the Channel ServiceTitan WebChat Can't Cover.</h2>
+      <p style="color:#94a3b8;font-size:1.1rem;line-height:1.7;margin:0 0 2rem;">Maya captures the 75% of HVAC and plumbing leads who text directly — without visiting your website. Setup takes 15 minutes. Works natively with ServiceTitan.</p>
+      <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:1rem;">
+        <a href="https://calendly.com/duy-heatbooker/30min" target="_blank" rel="noopener noreferrer" class="cta-orange" style="font-size:1rem;padding:0.875rem 1.75rem;">
+          <i data-lucide="calendar" style="width:1.125rem;height:1.125rem;"></i>Book Free Setup Call
+        </a>
+        <a href="sms:+15076773559?body=QUOTE" class="cta-orange" style="background:transparent;border:1px solid rgba(249,115,22,0.4);color:#f97316;font-size:1rem;padding:0.875rem 1.75rem;">
+          <i data-lucide="message-square" style="width:1.125rem;height:1.125rem;"></i>Text QUOTE to Demo It
+        </a>
+      </div>
+      <p style="color:#475569;font-size:0.8rem;margin-top:1.5rem;">No contracts. No setup fee. Per booked appointment.</p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer style="background:#020817;border-top:1px solid #1e293b;padding:2.5rem 1.5rem;">
+    <div style="max-width:1200px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:1.5rem;">
+      <a href="/" style="display:flex;align-items:center;gap:0.5rem;text-decoration:none;">
+        <span style="display:inline-flex;align-items:center;justify-content:center;width:2rem;height:2rem;border-radius:0.5rem;background:rgba(249,115,22,0.1);border:1px solid rgba(249,115,22,0.3);">
+          <i data-lucide="zap" style="width:1rem;height:1rem;color:#f97316;"></i>
+        </span>
+        <span style="font-size:1rem;font-weight:700;color:#f8fafc;">Maya</span>
+      </a>
+      <div style="display:flex;flex-wrap:wrap;align-items:center;gap:1.5rem;">
+        <a href="/privacy.html" style="color:#64748b;text-decoration:none;font-size:0.85rem;" onmouseover="this.style.color='#f97316'" onmouseout="this.style.color='#64748b'">Privacy</a>
+        <a href="/terms.html" style="color:#64748b;text-decoration:none;font-size:0.85rem;" onmouseover="this.style.color='#f97316'" onmouseout="this.style.color='#64748b'">Terms</a>
+        <a href="/cookies.html" style="color:#64748b;text-decoration:none;font-size:0.85rem;" onmouseover="this.style.color='#f97316'" onmouseout="this.style.color='#64748b'">Cookies</a>
+        <span style="color:#475569;font-size:0.85rem;">© 2026 Maya. Built for contractors who pick up.</span>
+      </div>
+    </div>
+  </footer>
+
+  <button id="scrollTopBtn" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Scroll to top">
+    <i data-lucide="arrow-up" style="width:1.25rem;height:1.25rem;"></i>
+  </button>
+
+  <script>
+    lucide.createIcons();
+    window.addEventListener('scroll', function() {
+      document.getElementById('scrollTopBtn').classList.toggle('visible', window.scrollY > 400);
+    });
+    function toggleFAQ(btn) {
+      var answer = btn.nextElementSibling;
+      var icon = btn.querySelector('[data-lucide="chevron-down"]');
+      var isOpen = answer.classList.contains('open');
+      document.querySelectorAll('.faq-answer').forEach(function(a) { a.classList.remove('open'); });
+      document.querySelectorAll('.faq-question [data-lucide="chevron-down"]').forEach(function(i) { i.style.transform = 'rotate(0deg)'; });
+      if (!isOpen) { answer.classList.add('open'); icon.style.transform = 'rotate(180deg)'; }
+    }
+  </script>
+<script>
+/* Maya Cookie Consent — inline, no external file needed */
+(function(){
+  var KEY = 'maya_cookie_consent';
+  var CF_TOKEN = 'b703ecc53d3a46648ffc9e18a8319d97'; // ← replace with your Cloudflare token
+
+  function loadCF(){
+    if(CF_TOKEN==='b703ecc53d3a46648ffc9e18a8319d97') return;
+    if(document.querySelector('script[data-cf-beacon]')) return;
+    var s=document.createElement('script');
+    s.defer=true; s.src='https://static.cloudflareinsights.com/beacon.min.js';
+    s.setAttribute('data-cf-beacon',JSON.stringify({token:CF_TOKEN}));
+    document.body.appendChild(s);
+  }
+
+  function getConsent(){ try{return localStorage.getItem(KEY);}catch(e){return null;} }
+  function setConsent(v){ try{localStorage.setItem(KEY,v);}catch(e){} }
+
+  function hideBanner(){
+    var b=document.getElementById('maya-cb');
+    if(!b) return;
+    b.style.transform='translateX(-50%) translateY(120%)';
+    b.style.opacity='0';
+    setTimeout(function(){ if(b.parentNode) b.parentNode.removeChild(b); }, 400);
+  }
+
+  function acceptAll(){ setConsent('all'); hideBanner(); loadCF(); }
+  function necessaryOnly(){ setConsent('necessary'); hideBanner(); loadCF(); }
+  window.mayaConsent = { acceptAll:acceptAll, necessaryOnly:necessaryOnly };
+
+  /* Always run cookieless CF analytics */
+  loadCF();
+
+  /* Show banner only if no stored preference */
+  if(getConsent()) return;
+
+  function showBanner(){
+    var b=document.createElement('div');
+    b.id='maya-cb';
+    b.setAttribute('role','dialog');
+    b.setAttribute('aria-label','Cookie consent');
+    b.style.cssText='position:fixed;bottom:1.5rem;left:50%;transform:translateX(-50%);z-index:9999;width:calc(100% - 2rem);max-width:580px;background:#1e293b;border:1px solid #334155;border-radius:1rem;padding:1.25rem 1.5rem;box-shadow:0 20px 60px -10px rgba(0,0,0,0.6),0 0 0 1px rgba(249,115,22,0.15);font-family:Inter,system-ui,sans-serif;font-size:.875rem;color:#94a3b8;transition:transform .35s ease,opacity .35s ease;display:flex;flex-direction:column;gap:.875rem;';
+    b.innerHTML='<div style="display:flex;align-items:flex-start;gap:.875rem;">'
+      +'<span style="display:inline-flex;align-items:center;justify-content:center;width:2rem;height:2rem;border-radius:.5rem;background:rgba(249,115,22,.1);border:1px solid rgba(249,115,22,.3);flex-shrink:0;">'
+      +'<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'14\' height=\'14\' viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'#f97316\' stroke-width=\'2.5\' stroke-linecap=\'round\' stroke-linejoin=\'round\'><circle cx=\'12\' cy=\'12\' r=\'10\'/><line x1=\'12\' x2=\'12\' y1=\'8\' y2=\'12\'/><line x1=\'12\' x2=\'12.01\' y1=\'16\' y2=\'16\'/></svg>'
+      +'</span>'
+      +'<div><strong style="color:#f8fafc;display:block;margin-bottom:.2rem;">We use cookies</strong>'
+      +'We use essential cookies to save your preferences. Our analytics (Cloudflare) are cookieless &amp; privacy-safe. '
+      +'<a href="/cookies.html" style="color:#f97316;text-decoration:underline;text-underline-offset:2px;" target="_blank" rel="noopener">Cookie Policy</a></div></div>'
+      +'<div style="display:flex;flex-wrap:wrap;gap:.625rem;">'
+      +'<button id="maya-cb-accept" style="background:linear-gradient(180deg,#fb923c 0%,#f97316 50%,#ea580c 100%);color:#fff;font-weight:700;border:none;border-radius:.5rem;padding:.6rem 1.25rem;cursor:pointer;font-size:.875rem;font-family:inherit;box-shadow:0 4px 14px rgba(249,115,22,.4);">Accept All</button>'
+      +'<button id="maya-cb-nec" style="background:#0f172a;color:#cbd5e1;font-weight:600;border:1px solid #334155;border-radius:.5rem;padding:.6rem 1.25rem;cursor:pointer;font-size:.875rem;font-family:inherit;">Necessary Only</button>'
+      +'<a href="/cookies.html" style="color:#64748b;font-size:.8rem;padding:.6rem .5rem;text-decoration:underline;text-underline-offset:2px;display:inline-flex;align-items:center;" target="_blank" rel="noopener">Manage</a>'
+      +'</div>';
+    document.body.appendChild(b);
+    document.getElementById('maya-cb-accept').onclick = acceptAll;
+    document.getElementById('maya-cb-nec').onclick = necessaryOnly;
+  }
+
+  if(document.readyState==='loading'){
+    document.addEventListener('DOMContentLoaded',function(){ setTimeout(showBanner,800); });
+  } else { setTimeout(showBanner,800); }
+})();
+</script>
+</body>
+</html>

@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Industries — Maya AI SMS Booking Agent for HVAC, Roofing, Plumbing &amp; More</title>
-  <meta name="description" content="Maya is the 24/7 AI SMS virtual receptionist for home service contractors. Choose your trade to see how Maya qualifies leads and books appointments for HVAC, roofing, plumbing, electrical, pest control, landscaping, locksmith, and solar businesses." />
+  <meta name="description" content="Maya AI SMS booking for HVAC, roofing, plumbing, electrical, pest control &amp; more. Choose your trade to see how Maya qualifies leads and books jobs 24/7." />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <link rel="canonical" href="https://heatbooker.com/industries/" />
   <meta name="robots" content="index, follow" />
@@ -375,7 +375,9 @@
             <ul class="space-y-2">
               <li><a href="https://calendly.com/duy-heatbooker/30min" class="hover:text-white transition-colors">Book a Demo</a></li>
               <li><a href="/privacy.html" class="hover:text-white transition-colors">Privacy Policy</a></li>
-              <li><a href="/terms.html" class="hover:text-white transition-colors">Terms of Service</a></li>
+              <li><a href="/terms.html" class="hover:text-white transition-colors">Terms of Service</a>
+            <span class="text-slate-700">|</span>
+            <a href="/cookies.html" class="hover:text-slate-300 underline underline-offset-2 transition">Cookies</a></li>
             </ul>
           </div>
         </div>
@@ -408,5 +410,69 @@
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
   </script>
+<script>
+/* Maya Cookie Consent — inline, no external file needed */
+(function(){
+  var KEY = 'maya_cookie_consent';
+  var CF_TOKEN = 'b703ecc53d3a46648ffc9e18a8319d97'; // ← replace with your Cloudflare token
+
+  function loadCF(){
+    if(CF_TOKEN==='b703ecc53d3a46648ffc9e18a8319d97') return;
+    if(document.querySelector('script[data-cf-beacon]')) return;
+    var s=document.createElement('script');
+    s.defer=true; s.src='https://static.cloudflareinsights.com/beacon.min.js';
+    s.setAttribute('data-cf-beacon',JSON.stringify({token:CF_TOKEN}));
+    document.body.appendChild(s);
+  }
+
+  function getConsent(){ try{return localStorage.getItem(KEY);}catch(e){return null;} }
+  function setConsent(v){ try{localStorage.setItem(KEY,v);}catch(e){} }
+
+  function hideBanner(){
+    var b=document.getElementById('maya-cb');
+    if(!b) return;
+    b.style.transform='translateX(-50%) translateY(120%)';
+    b.style.opacity='0';
+    setTimeout(function(){ if(b.parentNode) b.parentNode.removeChild(b); }, 400);
+  }
+
+  function acceptAll(){ setConsent('all'); hideBanner(); loadCF(); }
+  function necessaryOnly(){ setConsent('necessary'); hideBanner(); loadCF(); }
+  window.mayaConsent = { acceptAll:acceptAll, necessaryOnly:necessaryOnly };
+
+  /* Always run cookieless CF analytics */
+  loadCF();
+
+  /* Show banner only if no stored preference */
+  if(getConsent()) return;
+
+  function showBanner(){
+    var b=document.createElement('div');
+    b.id='maya-cb';
+    b.setAttribute('role','dialog');
+    b.setAttribute('aria-label','Cookie consent');
+    b.style.cssText='position:fixed;bottom:1.5rem;left:50%;transform:translateX(-50%);z-index:9999;width:calc(100% - 2rem);max-width:580px;background:#1e293b;border:1px solid #334155;border-radius:1rem;padding:1.25rem 1.5rem;box-shadow:0 20px 60px -10px rgba(0,0,0,0.6),0 0 0 1px rgba(249,115,22,0.15);font-family:Inter,system-ui,sans-serif;font-size:.875rem;color:#94a3b8;transition:transform .35s ease,opacity .35s ease;display:flex;flex-direction:column;gap:.875rem;';
+    b.innerHTML='<div style="display:flex;align-items:flex-start;gap:.875rem;">'
+      +'<span style="display:inline-flex;align-items:center;justify-content:center;width:2rem;height:2rem;border-radius:.5rem;background:rgba(249,115,22,.1);border:1px solid rgba(249,115,22,.3);flex-shrink:0;">'
+      +'<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'14\' height=\'14\' viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'#f97316\' stroke-width=\'2.5\' stroke-linecap=\'round\' stroke-linejoin=\'round\'><circle cx=\'12\' cy=\'12\' r=\'10\'/><line x1=\'12\' x2=\'12\' y1=\'8\' y2=\'12\'/><line x1=\'12\' x2=\'12.01\' y1=\'16\' y2=\'16\'/></svg>'
+      +'</span>'
+      +'<div><strong style="color:#f8fafc;display:block;margin-bottom:.2rem;">We use cookies</strong>'
+      +'We use essential cookies to save your preferences. Our analytics (Cloudflare) are cookieless &amp; privacy-safe. '
+      +'<a href="/cookies.html" style="color:#f97316;text-decoration:underline;text-underline-offset:2px;" target="_blank" rel="noopener">Cookie Policy</a></div></div>'
+      +'<div style="display:flex;flex-wrap:wrap;gap:.625rem;">'
+      +'<button id="maya-cb-accept" style="background:linear-gradient(180deg,#fb923c 0%,#f97316 50%,#ea580c 100%);color:#fff;font-weight:700;border:none;border-radius:.5rem;padding:.6rem 1.25rem;cursor:pointer;font-size:.875rem;font-family:inherit;box-shadow:0 4px 14px rgba(249,115,22,.4);">Accept All</button>'
+      +'<button id="maya-cb-nec" style="background:#0f172a;color:#cbd5e1;font-weight:600;border:1px solid #334155;border-radius:.5rem;padding:.6rem 1.25rem;cursor:pointer;font-size:.875rem;font-family:inherit;">Necessary Only</button>'
+      +'<a href="/cookies.html" style="color:#64748b;font-size:.8rem;padding:.6rem .5rem;text-decoration:underline;text-underline-offset:2px;display:inline-flex;align-items:center;" target="_blank" rel="noopener">Manage</a>'
+      +'</div>';
+    document.body.appendChild(b);
+    document.getElementById('maya-cb-accept').onclick = acceptAll;
+    document.getElementById('maya-cb-nec').onclick = necessaryOnly;
+  }
+
+  if(document.readyState==='loading'){
+    document.addEventListener('DOMContentLoaded',function(){ setTimeout(showBanner,800); });
+  } else { setTimeout(showBanner,800); }
+})();
+</script>
 </body>
 </html>

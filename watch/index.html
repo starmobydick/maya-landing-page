@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Watch Maya in Action — 90-Second Product Demo | HeatBooker</title>
+  <meta name="description" content="See Maya handle a real emergency AC call and a $11,000 heat pump quote — automatically, in real time, at 9 PM while you sleep." />
+  <meta name="robots" content="index, follow" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="canonical" href="https://heatbooker.com/watch/" />
+  <meta property="og:title" content="Watch Maya Book a Job in Real Time" />
+  <meta property="og:description" content="Emergency AC call at 9 PM. System replacement quote. Both handled automatically while you sleep." />
+  <meta property="og:url" content="https://heatbooker.com/watch/" />
+  <meta property="og:type" content="website" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <script>
+    tailwind.config = {
+      theme: { extend: {
+        fontFamily: { sans: ['Inter','system-ui','sans-serif'] },
+        colors: { safety: { 400:'#fb923c', 500:'#f97316', 600:'#ea580c' } }
+      }}
+    }
+  </script>
+
+  <style>
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', system-ui, sans-serif; background: #0f172a; color: #f8fafc; -webkit-font-smoothing: antialiased; }
+
+    .cta-orange { background: linear-gradient(180deg,#fb923c 0%,#f97316 50%,#ea580c 100%); box-shadow: 0 1px 0 rgba(255,255,255,0.2) inset, 0 8px 24px -8px rgba(249,115,22,0.6); transition: transform 0.15s ease; }
+    .cta-orange:hover { transform: translateY(-1px); }
+
+    /* ── Demo screen ── */
+    #demo-wrap { opacity: 0; transition: opacity 0.4s ease; }
+    #demo-wrap.active { opacity: 1; }
+
+    /* Phone SMS bubbles */
+    .msg-bubble { opacity: 0; transform: translateY(8px); transition: opacity 0.35s ease, transform 0.35s ease; }
+    .msg-bubble.show { opacity: 1; transform: translateY(0); }
+
+    /* Dashboard rows */
+    .dash-row { opacity: 0; transform: translateX(-6px); transition: opacity 0.3s ease, transform 0.3s ease; }
+    .dash-row.show { opacity: 1; transform: translateX(0); }
+
+    /* Section label */
+    .scene-label { opacity: 0; transition: opacity 0.5s ease; }
+    .scene-label.show { opacity: 1; }
+
+    /* Progress bar */
+    #progress-bar { width: 0%; transition: width 0.1s linear; }
+
+    /* Typing dots */
+    .tdot { width:7px;height:7px;border-radius:50%;background:#94a3b8;display:inline-block;margin:0 2px;animation:td 1.2s infinite ease-in-out; }
+    .tdot:nth-child(2){animation-delay:.2s;}
+    .tdot:nth-child(3){animation-delay:.4s;}
+    @keyframes td{0%,60%,100%{transform:translateY(0);opacity:.4}30%{transform:translateY(-4px);opacity:1}}
+
+    /* Payment flash */
+    @keyframes payPulse{0%{opacity:0;transform:scale(.95)}50%{opacity:1;transform:scale(1.02)}100%{opacity:1;transform:scale(1)}}
+    .pay-anim { animation: payPulse 0.6s ease forwards; }
+
+    /* Dashboard glow */
+    @keyframes dashGlow{0%{box-shadow:none}50%{box-shadow:0 0 0 3px rgba(52,211,153,.4)}100%{box-shadow:none}}
+    .dash-glow { animation: dashGlow 1s ease; }
+
+    /* Scroll top */
+    #scrollTopBtn{opacity:0;pointer-events:none;transition:opacity .3s ease,transform .3s ease;transform:translateY(8px);}
+    #scrollTopBtn.visible{opacity:1;pointer-events:auto;transform:translateY(0);}
+  </style>
+</head>
+<body class="antialiased">
+
+  <!-- NAV -->
+  <nav class="sticky top-0 z-50 backdrop-blur-md bg-slate-900/80 border-b border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <a href="/" class="flex items-center gap-2">
+          <span style="display:inline-flex;align-items:center;justify-content:center;width:2rem;height:2rem;border-radius:0.5rem;background:rgba(249,115,22,0.1);border:1px solid rgba(249,115,22,0.3);">
+            <i data-lucide="zap" style="width:1rem;height:1rem;color:#f97316;"></i>
+          </span>
+          <span style="font-size:1.125rem;font-weight:700;color:#f8fafc;">Maya</span>
+          <span class="hidden sm:inline" style="font-size:0.65rem;text-transform:uppercase;letter-spacing:0.15em;color:#64748b;margin-left:0.25rem;border-left:1px solid #334155;padding-left:0.5rem;">SMS Agent</span>
+        </a>
+        <div class="hidden md:flex items-center gap-6 text-sm text-slate-300">
+          <a href="/industries/" class="hover:text-white transition">Industries</a>
+          <a href="/locations/" class="hover:text-white transition">Locations</a>
+          <a href="/#demo" class="hover:text-white transition">Live Demo</a>
+        </div>
+        <a href="https://calendly.com/duy-heatbooker/30min" target="_blank" rel="noopener noreferrer"
+           class="cta-orange inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-sm font-semibold text-white">
+          <i data-lucide="calendar-check" class="w-4 h-4"></i>
+          <span class="hidden sm:inline">Book Setup Call</span>
+          <span class="sm:hidden">Book</span>
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section style="position:relative;background:#0f172a;">
+    <div style="position:absolute;inset:0;z-index:0;background:radial-gradient(ellipse 80% 60% at 50% 0%,rgba(249,115,22,0.15),transparent 60%);pointer-events:none;"></div>
+    <div style="position:relative;z-index:1;" class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 sm:pt-24 pb-12 text-center">
+      <nav class="flex items-center justify-center gap-2 text-xs text-slate-500 mb-6">
+        <a href="/" class="hover:text-white transition">Home</a><span>/</span>
+        <span class="text-safety-400">Watch Maya</span>
+      </nav>
+      <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-safety-500/30 bg-safety-500/10 text-safety-400 text-xs font-semibold uppercase tracking-wider mb-5">
+        <i data-lucide="play-circle" class="w-3.5 h-3.5"></i>
+        Interactive Demo · ~90 seconds
+      </div>
+      <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight leading-[1.05]">
+        Watch Maya Handle Two Real Jobs<br class="hidden sm:block"/>
+        <span class="text-safety-500">While You Sleep.</span>
+      </h1>
+      <p class="mt-5 text-lg text-slate-400 max-w-2xl mx-auto">
+        Emergency AC call at 9 PM on a Saturday. Heat pump replacement quote the next day. Both handled automatically — no dispatcher, no phone tag, no missed revenue.
+      </p>
+    </div>
+  </section>
+
+  <!-- ══════════ DEMO PLAYER ══════════ -->
+  <section class="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pb-8">
+
+    <!-- Play button (shown before demo starts) -->
+    <div id="play-gate" class="flex flex-col items-center gap-4 py-8">
+      <div class="relative w-full max-w-3xl mx-auto bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden" style="aspect-ratio:16/7;">
+        <div class="absolute inset-0 flex items-center justify-center flex-col gap-4">
+          <button id="play-btn"
+            class="cta-orange w-20 h-20 rounded-full flex items-center justify-center text-white shadow-2xl hover:scale-105 transition-transform">
+            <i data-lucide="play" class="w-9 h-9 ml-1"></i>
+          </button>
+          <p class="text-slate-400 text-sm">Click to start — audio + animation plays together</p>
+        </div>
+        <!-- Blurred preview of left screen -->
+        <div class="absolute inset-0 flex items-stretch opacity-20 pointer-events-none select-none">
+          <div class="flex-1 p-6 flex flex-col gap-3 justify-end">
+            <div class="self-end bg-blue-600 rounded-2xl px-4 py-2 text-xs text-white w-32">Help! My AC...</div>
+            <div class="self-start bg-safety-500/80 rounded-2xl px-4 py-2 text-xs text-white w-48">Hi! I can help right away...</div>
+          </div>
+          <div class="w-px bg-slate-700"></div>
+          <div class="flex-1 p-6 flex flex-col gap-2 justify-center">
+            <div class="bg-slate-800 rounded-lg h-6 w-3/4"></div>
+            <div class="bg-slate-800 rounded-lg h-4 w-1/2"></div>
+            <div class="bg-slate-800 rounded-lg h-4 w-2/3"></div>
+          </div>
+        </div>
+      </div>
+      <p class="text-xs text-slate-600 italic">Audio narration included. Make sure your volume is on.</p>
+    </div>
+
+    <!-- Demo screens (hidden until play) -->
+    <div id="demo-wrap" class="hidden">
+      <!-- Scene label -->
+      <div id="scene-label" class="scene-label text-center mb-4">
+        <span id="scene-text" class="inline-block bg-safety-500/10 border border-safety-500/30 text-safety-400 text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full"></span>
+      </div>
+
+      <!-- Split screen -->
+      <div class="grid lg:grid-cols-2 gap-4 items-start">
+
+        <!-- LEFT: Phone SMS -->
+        <div class="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden">
+          <div class="flex items-center justify-between px-5 py-3 border-b border-slate-800 bg-slate-950/60">
+            <div class="flex items-center gap-2">
+              <div class="w-8 h-8 rounded-full bg-gradient-to-br from-safety-400 to-safety-600 flex items-center justify-center text-white font-bold text-xs">M</div>
+              <div>
+                <div class="text-sm font-semibold text-white">Maya · HeatBooker</div>
+                <div class="text-[10px] text-emerald-400 flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400 inline-block"></span> Online · &lt;5 sec response</div>
+              </div>
+            </div>
+            <div id="sms-time" class="text-xs text-slate-500 font-mono">9:14 PM</div>
+          </div>
+          <div id="sms-feed" class="p-4 space-y-3 min-h-[340px] text-sm overflow-hidden">
+            <!-- Messages injected by JS -->
+          </div>
+          <div id="typing-indicator" class="hidden px-4 pb-3">
+            <div class="inline-flex items-center gap-0.5 bg-slate-800 rounded-2xl px-3 py-2">
+              <span class="tdot"></span><span class="tdot"></span><span class="tdot"></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- RIGHT: Dispatch Dashboard -->
+        <div class="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden">
+          <div class="flex items-center justify-between px-5 py-3 border-b border-slate-800 bg-slate-950/60">
+            <div class="flex items-center gap-2">
+              <i data-lucide="layout-dashboard" class="w-4 h-4 text-safety-500"></i>
+              <span class="text-sm font-semibold text-white">Dispatch Dashboard</span>
+            </div>
+            <span class="text-[10px] text-slate-500 uppercase tracking-widest">ServiceTitan / Jobber</span>
+          </div>
+
+          <!-- Jobs list -->
+          <div id="dash-feed" class="p-4 space-y-2 min-h-[340px]">
+            <!-- Existing jobs -->
+            <div class="flex items-center justify-between bg-slate-800/50 rounded-xl px-4 py-2.5 text-xs text-slate-400">
+              <span>#4088 — AC Tune-Up</span><span class="text-emerald-400">Completed</span>
+            </div>
+            <div class="flex items-center justify-between bg-slate-800/50 rounded-xl px-4 py-2.5 text-xs text-slate-400">
+              <span>#4089 — Duct Cleaning</span><span class="text-emerald-400">Completed</span>
+            </div>
+            <div class="flex items-center justify-between bg-slate-800/50 rounded-xl px-4 py-2.5 text-xs text-slate-400">
+              <span>#4090 — Furnace Inspection</span><span class="text-sky-400">Scheduled</span>
+            </div>
+            <div class="flex items-center justify-between bg-slate-800/50 rounded-xl px-4 py-2.5 text-xs text-slate-400">
+              <span>#4091 — AC Filter Swap</span><span class="text-slate-500">Pending</span>
+            </div>
+            <div id="job-4092" class="dash-row hidden"></div>
+            <div id="job-4093" class="dash-row hidden"></div>
+          </div>
+
+          <!-- Stats bar -->
+          <div class="px-4 pb-4 grid grid-cols-3 gap-2 text-center text-xs">
+            <div class="bg-slate-800 rounded-lg p-2">
+              <div id="stat-jobs" class="text-lg font-bold text-white">4</div>
+              <div class="text-slate-500">Jobs Today</div>
+            </div>
+            <div class="bg-slate-800 rounded-lg p-2">
+              <div id="stat-revenue" class="text-lg font-bold text-emerald-400">$0</div>
+              <div class="text-slate-500">AI-Booked</div>
+            </div>
+            <div class="bg-slate-800 rounded-lg p-2">
+              <div id="stat-techs" class="text-lg font-bold text-white">2</div>
+              <div class="text-slate-500">Techs Active</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Progress bar -->
+      <div class="mt-4 bg-slate-800 rounded-full h-1.5 overflow-hidden">
+        <div id="progress-bar" class="h-full bg-safety-500 rounded-full"></div>
+      </div>
+      <div class="flex justify-between text-[10px] text-slate-600 mt-1 px-0.5">
+        <span>0:00</span>
+        <span id="progress-label" class="text-safety-500/70"></span>
+        <span>1:30</span>
+      </div>
+
+      <!-- Restart -->
+      <div class="text-center mt-4">
+        <button id="restart-btn" class="text-xs text-slate-500 hover:text-safety-400 transition inline-flex items-center gap-1.5">
+          <i data-lucide="rotate-ccw" class="w-3 h-3"></i> Restart demo
+        </button>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ══════════ WHAT YOU JUST SAW ══════════ -->
+  <section class="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <div class="text-center mb-10">
+      <div class="text-xs uppercase tracking-[0.2em] text-safety-500 font-bold mb-3">What Just Happened</div>
+      <h2 class="text-2xl sm:text-3xl font-extrabold">Maya handled both jobs automatically. No dispatcher. No missed call.</h2>
+    </div>
+    <div class="grid md:grid-cols-3 gap-5">
+      <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 text-center hover:border-safety-500/30 transition">
+        <div class="w-12 h-12 rounded-xl bg-safety-500/10 border border-safety-500/30 flex items-center justify-center mx-auto mb-4">
+          <i data-lucide="zap" class="w-6 h-6 text-safety-500"></i>
+        </div>
+        <h3 class="font-bold text-white mb-2">Under 5 seconds</h3>
+        <p class="text-slate-400 text-sm">Maya replied before the homeowner could open another browser tab.</p>
+      </div>
+      <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 text-center hover:border-safety-500/30 transition">
+        <div class="w-12 h-12 rounded-xl bg-safety-500/10 border border-safety-500/30 flex items-center justify-center mx-auto mb-4">
+          <i data-lucide="filter" class="w-6 h-6 text-safety-500"></i>
+        </div>
+        <h3 class="font-bold text-white mb-2">Qualified + priced</h3>
+        <p class="text-slate-400 text-sm">Maya determined urgency, presented options, collected a deposit — all in SMS.</p>
+      </div>
+      <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 text-center hover:border-safety-500/30 transition">
+        <div class="w-12 h-12 rounded-xl bg-safety-500/10 border border-safety-500/30 flex items-center justify-center mx-auto mb-4">
+          <i data-lucide="calendar-check" class="w-6 h-6 text-safety-500"></i>
+        </div>
+        <h3 class="font-bold text-white mb-2">Booked to CRM</h3>
+        <p class="text-slate-400 text-sm">Job confirmed, tech assigned, calendar updated — zero manual entry required.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ TRY IT LIVE ══════════ -->
+  <section class="relative bg-slate-950 border-y border-slate-800">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-14 text-center">
+      <div class="text-xs uppercase tracking-[0.2em] text-safety-500 font-bold mb-4">Try It Yourself</div>
+      <h2 class="text-2xl sm:text-4xl font-extrabold tracking-tight mb-4">
+        This isn't a mockup.<br class="hidden sm:block"/>
+        <span class="text-safety-500">Text QUOTE right now</span> and Maya will respond.
+      </h2>
+      <p class="text-slate-400 mb-8">Pull out your phone. Text the word QUOTE to this number. Maya will reply in under 5 seconds — exactly like she does for your customers.</p>
+      <a href="sms:+15076773559?body=QUOTE"
+         class="text-3xl sm:text-5xl font-extrabold text-safety-500 hover:text-safety-400 transition flex items-center justify-center gap-3 mb-2">
+        <i data-lucide="message-circle" class="w-8 h-8"></i>
+        (507) 677-3559
+      </a>
+      <p class="text-xs text-slate-600 italic mt-3">Maya runs a demo script for new numbers. No real appointment is booked during the demo.</p>
+    </div>
+  </section>
+
+  <!-- ══════════ FINAL CTA ══════════ -->
+  <section class="relative">
+    <div class="absolute inset-0" style="background:radial-gradient(ellipse 70% 50% at 50% 100%,rgba(249,115,22,0.12),transparent 70%);"></div>
+    <div class="relative max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center">
+      <h2 class="text-3xl sm:text-5xl font-extrabold tracking-tight leading-[1.05]">
+        Ready to deploy Maya<br/>
+        <span class="text-safety-500">for your shop?</span>
+      </h2>
+      <p class="mt-6 text-lg text-slate-400">30-minute setup call. Live in 48 hours. Book a time and we'll configure Maya around your service area, CRM, and job types.</p>
+      <div class="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="https://calendly.com/duy-heatbooker/30min" target="_blank" rel="noopener noreferrer"
+           class="cta-orange inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl text-base font-bold text-white">
+          <i data-lucide="calendar-check" class="w-5 h-5"></i> Book My 30-Min Setup Call
+        </a>
+        <a href="/" class="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl text-base font-semibold text-slate-200 bg-slate-800/60 border border-slate-700 hover:bg-slate-800 transition">
+          <i data-lucide="arrow-left" class="w-5 h-5"></i> Back to homepage
+        </a>
+      </div>
+      <p class="mt-4 text-sm text-slate-500">No deck. No pressure. Just a fit check.</p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-slate-800 bg-slate-950">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-6">
+        <a href="/" class="flex items-center gap-2">
+          <span style="display:inline-flex;align-items:center;justify-content:center;width:2rem;height:2rem;border-radius:0.5rem;background:rgba(249,115,22,0.1);border:1px solid rgba(249,115,22,0.3);">
+            <i data-lucide="zap" style="width:1rem;height:1rem;color:#f97316;"></i>
+          </span>
+          <span style="font-size:1.125rem;font-weight:700;color:#f8fafc;">Maya</span>
+        </a>
+        <div class="text-xs text-slate-500 text-center">
+          <div>© 2026 Maya. Built for contractors who pick up.</div>
+          <div class="mt-2 flex items-center gap-3">
+            <a href="/privacy.html" class="hover:text-slate-300 underline underline-offset-2 transition">Privacy</a>
+            <span class="text-slate-700">|</span>
+            <a href="/terms.html" class="hover:text-slate-300 underline underline-offset-2 transition">Terms</a>
+            <span class="text-slate-700">|</span>
+            <a href="/cookies.html" class="hover:text-slate-300 underline underline-offset-2 transition">Cookies</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <button id="scrollTopBtn" aria-label="Scroll to top" class="fixed bottom-6 right-6 z-50 w-12 h-12 rounded-full cta-orange text-white flex items-center justify-center">
+    <i data-lucide="arrow-up" class="w-5 h-5"></i>
+  </button>
+
+  <!-- ══════════ DEMO ENGINE ══════════ -->
+  <script>
+  lucide.createIcons();
+
+  // ── Audio ──────────────────────────────────────────────────────
+  const AUDIO_URL = 'https://pub.hyperagent.com/api/published/pbf01KZQGFA7C_JDZNXQR6P7Z8Z3FY/e5aedeed-8356-40fe-b2b2-73509c2fafc6.wav';
+  const audio = new Audio(AUDIO_URL);
+  const TOTAL_MS = 91000; // ~91 seconds
+
+  // ── SMS helper ────────────────────────────────────────────────
+  const feed = document.getElementById('sms-feed');
+  const typing = document.getElementById('typing-indicator');
+  const smsTime = document.getElementById('sms-time');
+
+  function addBubble(side, text, time) {
+    const wrap = document.createElement('div');
+    wrap.className = 'msg-bubble flex ' + (side === 'customer' ? 'justify-end' : 'justify-start');
+    const bubble = document.createElement('div');
+    bubble.className = side === 'customer'
+      ? 'bg-blue-600 text-white rounded-2xl rounded-br-sm px-3.5 py-2 max-w-[82%] text-xs leading-relaxed'
+      : 'bg-slate-700 text-white rounded-2xl rounded-bl-sm px-3.5 py-2 max-w-[85%] text-xs leading-relaxed';
+    bubble.textContent = text;
+    wrap.appendChild(bubble);
+    feed.appendChild(wrap);
+    requestAnimationFrame(() => { wrap.classList.add('show'); });
+    if (time) smsTime.textContent = time;
+    feed.scrollTop = feed.scrollHeight;
+  }
+
+  function addStatus(text) {
+    const el = document.createElement('div');
+    el.className = 'msg-bubble text-center';
+    el.innerHTML = `<span class="text-[10px] text-safety-400 font-bold uppercase tracking-wider bg-safety-500/10 px-3 py-1 rounded-full">${text}</span>`;
+    feed.appendChild(el);
+    requestAnimationFrame(() => { el.classList.add('show'); });
+    feed.scrollTop = feed.scrollHeight;
+  }
+
+  function addPayment() {
+    const el = document.createElement('div');
+    el.className = 'msg-bubble flex justify-end';
+    el.innerHTML = `<div class="pay-anim bg-emerald-500/20 border border-emerald-500/40 rounded-2xl px-4 py-3 max-w-[85%] text-xs">
+      <div class="text-emerald-300 font-bold mb-1">💳 $50 deposit paid</div>
+      <div class="text-emerald-200/70">Apple Pay · ****4821</div>
+      <div class="text-emerald-400 text-[10px] mt-1">✓ Deposit confirmed</div>
+    </div>`;
+    feed.appendChild(el);
+    requestAnimationFrame(() => { el.classList.add('show'); });
+    feed.scrollTop = feed.scrollHeight;
+  }
+
+  function showTyping(show) {
+    typing.classList.toggle('hidden', !show);
+    if (show) feed.scrollTop = feed.scrollHeight;
+  }
+
+  // ── Dashboard helper ──────────────────────────────────────────
+  function addDashJob(id, label, status, color, extra) {
+    const el = document.getElementById(id);
+    if (!el) return;
+    el.className = 'dash-row dash-glow';
+    el.innerHTML = `<div class="flex items-start justify-between bg-slate-800/80 border border-${color === 'orange' ? 'safety-500/40' : 'purple-500/40'} rounded-xl px-4 py-3 text-xs">
+      <div>
+        <div class="font-semibold text-white mb-0.5">${label}</div>
+        ${extra ? `<div class="text-slate-500">${extra}</div>` : ''}
+      </div>
+      <span class="${color === 'orange' ? 'text-safety-400' : 'text-purple-400'} font-bold whitespace-nowrap ml-3">${status}</span>
+    </div>`;
+    el.classList.remove('hidden');
+    requestAnimationFrame(() => { el.classList.add('show'); });
+  }
+
+  function updateStat(id, val) {
+    const el = document.getElementById(id);
+    if (el) { el.style.transition='all .4s ease'; el.textContent = val; }
+  }
+
+  // ── Scene label ───────────────────────────────────────────────
+  function setScene(text) {
+    const lbl = document.getElementById('scene-label');
+    const txt = document.getElementById('scene-text');
+    lbl.classList.remove('show');
+    setTimeout(() => { txt.textContent = text; lbl.classList.add('show'); }, 200);
+    document.getElementById('progress-label').textContent = text;
+  }
+
+  // ── Progress bar ─────────────────────────────────────────────
+  let startTime = null;
+  let rafId = null;
+  function tickProgress(ts) {
+    if (!startTime) startTime = ts;
+    const elapsed = ts - startTime;
+    const pct = Math.min(100, (elapsed / TOTAL_MS) * 100);
+    document.getElementById('progress-bar').style.width = pct + '%';
+    if (pct < 100) rafId = requestAnimationFrame(tickProgress);
+  }
+
+  // ── Main timeline ─────────────────────────────────────────────
+  // All times in milliseconds from play start
+  const TIMELINE = [
+    // ── PART 1: Emergency AC Repair ──────────────────────────
+    { t: 0,     fn: () => setScene('🔥 Part 1 — Emergency AC Repair · Saturday 9 PM') },
+    { t: 800,   fn: () => addBubble('customer', 'Help! My AC unit is making a loud buzzing sound and blowing hot air.', '9:14 PM') },
+    { t: 2000,  fn: () => showTyping(true) },
+    { t: 3500,  fn: () => { showTyping(false); addBubble('maya', "Hi! This is your 24/7 Virtual Assistant. I can help right away. To keep your system safe, turn your thermostat to OFF. Is water leaking near the unit?", '9:14 PM'); } },
+    { t: 4500,  fn: () => addStatus('⚡ Instant Triage & Safety Guidance') },
+    { t: 8000,  fn: () => addBubble('customer', 'No water, just hot air and buzzing.', '9:15 PM') },
+    { t: 9200,  fn: () => showTyping(true) },
+    { t: 11000, fn: () => { showTyping(false); addBubble('maya', 'Got it. We can dispatch an emergency tech tonight, or book our first standard slot tomorrow 8 AM ($89 service call). Which do you prefer?', '9:15 PM'); } },
+    { t: 12000, fn: () => addStatus('📅 Live Calendar Integration') },
+    { t: 16000, fn: () => addBubble('customer', 'Emergency tonight please!', '9:16 PM') },
+    { t: 17200, fn: () => showTyping(true) },
+    { t: 19500, fn: () => { showTyping(false); addBubble('maya', 'Perfect. Tech Dave is available 10–11 PM tonight. Tap to confirm your address and place a $50 deposit to lock in the slot: [Secure Link]', '9:16 PM'); } },
+    { t: 24000, fn: () => addPayment() },
+    { t: 25000, fn: () => addStatus('💳 Zero-Friction Deposit Collected') },
+    { t: 27000, fn: () => addDashJob('job-4092', '#4092 — Emergency AC Repair · John M. · 78701', '⚡ AI-Booked', 'orange', 'Tech Dave · 10–11 PM · $50 deposit paid') },
+    { t: 28500, fn: () => { updateStat('stat-jobs','5'); updateStat('stat-revenue','$50'); } },
+    { t: 29500, fn: () => addStatus('✅ Auto-Synced to Dispatch CRM') },
+    { t: 32000, fn: () => { showTyping(true); } },
+    { t: 34000, fn: () => { showTyping(false); addBubble('maya', "You're all set! Dave is on his way and will arrive around 10:15 PM. Track your technician here: [Link]", '9:17 PM'); } },
+
+    // ── PART 2: Heat Pump Replacement Quote ───────────────────
+    { t: 40000, fn: () => { feed.innerHTML=''; setScene('❄️ Part 2 — System Replacement Quote'); smsTime.textContent='11:02 AM'; } },
+    { t: 41000, fn: () => addBubble('customer', 'Looking to replace my old 3-ton heat pump. What\'s a ballpark estimate?', '11:02 AM') },
+    { t: 42500, fn: () => showTyping(true) },
+    { t: 44500, fn: () => { showTyping(false); addBubble('maya', 'I can give you an instant estimate! Quick questions: 1) What is your home\'s square footage? 2) Is your current system electric or gas?', '11:02 AM'); } },
+    { t: 49000, fn: () => addBubble('customer', '2,100 sq ft, electric.', '11:03 AM') },
+    { t: 50500, fn: () => showTyping(true) },
+    { t: 53000, fn: () => { showTyping(false); addBubble('maya', "Here are 3 packages for your 2,100 sq ft home:\n\n• Standard (14.3 SEER2): ~$6,500 ($115/mo)\n• Enhanced (16 SEER2 + Smart Thermostat): ~$8,200 ($145/mo)\n• Premium (Inverter/Variable Speed): ~$11,000 ($190/mo)\n\nWould you like to schedule a free 15-min home assessment to finalize your quote?", '11:03 AM'); } },
+    { t: 54500, fn: () => addStatus('💰 Good / Better / Best Pricing Presented') },
+    { t: 62000, fn: () => addBubble('customer', 'Yes, let\'s do Tuesday afternoon.', '11:04 AM') },
+    { t: 63500, fn: () => showTyping(true) },
+    { t: 65500, fn: () => { showTyping(false); addBubble('maya', 'Done! Booked for Tuesday at 2:00 PM with Comfort Specialist Sarah. You\'ll receive a confirmation shortly.', '11:04 AM'); } },
+    { t: 67000, fn: () => addDashJob('job-4093', '#4093 — Heat Pump Assessment · 2,100 sq ft · Electric', '📋 AI-Quoted', 'purple', 'Sarah · Tuesday 2:00 PM · ~$8,200 est.') },
+    { t: 68500, fn: () => { updateStat('stat-jobs','6'); updateStat('stat-revenue','$50 + quote'); } },
+    { t: 69500, fn: () => addStatus('✅ Sales Team Notified · Calendar Updated') },
+
+    // ── END ────────────────────────────────────────────────────
+    { t: 78000, fn: () => setScene('🎉 Done — Maya handled both jobs automatically') },
+    { t: 88000, fn: () => {
+      document.getElementById('progress-bar').style.width='100%';
+      document.getElementById('progress-label').textContent='Demo complete';
+    }}
+  ];
+
+  let timers = [];
+
+  function runDemo() {
+    timers.forEach(clearTimeout);
+    timers = [];
+    startTime = null;
+    cancelAnimationFrame(rafId);
+    // Reset UI
+    feed.innerHTML = '';
+    document.getElementById('dash-feed').querySelectorAll('.dash-row').forEach(r => {
+      r.classList.add('hidden'); r.classList.remove('show'); r.innerHTML = '';
+    });
+    document.getElementById('scene-label').classList.remove('show');
+    document.getElementById('progress-bar').style.width='0%';
+    document.getElementById('progress-label').textContent='';
+    document.getElementById('stat-jobs').textContent='4';
+    document.getElementById('stat-revenue').textContent='$0';
+    // Schedule events
+    TIMELINE.forEach(({t, fn}) => { timers.push(setTimeout(fn, t)); });
+    // Progress
+    rafId = requestAnimationFrame(tickProgress);
+  }
+
+  // ── Play / restart ─────────────────────────────────────────────
+  function startEverything() {
+    document.getElementById('play-gate').classList.add('hidden');
+    const wrap = document.getElementById('demo-wrap');
+    wrap.classList.remove('hidden');
+    requestAnimationFrame(() => wrap.classList.add('active'));
+    audio.currentTime = 0;
+    audio.play().catch(() => {}); // graceful fallback if blocked
+    runDemo();
+  }
+
+  document.getElementById('play-btn').addEventListener('click', startEverything);
+  document.getElementById('restart-btn').addEventListener('click', () => {
+    audio.currentTime = 0;
+    audio.play().catch(() => {});
+    runDemo();
+  });
+
+  // Scroll to top
+  const scrollBtn = document.getElementById('scrollTopBtn');
+  window.addEventListener('scroll', () => { if(window.scrollY>400) scrollBtn.classList.add('visible'); else scrollBtn.classList.remove('visible'); });
+  scrollBtn.addEventListener('click', () => window.scrollTo({top:0,behavior:'smooth'}));
+  </script>
+
+  <!-- Cookie consent (inline) -->
+  <script>
+  (function(){
+    var KEY='maya_cookie_consent';
+    var CF='b703ecc53d3a46648ffc9e18a8319d97';
+    function loadCF(){if(document.querySelector('script[data-cf-beacon]'))return;var s=document.createElement('script');s.defer=true;s.src='https://static.cloudflareinsights.com/beacon.min.js';s.setAttribute('data-cf-beacon',JSON.stringify({token:CF}));document.body.appendChild(s);}
+    function getC(){try{return localStorage.getItem(KEY);}catch(e){return null;}}
+    function setC(v){try{localStorage.setItem(KEY,v);}catch(e){}}
+    function hide(){var b=document.getElementById('maya-cb');if(!b)return;b.style.transform='translateX(-50%) translateY(120%)';b.style.opacity='0';setTimeout(function(){if(b.parentNode)b.parentNode.removeChild(b);},400);}
+    function accept(){setC('all');hide();loadCF();}
+    function nec(){setC('necessary');hide();loadCF();}
+    window.mayaConsent={acceptAll:accept,necessaryOnly:nec};
+    loadCF();
+    if(getC())return;
+    function show(){var b=document.createElement('div');b.id='maya-cb';b.style.cssText='position:fixed;bottom:1.5rem;left:50%;transform:translateX(-50%);z-index:9999;width:calc(100% - 2rem);max-width:580px;background:#1e293b;border:1px solid #334155;border-radius:1rem;padding:1.25rem 1.5rem;box-shadow:0 20px 60px -10px rgba(0,0,0,.6);font-family:Inter,system-ui,sans-serif;font-size:.875rem;color:#94a3b8;display:flex;flex-direction:column;gap:.875rem;transition:transform .35s ease,opacity .35s ease;';b.innerHTML='<div style="display:flex;align-items:flex-start;gap:.875rem;"><span style="display:inline-flex;align-items:center;justify-content:center;width:2rem;height:2rem;border-radius:.5rem;background:rgba(249,115,22,.1);border:1px solid rgba(249,115,22,.3);flex-shrink:0;"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#f97316" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" x2="12" y1="8" y2="12"/><line x1="12" x2="12.01" y1="16" y2="16"/></svg></span><div><strong style="color:#f8fafc;display:block;margin-bottom:.2rem;">We use cookies</strong>Essential cookies only. Analytics via Cloudflare (cookieless). <a href="/cookies.html" style="color:#f97316;text-decoration:underline;" target="_blank">Cookie Policy</a></div></div><div style="display:flex;gap:.625rem;"><button id="maya-cb-a" style="background:linear-gradient(180deg,#fb923c 0%,#f97316 50%,#ea580c 100%);color:#fff;font-weight:700;border:none;border-radius:.5rem;padding:.6rem 1.25rem;cursor:pointer;font-size:.875rem;font-family:inherit;">Accept All</button><button id="maya-cb-n" style="background:#0f172a;color:#cbd5e1;font-weight:600;border:1px solid #334155;border-radius:.5rem;padding:.6rem 1.25rem;cursor:pointer;font-size:.875rem;font-family:inherit;">Necessary Only</button></div>';
+    document.body.appendChild(b);
+    document.getElementById('maya-cb-a').onclick=accept;
+    document.getElementById('maya-cb-n').onclick=nec;}
+    if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',function(){setTimeout(show,1200);});}else{setTimeout(show,1200);}
+  })();
+  </script>
+</body>
+</html>
