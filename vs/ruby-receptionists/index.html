@@ -216,6 +216,9 @@
     ]
   }
   </script>
+  <meta property="og:image" content="https://heatbooker.com/og-image.jpg" />
+  <meta property="twitter:image" content="https://heatbooker.com/og-image.jpg" />
+  <meta property="twitter:card" content="summary_large_image" />
 </head>
 
 <body class="bg-slate-900 text-slate-100 antialiased">
@@ -252,6 +255,14 @@
     </div>
   </nav>
 
+  <!-- Visible breadcrumb nav (SEO + UX) -->
+  <div class="bg-slate-950 border-b border-slate-800/50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2">
+      <nav aria-label="breadcrumb" class="flex items-center text-xs text-slate-500 flex-wrap gap-0.5">
+        <a href="/" class="hover:text-white transition-colors">Home</a><span class="text-slate-700 mx-1">›</span><a href="/vs/" class="hover:text-white transition-colors">Compare</a><span class="text-slate-700 mx-1">›</span><span class="text-slate-300">Maya vs Ruby</span>
+      </nav>
+    </div>
+  </div>
   <!-- ======================== HERO ======================== -->
   <section class="relative overflow-hidden pt-16 pb-20 px-4 sm:px-6 lg:px-8">
     <!-- Background glow -->
@@ -623,7 +634,7 @@
         <span style="color:#334155;">&middot;</span>
         <a href="/terms.html" class="hover:text-slate-300 transition-colors">Terms</a>
             <span>·</span>
-            <a href="/cookies.html" class="hover:text-slate-300 transition">Cookies</a>
+            <a href="/cookies/" class="hover:text-slate-300 transition">Cookies</a>
       </div>
       <p class="text-center">&copy; 2026 Maya. Built for contractors who pick up.</p>
       <a href="https://calendly.com/duy-heatbooker/30min" target="_blank" rel="noopener noreferrer" class="hover:text-slate-300 transition-colors">
@@ -725,11 +736,11 @@
       +'</span>'
       +'<div><strong style="color:#f8fafc;display:block;margin-bottom:.2rem;">We use cookies</strong>'
       +'We use essential cookies to save your preferences. Our analytics (Cloudflare) are cookieless &amp; privacy-safe. '
-      +'<a href="/cookies.html" style="color:#f97316;text-decoration:underline;text-underline-offset:2px;" target="_blank" rel="noopener">Cookie Policy</a></div></div>'
+      +'<a href="/cookies/" style="color:#f97316;text-decoration:underline;text-underline-offset:2px;" target="_blank" rel="noopener">Cookie Policy</a></div></div>'
       +'<div style="display:flex;flex-wrap:wrap;gap:.625rem;">'
       +'<button id="maya-cb-accept" style="background:linear-gradient(180deg,#fb923c 0%,#f97316 50%,#ea580c 100%);color:#fff;font-weight:700;border:none;border-radius:.5rem;padding:.6rem 1.25rem;cursor:pointer;font-size:.875rem;font-family:inherit;box-shadow:0 4px 14px rgba(249,115,22,.4);">Accept All</button>'
       +'<button id="maya-cb-nec" style="background:#0f172a;color:#cbd5e1;font-weight:600;border:1px solid #334155;border-radius:.5rem;padding:.6rem 1.25rem;cursor:pointer;font-size:.875rem;font-family:inherit;">Necessary Only</button>'
-      +'<a href="/cookies.html" style="color:#64748b;font-size:.8rem;padding:.6rem .5rem;text-decoration:underline;text-underline-offset:2px;display:inline-flex;align-items:center;" target="_blank" rel="noopener">Manage</a>'
+      +'<a href="/cookies/" style="color:#64748b;font-size:.8rem;padding:.6rem .5rem;text-decoration:underline;text-underline-offset:2px;display:inline-flex;align-items:center;" target="_blank" rel="noopener">Manage</a>'
       +'</div>';
     document.body.appendChild(b);
     document.getElementById('maya-cb-accept').onclick = acceptAll;

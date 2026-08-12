@@ -182,6 +182,27 @@
     .crm-pill:hover { border-color: #f97316; color: #f97316; }
     #scroll-top { position: fixed; bottom: 1.5rem; right: 1.5rem; z-index: 50; display: none; }
   </style>
+  <meta property="og:image" content="https://heatbooker.com/og-image.jpg" />
+  <meta property="twitter:image" content="https://heatbooker.com/og-image.jpg" />
+  <meta property="twitter:card" content="summary_large_image" />
+
+  <script type="application/ld+json">
+  {
+  "@type": "ProfessionalService",
+  "name": "HeatBooker \u2014 AI SMS Receptionist for HVAC in Houston TX",
+  "areaServed": {
+    "@type": "City",
+    "name": "Houston",
+    "addressRegion": "TX"
+  },
+  "url": "https://heatbooker.com/locations/houston-tx-hvac/",
+  "provider": {
+    "@type": "Organization",
+    "name": "HeatBooker / Maya AI",
+    "url": "https://heatbooker.com/"
+  }
+}
+  </script>
 </head>
 <body class="antialiased">
 
@@ -211,6 +232,14 @@
     </div>
   </nav>
 
+  <!-- Visible breadcrumb nav (SEO + UX) -->
+  <div class="bg-slate-950 border-b border-slate-800/50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2">
+      <nav aria-label="breadcrumb" class="flex items-center text-xs text-slate-500 flex-wrap gap-0.5">
+        <a href="/" class="hover:text-white transition-colors">Home</a><span class="text-slate-700 mx-1">›</span><a href="/locations/" class="hover:text-white transition-colors">Locations</a><span class="text-slate-700 mx-1">›</span><span class="text-slate-300">Houston TX HVAC</span>
+      </nav>
+    </div>
+  </div>
   <!-- Hero -->
   <section class="pt-28 pb-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
     <!-- Breadcrumb -->
@@ -628,7 +657,7 @@
         <span>·</span>
         <a href="/terms.html" class="hover:text-slate-300 transition">Terms</a>
             <span>·</span>
-            <a href="/cookies.html" class="hover:text-slate-300 transition">Cookies</a>
+            <a href="/cookies/" class="hover:text-slate-300 transition">Cookies</a>
         <span>·</span>
         <span>© 2026 Maya. Built for contractors who pick up.</span>
       </div>
@@ -740,11 +769,11 @@
       +'</span>'
       +'<div><strong style="color:#f8fafc;display:block;margin-bottom:.2rem;">We use cookies</strong>'
       +'We use essential cookies to save your preferences. Our analytics (Cloudflare) are cookieless &amp; privacy-safe. '
-      +'<a href="/cookies.html" style="color:#f97316;text-decoration:underline;text-underline-offset:2px;" target="_blank" rel="noopener">Cookie Policy</a></div></div>'
+      +'<a href="/cookies/" style="color:#f97316;text-decoration:underline;text-underline-offset:2px;" target="_blank" rel="noopener">Cookie Policy</a></div></div>'
       +'<div style="display:flex;flex-wrap:wrap;gap:.625rem;">'
       +'<button id="maya-cb-accept" style="background:linear-gradient(180deg,#fb923c 0%,#f97316 50%,#ea580c 100%);color:#fff;font-weight:700;border:none;border-radius:.5rem;padding:.6rem 1.25rem;cursor:pointer;font-size:.875rem;font-family:inherit;box-shadow:0 4px 14px rgba(249,115,22,.4);">Accept All</button>'
       +'<button id="maya-cb-nec" style="background:#0f172a;color:#cbd5e1;font-weight:600;border:1px solid #334155;border-radius:.5rem;padding:.6rem 1.25rem;cursor:pointer;font-size:.875rem;font-family:inherit;">Necessary Only</button>'
-      +'<a href="/cookies.html" style="color:#64748b;font-size:.8rem;padding:.6rem .5rem;text-decoration:underline;text-underline-offset:2px;display:inline-flex;align-items:center;" target="_blank" rel="noopener">Manage</a>'
+      +'<a href="/cookies/" style="color:#64748b;font-size:.8rem;padding:.6rem .5rem;text-decoration:underline;text-underline-offset:2px;display:inline-flex;align-items:center;" target="_blank" rel="noopener">Manage</a>'
       +'</div>';
     document.body.appendChild(b);
     document.getElementById('maya-cb-accept').onclick = acceptAll;

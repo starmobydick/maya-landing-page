@@ -1340,12 +1340,50 @@
             <span class="text-slate-700">|</span>
             <a href="/terms.html" class="hover:text-slate-300 underline underline-offset-2 transition">Terms of Service</a>
             <span class="text-slate-700">|</span>
-            <a href="/cookies.html" class="hover:text-slate-300 underline underline-offset-2 transition">Cookies</a>
+            <a href="/cookies/" class="hover:text-slate-300 underline underline-offset-2 transition">Cookies</a>
           </div>
         </div>
       </div>
     </div>
   </footer>
+
+
+  <!-- ========== STICKY MOBILE CTA (appears after 400px scroll, md:hidden) ========== -->
+  <div id="sticky-mobile-cta" class="fixed bottom-0 left-0 right-0 z-40 md:hidden"
+       style="transform:translateY(100%);transition:transform .35s ease;background:linear-gradient(180deg,#fb923c 0%,#f97316 50%,#ea580c 100%);box-shadow:0 -4px 20px rgba(249,115,22,.4);">
+    <div class="flex items-center justify-between px-4 py-3 max-w-xl mx-auto">
+      <div>
+        <div style="color:#fff;font-weight:700;font-size:.875rem;line-height:1.2;">Stop bleeding leads after 5 PM.</div>
+        <div style="color:rgba(255,255,255,.8);font-size:.75rem;">Setup in 30 min · Live in 48 hrs</div>
+      </div>
+      <div class="flex items-center gap-2">
+        <a href="https://calendly.com/duy-heatbooker/30min" target="_blank" rel="noopener noreferrer"
+           style="background:rgba(0,0,0,.25);color:#fff;font-weight:700;font-size:.8rem;padding:.5rem 1rem;border-radius:.5rem;white-space:nowrap;border:1px solid rgba(255,255,255,.2);text-decoration:none;">
+          Book Call
+        </a>
+        <button id="sticky-cta-close" aria-label="Dismiss"
+                style="background:rgba(0,0,0,.2);border:none;color:#fff;width:1.75rem;height:1.75rem;border-radius:50%;cursor:pointer;font-size:1rem;line-height:1;display:flex;align-items:center;justify-content:center;">
+          ×
+        </button>
+      </div>
+    </div>
+  </div>
+  <script>
+  (function(){
+    var bar = document.getElementById('sticky-mobile-cta');
+    var closeBtn = document.getElementById('sticky-cta-close');
+    if (!bar) return;
+    var dismissed = false;
+    function show() { if (!dismissed) bar.style.transform = 'translateY(0)'; }
+    function hide() { bar.style.transform = 'translateY(100%)'; }
+    window.addEventListener('scroll', function() {
+      if (window.scrollY > 400) show(); else hide();
+    });
+    if (closeBtn) closeBtn.addEventListener('click', function() {
+      dismissed = true; hide();
+    });
+  })();
+  </script>
 
   <!-- ========== SCROLL-TO-TOP BUTTON ========== -->
   <button id="scrollTopBtn" aria-label="Scroll to top"
@@ -1572,11 +1610,11 @@
       +'</span>'
       +'<div><strong style="color:#f8fafc;display:block;margin-bottom:.2rem;">We use cookies</strong>'
       +'We use essential cookies to save your preferences. Our analytics (Cloudflare) are cookieless &amp; privacy-safe. '
-      +'<a href="/cookies.html" style="color:#f97316;text-decoration:underline;text-underline-offset:2px;" target="_blank" rel="noopener">Cookie Policy</a></div></div>'
+      +'<a href="/cookies/" style="color:#f97316;text-decoration:underline;text-underline-offset:2px;" target="_blank" rel="noopener">Cookie Policy</a></div></div>'
       +'<div style="display:flex;flex-wrap:wrap;gap:.625rem;">'
       +'<button id="maya-cb-accept" style="background:linear-gradient(180deg,#fb923c 0%,#f97316 50%,#ea580c 100%);color:#fff;font-weight:700;border:none;border-radius:.5rem;padding:.6rem 1.25rem;cursor:pointer;font-size:.875rem;font-family:inherit;box-shadow:0 4px 14px rgba(249,115,22,.4);">Accept All</button>'
       +'<button id="maya-cb-nec" style="background:#0f172a;color:#cbd5e1;font-weight:600;border:1px solid #334155;border-radius:.5rem;padding:.6rem 1.25rem;cursor:pointer;font-size:.875rem;font-family:inherit;">Necessary Only</button>'
-      +'<a href="/cookies.html" style="color:#64748b;font-size:.8rem;padding:.6rem .5rem;text-decoration:underline;text-underline-offset:2px;display:inline-flex;align-items:center;" target="_blank" rel="noopener">Manage</a>'
+      +'<a href="/cookies/" style="color:#64748b;font-size:.8rem;padding:.6rem .5rem;text-decoration:underline;text-underline-offset:2px;display:inline-flex;align-items:center;" target="_blank" rel="noopener">Manage</a>'
       +'</div>';
     document.body.appendChild(b);
     document.getElementById('maya-cb-accept').onclick = acceptAll;

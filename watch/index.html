@@ -72,6 +72,9 @@
     #scrollTopBtn{opacity:0;pointer-events:none;transition:opacity .3s ease,transform .3s ease;transform:translateY(8px);}
     #scrollTopBtn.visible{opacity:1;pointer-events:auto;transform:translateY(0);}
   </style>
+  <meta property="og:image" content="https://heatbooker.com/og-image.jpg" />
+  <meta property="twitter:image" content="https://heatbooker.com/og-image.jpg" />
+  <meta property="twitter:card" content="summary_large_image" />
 </head>
 <body class="antialiased">
 
@@ -340,7 +343,7 @@
             <span class="text-slate-700">|</span>
             <a href="/terms.html" class="hover:text-slate-300 underline underline-offset-2 transition">Terms</a>
             <span class="text-slate-700">|</span>
-            <a href="/cookies.html" class="hover:text-slate-300 underline underline-offset-2 transition">Cookies</a>
+            <a href="/cookies/" class="hover:text-slate-300 underline underline-offset-2 transition">Cookies</a>
           </div>
         </div>
       </div>
@@ -557,7 +560,7 @@
     window.mayaConsent={acceptAll:accept,necessaryOnly:nec};
     loadCF();
     if(getC())return;
-    function show(){var b=document.createElement('div');b.id='maya-cb';b.style.cssText='position:fixed;bottom:1.5rem;left:50%;transform:translateX(-50%);z-index:9999;width:calc(100% - 2rem);max-width:580px;background:#1e293b;border:1px solid #334155;border-radius:1rem;padding:1.25rem 1.5rem;box-shadow:0 20px 60px -10px rgba(0,0,0,.6);font-family:Inter,system-ui,sans-serif;font-size:.875rem;color:#94a3b8;display:flex;flex-direction:column;gap:.875rem;transition:transform .35s ease,opacity .35s ease;';b.innerHTML='<div style="display:flex;align-items:flex-start;gap:.875rem;"><span style="display:inline-flex;align-items:center;justify-content:center;width:2rem;height:2rem;border-radius:.5rem;background:rgba(249,115,22,.1);border:1px solid rgba(249,115,22,.3);flex-shrink:0;"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#f97316" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" x2="12" y1="8" y2="12"/><line x1="12" x2="12.01" y1="16" y2="16"/></svg></span><div><strong style="color:#f8fafc;display:block;margin-bottom:.2rem;">We use cookies</strong>Essential cookies only. Analytics via Cloudflare (cookieless). <a href="/cookies.html" style="color:#f97316;text-decoration:underline;" target="_blank">Cookie Policy</a></div></div><div style="display:flex;gap:.625rem;"><button id="maya-cb-a" style="background:linear-gradient(180deg,#fb923c 0%,#f97316 50%,#ea580c 100%);color:#fff;font-weight:700;border:none;border-radius:.5rem;padding:.6rem 1.25rem;cursor:pointer;font-size:.875rem;font-family:inherit;">Accept All</button><button id="maya-cb-n" style="background:#0f172a;color:#cbd5e1;font-weight:600;border:1px solid #334155;border-radius:.5rem;padding:.6rem 1.25rem;cursor:pointer;font-size:.875rem;font-family:inherit;">Necessary Only</button></div>';
+    function show(){var b=document.createElement('div');b.id='maya-cb';b.style.cssText='position:fixed;bottom:1.5rem;left:50%;transform:translateX(-50%);z-index:9999;width:calc(100% - 2rem);max-width:580px;background:#1e293b;border:1px solid #334155;border-radius:1rem;padding:1.25rem 1.5rem;box-shadow:0 20px 60px -10px rgba(0,0,0,.6);font-family:Inter,system-ui,sans-serif;font-size:.875rem;color:#94a3b8;display:flex;flex-direction:column;gap:.875rem;transition:transform .35s ease,opacity .35s ease;';b.innerHTML='<div style="display:flex;align-items:flex-start;gap:.875rem;"><span style="display:inline-flex;align-items:center;justify-content:center;width:2rem;height:2rem;border-radius:.5rem;background:rgba(249,115,22,.1);border:1px solid rgba(249,115,22,.3);flex-shrink:0;"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#f97316" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" x2="12" y1="8" y2="12"/><line x1="12" x2="12.01" y1="16" y2="16"/></svg></span><div><strong style="color:#f8fafc;display:block;margin-bottom:.2rem;">We use cookies</strong>Essential cookies only. Analytics via Cloudflare (cookieless). <a href="/cookies/" style="color:#f97316;text-decoration:underline;" target="_blank">Cookie Policy</a></div></div><div style="display:flex;gap:.625rem;"><button id="maya-cb-a" style="background:linear-gradient(180deg,#fb923c 0%,#f97316 50%,#ea580c 100%);color:#fff;font-weight:700;border:none;border-radius:.5rem;padding:.6rem 1.25rem;cursor:pointer;font-size:.875rem;font-family:inherit;">Accept All</button><button id="maya-cb-n" style="background:#0f172a;color:#cbd5e1;font-weight:600;border:1px solid #334155;border-radius:.5rem;padding:.6rem 1.25rem;cursor:pointer;font-size:.875rem;font-family:inherit;">Necessary Only</button></div>';
     document.body.appendChild(b);
     document.getElementById('maya-cb-a').onclick=accept;
     document.getElementById('maya-cb-n').onclick=nec;}
