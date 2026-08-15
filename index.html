@@ -121,7 +121,7 @@
   </script>
 
   <!-- Tailwind CSS via CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="/styles.css">
 
   <!-- Lucide Icons via CDN -->
   <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
@@ -131,45 +131,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
 
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] },
-          colors: {
-            safety: {
-              50:  '#fff7ed',
-              100: '#ffedd5',
-              400: '#fb923c',
-              500: '#f97316',
-              600: '#ea580c',
-              700: '#c2410c',
-            }
-          },
-          animation: {
-            'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-            'fade-in-up': 'fadeInUp 0.6s ease-out forwards',
-            'typing': 'typing 1.4s infinite ease-in-out',
-            'shimmer': 'shimmer 2.5s linear infinite',
-          },
-          keyframes: {
-            fadeInUp: {
-              '0%': { opacity: '0', transform: 'translateY(20px)' },
-              '100%': { opacity: '1', transform: 'translateY(0)' },
-            },
-            typing: {
-              '0%, 60%, 100%': { transform: 'translateY(0)', opacity: '0.4' },
-              '30%':            { transform: 'translateY(-4px)', opacity: '1' },
-            },
-            shimmer: {
-              '0%':   { backgroundPosition: '-1000px 0' },
-              '100%': { backgroundPosition: '1000px 0' },
-            }
-          }
-        }
-      }
-    }
-  </script>
+  
 
   <style>
     html { scroll-behavior: smooth; }
